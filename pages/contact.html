@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — KoomBei</title>
+<meta name="description" content="Start your project with KoomBei. Fill our discovery form and we will get back to you within 48 hours with a tailored proposal.">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .contact-hero { background: var(--night); padding: 80px 5%; text-align: center; }
+  .contact-hero h1 { font-size: 46px; font-weight: 700; color: var(--lily); margin-bottom: 14px; }
+  .contact-hero h1 em { color: var(--amber); font-style: normal; }
+  .contact-hero p { font-size: 15px; font-weight: 300; color: var(--border); max-width: 520px; margin: 0 auto; line-height: 1.8; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+
+  /* SIDEBAR */
+  .contact-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .contact-card label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 10px; }
+  .contact-card h4 { font-size: 15px; font-weight: 600; color: var(--night); margin-bottom: 6px; }
+  .contact-card p { font-size: 13px; font-weight: 300; color: var(--green); line-height: 1.6; }
+  .contact-card a { color: var(--amber); font-size: 13px; font-weight: 400; word-break: break-all; }
+
+  .process-card { background: var(--night); border-radius: var(--radius); padding: 24px; }
+  .process-card label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--midgreen); display: block; margin-bottom: 16px; }
+
+  .process-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+  .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--night); flex-shrink: 0; }
+  .process-step p { font-size: 12px; font-weight: 300; color: var(--border); line-height: 1.5; }
+  .process-step p strong { color: var(--lily); font-weight: 500; }
+
+  .payment-card { background: var(--pale); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .payment-card label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 12px; }
+  .payment-method { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .payment-method:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .payment-method h5 { font-size: 12px; font-weight: 600; color: var(--night); margin-bottom: 4px; }
+  .payment-method p { font-size: 12px; font-weight: 300; color: var(--green); }
+
+  /* FORM */
+  .contact-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+  .form-header { background: var(--night); padding: 20px 28px; }
+  .form-header h3 { font-size: 18px; font-weight: 600; color: var(--lily); margin-bottom: 4px; }
+  .form-header p { font-size: 12px; font-weight: 300; color: var(--midgreen); }
+
+  .form-body { padding: 28px; }
+
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 13px; font-weight: 500; color: var(--night); margin-bottom: 8px; }
+  .field label span { color: var(--amber); }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-family: 'Switzer', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--night);
+    background: var(--pale);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--amber); background: var(--white); }
+  .field textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233D4E17' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: var(--pale); border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; transition: border-color 0.2s; user-select: none; }
+  .checkbox-item:hover { border-color: var(--amber); }
+  .checkbox-item input { width: 16px; height: 16px; accent-color: var(--amber); cursor: pointer; flex-shrink: 0; }
+  .checkbox-item span { font-size: 13px; font-weight: 300; color: var(--night); }
+
+  .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .radio-pill { display: flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--pale); border: 1.5px solid var(--border); border-radius: 20px; cursor: pointer; transition: all 0.2s; user-select: none; }
+  .radio-pill:hover { border-color: var(--amber); }
+  .radio-pill input { width: 14px; height: 14px; accent-color: var(--amber); cursor: pointer; }
+  .radio-pill span { font-size: 13px; font-weight: 300; color: var(--night); }
+
+  .hint { font-size: 11px; color: var(--midgreen); margin-top: 6px; font-weight: 300; }
+
+  .submit-area { background: var(--night); border-radius: 10px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .submit-area p { font-size: 12px; color: var(--lily); font-weight: 300; line-height: 1.6; }
+  .submit-area p strong { color: var(--amber); font-weight: 500; }
+
+  .btn-submit { background: var(--amber); color: var(--night); font-family: 'Switzer', sans-serif; font-size: 14px; font-weight: 500; padding: 13px 28px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
+  .btn-submit:hover { background: var(--lily); transform: translateY(-1px); }
+  .btn-submit:active { transform: scale(0.98); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .success-message { display: none; background: var(--green); color: var(--lily); border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 24px; }
+  .success-message h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+  .success-message p { font-size: 13px; font-weight: 300; opacity: 0.85; line-height: 1.6; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-hero h1 { font-size: 32px; }
+    .field-row { grid-template-columns: 1fr; }
+    .checkbox-group { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <span class="nav-logo-name">KoomBei</span>
+    <span class="nav-logo-tag">Dream with us. Rise with us.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html" class="nav-cta active">Start a project</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="contact-hero">
+  <span class="section-label" style="color:var(--midgreen);">Start a project</span>
+  <h1>Tell us about your<em>dream project.</em></h1>
+  <p>Fill the form below and we will get back to you within 48 hours with a tailored proposal designed specifically for your needs and budget.</p>
+</section>
+
+<section class="section bg-pale fade-in">
+  <div class="contact-grid">
+
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+
+      <div class="contact-card">
+        <label>Get in touch</label>
+        <h4>Email us directly</h4>
+        <p>For urgent enquiries or if you prefer email:</p>
+        <a href="mailto:frank.koomson@localpathways.org">frank.koomson@localpathways.org</a>
+      </div>
+
+      <div class="process-card">
+        <label>What happens next</label>
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <p><strong>Fill the form</strong> — tell us about your project and budget</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <p><strong>We review</strong> — within 24 hours of receiving your form</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <p><strong>Proposal sent</strong> — tailored to your project within 48 hours</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <p><strong>Deposit and kickoff</strong> — 50% deposit locks in your start date</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">5</div>
+          <p><strong>We build</strong> — your website delivered on time, every time</p>
+        </div>
+      </div>
+
+      <div class="payment-card">
+        <label>Payment details</label>
+        <div class="payment-method">
+          <h5>Fidelity Bank</h5>
+          <p>Account No: 2030192755111</p>
+        </div>
+        <div class="payment-method">
+          <h5>Mobile Money</h5>
+          <p>+233 548 704 107</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="contact-form-wrap fade-in">
+      <div class="form-header">
+        <h3>Project discovery form</h3>
+        <p>Every question helps us build the right thing for you the first time.</p>
+      </div>
+      <div class="form-body">
+        <form id="contactForm" action="https://formspree.io/f/xkopogrn" method="POST">
+
+          <div class="field-row">
+            <div class="field">
+              <label>Full name <span>*</span></label>
+              <input type="text" name="fullname" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label>Organisation / Business</label>
+              <input type="text" name="org" placeholder="If applicable">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Email address <span>*</span></label>
+              <input type="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="field">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" name="phone" placeholder="+233 ...">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>What best describes you? <span>*</span></label>
+            <div class="radio-group">
+              <label class="radio-pill"><input type="radio" name="clienttype" value="ngo"><span>NGO / Nonprofit</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="startup"><span>Young startup</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="business"><span>Business</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="personal"><span>Personal</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="other"><span>Other</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>What type of website do you need? <span>*</span></label>
+            <select name="websitetype" required>
+              <option value="" disabled selected>Select a type</option>
+              <option>Simple portfolio / personal website</option>
+              <option>Business / organisation website</option>
+              <option>NGO / nonprofit website</option>
+              <option>E-commerce / online store</option>
+              <option>Blog or media website</option>
+              <option>Landing page only</option>
+              <option>Web application / platform</option>
+              <option>I am not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>What pages do you need? <span>*</span></label>
+            <div class="checkbox-group">
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="home"><span>Home</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="about"><span>About</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="services"><span>Services / Programs</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="contact"><span>Contact</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="blog"><span>Blog / News</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="shop"><span>Shop / Store</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="gallery"><span>Gallery / Portfolio</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="donate"><span>Donate / Give</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="events"><span>Events</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="pages" value="team"><span>Team / Staff</span></label>
+              <label class="checkbox-item" id="otherPageItem"><input type="checkbox" name="pages" value="other" id="otherPageCheck"><span>Other</span></label>
+            </div>
+            <div id="otherPageField" style="display:none;margin-top:10px;">
+              <input type="text" name="pages_other" placeholder="Please describe the page(s) you need...">
+            </div>
+            <p class="hint">Select all that apply.</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Do you have a domain?</label>
+              <div class="radio-group">
+                <label class="radio-pill"><input type="radio" name="domain" value="yes"><span>Yes</span></label>
+                <label class="radio-pill"><input type="radio" name="domain" value="no"><span>No</span></label>
+                <label class="radio-pill"><input type="radio" name="domain" value="unsure"><span>Not sure</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Do you need hosting?</label>
+              <div class="radio-group">
+                <label class="radio-pill"><input type="radio" name="hosting" value="yes"><span>Yes</span></label>
+                <label class="radio-pill"><input type="radio" name="hosting" value="no"><span>I have hosting</span></label>
+                <label class="radio-pill"><input type="radio" name="hosting" value="unsure"><span>Not sure</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Approximate budget <span>*</span></label>
+            <select name="budget" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>Below GHS 500</option>
+              <option>GHS 500 – 1,000</option>
+              <option>GHS 1,000 – 2,500</option>
+              <option>GHS 2,500 – 5,000</option>
+              <option>GHS 5,000 – 10,000</option>
+              <option>Above GHS 10,000</option>
+              <option>I am flexible / open to discussion</option>
+            </select>
+            <p class="hint">No budget is too small. We have packages for every stage.</p>
+          </div>
+
+          <div class="field">
+            <label>When do you need it ready?</label>
+            <div class="radio-group">
+              <label class="radio-pill"><input type="radio" name="timeline" value="asap"><span>As soon as possible</span></label>
+              <label class="radio-pill"><input type="radio" name="timeline" value="1month"><span>Within 1 month</span></label>
+              <label class="radio-pill"><input type="radio" name="timeline" value="3months"><span>Within 3 months</span></label>
+              <label class="radio-pill"><input type="radio" name="timeline" value="flexible"><span>Flexible</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Tell us about your project <span>*</span></label>
+            <textarea name="description" placeholder="What does your organisation do? What is the purpose of this website? Who will visit it? Any specific features you need?" required></textarea>
+          </div>
+
+          <div class="field">
+            <label>Reference websites you like</label>
+            <input type="text" name="references" placeholder="e.g. https://example.com — and what you like about it">
+            <p class="hint">Optional but very helpful.</p>
+          </div>
+
+          <div class="field">
+            <label>How did you hear about KoomBei?</label>
+            <select name="referral">
+              <option value="" disabled selected>Select one</option>
+              <option>Personal referral</option>
+              <option>Social media</option>
+              <option>WhatsApp</option>
+              <option>Google search</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="submit-area">
+            <p><strong>What happens next?</strong> We will review your submission and reach out within 48 hours with a tailored proposal.</p>
+            <button type="submit" class="btn-submit">Submit my project brief</button>
+          </div>
+
+          <div class="success-message" id="successMsg">
+            <h3>Thank you — we have received your brief.</h3>
+            <p>We will review everything and reach out within 48 hours. Dream with us. Rise with us.</p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">KoomBei</div>
+      <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
+      <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
+    </div>
+    <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:frank.koomson@localpathways.org">frank.koomson@localpathways.org</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="#">Accra, Ghana</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 <span>KoomBei</span>. All rights reserved.</p>
+    <p>Dream with us. Rise with us.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  const otherCheck = document.getElementById('otherPageCheck');
+  const otherField = document.getElementById('otherPageField');
+  if (otherCheck && otherField) {
+    otherCheck.addEventListener('change', function() {
+      otherField.style.display = this.checked ? 'block' : 'none';
+    });
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.querySelector('.submit-area').style.display = 'none';
+        const msg = document.getElementById('successMsg');
+        msg.style.display = 'block';
+        msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        this.reset();
+      } else {
+        btn.textContent = 'Submit my project brief';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      btn.textContent = 'Submit my project brief';
+      btn.disabled = false;
+      alert('Network error. Please try again.');
+    }
+  });
+</script>
+</body>
+</html>
