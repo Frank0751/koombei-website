@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio – KoomBei</title>
+  <title>Portfolio - KoomBei</title>
   <meta name="description"
-    content="KoomBei portfolio – professional websites built for NGOs, nonprofits, and startups across Ghana and Africa.">
+    content="KoomBei portfolio - professional websites built for NGOs, nonprofits, and startups across Ghana and Africa.">
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .portfolio-hero {
@@ -36,7 +36,6 @@
       line-height: 1.8;
     }
 
-    /* FILTER */
     .filter-bar {
       display: flex;
       gap: 10px;
@@ -64,7 +63,6 @@
       color: var(--night);
     }
 
-    /* PORTFOLIO GRID */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -101,6 +99,14 @@
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     }
 
+    .portfolio-thumb.andrews {
+      background: linear-gradient(135deg, #00578e 0%, #003a5c 100%);
+    }
+
+    .portfolio-thumb.tcs {
+      background: linear-gradient(135deg, #286100 0%, #143200 100%);
+    }
+
     .portfolio-thumb.coming {
       background: linear-gradient(135deg, #151F1E 0%, #3D4E17 100%);
     }
@@ -125,6 +131,14 @@
       color: #EDE599;
     }
 
+    .andrews .thumb-logo {
+      color: #5a8fb9;
+    }
+
+    .tcs .thumb-logo {
+      color: #ACE1AF;
+    }
+
     .coming .thumb-logo {
       color: rgba(237, 229, 153, 0.4);
     }
@@ -140,6 +154,14 @@
 
     .frank .thumb-url {
       color: rgba(237, 229, 153, 0.5);
+    }
+
+    .andrews .thumb-url {
+      color: rgba(90, 143, 185, 0.6);
+    }
+
+    .tcs .thumb-url {
+      color: rgba(172, 225, 175, 0.6);
     }
 
     .coming .thumb-url {
@@ -162,7 +184,7 @@
       color: #EDE599;
     }
 
-    .badge-coming {
+    .badge-progress {
       background: rgba(199, 160, 3, 0.2);
       color: var(--amber);
     }
@@ -216,7 +238,6 @@
       gap: 10px;
     }
 
-    /* COMING SOON CARD */
     .coming-card {
       background: var(--night);
       border: 1px dashed rgba(237, 229, 153, 0.2);
@@ -256,7 +277,6 @@
       max-width: 300px;
     }
 
-    /* STATS */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -343,7 +363,7 @@
   <section class="portfolio-hero">
     <span class="section-label" style="color:var(--midgreen);">Our work</span>
     <h1>Built with purpose.<br><em>Delivered with care.</em></h1>
-    <p>Every website we build is a story – of a mission given a voice, a dream given a home, a vision given a digital
+    <p>Every website we build is a story - of a mission given a voice, a dream given a home, a vision given a digital
       presence.</p>
   </section>
 
@@ -370,7 +390,7 @@
           <div class="portfolio-info">
             <span class="portfolio-tag">NGO / Nonprofit</span>
             <h3>SWK Ghana</h3>
-            <p>A full organisational website for SWK Ghana – a youth-focused nonprofit driving sustainable development,
+            <p>A full organisational website for SWK Ghana - a youth-focused nonprofit driving sustainable development,
               leadership, and entrepreneurship across Ghana. Built with React and Vite, deployed on Vercel.</p>
             <div class="portfolio-meta">
               <span class="meta-tag">React + Vite</span>
@@ -397,7 +417,7 @@
           </div>
           <div class="portfolio-info">
             <span class="portfolio-tag">Personal Portfolio</span>
-            <h3>Frank Koomson – Personal Portfolio</h3>
+            <h3>Frank Koomson - Personal Portfolio</h3>
             <p>A professional personal portfolio website for a development sector leader and entrepreneur. Features a
               9-role experience timeline, Medium RSS feed integration, Cloudinary gallery, and full SEO implementation.
             </p>
@@ -415,20 +435,77 @@
           </div>
         </div>
 
-        <!-- Joseph Johnson - Coming Soon -->
+        <!-- Andrews Akoto-Addo -->
+        <div class="portfolio-item fade-in">
+          <div class="portfolio-thumb andrews">
+            <div class="thumb-inner">
+              <div class="thumb-logo">Andrews Akoto-Addo</div>
+              <div class="thumb-url">andrews-portfolio-zeta.vercel.app</div>
+            </div>
+            <span class="thumb-badge badge-live">Live</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">Personal Portfolio</span>
+            <h3>Andrews Akoto-Addo</h3>
+            <p>A premium personal portfolio for a Pan-African social entrepreneur and ecosystem builder. Features a full
+              experience timeline, Medium and WordPress RSS integration, a photo gallery with lightbox, and a
+              professional contact page.</p>
+            <div class="portfolio-meta">
+              <span class="meta-tag">HTML/CSS/JS</span>
+              <span class="meta-tag">Vercel</span>
+              <span class="meta-tag">Cloudinary</span>
+              <span class="meta-tag">Medium RSS</span>
+              <span class="meta-tag">WordPress RSS</span>
+            </div>
+            <div class="portfolio-links">
+              <a href="https://andrews-portfolio-zeta.vercel.app" target="_blank" class="btn btn-primary"
+                style="font-size:12px;padding:9px 18px;">View site</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Climate Sociologist -->
+        <div class="portfolio-item fade-in">
+          <div class="portfolio-thumb tcs">
+            <div class="thumb-inner">
+              <div class="thumb-logo">The Climate Sociologist</div>
+              <div class="thumb-url">theclimatesociologist.vercel.app</div>
+            </div>
+            <span class="thumb-badge badge-progress">In progress</span>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-tag">NGO / Nonprofit</span>
+            <h3>The Climate Sociologist</h3>
+            <p>A full website redesign for a youth-led climate education NGO in Ghana. Built with React and Tailwind
+              CSS, powered by a Sanity.io CMS so the client can manage programs, blog posts, gallery images, and partner
+              logos independently.</p>
+            <div class="portfolio-meta">
+              <span class="meta-tag">React + Tailwind</span>
+              <span class="meta-tag">Sanity.io CMS</span>
+              <span class="meta-tag">Vercel</span>
+              <span class="meta-tag">React Router</span>
+            </div>
+            <div class="portfolio-links">
+              <a href="https://theclimatesociologist.vercel.app" target="_blank" class="btn btn-primary"
+                style="font-size:12px;padding:9px 18px;">View site</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Joseph Johnson -->
         <div class="portfolio-item fade-in">
           <div class="portfolio-thumb coming">
             <div class="thumb-inner">
               <div class="thumb-logo">Joseph M.D. Johnson</div>
               <div class="thumb-url">Coming soon</div>
             </div>
-            <span class="thumb-badge badge-coming">In progress</span>
+            <span class="thumb-badge badge-progress">In progress</span>
           </div>
           <div class="portfolio-info">
             <span class="portfolio-tag">Personal Portfolio</span>
             <h3>Joseph M.D. Johnson</h3>
-            <p>A professional portfolio website currently in development. A clean, modern personal site designed to
-              showcase work, experience, and personal brand to the world.</p>
+            <p>A professional portfolio website currently in development for a corporate consultant based in Liberia. A
+              clean, modern personal site designed to showcase work, experience, and personal brand to the world.</p>
             <div class="portfolio-meta">
               <span class="meta-tag">HTML/CSS/JS</span>
               <span class="meta-tag">Vercel</span>
@@ -450,7 +527,7 @@
             </svg>
           </div>
           <h3>Your project could be next</h3>
-          <p>We are actively taking on new clients. NGOs, nonprofits, startups, and businesses – your digital presence
+          <p>We are actively taking on new clients. NGOs, nonprofits, startups, and businesses - your digital presence
             is waiting.</p>
           <a href="contact.html" class="btn btn-primary" style="font-size:13px;">Start your project</a>
         </div>
@@ -470,7 +547,7 @@
     </div>
     <div class="stats-grid">
       <div class="stat-card fade-in">
-        <div class="stat-num">2+</div>
+        <div class="stat-num">4+</div>
         <div class="stat-label">Live websites</div>
       </div>
       <div class="stat-card fade-in">
@@ -503,7 +580,8 @@
         <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei"
           style="height:52px;width:auto;display:block;margin-bottom:12px;">
         <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
-        <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
+        <a href="contact.html" class="btn btn-primary"
+          style="font-size:13px;padding:10px 20px;margin-top:20px;display:inline-block;">Start a project</a>
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
