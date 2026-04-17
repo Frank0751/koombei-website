@@ -51,7 +51,9 @@ h4 {
 
 /* ── NAVBAR ─────────────────────── */
 nav {
-  background: var(--night);
+  background: rgba(21, 31, 30, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0 5%;
   display: flex;
   align-items: center;
@@ -60,7 +62,8 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 2px solid var(--amber);
+  border-bottom: 1px solid rgba(199, 160, 3, 0.25);
+  transition: background 0.3s;
 }
 
 .nav-logo {
@@ -94,13 +97,14 @@ nav {
   background: var(--amber);
   color: var(--night) !important;
   font-weight: 500 !important;
-  padding: 9px 20px;
-  border-radius: 8px;
-  transition: background 0.2s !important;
+  padding: 9px 22px;
+  border-radius: 20px;
+  transition: background 0.2s, transform 0.15s !important;
 }
 
 .nav-cta:hover {
   background: var(--lily) !important;
+  transform: translateY(-1px);
 }
 
 .nav-toggle {
@@ -341,69 +345,23 @@ footer {
   margin: 16px auto;
 }
 
-.text-amber {
-  color: var(--amber);
-}
+.text-amber { color: var(--amber); }
+.text-green { color: var(--green); }
+.text-muted { color: var(--midgreen); }
+.bg-night { background: var(--night); }
+.bg-pale { background: var(--pale); }
+.bg-white { background: var(--white); }
 
-.text-green {
-  color: var(--green);
-}
-
-.text-muted {
-  color: var(--midgreen);
-}
-
-.bg-night {
-  background: var(--night);
-}
-
-.bg-pale {
-  background: var(--pale);
-}
-
-.bg-white {
-  background: var(--white);
-}
-
-.mt-8 {
-  margin-top: 8px;
-}
-
-.mt-16 {
-  margin-top: 16px;
-}
-
-.mt-24 {
-  margin-top: 24px;
-}
-
-.mt-32 {
-  margin-top: 32px;
-}
-
-.mt-48 {
-  margin-top: 48px;
-}
-
-.mb-8 {
-  margin-bottom: 8px;
-}
-
-.mb-16 {
-  margin-bottom: 16px;
-}
-
-.mb-24 {
-  margin-bottom: 24px;
-}
-
-.mb-32 {
-  margin-bottom: 32px;
-}
-
-.mb-48 {
-  margin-bottom: 48px;
-}
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+.mb-8  { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+.mb-48 { margin-bottom: 48px; }
 
 /* ── RESPONSIVE ──────────────────── */
 @media (max-width: 900px) {
@@ -414,10 +372,12 @@ footer {
     top: 68px;
     left: 0;
     right: 0;
-    background: var(--night);
+    background: rgba(21, 31, 30, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 24px 5%;
     gap: 20px;
-    border-bottom: 2px solid var(--amber);
+    border-bottom: 1px solid rgba(199, 160, 3, 0.25);
   }
 
   .nav-links.open {
