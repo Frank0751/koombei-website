@@ -138,6 +138,7 @@
       box-shadow: 0 20px 48px rgba(21,31,30,0.14);
     }
 
+
     .portfolio-thumb {
       height: 260px;
       display: flex;
@@ -145,13 +146,31 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
+      background: var(--night);
     }
 
-    .portfolio-thumb.swk { background: linear-gradient(135deg, #1B6B2F 0%, #0d4a1f 100%); }
-    .portfolio-thumb.frank { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
-    .portfolio-thumb.andrews { background: linear-gradient(135deg, #00578e 0%, #003a5c 100%); }
-    .portfolio-thumb.tcs { background: linear-gradient(135deg, #286100 0%, #143200 100%); }
-    .portfolio-thumb.coming { background: linear-gradient(135deg, #151F1E 0%, #3D4E17 100%); }
+
+    .live-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+      background: linear-gradient(110deg, #1a2421 30%, #243028 50%, #1a2421 70%);
+      background-size: 200% 100%;
+      animation: shimmer 1.8s infinite;
+    }
+
+    .live-preview-img.loaded { animation: none; background: none; }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .portfolio-item:hover .live-preview-img { transform: scale(1.04); }
+
 
     .thumb-overlay {
       position: absolute;
@@ -320,8 +339,8 @@
     <p class="section-sub">A growing portfolio of professional websites built for purpose-driven organisations and individuals.</p>
     <div class="portfolio-grid">
       <div class="portfolio-item fade-in">
-        <div class="portfolio-thumb swk">
-          <div class="thumb-inner"><div class="thumb-logo">SWK Ghana</div><div class="thumb-url">swkghana.org</div></div>
+        <div class="portfolio-thumb">
+          <img src="https://api.microlink.io/?url=https://swkghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="SWK Ghana website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -334,8 +353,8 @@
         </div>
       </div>
       <div class="portfolio-item fade-in">
-        <div class="portfolio-thumb frank">
-          <div class="thumb-inner"><div class="thumb-logo">Frank Koomson</div><div class="thumb-url">frank.swkghana.org</div></div>
+        <div class="portfolio-thumb">
+          <img src="https://api.microlink.io/?url=https://frank.swkghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="Frank Koomson portfolio preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -348,8 +367,8 @@
         </div>
       </div>
       <div class="portfolio-item fade-in">
-        <div class="portfolio-thumb andrews">
-          <div class="thumb-inner"><div class="thumb-logo">Andrews Akoto-Addo</div><div class="thumb-url">andrews-portfolio-zeta.vercel.app</div></div>
+        <div class="portfolio-thumb">
+          <img src="https://api.microlink.io/?url=https://andrews-portfolio-zeta.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="Andrews Akoto-Addo portfolio preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -362,8 +381,8 @@
         </div>
       </div>
       <div class="portfolio-item fade-in">
-        <div class="portfolio-thumb tcs">
-          <div class="thumb-inner"><div class="thumb-logo">The Climate Sociologist</div><div class="thumb-url">theclimatesociologist.vercel.app</div></div>
+        <div class="portfolio-thumb">
+          <img src="https://api.microlink.io/?url=https://theclimatesociologist.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="The Climate Sociologist website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-progress">In progress</span>
         </div>
@@ -450,6 +469,15 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Mark preview images as loaded
+    document.querySelectorAll('.live-preview-img').forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', () => img.classList.add('loaded'));
+      }
+    });
   </script>
 </body>
 </html>
