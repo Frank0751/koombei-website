@@ -1,4 +1,4 @@
-@import url('https://api.fontshare.com/v2/css?f[]=alpino@400,500,600,700&f[]=chillax@400,500,600&f[]=switzer@300,400,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 :root {
   --lily: #EDE599;
@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'Switzer', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   background: var(--pale);
   color: var(--night);
   line-height: 1.6;
@@ -45,7 +45,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Alpino', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   line-height: 1.2;
 }
 
@@ -133,7 +133,7 @@ nav {
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
-  font-family: 'Switzer', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
   border: none;
@@ -173,7 +173,7 @@ nav {
 /* ── SECTION TITLES ──────────────── */
 .section-label {
   font-size: 10px;
-  letter-spacing: 2.5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--amber);
   font-weight: 500;
@@ -182,12 +182,12 @@ nav {
 }
 
 .section-title {
-  font-family: 'Alpino', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: var(--night);
   line-height: 1.2;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .section-title em {
@@ -199,7 +199,7 @@ nav {
   font-size: 15px;
   font-weight: 300;
   color: var(--green);
-  line-height: 1.7;
+  line-height: 1.9;
   max-width: 560px;
 }
 
@@ -216,7 +216,7 @@ nav {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 28px 24px;
+  padding: 36px 30px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -234,7 +234,7 @@ footer {
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
+  gap: 48px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(237, 229, 153, 0.1);
   margin-bottom: 32px;
@@ -249,7 +249,7 @@ footer {
 }
 
 .footer-col h4 {
-  font-family: 'Alpino', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: var(--lily);
@@ -298,7 +298,7 @@ footer {
 /* ── HERO SHARED ─────────────────── */
 .page-hero {
   background: var(--night);
-  padding: 80px 5%;
+  padding: 100px 5%;
   text-align: center;
 }
 
@@ -306,7 +306,7 @@ footer {
   font-size: 48px;
   font-weight: 700;
   color: var(--lily);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .page-hero h1 em {
@@ -330,7 +330,7 @@ footer {
 }
 
 .section {
-  padding: 80px 5%;
+  padding: 100px 5%;
 }
 
 .section-center {

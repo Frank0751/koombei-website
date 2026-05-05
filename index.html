@@ -194,7 +194,7 @@
 
     .scroll-indicator span {
       font-size: 9px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--midgreen);
     }
@@ -245,7 +245,7 @@
     }
 
     .stat-num {
-      font-family: 'Alpino', sans-serif;
+      font-family: 'Ubuntu', sans-serif;
       font-size: 28px;
       font-weight: 700;
       color: var(--night);
@@ -265,7 +265,7 @@
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+      gap: 28px;
       margin-top: 48px;
     }
 
@@ -273,7 +273,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 36px 30px;
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       position: relative;
       overflow: hidden;
@@ -322,14 +322,14 @@
       font-size: 13px;
       font-weight: 300;
       color: var(--green);
-      line-height: 1.7;
+      line-height: 1.9;
     }
 
     /* ── SERVICES GRID ── */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      gap: 16px;
+      gap: 24px;
       margin-top: 48px;
     }
 
@@ -337,7 +337,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px 20px;
+      padding: 30px 25px;
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       cursor: pointer;
       position: relative;
@@ -393,7 +393,7 @@
     }
 
     .service-card .from {
-      font-family: 'Alpino', sans-serif;
+      font-family: 'Ubuntu', sans-serif;
       font-size: 16px;
       font-weight: 700;
       color: var(--amber);
@@ -410,7 +410,7 @@
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+      gap: 28px;
       margin-top: 48px;
     }
 
@@ -430,17 +430,17 @@
 
     .pkg.featured:hover { transform: scale(1.02) translateY(-4px); }
 
-    .pkg-header { padding: 24px 22px 20px; }
+    .pkg-header { padding: 30px 28px 25px; }
     .pkg-header.seed { background: var(--night); }
     .pkg-header.rise { background: var(--amber); }
     .pkg-header.summit { background: var(--green); }
 
-    .pkg-tier { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .pkg-tier { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
     .seed .pkg-tier { color: var(--midgreen); }
     .rise .pkg-tier { color: rgba(21,31,30,0.6); }
     .summit .pkg-tier { color: var(--midgreen); }
 
-    .pkg-name { font-family: 'Alpino', sans-serif; font-size: 26px; font-weight: 700; }
+    .pkg-name { font-family: 'Ubuntu', sans-serif; font-size: 26px; font-weight: 700; }
     .seed .pkg-name { color: var(--lily); }
     .rise .pkg-name { color: var(--night); }
     .summit .pkg-name { color: var(--lily); }
@@ -450,9 +450,9 @@
     .rise .pkg-tagline { color: rgba(21,31,30,0.65); }
     .summit .pkg-tagline { color: rgba(237,229,153,0.65); }
 
-    .pkg-body { background: var(--white); padding: 20px 22px 24px; }
+    .pkg-body { background: var(--white); padding: 25px 28px 30px; }
 
-    .pkg-price { font-family: 'Alpino', sans-serif; font-size: 28px; font-weight: 700; color: var(--amber); margin-bottom: 4px; }
+    .pkg-price { font-family: 'Ubuntu', sans-serif; font-size: 28px; font-weight: 700; color: var(--amber); margin-bottom: 4px; }
     .pkg-price sub { font-size: 12px; font-weight: 300; color: var(--midgreen); vertical-align: baseline; }
 
     .pkg-pages { font-size: 12px; color: var(--midgreen); margin-bottom: 16px; }
@@ -478,7 +478,7 @@
     .serve-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+      gap: 28px;
       margin-top: 48px;
     }
 
@@ -520,7 +520,7 @@
     .serve-card-content {
       position: relative;
       z-index: 2;
-      padding: 24px;
+      padding: 30px;
       text-align: left;
       transform: translateY(8px);
       transition: transform 0.3s;
@@ -529,7 +529,7 @@
     .serve-card:hover .serve-card-content { transform: translateY(0); }
 
     .serve-num {
-      font-family: 'Chillax', sans-serif;
+      font-family: 'Ubuntu', sans-serif;
       font-size: 36px;
       font-weight: 600;
       color: var(--amber);
@@ -543,7 +543,7 @@
     /* ── CTA ── */
     .cta-section {
       background: var(--amber);
-      padding: 80px 5%;
+      padding: 100px 5%;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -715,7 +715,7 @@
       <span class="stat-label">Proposal turnaround</span>
     </div>
     <div class="stat fade-in">
-      <span class="stat-num">GHS 1,500</span>
+      <span class="stat-num">GHS 2,000</span>
       <span class="stat-label">Starting from</span>
     </div>
   </div>
@@ -734,7 +734,7 @@
       <div class="why-card fade-in">
         <div class="why-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 18c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8z" stroke="#EDE599" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <h3>We walk with you</h3>
-        <p>We are not just a vendor. We are a partner who stays with you from the first conversation to a live website and beyond - through maintenance, renewals, and growth.</p>
+        <p>We are not just a vendor. We are a partner who stays with you from the first conversation to a live website and beyond, through maintenance, renewals, and growth.</p>
       </div>
       <div class="why-card fade-in">
         <div class="why-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#EDE599" stroke-width="1.5"/><path d="M6 9h8M6 12h5" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -807,7 +807,7 @@
           <div class="pkg-tagline">For NGOs and first-time websites</div>
         </div>
         <div class="pkg-body">
-          <div class="pkg-price">GHS 1,500 <sub>from</sub></div>
+          <div class="pkg-price">GHS 2,000 <sub>from</sub></div>
           <div class="pkg-pages">Up to 5 pages</div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Web design and development</p></div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Hosting setup and SSL</p></div>

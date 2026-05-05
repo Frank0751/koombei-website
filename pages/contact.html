@@ -75,28 +75,28 @@
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 24px;
+    padding: 30px;
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
   .contact-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(21,31,30,0.08); }
 
-  .contact-card label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 10px; }
+  .contact-card label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 10px; }
   .contact-card h4 { font-size: 15px; font-weight: 600; color: var(--night); margin-bottom: 6px; }
   .contact-card p { font-size: 13px; font-weight: 300; color: var(--green); line-height: 1.6; }
   .contact-card a { color: var(--amber); font-size: 13px; font-weight: 400; word-break: break-all; transition: opacity 0.2s; }
   .contact-card a:hover { opacity: 0.8; }
 
-  .process-card { background: var(--night); border-radius: var(--radius); padding: 24px; }
-  .process-card label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--midgreen); display: block; margin-bottom: 16px; }
+  .process-card { background: var(--night); border-radius: var(--radius); padding: 30px; }
+  .process-card label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--midgreen); display: block; margin-bottom: 16px; }
 
   .process-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
   .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--night); flex-shrink: 0; }
   .process-step p { font-size: 12px; font-weight: 300; color: var(--border); line-height: 1.5; }
   .process-step p strong { color: var(--lily); font-weight: 500; }
 
-  .payment-card { background: var(--pale); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
-  .payment-card label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 12px; }
+  .payment-card { background: var(--pale); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+  .payment-card label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 12px; }
   .payment-method { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
   .payment-method:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
   .payment-method h5 { font-size: 12px; font-weight: 600; color: var(--night); margin-bottom: 4px; }
@@ -112,11 +112,11 @@
 
   .contact-form-wrap:hover { box-shadow: 0 12px 40px rgba(21,31,30,0.08); }
 
-  .form-header { background: var(--night); padding: 20px 28px; }
+  .form-header { background: var(--night); padding: 25px 35px; }
   .form-header h3 { font-size: 18px; font-weight: 600; color: var(--lily); margin-bottom: 4px; }
   .form-header p { font-size: 12px; font-weight: 300; color: var(--midgreen); }
 
-  .form-body { padding: 28px; }
+  .form-body { padding: 35px; }
 
   .field { margin-bottom: 20px; }
   .field label { display: block; font-size: 13px; font-weight: 500; color: var(--night); margin-bottom: 8px; }
@@ -124,7 +124,7 @@
   .field input, .field select, .field textarea {
     width: 100%;
     padding: 12px 16px;
-    font-family: 'Switzer', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 14px;
     font-weight: 300;
     color: var(--night);
@@ -161,14 +161,14 @@
 
   .hint { font-size: 11px; color: var(--midgreen); margin-top: 6px; font-weight: 300; }
 
-  .submit-area { background: var(--night); border-radius: 10px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .submit-area { background: var(--night); border-radius: 10px; padding: 30px 35px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
   .submit-area p { font-size: 12px; color: var(--lily); font-weight: 300; line-height: 1.6; }
   .submit-area p strong { color: var(--amber); font-weight: 500; }
 
   .btn-submit {
     background: var(--amber);
     color: var(--night);
-    font-family: 'Switzer', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 14px;
     font-weight: 500;
     padding: 13px 28px;
@@ -183,7 +183,7 @@
   .btn-submit:active { transform: scale(0.98); }
   .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
-  .success-message { display: none; background: var(--green); color: var(--lily); border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 24px; }
+  .success-message { display: none; background: var(--green); color: var(--lily); border-radius: var(--radius); padding: 40px; text-align: center; margin-top: 24px; }
   .success-message h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
   .success-message p { font-size: 13px; font-weight: 300; opacity: 0.85; line-height: 1.6; }
 
@@ -366,7 +366,7 @@
             <button type="submit" class="btn-submit">Submit my project brief</button>
           </div>
           <div class="success-message" id="successMsg">
-            <h3>Thank you - we have received your brief.</h3>
+            <h3>Thank you. We have received your brief.</h3>
             <p>We will review everything and reach out within 48 hours. Dream with us. Rise with us.</p>
           </div>
         </form>
