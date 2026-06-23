@@ -723,19 +723,22 @@
 
     .work-card:hover::after { transform: scaleX(1); }
 
-    .work-card-logo {
-      height: 56px;
-      display: flex;
-      align-items: center;
-      margin-bottom: 14px;
+    .work-card-thumb {
+      margin: -28px -24px 20px;
+      height: 180px;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
     }
 
-    .work-card-logo img {
-      max-height: 56px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
+    .work-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
     }
+
+    .work-card:hover .work-card-thumb img { transform: scale(1.04); }
 
     .work-card h3 {
       font-size: 15px;
@@ -1217,100 +1220,76 @@
     </div>
     <div class="work-grid">
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=SWK+Ghana"
-               alt="PLACEHOLDER: SWK Ghana logo — replace with real asset"
-               data-placeholder="client-logo-swk-ghana"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Fswkghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="SWK Ghana website" loading="lazy" width="600" height="400">
         </div>
         <h3>SWK Ghana</h3>
         <p class="work-type">Youth nonprofit</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://swkghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=The+Climate+Sociologist"
-               alt="PLACEHOLDER: The Climate Sociologist logo — replace with real asset"
-               data-placeholder="client-logo-climate-sociologist"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Ftheclimatesociologist.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="The Climate Sociologist website" loading="lazy" width="600" height="400">
         </div>
         <h3>The Climate Sociologist</h3>
         <p class="work-type">Climate NGO</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://theclimatesociologist.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Andrews+Akoto-Addo"
-               alt="PLACEHOLDER: Andrews Akoto-Addo logo — replace with real asset"
-               data-placeholder="client-logo-andrews-akoto-addo"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Fandrews-portfolio-pi.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="Andrews Akoto-Addo portfolio website" loading="lazy" width="600" height="400">
         </div>
         <h3>Andrews Akoto-Addo</h3>
         <p class="work-type">Entrepreneur portfolio</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://andrews-portfolio-pi.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Joseph+M.D.+Johnson"
-               alt="PLACEHOLDER: Joseph M.D. Johnson logo — replace with real asset"
-               data-placeholder="client-logo-joseph-johnson"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Ftakakipawa.swkghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="Joseph M.D. Johnson website" loading="lazy" width="600" height="400">
         </div>
         <h3>Joseph M.D. Johnson</h3>
         <p class="work-type">Personal portfolio</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://takakipawa.swkghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Frank+Koomson"
-               alt="PLACEHOLDER: Frank Koomson logo — replace with real asset"
-               data-placeholder="client-logo-frank-koomson"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Ffrank.swkghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="Frank Koomson portfolio website" loading="lazy" width="600" height="400">
         </div>
         <h3>Frank Koomson</h3>
         <p class="work-type">Personal portfolio</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://frank.swkghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Timoya+Farms"
-               alt="PLACEHOLDER: Timoya Farms logo — replace with real asset"
-               data-placeholder="client-logo-timoya-farms"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Ftimoyafarms.netlify.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="Timoya Farms website" loading="lazy" width="600" height="400">
         </div>
         <h3>Timoya Farms</h3>
         <p class="work-type">Agriculture business</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://timoyafarms.netlify.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Lafie+Plus"
-               alt="PLACEHOLDER: Lafie Plus logo — replace with real asset"
-               data-placeholder="client-logo-lafie-plus"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Flafieplus-frontend.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="Lafie Plus website" loading="lazy" width="600" height="400">
         </div>
         <h3>Lafie Plus</h3>
         <p class="work-type">Tech platform</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://lafieplus-frontend.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
-        <div class="work-card-logo">
-          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=RuboLink"
-               alt="PLACEHOLDER: RuboLink logo — replace with real asset"
-               data-placeholder="client-logo-rubolink"
-               data-needed="200x80 png/svg, transparent bg"
-               loading="lazy" width="200" height="80">
+        <div class="work-card-thumb">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Frubo-link-web.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+               alt="RuboLink website" loading="lazy" width="600" height="400">
         </div>
         <h3>RuboLink</h3>
         <p class="work-type">Service marketplace</p>
-        <a href="#" class="work-card-link">View case study →</a>
+        <a href="https://rubo-link-web.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
     </div>
   </section>
@@ -1319,10 +1298,8 @@
   <section class="section bg-night founder-section fade-in">
     <div class="founder-block">
       <div class="founder-photo">
-        <img src="https://placehold.co/400x400/151F1E/C7A003?text=Founder+Photo"
-             alt="PLACEHOLDER: Founder headshot — replace with real asset"
-             data-placeholder="founder-photo"
-             data-needed="400x400 jpg/webp, headshot on dark bg"
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/q_auto/f_auto/v1782224795/Hero_Section_image_irnpsy.jpg"
+             alt="KoomBei founder — Frank Koomson"
              width="400" height="400" loading="lazy">
       </div>
       <div class="founder-content">
