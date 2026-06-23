@@ -1,0 +1,94 @@
+[
+  {
+    "id": "swk-ghana",
+    "name": "SWK Ghana",
+    "type": "youth nonprofit",
+    "tagline": "Empowering young voices across Ghana.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-swk-ghana",
+    "screenshot": "PLACEHOLDER:client-screenshot-swk-ghana",
+    "visible_on_homepage_trust_bar": true,
+    "visible_in_chatbot_kb": true
+  },
+  {
+    "id": "climate-sociologist",
+    "name": "The Climate Sociologist",
+    "type": "climate NGO",
+    "tagline": "Bridging climate science and social action.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-climate-sociologist",
+    "screenshot": "PLACEHOLDER:client-screenshot-climate-sociologist",
+    "visible_on_homepage_trust_bar": true,
+    "visible_in_chatbot_kb": true
+  },
+  {
+    "id": "andrews-akoto-addo",
+    "name": "Andrews Akoto-Addo",
+    "type": "entrepreneur portfolio",
+    "tagline": "Building ventures that matter.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-andrews-akoto-addo",
+    "screenshot": "PLACEHOLDER:client-screenshot-andrews-akoto-addo",
+    "visible_on_homepage_trust_bar": true,
+    "visible_in_chatbot_kb": true
+  },
+  {
+    "id": "joseph-johnson",
+    "name": "Joseph M.D. Johnson",
+    "type": "personal portfolio",
+    "tagline": "A professional digital presence.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-joseph-johnson",
+    "screenshot": "PLACEHOLDER:client-screenshot-joseph-johnson",
+    "visible_on_homepage_trust_bar": true,
+    "visible_in_chatbot_kb": false
+  },
+  {
+    "id": "frank-koomson",
+    "name": "Frank Koomson",
+    "type": "personal portfolio",
+    "tagline": "Creative professional portfolio.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-frank-koomson",
+    "screenshot": "PLACEHOLDER:client-screenshot-frank-koomson",
+    "visible_on_homepage_trust_bar": false,
+    "visible_in_chatbot_kb": true,
+    "notes": "URL unknown — ask user to supply"
+  },
+  {
+    "id": "timoya-farms",
+    "name": "Timoya Farms",
+    "type": "agriculture business",
+    "tagline": "Feeding communities with purpose.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-timoya-farms",
+    "screenshot": "PLACEHOLDER:client-screenshot-timoya-farms",
+    "visible_on_homepage_trust_bar": false,
+    "visible_in_chatbot_kb": true,
+    "notes": "URL unknown — ask user to supply"
+  },
+  {
+    "id": "lafie-plus",
+    "name": "Lafie Plus",
+    "type": "tech platform",
+    "tagline": "Technology that connects people.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-lafie-plus",
+    "screenshot": "PLACEHOLDER:client-screenshot-lafie-plus",
+    "visible_on_homepage_trust_bar": false,
+    "visible_in_chatbot_kb": true,
+    "notes": "URL unknown — ask user to supply"
+  },
+  {
+    "id": "rubolink",
+    "name": "RuboLink",
+    "type": "service marketplace",
+    "tagline": "Connecting services, building communities.",
+    "url": null,
+    "logo": "PLACEHOLDER:client-logo-rubolink",
+    "screenshot": "PLACEHOLDER:client-screenshot-rubolink",
+    "visible_on_homepage_trust_bar": false,
+    "visible_in_chatbot_kb": true,
+    "notes": "URL unknown — ask user to supply"
+  }
+]

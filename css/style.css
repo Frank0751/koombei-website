@@ -411,3 +411,85 @@ footer {
     text-align: center;
   }
 }
+
+/* ── ANIMATED HERO LOGO ── */
+
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 420px; height: 420px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(199,160,3,0.28) 0%, rgba(199,160,3,0.12) 35%, rgba(199,160,3,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: logoGlowPulse 3.5s ease-in-out infinite;
+}
+
+.hero-mark { z-index: 1; }
+
+.hero-orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 380px; height: 380px;
+  margin-top: -190px;
+  margin-left: -190px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: heroOrbit 9s linear infinite;
+}
+
+.hero-orbit::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  background: var(--amber);
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(199,160,3,0.9), 0 0 4px rgba(237,229,153,0.6);
+}
+
+.hero-orbit::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 50%;
+  transform: translateX(-50%);
+  width: 6px; height: 6px;
+  background: var(--lily);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(237,229,153,0.7);
+  opacity: 0.7;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes logoGlowPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.92); }
+  50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes heroOrbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual,
+  .hero-visual::before,
+  .hero-orbit,
+  .hero-orbit::before,
+  .hero-orbit::after {
+    animation: none !important;
+  }
+  .hero-visual::before,
+  .hero-orbit {
+    display: none;
+  }
+  .hero-visual { opacity: 1; }
+}

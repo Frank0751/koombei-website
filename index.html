@@ -15,6 +15,41 @@
   <meta name="twitter:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
   <link rel="canonical" href="https://koombei.com">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://koombei.com/#organization",
+        "name": "KoomBei",
+        "alternateName": "KoomBei Digital",
+        "url": "https://koombei.com",
+        "logo": "https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png",
+        "description": "Professional websites for NGOs, nonprofits, and startups across Ghana and Africa. Built with care, priced with honesty.",
+        "email": "info@koombei.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Accra",
+          "addressCountry": "GH"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://koombei.com/#website",
+        "url": "https://koombei.com",
+        "name": "KoomBei",
+        "publisher": { "@id": "https://koombei.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://koombei.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     /* ── HERO ── */
     .hero {
@@ -143,8 +178,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
       opacity: 0;
-      animation: fadeIn 1s ease 0.4s forwards;
+      animation: fadeIn 1s ease 0.4s forwards, logoFloat 4s ease-in-out 1.4s infinite;
     }
 
     .hero-mark {
@@ -647,6 +683,278 @@
       .stat { min-width: 120px; padding: 16px; }
       .stat-num { font-size: 22px; }
     }
+
+    /* ── WORK CARDS ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .work-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .work-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--green));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(21,31,30,0.1);
+      border-color: var(--amber);
+    }
+
+    .work-card:hover::after { transform: scaleX(1); }
+
+    .work-card-logo {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .work-card-logo img {
+      max-height: 56px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+    }
+
+    .work-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--night);
+      margin-bottom: 4px;
+    }
+
+    .work-type {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--midgreen);
+      flex: 1;
+      margin-bottom: 14px;
+    }
+
+    .work-card-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--amber);
+      transition: color 0.2s;
+    }
+
+    .work-card-link:hover { color: var(--green); }
+
+    /* ── FOUNDER BLOCK ── */
+    .founder-section { padding: 100px 5%; }
+
+    .founder-block {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .founder-photo img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--amber);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .founder-content .section-label { margin-bottom: 8px; }
+
+    .founder-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--lily);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .founder-bio {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .testimonial-card {
+      background: var(--pale);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(21,31,30,0.1);
+      border-color: rgba(199,160,3,0.3);
+    }
+
+    .testimonial-card:hover::before { transform: scaleX(1); }
+
+    .testimonial-quote-icon { margin-bottom: 14px; }
+
+    .testimonial-quote {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1.9;
+      font-style: italic;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-author img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .testimonial-author-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--night);
+      display: block;
+    }
+
+    .testimonial-author-role {
+      font-size: 11px;
+      color: var(--midgreen);
+      display: block;
+    }
+
+    /* ── FAQ ACCORDION ── */
+    .faq-list {
+      max-width: 760px;
+      margin: 48px auto 0;
+    }
+
+    .faq-item { margin-bottom: 8px; }
+
+    .faq-question {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      text-align: left;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--night);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .faq-question:hover { border-color: var(--amber); }
+
+    .faq-item.open .faq-question {
+      border-color: var(--amber);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .chevron {
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--white);
+      border: 1px solid var(--amber);
+      border-top: none;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+    }
+
+    .faq-item.open .faq-answer { max-height: 500px; }
+
+    .faq-answer-inner {
+      padding: 16px 24px 20px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1.9;
+    }
+
+    /* ── RESPONSIVE ADDITIONS ── */
+    @media (max-width: 900px) {
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .founder-block { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .founder-photo img { margin: 0 auto; }
+    }
+
+    @media (max-width: 600px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .founder-name { font-size: 26px; }
+    }
   </style>
 </head>
 
@@ -690,6 +998,7 @@
       </div>
     </div>
     <div class="hero-visual">
+      <div class="hero-orbit" aria-hidden="true"></div>
       <div class="hero-mark">
         <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei"
           style="height:220px;width:auto;display:block;filter:drop-shadow(0 0 32px rgba(199,160,3,0.3));">
@@ -898,6 +1207,285 @@
     </div>
   </section>
 
+  <!-- SELECTED WORK -->
+  <section class="section bg-pale fade-in">
+    <div class="section-center">
+      <span class="section-label">Selected work</span>
+      <h2 class="section-title">Built with care.<br>Delivered with <em>purpose.</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Eight organisations trusted us to build their digital presence. Here is a look at what we have built together.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=SWK+Ghana"
+               alt="PLACEHOLDER: SWK Ghana logo — replace with real asset"
+               data-placeholder="client-logo-swk-ghana"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>SWK Ghana</h3>
+        <p class="work-type">Youth nonprofit</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=The+Climate+Sociologist"
+               alt="PLACEHOLDER: The Climate Sociologist logo — replace with real asset"
+               data-placeholder="client-logo-climate-sociologist"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>The Climate Sociologist</h3>
+        <p class="work-type">Climate NGO</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Andrews+Akoto-Addo"
+               alt="PLACEHOLDER: Andrews Akoto-Addo logo — replace with real asset"
+               data-placeholder="client-logo-andrews-akoto-addo"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>Andrews Akoto-Addo</h3>
+        <p class="work-type">Entrepreneur portfolio</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Joseph+M.D.+Johnson"
+               alt="PLACEHOLDER: Joseph M.D. Johnson logo — replace with real asset"
+               data-placeholder="client-logo-joseph-johnson"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>Joseph M.D. Johnson</h3>
+        <p class="work-type">Personal portfolio</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Frank+Koomson"
+               alt="PLACEHOLDER: Frank Koomson logo — replace with real asset"
+               data-placeholder="client-logo-frank-koomson"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>Frank Koomson</h3>
+        <p class="work-type">Personal portfolio</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Timoya+Farms"
+               alt="PLACEHOLDER: Timoya Farms logo — replace with real asset"
+               data-placeholder="client-logo-timoya-farms"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>Timoya Farms</h3>
+        <p class="work-type">Agriculture business</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=Lafie+Plus"
+               alt="PLACEHOLDER: Lafie Plus logo — replace with real asset"
+               data-placeholder="client-logo-lafie-plus"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>Lafie Plus</h3>
+        <p class="work-type">Tech platform</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-logo">
+          <img src="https://placehold.co/200x80/F9F7DC/151F1E?text=RuboLink"
+               alt="PLACEHOLDER: RuboLink logo — replace with real asset"
+               data-placeholder="client-logo-rubolink"
+               data-needed="200x80 png/svg, transparent bg"
+               loading="lazy" width="200" height="80">
+        </div>
+        <h3>RuboLink</h3>
+        <p class="work-type">Service marketplace</p>
+        <a href="#" class="work-card-link">View case study →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER BLOCK -->
+  <section class="section bg-night founder-section fade-in">
+    <div class="founder-block">
+      <div class="founder-photo">
+        <img src="https://placehold.co/400x400/151F1E/C7A003?text=Founder+Photo"
+             alt="PLACEHOLDER: Founder headshot — replace with real asset"
+             data-placeholder="founder-photo"
+             data-needed="400x400 jpg/webp, headshot on dark bg"
+             width="400" height="400" loading="lazy">
+      </div>
+      <div class="founder-content">
+        <span class="section-label">The person behind the work</span>
+        <h2 class="founder-name">Founder Name</h2>
+        <p class="founder-bio">PLACEHOLDER: Replace with founder's name, photo, and 2-line bio. Briefly describe who they are and their experience working with NGOs, startups, and development organisations across Africa. This is what backs up the "Built on real experience" claim on this page.</p>
+        <a href="pages/contact.html" class="btn btn-outline">Start a project →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section bg-white fade-in">
+    <div class="section-center">
+      <span class="section-label">Client stories</span>
+      <h2 class="section-title">Words from those who <em>rose with us.</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote-icon">
+          <svg width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+            <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
+          </svg>
+        </div>
+        <p class="testimonial-quote">PLACEHOLDER: Replace with a real 2–3 sentence testimonial from a KoomBei client. This should reflect the quality of the work and the experience of partnering with KoomBei.</p>
+        <div class="testimonial-author">
+          <img src="https://placehold.co/80x80/151F1E/EDE599?text=T1"
+               alt="PLACEHOLDER: Testimonial 1 headshot — replace with real asset"
+               data-placeholder="testimonial-headshot-1"
+               data-needed="80x80 jpg/webp square"
+               width="80" height="80" loading="lazy">
+          <div>
+            <span class="testimonial-author-name">PLACEHOLDER: Client name</span>
+            <span class="testimonial-author-role">PLACEHOLDER: Role, Organisation</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote-icon">
+          <svg width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+            <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
+          </svg>
+        </div>
+        <p class="testimonial-quote">PLACEHOLDER: Replace with a real 2–3 sentence testimonial from a KoomBei client. Highlight the personal touch, fair pricing, or the impact the website made on the organisation's mission.</p>
+        <div class="testimonial-author">
+          <img src="https://placehold.co/80x80/151F1E/EDE599?text=T2"
+               alt="PLACEHOLDER: Testimonial 2 headshot — replace with real asset"
+               data-placeholder="testimonial-headshot-2"
+               data-needed="80x80 jpg/webp square"
+               width="80" height="80" loading="lazy">
+          <div>
+            <span class="testimonial-author-name">PLACEHOLDER: Client name</span>
+            <span class="testimonial-author-role">PLACEHOLDER: Role, Organisation</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote-icon">
+          <svg width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+            <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
+          </svg>
+        </div>
+        <p class="testimonial-quote">PLACEHOLDER: Replace with a real 2–3 sentence testimonial from a KoomBei client. Consider a quote that speaks to the speed of delivery, quality of communication, or alignment with the client's mission.</p>
+        <div class="testimonial-author">
+          <img src="https://placehold.co/80x80/151F1E/EDE599?text=T3"
+               alt="PLACEHOLDER: Testimonial 3 headshot — replace with real asset"
+               data-placeholder="testimonial-headshot-3"
+               data-needed="80x80 jpg/webp square"
+               width="80" height="80" loading="lazy">
+          <div>
+            <span class="testimonial-author-name">PLACEHOLDER: Client name</span>
+            <span class="testimonial-author-role">PLACEHOLDER: Role, Organisation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section bg-pale fade-in">
+    <div class="section-center">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common questions,<br><em>honest answers.</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Everything you want to know before we start building together.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          What packages do you offer?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Three tiers — Seed (GHS 2,000, up to 5 pages, 7–14 days), Rise (GHS 3,000, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How much does a website cost?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Our packages start at GHS 2,000 for the Seed package. The Rise package is GHS 3,000 and the Summit package is GHS 6,000. Individual services are also available standalone. NGOs and nonprofits receive up to 20% off any package.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does it take to build my website?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Delivery timelines depend on the package — 7–14 days for Seed, 14–21 days for Rise, and 21–30 days for Summit. We also send a full proposal within 48 hours of your discovery call. All timelines start from the date we receive your content and full brief.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you offer a discount for NGOs and nonprofits?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. Verified NGOs and nonprofits receive up to 20% off any package. We believe organisations doing important mission-driven work deserve the most support. Mention your NGO status in the discovery form and we will confirm your discount in the proposal.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I get started?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">It takes three steps: fill out our discovery form on the Contact page (about 5 minutes), we review your brief and send a tailored proposal within 48 hours, then we agree on scope and begin building. Head to the Contact page to kick things off.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What payment methods do you accept?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We accept Mobile Money (MoMo and AirtelTigo) and bank transfer. We work with a deposit before starting and the balance on delivery. All payment details are confirmed in writing before any work begins.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Who hosts the website and do I need to manage it?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Hosting setup is included in every package. We deploy on Vercel, connect your custom domain, configure DNS and SSL, and manage the setup for 12 months. You do not need technical knowledge — we handle all of that, and we are available if anything ever needs adjusting.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What happens after my website launches?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">After launch you receive post-launch support — 2 weeks on Seed, 1 month on Rise, 3 months on Summit — covering bug fixes and minor changes. After that, our maintenance plans start from GHS 100 per update. We walk with you long after launch day.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section fade-in">
     <h2>Ready to rise?</h2>
     <p>Fill our discovery form and we will get back to you within 48 hours with a tailored proposal.</p>
@@ -989,6 +1577,17 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+  <script>
+    // FAQ accordion — one item open at a time
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
   </script>
 </body>
 </html>

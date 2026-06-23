@@ -278,23 +278,23 @@
     },
     {
       keys: ['price', 'cost', 'how much', 'pricing', 'package', 'packages', 'rates', 'affordable', 'cheap'],
-      reply: "We have three packages:\n\n• **Seed** — GHS 2,000\n  Up to 4 pages, mobile-responsive, contact form, SEO\n\n• **Rise** — GHS 3,000\n  Up to 8 pages, blog, analytics, 4 weeks support\n\n• **Summit** — GHS 6,000\n  Unlimited pages, CMS, advanced features\n\nWant details on a specific package?"
+      reply: "We have three packages:\n\n• **Seed** — GHS 2,000\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise** — GHS 3,000\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit** — GHS 6,000\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Want details on a specific package?"
     },
     {
       keys: ['seed'],
-      reply: "The **Seed** package is GHS 2,000. It includes:\n\n• Up to 4 pages\n• Mobile-responsive design\n• Contact form\n• SEO basics\n• Hosting setup (Vercel/Netlify)\n• 2 weeks post-launch support\n\nPerfect for small NGOs, startups, and individuals."
+      reply: "The **Seed** package is GHS 2,000. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Perfect for small NGOs, startups, and individuals."
     },
     {
       keys: ['rise package', ' rise '],
-      reply: "The **Rise** package is GHS 3,000. Everything in Seed, plus:\n\n• Up to 8 pages\n• Blog or news section\n• Google Analytics\n• Social media links\n• 4 weeks post-launch support\n\nIdeal for growing organisations."
+      reply: "The **Rise** package is GHS 3,000. Everything in Seed, plus:\n\n• Up to 8 pages\n• Blog or news section\n• Gallery or portfolio section\n• Full SEO setup\n• 1 month free maintenance\n\nDelivery: 14–21 days. Ideal for growing organisations."
     },
     {
       keys: ['summit'],
-      reply: "The **Summit** package is GHS 6,000. Our premium tier:\n\n• Unlimited pages\n• CMS for easy content management\n• Advanced animations\n• Full SEO audit and optimisation\n• Performance tuning\n• 8 weeks post-launch support\n\nBuilt for organisations that need a powerful presence."
+      reply: "The **Summit** package is GHS 6,000. Our premium tier:\n\n• Up to 15 pages\n• Donation or payment integration\n• Advanced SEO and analytics\n• 3 months free maintenance\n\nDelivery: 21–30 days. Built for established organisations that need a powerful presence."
     },
     {
       keys: ['how long', 'timeline', 'duration', 'turnaround', 'how many weeks', 'when will', 'time frame'],
-      reply: "Typical timelines:\n\n• **Seed** — about 2 weeks\n• **Rise** — about 3 to 4 weeks\n• **Summit** — about 5 to 6 weeks\n\nWe also send a full proposal within 48 hours of your discovery call."
+      reply: "Typical delivery timelines:\n\n• **Seed** — 7–14 days\n• **Rise** — 14–21 days\n• **Summit** — 21–30 days\n\nWe also send a full proposal within 48 hours of your discovery call."
     },
     {
       keys: ['contact', 'reach you', 'email', 'talk to someone', 'speak to', 'phone', 'call us', 'get in touch'],
@@ -314,7 +314,7 @@
     },
     {
       keys: ['maintenance', 'support', 'update', 'after launch', 'manage the site', 'monthly'],
-      reply: "We offer monthly maintenance plans starting from GHS 200/month, covering:\n\n• Content updates\n• Security patches\n• Backups\n• Performance monitoring\n• Priority support\n\nAll packages also include post-launch support (2 to 8 weeks depending on tier)."
+      reply: "We offer maintenance plans from GHS 100/update, covering:\n\n• Content updates\n• Bug fixes\n• Performance monitoring\n• Priority support\n\nPost-launch support is included in all packages: 2 weeks (Seed), 1 month (Rise), 3 months (Summit)."
     },
     {
       keys: ['start', 'begin', 'get started', 'how do i', 'next step', 'sign up', 'hire you', 'work with you'],
@@ -335,6 +335,10 @@
     {
       keys: ['payment', 'pay', 'momo', 'mobile money', 'deposit', 'bank'],
       reply: "We accept Mobile Money (MoMo/AirtelTigo) and bank transfer. We work with a deposit before starting and the balance on delivery. Reach out via the Contact page to discuss payment details."
+    },
+    {
+      keys: ['faq', 'frequently asked', 'questions'],
+      reply: "We have a FAQ section further down this page — scroll there for answers to the most common questions about packages, pricing, timeline, NGO discount, and payment."
     },
     {
       keys: ['thank', 'thanks', 'thank you', 'appreciate', 'helpful'],

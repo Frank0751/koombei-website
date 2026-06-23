@@ -1,0 +1,26 @@
+[
+  {
+    "id": "testimonial-1",
+    "quote": "PLACEHOLDER: Replace with a real 2-3 sentence testimonial from a KoomBei client.",
+    "author_name": "PLACEHOLDER: Client name",
+    "author_role": "PLACEHOLDER: Role, Organisation",
+    "headshot": "PLACEHOLDER:testimonial-headshot-1",
+    "client_id": null
+  },
+  {
+    "id": "testimonial-2",
+    "quote": "PLACEHOLDER: Replace with a real 2-3 sentence testimonial from a KoomBei client.",
+    "author_name": "PLACEHOLDER: Client name",
+    "author_role": "PLACEHOLDER: Role, Organisation",
+    "headshot": "PLACEHOLDER:testimonial-headshot-2",
+    "client_id": null
+  },
+  {
+    "id": "testimonial-3",
+    "quote": "PLACEHOLDER: Replace with a real 2-3 sentence testimonial from a KoomBei client.",
+    "author_name": "PLACEHOLDER: Client name",
+    "author_role": "PLACEHOLDER: Role, Organisation",
+    "headshot": "PLACEHOLDER:testimonial-headshot-3",
+    "client_id": null
+  }
+]
