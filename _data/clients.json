@@ -90,5 +90,16 @@
     "visible_on_homepage_trust_bar": false,
     "visible_in_chatbot_kb": true,
     "notes": "URL unknown — ask user to supply"
+  },
+  {
+    "id": "wild-card-project",
+    "name": "The Wild Card Project",
+    "type": "youth nonprofit",
+    "tagline": "Helping overlooked young people access education, protect their wellbeing, and grow.",
+    "url": "https://thewildcard.vercel.app/",
+    "logo": "PLACEHOLDER:client-logo-wild-card-project",
+    "screenshot": "PLACEHOLDER:client-screenshot-wild-card-project",
+    "visible_on_homepage_trust_bar": false,
+    "visible_in_chatbot_kb": false
   }
 ]
