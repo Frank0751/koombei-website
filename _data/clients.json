@@ -92,6 +92,17 @@
     "notes": "URL unknown — ask user to supply"
   },
   {
+    "id": "swk-marketplace",
+    "name": "SWK Marketplace",
+    "type": "e-commerce / marketplace (SWK Ghana initiative)",
+    "tagline": "A storefront powering SWK Ghana's mission.",
+    "url": "https://swkmarketplace.vercel.app",
+    "logo": "PLACEHOLDER:client-logo-swk-marketplace",
+    "screenshot": "PLACEHOLDER:client-screenshot-swk-marketplace",
+    "visible_on_homepage_trust_bar": false,
+    "visible_in_chatbot_kb": false
+  },
+  {
     "id": "wild-card-project",
     "name": "The Wild Card Project",
     "type": "youth nonprofit",
