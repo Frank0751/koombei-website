@@ -35,7 +35,8 @@ Each entry: `[ ] asset-name - dimensions, format, where it goes, notes`
 [ ] Create a free Trustpilot Business account at https://business.trustpilot.com for koombei.com
 [ ] Copy your **Business Unit ID** from Trustpilot's TrustBox integration settings
 [ ] Replace every `PLACEHOLDER_TRUSTPILOT_BUSINESS_UNIT_ID` in `index.html` (two `data-businessunit-id` attributes, in the "LIVE VERIFIED REVIEWS" block) with that ID
-[ ] Once your domain is verified on Trustpilot, `https://www.trustpilot.com/review/koombei.com` and `.../evaluate/koombei.com` (used in the footer "Read reviews" link and homepage "Write a review" button) will resolve automatically — no code change needed
+[ ] Once your domain is verified on Trustpilot, `https://www.trustpilot.com/review/koombei.com` and `.../evaluate/koombei.com` will resolve instead of 404ing
+[ ] Open `js/reviews.js` and flip `var TRUSTPILOT_READY = false;` to `true` — until you do this, the site auto-hides the TrustBox widgets and points "Read reviews" to the on-page testimonials instead of a dead Trustpilot link, so nothing looks broken to visitors in the meantime
 [ ] Trustpilot's free plan includes unlimited review collection and the TrustBox widgets used here; no payment required
 
 ## Notes
