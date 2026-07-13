@@ -495,11 +495,14 @@ footer {
 }
 
 /* ── NAV TOOLS (language + currency pickers) ── */
+/* Group the primary links + pickers together on the right of the bar. */
+nav > .nav-links { margin-left: auto; }
+
 .nav-tools {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: 16px;
+  margin-left: 20px;
 }
 
 .kb-picker { position: relative; }

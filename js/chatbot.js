@@ -274,7 +274,7 @@
     },
     {
       keys: ['what do you do', 'what do you offer', 'services', 'web design', 'web development', 'what is koombei', 'about koombei'],
-      reply: "KoomBei builds professional websites for NGOs, nonprofits, startups, and businesses. We offer:\n\n• Web Design and Development\n• Website Hosting Setup\n• Ongoing Maintenance\n\nWe specialise in purpose-driven work across Ghana and Africa."
+      reply: "KoomBei builds professional websites for NGOs, nonprofits, startups, and businesses. We offer:\n\n• Web Design and Development\n• Website Hosting Setup\n• Ongoing Maintenance\n\nWe are based in Accra, Ghana and work with purpose-driven clients all over the world."
     },
     {
       keys: ['price', 'cost', 'how much', 'pricing', 'package', 'packages', 'rates', 'affordable', 'cheap'],
@@ -282,7 +282,7 @@
     },
     {
       keys: ['seed'],
-      reply: "The **Seed** package is GHS 2,000. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Perfect for small NGOs, startups, and individuals."
+      reply: "The **Seed** package is GHS 2,000 (shown in your local currency and USD on the site). It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Perfect for small NGOs, startups, and individuals."
     },
     {
       keys: ['rise package', ' rise '],
@@ -321,8 +321,8 @@
       reply: "Here's how to get started:\n\n1. Fill out our discovery form on the Contact page (5 minutes)\n2. We review your brief and send a proposal within 48 hours\n3. We agree on scope and begin building\n\nHead to the Contact page to kick things off!"
     },
     {
-      keys: ['where', 'based', 'location', 'accra', 'ghana', 'africa'],
-      reply: "We're based in Accra, Ghana, and we work with clients across Ghana and the rest of Africa."
+      keys: ['where', 'based', 'location', 'accra', 'ghana', 'africa', 'country', 'international', 'worldwide', 'time zone', 'timezone', 'remote'],
+      reply: "We're based in Accra, Ghana, and we work with clients all over the world. The whole process is remote-friendly — a discovery form, video calls, and live previews — and we schedule around your time zone. Wherever you are, this is for you."
     },
     {
       keys: ['react', 'html', 'css', 'javascript', 'technology', 'tech stack', 'built with', 'tools you use'],
@@ -334,7 +334,15 @@
     },
     {
       keys: ['payment', 'pay', 'momo', 'mobile money', 'deposit', 'bank'],
-      reply: "We accept Mobile Money (MoMo/AirtelTigo) and bank transfer. We work with a deposit before starting and the balance on delivery. Reach out via the Contact page to discuss payment details."
+      reply: "In Ghana we accept Mobile Money (MoMo/AirtelTigo) and bank transfer. For international clients we agree on the most convenient option — usually bank transfer — confirmed in your proposal. We work with a deposit before starting and the balance on delivery. Reach out via the Contact page to discuss details."
+    },
+    {
+      keys: ['currency', 'currencies', 'dollar', 'usd', 'euro', 'pounds', 'exchange rate', 'my money', 'what currency'],
+      reply: "Our base prices are set in Ghana Cedis (GHS), but the site automatically shows every price in your local currency and in US dollars — a live approximation for your convenience. Your proposal confirms the exact amount and currency before any work begins. You can switch currency anytime using the picker at the top of the page."
+    },
+    {
+      keys: ['language', 'translate', 'french', 'spanish', 'portuguese', 'english'],
+      reply: "You can read this site in English, French, Spanish, or Portuguese — just use the language picker at the top of the page. It remembers your choice for next time."
     },
     {
       keys: ['faq', 'frequently asked', 'questions'],
