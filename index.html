@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KoomBei - Dream with us. Rise with us.</title>
-  <meta name="description" content="KoomBei is a web services company in Accra, Ghana helping NGOs, nonprofits, and young startups build professional websites. Web design, development, hosting and maintenance.">
+  <meta name="description" content="KoomBei builds professional websites for NGOs, nonprofits, and startups — wherever you are in the world. Web design, development, hosting and maintenance, built with care and priced with honesty.">
   <meta property="og:title" content="KoomBei - Dream with us. Rise with us.">
-  <meta property="og:description" content="Professional websites for NGOs, nonprofits, and startups across Ghana and Africa. Built with care, priced with honesty.">
+  <meta property="og:description" content="Professional websites for NGOs, nonprofits, and startups — wherever in the world you dream from. Built with care, priced with honesty.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
   <meta property="og:url" content="https://koombei.com">
@@ -26,8 +26,9 @@
         "alternateName": "KoomBei Digital",
         "url": "https://koombei.com",
         "logo": "https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png",
-        "description": "Professional websites for NGOs, nonprofits, and startups across Ghana and Africa. Built with care, priced with honesty.",
+        "description": "Professional websites for NGOs, nonprofits, and startups — wherever in the world you dream from. Built with care, priced with honesty.",
         "email": "info@koombei.com",
+        "areaServed": "Worldwide",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Accra",
@@ -964,6 +965,248 @@
       .testimonials-grid { grid-template-columns: 1fr; }
       .founder-name { font-size: 26px; }
     }
+
+    /* ── PROCESS INFOGRAPHIC ── */
+    .process-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-top: 64px;
+      position: relative;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .process-line {
+      position: absolute;
+      top: 27px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: var(--border);
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .process-line::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--amber);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+    }
+
+    .process-section.visible .process-line::after { transform: scaleX(1); }
+
+    .process-node {
+      text-align: center;
+      position: relative;
+      padding: 0 8px;
+    }
+
+    .process-dot {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: var(--night);
+      border: 2px solid var(--amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .process-node:hover .process-dot {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 8px rgba(199, 160, 3, 0.12);
+    }
+
+    .process-dot span {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--amber);
+    }
+
+    .process-node h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--night);
+      margin-bottom: 8px;
+    }
+
+    .process-node p {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .process-time {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--amber);
+      background: rgba(199, 160, 3, 0.08);
+      border: 1px solid rgba(199, 160, 3, 0.25);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    .process-section.visible .process-node {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .process-section.visible .process-node:nth-child(2) { animation-delay: 0.15s; }
+    .process-section.visible .process-node:nth-child(3) { animation-delay: 0.45s; }
+    .process-section.visible .process-node:nth-child(4) { animation-delay: 0.75s; }
+    .process-section.visible .process-node:nth-child(5) { animation-delay: 1.05s; }
+
+    /* ── GLOBAL REACH ── */
+    .globe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .globe-visual { display: flex; justify-content: center; }
+
+    .globe-svg { width: 100%; max-width: 400px; height: auto; }
+
+    .globe-line {
+      fill: none;
+      stroke: rgba(199, 160, 3, 0.28);
+      stroke-width: 1;
+    }
+
+    .globe-outline { stroke: rgba(199, 160, 3, 0.45); stroke-width: 1.2; }
+
+    .globe-faint { stroke: rgba(199, 160, 3, 0.14); }
+
+    .globe-orbit-ring {
+      fill: none;
+      stroke: rgba(237, 229, 153, 0.12);
+      stroke-width: 1;
+      stroke-dasharray: 4 8;
+    }
+
+    .globe-arc {
+      fill: none;
+      stroke: var(--amber);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-dasharray: 6 10;
+      opacity: 0.7;
+      animation: arcFlow 3s linear infinite;
+    }
+
+    .globe-arc-2 { animation-delay: 1s; }
+    .globe-arc-3 { animation-delay: 2s; stroke: var(--lily); opacity: 0.4; }
+
+    @keyframes arcFlow {
+      from { stroke-dashoffset: 0; }
+      to   { stroke-dashoffset: -64; }
+    }
+
+    .globe-dot {
+      fill: var(--amber);
+      animation: globePulse 2.4s ease-in-out infinite;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .globe-dot-2 { animation-delay: 0.5s; fill: var(--lily); }
+    .globe-dot-3 { animation-delay: 1s; }
+    .globe-dot-4 { animation-delay: 1.5s; fill: var(--lily); }
+    .globe-dot-5 { animation-delay: 2s; }
+
+    @keyframes globePulse {
+      0%, 100% { opacity: 0.5; transform: scale(0.85); }
+      50%      { opacity: 1;   transform: scale(1.25); }
+    }
+
+    .globe-satellite {
+      transform-origin: 200px 200px;
+      animation: rotateSlow 14s linear infinite;
+    }
+
+    .globe-title { color: var(--lily); }
+
+    .globe-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1.9;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .globe-features { display: flex; flex-direction: column; gap: 22px; }
+
+    .globe-feature { display: flex; gap: 16px; align-items: flex-start; }
+
+    .globe-feature-icon {
+      width: 42px; height: 42px;
+      flex-shrink: 0;
+      background: rgba(237, 229, 153, 0.05);
+      border: 1px solid rgba(199, 160, 3, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+    }
+
+    .globe-feature:hover .globe-feature-icon {
+      transform: scale(1.1);
+      border-color: var(--amber);
+      background: rgba(199, 160, 3, 0.1);
+    }
+
+    .globe-feature h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--lily);
+      margin-bottom: 4px;
+    }
+
+    .globe-feature p {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: var(--midgreen);
+      line-height: 1.7;
+      max-width: 420px;
+    }
+
+    @media (max-width: 900px) {
+      .process-flow { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+      .process-line { display: none; }
+      .globe-grid { grid-template-columns: 1fr; gap: 40px; }
+      .globe-visual { order: -1; }
+      .globe-svg { max-width: 280px; }
+    }
+
+    @media (max-width: 600px) {
+      .process-flow { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .globe-arc, .globe-dot, .globe-satellite { animation: none !important; }
+      .globe-satellite { display: none; }
+      .process-line::after { transition: none; transform: scaleX(1); }
+      .process-section.visible .process-node { animation: none; }
+    }
   </style>
 </head>
 
@@ -990,7 +1233,7 @@
     <div class="hero-content">
       
       <h1>Dream with us.<em>Rise with us.</em></h1>
-      <p class="hero-sub">Professional websites for NGOs, nonprofits, and startups across Ghana and Africa. Built with care, priced with honesty.</p>
+      <p class="hero-sub">Professional websites for NGOs, nonprofits, and startups — wherever in the world you dream from. Built with care, priced with honesty.</p>
       <p class="hero-sub-secondary">We equip dreamers, help them rise, and walk with them from the first conversation to a fully standing digital presence.</p>
       <div class="hero-btns">
         <a href="pages/contact.html" class="btn btn-primary">Start your project</a>
@@ -1033,8 +1276,32 @@
       <span class="stat-label">Proposal turnaround</span>
     </div>
     <div class="stat fade-in">
-      <span class="stat-num">GHS 2,000</span>
+      <span class="stat-num" data-ghs="2000">GHS 2,000</span>
       <span class="stat-label">Starting from</span>
+    </div>
+  </div>
+
+  <!-- CLIENT MARQUEE -->
+  <div class="client-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">SWK Ghana</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">The Climate Sociologist</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Andrews Akoto-Addo</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Joseph M.D. Johnson</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Frank Koomson</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Timoya Farms</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Lafie Plus</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">RuboLink</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">The Wild Card Project</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">SWK Ghana</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">The Climate Sociologist</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Andrews Akoto-Addo</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Joseph M.D. Johnson</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Frank Koomson</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Timoya Farms</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Lafie Plus</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">RuboLink</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">The Wild Card Project</span><span class="marquee-dot">✦</span>
     </div>
   </div>
 
@@ -1043,7 +1310,7 @@
     <span class="section-label">Why KoomBei</span>
     <h2 class="section-title">Built for dreamers.<br>Priced for <em>purpose.</em></h2>
     <div class="divider"></div>
-    <p class="section-sub">Most web agencies chase corporate clients. KoomBei was built for the ones who matter most: NGOs, nonprofits, and young startups who deserve a professional digital presence without the premium agency price tag.</p>
+    <p class="section-sub">Most web agencies chase corporate clients. KoomBei was built for the ones who matter most: NGOs, nonprofits, and young startups everywhere who deserve a professional digital presence without the premium agency price tag.</p>
     </div>
     <div class="why-grid">
       <div class="why-card fade-in">
@@ -1074,7 +1341,7 @@
       <div class="why-card fade-in">
         <div class="why-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17l4-4 4 2 6-8" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Built on real experience</h3>
-        <p>KoomBei is built by someone who has worked with NGOs, startups, and development organisations across Africa. We speak your language and understand your world.</p>
+        <p>KoomBei is built by someone who has worked with NGOs, startups, and development organisations across Africa and beyond. We speak your language and understand your world.</p>
       </div>
     </div>
   </section>
@@ -1091,25 +1358,25 @@
         <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="12" rx="2" stroke="#EDE599" stroke-width="1.5"/><path d="M6 18h8M10 14v4" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round"/><path d="M5 7h4M5 10h6" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <h3>Web Design</h3>
         <p>Wireframes, visual design, layout and full UI/UX tailored to your brand and mission.</p>
-        <div class="from">From GHS 900 <span>/ project</span></div>
+        <div class="from" data-ghs="900" data-from="1">From GHS 900 <span>/ project</span></div>
       </a>
       <a href="pages/services.html" class="service-card fade-in">
         <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 7L2 10l4 3M14 7l4 3-4 3M12 5l-4 10" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Web Development</h3>
         <p>Full coding and building of your website. Responsive, fast, SEO-ready and launched.</p>
-        <div class="from">From GHS 1,500 <span>/ project</span></div>
+        <div class="from" data-ghs="1500" data-from="1">From GHS 1,500 <span>/ project</span></div>
       </a>
       <a href="pages/services.html" class="service-card fade-in">
         <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="5" rx="1.5" stroke="#EDE599" stroke-width="1.5"/><rect x="2" y="13" width="16" height="5" rx="1.5" stroke="#EDE599" stroke-width="1.5"/><circle cx="16" cy="7.5" r="1" fill="#C7A003"/><circle cx="16" cy="15.5" r="1" fill="#C7A003"/></svg></div>
         <h3>Hosting Setup</h3>
         <p>Vercel deployment, domain connection, DNS config, SSL and 12 months management.</p>
-        <div class="from">GHS 600 <span>/ year</span></div>
+        <div class="from" data-ghs="600">GHS 600 <span>/ year</span></div>
       </a>
       <a href="pages/services.html" class="service-card fade-in">
         <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v2M10 15v2M3 10h2M15 10h2" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="10" r="4" stroke="#EDE599" stroke-width="1.5"/><circle cx="10" cy="10" r="1.5" fill="#C7A003"/></svg></div>
         <h3>Maintenance</h3>
         <p>Ongoing updates, content changes, bug fixes and support. Monthly retainer or per update.</p>
-        <div class="from">From GHS 100 <span>/ update</span></div>
+        <div class="from" data-ghs="100" data-from="1">From GHS 100 <span>/ update</span></div>
       </a>
     </div>
   </section>
@@ -1129,7 +1396,7 @@
           <div class="pkg-tagline">For NGOs and first-time websites</div>
         </div>
         <div class="pkg-body">
-          <div class="pkg-price">GHS 2,000 <sub>from</sub></div>
+          <div class="pkg-price" data-ghs="2000" data-alt="1">GHS 2,000 <sub>from</sub></div>
           <div class="pkg-pages">Up to 5 pages</div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Web design and development</p></div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Hosting setup and SSL</p></div>
@@ -1147,7 +1414,7 @@
           <div class="pkg-tagline">For growing startups and organisations</div>
         </div>
         <div class="pkg-body">
-          <div class="pkg-price">GHS 3,000 <sub>from</sub></div>
+          <div class="pkg-price" data-ghs="3000" data-alt="1">GHS 3,000 <sub>from</sub></div>
           <div class="pkg-pages">Up to 8 pages</div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Everything in Seed</p></div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Blog or news section</p></div>
@@ -1165,7 +1432,7 @@
           <div class="pkg-tagline">For established organisations</div>
         </div>
         <div class="pkg-body">
-          <div class="pkg-price">GHS 6,000 <sub>from</sub></div>
+          <div class="pkg-price" data-ghs="6000" data-alt="1">GHS 6,000 <sub>from</sub></div>
           <div class="pkg-pages">Up to 15 pages</div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Everything in Rise</p></div>
           <div class="pkg-feature"><div class="pkg-dot"></div><p>Donation or payment integration</p></div>
@@ -1176,9 +1443,47 @@
         </div>
       </div>
     </div>
+    <p class="pricing-note"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="#C7A003" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg>Prices are set in Ghana Cedis (GHS). Amounts shown in other currencies are live approximations for your convenience — your proposal confirms the exact figure before any work begins.</p>
   </section>
 
-  <section class="section bg-white fade-in">
+  <!-- HOW IT WORKS — PROCESS INFOGRAPHIC -->
+  <section class="section bg-white fade-in process-section">
+    <div class="section-center">
+      <span class="section-label">How it works</span>
+      <h2 class="section-title">From first hello to <em>launch day.</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">A clear, honest process with no surprises. You always know where your project stands.</p>
+    </div>
+    <div class="process-flow">
+      <div class="process-line" aria-hidden="true"></div>
+      <div class="process-node">
+        <div class="process-dot"><span>01</span></div>
+        <h3>Discover</h3>
+        <p>Tell us your story. A short discovery form and a conversation — we listen before we build.</p>
+        <span class="process-time">48h proposal</span>
+      </div>
+      <div class="process-node">
+        <div class="process-dot"><span>02</span></div>
+        <h3>Design</h3>
+        <p>We shape your vision into a clean, professional design that feels unmistakably like you.</p>
+        <span class="process-time">3 - 10 days</span>
+      </div>
+      <div class="process-node">
+        <div class="process-dot"><span>03</span></div>
+        <h3>Build</h3>
+        <p>Your website is coded, tested on every screen size, and polished until it shines.</p>
+        <span class="process-time">5 - 14 days</span>
+      </div>
+      <div class="process-node">
+        <div class="process-dot"><span>04</span></div>
+        <h3>Launch &amp; beyond</h3>
+        <p>We deploy, connect your domain, and walk with you long after launch day.</p>
+        <span class="process-time">Ongoing</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale fade-in">
     <div class="section-center">
       <span class="section-label">Who we serve</span>
       <h2 class="section-title">Built for the ones who <em>matter most.</em></h2>
@@ -1216,13 +1521,72 @@
     </div>
   </section>
 
+  <!-- GLOBAL REACH -->
+  <section class="section bg-night fade-in globe-section">
+    <div class="globe-grid">
+      <div class="globe-visual" aria-hidden="true">
+        <svg class="globe-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="170" class="globe-orbit-ring"/>
+          <circle cx="200" cy="200" r="148" class="globe-line globe-outline"/>
+          <ellipse cx="200" cy="200" rx="58" ry="148" class="globe-line"/>
+          <ellipse cx="200" cy="200" rx="108" ry="148" class="globe-line globe-faint"/>
+          <ellipse cx="200" cy="200" rx="148" ry="50" class="globe-line"/>
+          <ellipse cx="200" cy="148" rx="125" ry="27" class="globe-line globe-faint"/>
+          <ellipse cx="200" cy="255" rx="124" ry="27" class="globe-line globe-faint"/>
+          <path d="M200 118 Q 280 90 316 168" class="globe-arc"/>
+          <path d="M118 246 Q 160 320 262 292" class="globe-arc globe-arc-2"/>
+          <path d="M136 138 Q 200 200 286 236" class="globe-arc globe-arc-3"/>
+          <circle cx="200" cy="118" r="6" class="globe-dot"/>
+          <circle cx="316" cy="168" r="5" class="globe-dot globe-dot-2"/>
+          <circle cx="118" cy="246" r="5" class="globe-dot globe-dot-3"/>
+          <circle cx="262" cy="292" r="6" class="globe-dot globe-dot-4"/>
+          <circle cx="136" cy="138" r="4" class="globe-dot globe-dot-5"/>
+          <circle cx="286" cy="236" r="4" class="globe-dot globe-dot-2"/>
+          <g class="globe-satellite">
+            <circle cx="200" cy="30" r="6" fill="#C7A003"/>
+            <circle cx="200" cy="30" r="11" fill="none" stroke="rgba(199,160,3,0.35)" stroke-width="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="globe-content">
+        <span class="section-label">Worldwide</span>
+        <h2 class="section-title globe-title">From Accra to <em>anywhere.</em></h2>
+        <div class="divider"></div>
+        <p class="globe-sub">KoomBei is proudly built in Ghana and works with dreamers everywhere. A fully remote process, prices in your currency, and support across time zones — wherever you are in the world, this is for you.</p>
+        <div class="globe-features">
+          <div class="globe-feature">
+            <div class="globe-feature-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#EDE599" stroke-width="1.5"/><path d="M2 10h16M10 2c2.5 2.5 2.5 13.5 0 16M10 2c-2.5 2.5-2.5 13.5 0 16" stroke="#C7A003" stroke-width="1.2"/></svg></div>
+            <div>
+              <h4>Remote-first process</h4>
+              <p>Discovery form, video calls, and live previews. The entire journey happens online, from first hello to launch.</p>
+            </div>
+          </div>
+          <div class="globe-feature">
+            <div class="globe-feature-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#EDE599" stroke-width="1.5"/><path d="M2 8h16" stroke="#C7A003" stroke-width="1.5"/><path d="M5 12.5h4" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div>
+              <h4>Prices in your currency</h4>
+              <p>See every package in your own currency and in US dollars. Honest pricing that travels with you.</p>
+            </div>
+          </div>
+          <div class="globe-feature">
+            <div class="globe-feature-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#EDE599" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div>
+              <h4>Support across time zones</h4>
+              <p>We schedule around you and respond within 24 hours, wherever your mission calls home.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SELECTED WORK -->
   <section class="section bg-pale fade-in">
     <div class="section-center">
       <span class="section-label">Selected work</span>
       <h2 class="section-title">Built with care.<br>Delivered with <em>purpose.</em></h2>
       <div class="divider"></div>
-      <p class="section-sub">Nine organisations trusted us to build their digital presence. Here is a look at what we have built together.</p>
+      <p class="section-sub">From Accra to the wider world, purpose-driven organisations trusted us to build their digital presence. Here is a look at what we have built together.</p>
     </div>
     <div class="work-grid">
       <div class="work-card fade-in">
@@ -1320,7 +1684,7 @@
       <div class="founder-content">
         <span class="section-label">The person behind the work</span>
         <h2 class="founder-name">Frank Koomson</h2>
-        <p class="founder-bio">Frank Koomson is the founder of KoomBei Digital Limited, a web design and development agency in Accra, Ghana. He builds professional, affordable websites for NGOs, nonprofits, and startups across Ghana and Africa, partnering with each client from the first idea to a fully standing digital presence.</p>
+        <p class="founder-bio">Frank Koomson is the founder of KoomBei Digital Limited, a web design and development studio based in Accra, Ghana. He builds professional, affordable websites for NGOs, nonprofits, and startups around the world, partnering with each client from the first idea to a fully standing digital presence.</p>
         <a href="pages/contact.html" class="btn btn-outline">Start a project →</a>
       </div>
     </div>
@@ -1450,11 +1814,29 @@
       </div>
       <div class="faq-item">
         <button class="faq-question">
+          Do you work with clients outside Ghana?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — KoomBei works with clients worldwide. The entire process is remote-friendly: a discovery form, video calls, and live previews at every stage. Your website is deployed on a global edge network, so it loads fast wherever your audience is, and we schedule around your time zone.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What currency will I pay in?
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Our base prices are set in Ghana Cedis (GHS). The prices you see on this site are automatically converted into your local currency and US dollars as a live approximation. Your proposal confirms the exact amount and the currency we agree on before any work begins.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
           What payment methods do you accept?
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">We accept Mobile Money (MoMo and AirtelTigo) and bank transfer. We work with a deposit before starting and the balance on delivery. All payment details are confirmed in writing before any work begins.</div>
+          <div class="faq-answer-inner">In Ghana we accept Mobile Money (MoMo and AirtelTigo) and bank transfer. For international clients, we agree on the most convenient option — typically bank transfer — and confirm it in your proposal. We work with a deposit before starting and the balance on delivery, and every payment detail is confirmed in writing before any work begins.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1518,7 +1900,7 @@
         <ul>
           <li><a href="mailto:info@koombei.com">info@koombei.com</a></li>
           <li><a href="pages/contact.html">Discovery form</a></li>
-          <li><a href="#">Accra, Ghana</a></li>
+          <li><a href="#">Accra, Ghana — serving worldwide</a></li>
         </ul>
       </div>
     </div>
@@ -1557,6 +1939,9 @@
   </style>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/motion.js"></script>
   <script src="js/chatbot.js"></script>
   <script>
     // Intersection Observer for fade-in
