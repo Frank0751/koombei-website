@@ -710,10 +710,17 @@ KBI18N.setDict('fr', {
   "We will review everything and reach out within 48 hours. Dream with us. Rise with us.": "Nous examinerons tout et reviendrons vers vous sous 48 heures. Dream with us. Rise with us.",
   "Chat on WhatsApp": "Discuter sur WhatsApp",
   "Read reviews": "Voir les avis",
-  "Write a review": "Laisser un avis",
-  "Verified reviews": "Avis vérifiés",
-  "Live from Trustpilot": "En direct depuis Trustpilot",
-  "Real, independently verified reviews from KoomBei clients - collected and moderated by Trustpilot, not by us.": "Des avis réels et vérifiés de manière indépendante par les clients de KoomBei - collectés et modérés par Trustpilot, pas par nous."
+  "Leave a review": "Laisser un avis",
+  "Rate your experience": "Évaluez votre expérience",
+  "Worked with KoomBei? Tell us how it went. We read every submission and feature the best ones right here.": "Vous avez travaillé avec KoomBei ? Dites-nous comment ça s'est passé. Nous lisons chaque avis et mettons les meilleurs en avant ici.",
+  "Your name": "Votre nom",
+  "Organisation / role": "Organisation / rôle",
+  "e.g. Founder, SWK Ghana": "ex. Fondateur, SWK Ghana",
+  "Your review": "Votre avis",
+  "Tell us about your experience working with KoomBei...": "Parlez-nous de votre expérience de travail avec KoomBei...",
+  "Submit review": "Envoyer l'avis",
+  "Sending...": "Envoi en cours...",
+  "Thank you! Your review has been sent and may be featured on this page soon.": "Merci ! Votre avis a été envoyé et pourrait bientôt apparaître sur cette page."
 });
 
 /* ── ESPAÑOL ── */
@@ -1163,10 +1170,17 @@ KBI18N.setDict('es', {
   "We will review everything and reach out within 48 hours. Dream with us. Rise with us.": "Revisaremos todo y te contactaremos en 48 horas. Dream with us. Rise with us.",
   "Chat on WhatsApp": "Chatear por WhatsApp",
   "Read reviews": "Ver reseñas",
-  "Write a review": "Dejar una reseña",
-  "Verified reviews": "Reseñas verificadas",
-  "Live from Trustpilot": "En vivo desde Trustpilot",
-  "Real, independently verified reviews from KoomBei clients - collected and moderated by Trustpilot, not by us.": "Reseñas reales, verificadas de forma independiente, de clientes de KoomBei - recopiladas y moderadas por Trustpilot, no por nosotros."
+  "Leave a review": "Dejar una reseña",
+  "Rate your experience": "Califica tu experiencia",
+  "Worked with KoomBei? Tell us how it went. We read every submission and feature the best ones right here.": "¿Trabajaste con KoomBei? Cuéntanos cómo te fue. Leemos cada reseña y destacamos las mejores aquí mismo.",
+  "Your name": "Tu nombre",
+  "Organisation / role": "Organización / cargo",
+  "e.g. Founder, SWK Ghana": "ej. Fundador, SWK Ghana",
+  "Your review": "Tu reseña",
+  "Tell us about your experience working with KoomBei...": "Cuéntanos sobre tu experiencia trabajando con KoomBei...",
+  "Submit review": "Enviar reseña",
+  "Sending...": "Enviando...",
+  "Thank you! Your review has been sent and may be featured on this page soon.": "¡Gracias! Tu reseña ha sido enviada y podría aparecer pronto en esta página."
 });
 
 /* ── PORTUGUÊS ── */
@@ -1616,8 +1630,15 @@ KBI18N.setDict('pt', {
   "We will review everything and reach out within 48 hours. Dream with us. Rise with us.": "Vamos analisar tudo e entrar em contacto em 48 horas. Dream with us. Rise with us.",
   "Chat on WhatsApp": "Conversar no WhatsApp",
   "Read reviews": "Ver avaliações",
-  "Write a review": "Deixar uma avaliação",
-  "Verified reviews": "Avaliações verificadas",
-  "Live from Trustpilot": "Ao vivo do Trustpilot",
-  "Real, independently verified reviews from KoomBei clients - collected and moderated by Trustpilot, not by us.": "Avaliações reais, verificadas de forma independente, de clientes da KoomBei - recolhidas e moderadas pela Trustpilot, não por nós."
+  "Leave a review": "Deixar uma avaliação",
+  "Rate your experience": "Avalie a sua experiência",
+  "Worked with KoomBei? Tell us how it went. We read every submission and feature the best ones right here.": "Trabalhou com a KoomBei? Conte-nos como correu. Lemos todas as avaliações e destacamos as melhores aqui mesmo.",
+  "Your name": "O seu nome",
+  "Organisation / role": "Organização / função",
+  "e.g. Founder, SWK Ghana": "ex. Fundador, SWK Ghana",
+  "Your review": "A sua avaliação",
+  "Tell us about your experience working with KoomBei...": "Conte-nos sobre a sua experiência a trabalhar com a KoomBei...",
+  "Submit review": "Enviar avaliação",
+  "Sending...": "A enviar...",
+  "Thank you! Your review has been sent and may be featured on this page soon.": "Obrigado! A sua avaliação foi enviada e pode aparecer em breve nesta página."
 });

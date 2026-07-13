@@ -30,14 +30,14 @@ Each entry: `[ ] asset-name - dimensions, format, where it goes, notes`
 [ ] testimonial-headshot-3 - 80×80 jpg/webp square, Testimonials card 3
 [ ] og-image - 1200×630 jpg/webp, Open Graph image for homepage (Phase 3 will reuse on all pages)
 
-## Reviews setup (Trustpilot — free)
+## Reviews (self-hosted — live now, no account needed)
 
-[ ] Create a free Trustpilot Business account at https://business.trustpilot.com for koombei.com
-[ ] Copy your **Business Unit ID** from Trustpilot's TrustBox integration settings
-[ ] Replace every `PLACEHOLDER_TRUSTPILOT_BUSINESS_UNIT_ID` in `index.html` (two `data-businessunit-id` attributes, in the "LIVE VERIFIED REVIEWS" block) with that ID
-[ ] Once your domain is verified on Trustpilot, `https://www.trustpilot.com/review/koombei.com` and `.../evaluate/koombei.com` will resolve instead of 404ing
-[ ] Open `js/reviews.js` and flip `var TRUSTPILOT_READY = false;` to `true` — until you do this, the site auto-hides the TrustBox widgets and points "Read reviews" to the on-page testimonials instead of a dead Trustpilot link, so nothing looks broken to visitors in the meantime
-[ ] Trustpilot's free plan includes unlimited review collection and the TrustBox widgets used here; no payment required
+The homepage "Client stories" section (`index.html`, `#client-stories`) has a live "Leave a review" form (star rating + name/role + review text). It submits straight to the same Formspree inbox as the contact form (`mqegqajo`), with a `_subject` tag of "New KoomBei review submission" so it's easy to spot.
+
+[ ] Check your Formspree inbox / email periodically for new review submissions
+[ ] For reviews you want to feature, copy the quote + name + role into a new `.testimonial-card` block in `index.html` (copy the existing three cards as a template) — add the matching `<div class="star-row">★★★★★</div>` (or fewer stars) above the quote
+[ ] Optional: also add the review into `_data/testimonials.json` to keep a structured record, though the homepage cards are hand-authored HTML, not pulled from that file
+[ ] We previously tried Trustpilot's free TrustBox widget for this, but it requires creating and verifying a Trustpilot Business account before any review links work — that step needs the business owner's email/domain, so it's been dropped in favor of this self-hosted form, which works immediately
 
 ## Notes
 
