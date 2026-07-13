@@ -245,7 +245,7 @@
         <label>Payment details</label>
         <div class="payment-method"><h5>Fidelity Bank</h5><p>Account No: 2030192755111</p></div>
         <div class="payment-method"><h5>Mobile Money</h5><p>+233 548 704 107</p></div>
-        <div class="payment-method"><h5>International clients</h5><p>Bank transfer or another convenient option — confirmed in your proposal.</p></div>
+        <div class="payment-method"><h5>International clients</h5><p>Bank transfer or another convenient option - confirmed in your proposal.</p></div>
       </div>
     </div>
 
@@ -256,6 +256,8 @@
       </div>
       <div class="form-body">
         <form id="contactForm" action="https://formspree.io/f/mqegqajo" method="POST">
+          <!-- Honeypot: Formspree ignores submissions where this hidden field is filled, blocking most bots for free -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <div class="field-row">
             <div class="field"><label>Full name <span>*</span></label><input type="text" name="fullname" placeholder="Your full name" required></div>
             <div class="field"><label>Organisation / Business</label><input type="text" name="org" placeholder="If applicable"></div>
@@ -385,10 +387,10 @@
     </div>
     <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="#">Accra, Ghana — serving worldwide</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="https://www.trustpilot.com/review/koombei.com" target="_blank" rel="noopener noreferrer">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 <span>KoomBei</span>. All rights reserved. - Built by <a href="https://frank.swkghana.org" target="_blank" style="color:#C7A003;text-decoration:none;font-weight:600;">Frank Koomson</a></p>
+    <p>&copy; 2026 <span>KoomBei</span>. All rights reserved. - Built by <a href="https://frank.swkghana.org" target="_blank" rel="noopener noreferrer" style="color:#C7A003;text-decoration:none;font-weight:600;">Frank Koomson</a></p>
     <p>Dream with us. Rise with us.</p>
   </div>
 </footer>

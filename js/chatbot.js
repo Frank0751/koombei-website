@@ -278,7 +278,7 @@
     },
     {
       keys: ['price', 'cost', 'how much', 'pricing', 'package', 'packages', 'rates', 'affordable', 'cheap'],
-      reply: "We have three packages:\n\n• **Seed** — GHS 2,000\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise** — GHS 3,000\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit** — GHS 6,000\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Want details on a specific package?"
+      reply: "We have three packages:\n\n• **Seed** - GHS 2,000\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise** - GHS 3,000\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit** - GHS 6,000\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Want details on a specific package?"
     },
     {
       keys: ['seed'],
@@ -294,7 +294,7 @@
     },
     {
       keys: ['how long', 'timeline', 'duration', 'turnaround', 'how many weeks', 'when will', 'time frame'],
-      reply: "Typical delivery timelines:\n\n• **Seed** — 7–14 days\n• **Rise** — 14–21 days\n• **Summit** — 21–30 days\n\nWe also send a full proposal within 48 hours of your discovery call."
+      reply: "Typical delivery timelines:\n\n• **Seed** - 7–14 days\n• **Rise** - 14–21 days\n• **Summit** - 21–30 days\n\nWe also send a full proposal within 48 hours of your discovery call."
     },
     {
       keys: ['contact', 'reach you', 'email', 'talk to someone', 'speak to', 'phone', 'call us', 'get in touch'],
@@ -306,7 +306,7 @@
     },
     {
       keys: ['portfolio', 'examples', 'previous work', 'past work', 'what have you built', 'your projects', 'clients'],
-      reply: "We've built websites for:\n\n• SWK Ghana — youth nonprofit\n• Frank Koomson — personal portfolio\n• Andrews Akoto-Addo — entrepreneur portfolio\n• The Climate Sociologist — climate NGO\n• Timoya Farms — agriculture business\n• Lafie Plus — tech platform\n• RuboLink — service marketplace\n\nSee them all on our Portfolio page."
+      reply: "We've built websites for:\n\n• SWK Ghana - youth nonprofit\n• Frank Koomson - personal portfolio\n• Andrews Akoto-Addo - entrepreneur portfolio\n• The Climate Sociologist - climate NGO\n• Timoya Farms - agriculture business\n• Lafie Plus - tech platform\n• RuboLink - service marketplace\n\nSee them all on our Portfolio page."
     },
     {
       keys: ['ngo', 'nonprofit', 'non-profit', 'charity', 'organisation', 'organization', 'purpose-driven'],
@@ -322,11 +322,11 @@
     },
     {
       keys: ['where', 'based', 'location', 'accra', 'ghana', 'africa', 'country', 'international', 'worldwide', 'time zone', 'timezone', 'remote'],
-      reply: "We're based in Accra, Ghana, and we work with clients all over the world. The whole process is remote-friendly — a discovery form, video calls, and live previews — and we schedule around your time zone. Wherever you are, this is for you."
+      reply: "We're based in Accra, Ghana, and we work with clients all over the world. The whole process is remote-friendly - a discovery form, video calls, and live previews - and we schedule around your time zone. Wherever you are, this is for you."
     },
     {
       keys: ['react', 'html', 'css', 'javascript', 'technology', 'tech stack', 'built with', 'tools you use'],
-      reply: "We build with:\n\n• HTML, CSS, JavaScript — for straightforward sites\n• React + Vite or Next.js — for complex platforms\n• Sanity.io — for CMS-powered sites\n• Vercel or Netlify — for hosting\n• Cloudinary — for media\n• Formspree — for contact forms"
+      reply: "We build with:\n\n• HTML, CSS, JavaScript - for straightforward sites\n• React + Vite or Next.js - for complex platforms\n• Sanity.io - for CMS-powered sites\n• Vercel or Netlify - for hosting\n• Cloudinary - for media\n• Formspree - for contact forms"
     },
     {
       keys: ['hosting', 'domain', 'vercel', 'netlify', 'deploy'],
@@ -334,19 +334,19 @@
     },
     {
       keys: ['payment', 'pay', 'momo', 'mobile money', 'deposit', 'bank'],
-      reply: "In Ghana we accept Mobile Money (MoMo/AirtelTigo) and bank transfer. For international clients we agree on the most convenient option — usually bank transfer — confirmed in your proposal. We work with a deposit before starting and the balance on delivery. Reach out via the Contact page to discuss details."
+      reply: "In Ghana we accept Mobile Money (MoMo/AirtelTigo) and bank transfer. For international clients we agree on the most convenient option - usually bank transfer - confirmed in your proposal. We work with a deposit before starting and the balance on delivery. Reach out via the Contact page to discuss details."
     },
     {
       keys: ['currency', 'currencies', 'dollar', 'usd', 'euro', 'pounds', 'exchange rate', 'my money', 'what currency'],
-      reply: "Our base prices are set in Ghana Cedis (GHS), but the site automatically shows every price in your local currency and in US dollars — a live approximation for your convenience. Your proposal confirms the exact amount and currency before any work begins. You can switch currency anytime using the picker at the top of the page."
+      reply: "Our base prices are set in Ghana Cedis (GHS), but the site automatically shows every price in your local currency and in US dollars - a live approximation for your convenience. Your proposal confirms the exact amount and currency before any work begins. You can switch currency anytime using the picker at the top of the page."
     },
     {
       keys: ['language', 'translate', 'french', 'spanish', 'portuguese', 'english'],
-      reply: "You can read this site in English, French, Spanish, or Portuguese — just use the language picker at the top of the page. It remembers your choice for next time."
+      reply: "You can read this site in English, French, Spanish, or Portuguese - just use the language picker at the top of the page. It remembers your choice for next time."
     },
     {
       keys: ['faq', 'frequently asked', 'questions'],
-      reply: "We have a FAQ section further down this page — scroll there for answers to the most common questions about packages, pricing, timeline, NGO discount, and payment."
+      reply: "We have a FAQ section further down this page - scroll there for answers to the most common questions about packages, pricing, timeline, NGO discount, and payment."
     },
     {
       keys: ['thank', 'thanks', 'thank you', 'appreciate', 'helpful'],

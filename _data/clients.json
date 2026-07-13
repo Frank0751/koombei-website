@@ -53,7 +53,7 @@
     "screenshot": "PLACEHOLDER:client-screenshot-frank-koomson",
     "visible_on_homepage_trust_bar": false,
     "visible_in_chatbot_kb": true,
-    "notes": "URL unknown — ask user to supply"
+    "notes": "URL unknown - ask user to supply"
   },
   {
     "id": "timoya-farms",
@@ -65,7 +65,7 @@
     "screenshot": "PLACEHOLDER:client-screenshot-timoya-farms",
     "visible_on_homepage_trust_bar": false,
     "visible_in_chatbot_kb": true,
-    "notes": "URL unknown — ask user to supply"
+    "notes": "URL unknown - ask user to supply"
   },
   {
     "id": "lafie-plus",
@@ -77,7 +77,7 @@
     "screenshot": "PLACEHOLDER:client-screenshot-lafie-plus",
     "visible_on_homepage_trust_bar": false,
     "visible_in_chatbot_kb": true,
-    "notes": "URL unknown — ask user to supply"
+    "notes": "URL unknown - ask user to supply"
   },
   {
     "id": "rubolink",
@@ -89,7 +89,7 @@
     "screenshot": "PLACEHOLDER:client-screenshot-rubolink",
     "visible_on_homepage_trust_bar": false,
     "visible_in_chatbot_kb": true,
-    "notes": "URL unknown — ask user to supply"
+    "notes": "URL unknown - ask user to supply"
   },
   {
     "id": "swk-marketplace",

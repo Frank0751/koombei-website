@@ -26,7 +26,7 @@
         "alternateName": "KoomBei Digital",
         "url": "https://koombei.com",
         "logo": "https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png",
-        "description": "Professional websites for NGOs, nonprofits, and startups — wherever in the world you dream from. Built with care, priced with honesty.",
+        "description": "Professional websites for NGOs, nonprofits, and startups - wherever in the world you dream from. Built with care, priced with honesty.",
         "email": "info@koombei.com",
         "areaServed": "Worldwide",
         "address": {
@@ -852,6 +852,13 @@
 
     .testimonial-quote-icon { margin-bottom: 14px; }
 
+    .star-row {
+      color: var(--amber);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
     .testimonial-quote {
       font-size: 13px;
       font-weight: 300;
@@ -888,6 +895,36 @@
       color: var(--midgreen);
       display: block;
     }
+
+    /* ── LIVE REVIEWS (TrustBox) ── */
+    .reviews-live {
+      max-width: 900px;
+      margin: 64px auto 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 56px;
+    }
+
+    .reviews-live-head h3 {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--night);
+      margin-bottom: 10px;
+    }
+
+    .reviews-live-head p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--midgreen);
+      max-width: 460px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+    }
+
+    .trustpilot-widget { margin-bottom: 20px; }
+
+    .reviews-cta { margin-top: 12px; }
 
     /* ── FAQ ACCORDION ── */
     .faq-list {
@@ -1233,7 +1270,7 @@
     <div class="hero-content">
       
       <h1>Dream with us.<em>Rise with us.</em></h1>
-      <p class="hero-sub">Professional websites for NGOs, nonprofits, and startups — wherever in the world you dream from. Built with care, priced with honesty.</p>
+      <p class="hero-sub">Professional websites for NGOs, nonprofits, and startups - wherever in the world you dream from. Built with care, priced with honesty.</p>
       <p class="hero-sub-secondary">We equip dreamers, help them rise, and walk with them from the first conversation to a fully standing digital presence.</p>
       <div class="hero-btns">
         <a href="pages/contact.html" class="btn btn-primary">Start your project</a>
@@ -1443,10 +1480,10 @@
         </div>
       </div>
     </div>
-    <p class="pricing-note"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="#C7A003" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg>Prices are set in Ghana Cedis (GHS). Amounts shown in other currencies are live approximations for your convenience — your proposal confirms the exact figure before any work begins.</p>
+    <p class="pricing-note"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="#C7A003" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg>Prices are set in Ghana Cedis (GHS). Amounts shown in other currencies are live approximations for your convenience - your proposal confirms the exact figure before any work begins.</p>
   </section>
 
-  <!-- HOW IT WORKS — PROCESS INFOGRAPHIC -->
+  <!-- HOW IT WORKS - PROCESS INFOGRAPHIC -->
   <section class="section bg-white fade-in process-section">
     <div class="section-center">
       <span class="section-label">How it works</span>
@@ -1459,7 +1496,7 @@
       <div class="process-node">
         <div class="process-dot"><span>01</span></div>
         <h3>Discover</h3>
-        <p>Tell us your story. A short discovery form and a conversation — we listen before we build.</p>
+        <p>Tell us your story. A short discovery form and a conversation - we listen before we build.</p>
         <span class="process-time">48h proposal</span>
       </div>
       <div class="process-node">
@@ -1552,7 +1589,7 @@
         <span class="section-label">Worldwide</span>
         <h2 class="section-title globe-title">From Accra to <em>anywhere.</em></h2>
         <div class="divider"></div>
-        <p class="globe-sub">KoomBei is proudly built in Ghana and works with dreamers everywhere. A fully remote process, prices in your currency, and support across time zones — wherever you are in the world, this is for you.</p>
+        <p class="globe-sub">KoomBei is proudly built in Ghana and works with dreamers everywhere. A fully remote process, prices in your currency, and support across time zones - wherever you are in the world, this is for you.</p>
         <div class="globe-features">
           <div class="globe-feature">
             <div class="globe-feature-icon"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#EDE599" stroke-width="1.5"/><path d="M2 10h16M10 2c2.5 2.5 2.5 13.5 0 16M10 2c-2.5 2.5-2.5 13.5 0 16" stroke="#C7A003" stroke-width="1.2"/></svg></div>
@@ -1678,7 +1715,7 @@
     <div class="founder-block">
       <div class="founder-photo">
         <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/q_auto/f_auto/v1782224795/Hero_Section_image_irnpsy.jpg"
-             alt="KoomBei founder — Frank Koomson"
+             alt="KoomBei founder - Frank Koomson"
              width="400" height="400" loading="lazy">
       </div>
       <div class="founder-content">
@@ -1704,7 +1741,8 @@
             <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
           </svg>
         </div>
-        <p class="testimonial-quote">Frank took the time to understand our work before touching a single line of code. The website he built actually reflects who we are as an organisation — not just a template with our name on it. Our donors noticed the difference immediately.</p>
+        <div class="star-row" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">Frank took the time to understand our work before touching a single line of code. The website he built actually reflects who we are as an organisation - not just a template with our name on it. Our donors noticed the difference immediately.</p>
         <div class="testimonial-author">
           <img src="https://placehold.co/80x80/151F1E/EDE599?text=SW"
                alt="SWK Ghana representative"
@@ -1723,7 +1761,8 @@
             <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
           </svg>
         </div>
-        <p class="testimonial-quote">I needed a site that could represent the full range of my work without feeling cluttered. KoomBei delivered exactly that — clean, professional, and done on time. The communication throughout was refreshingly straightforward.</p>
+        <div class="star-row" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">I needed a site that could represent the full range of my work without feeling cluttered. KoomBei delivered exactly that - clean, professional, and done on time. The communication throughout was refreshingly straightforward.</p>
         <div class="testimonial-author">
           <img src="https://placehold.co/80x80/151F1E/EDE599?text=AA"
                alt="Andrews Akoto-Addo"
@@ -1742,6 +1781,7 @@
             <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
           </svg>
         </div>
+        <div class="star-row" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="testimonial-quote">We weren't sure we could afford a proper website, but KoomBei's pricing was honest and within reach. The site went live in under two weeks and has already helped us reach new buyers. Worth every cedi.</p>
         <div class="testimonial-author">
           <img src="https://placehold.co/80x80/151F1E/EDE599?text=TF"
@@ -1755,6 +1795,30 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- LIVE VERIFIED REVIEWS (Trustpilot TrustBox — free, third-party hosted) -->
+    <div class="reviews-live">
+      <div class="reviews-live-head">
+        <span class="section-label">Verified reviews</span>
+        <h3>Live from Trustpilot</h3>
+        <p>Real, independently verified reviews from KoomBei clients — collected and moderated by Trustpilot, not by us.</p>
+      </div>
+      <!-- TrustBox widget - Review Collector -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc"
+           data-businessunit-id="PLACEHOLDER_TRUSTPILOT_BUSINESS_UNIT_ID"
+           data-style-height="52px" data-style-width="100%">
+        <a href="https://www.trustpilot.com/review/koombei.com" target="_blank" rel="noopener noreferrer">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
+      <!-- TrustBox widget - Carousel -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="53aa8912dec7e10d38f59f36"
+           data-businessunit-id="PLACEHOLDER_TRUSTPILOT_BUSINESS_UNIT_ID"
+           data-style-height="240px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en">
+        <a href="https://www.trustpilot.com/review/koombei.com" target="_blank" rel="noopener noreferrer">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
+      <a href="https://www.trustpilot.com/evaluate/koombei.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline reviews-cta" style="border-color:var(--night);color:var(--night);">Write a review</a>
     </div>
   </section>
 
@@ -1773,7 +1837,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Three tiers — Seed (GHS 2,000, up to 5 pages, 7–14 days), Rise (GHS 3,000, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL.</div>
+          <div class="faq-answer-inner">Three tiers - Seed (GHS 2,000, up to 5 pages, 7–14 days), Rise (GHS 3,000, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1791,7 +1855,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Delivery timelines depend on the package — 7–14 days for Seed, 14–21 days for Rise, and 21–30 days for Summit. We also send a full proposal within 48 hours of your discovery call. All timelines start from the date we receive your content and full brief.</div>
+          <div class="faq-answer-inner">Delivery timelines depend on the package - 7–14 days for Seed, 14–21 days for Rise, and 21–30 days for Summit. We also send a full proposal within 48 hours of your discovery call. All timelines start from the date we receive your content and full brief.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1818,7 +1882,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Yes — KoomBei works with clients worldwide. The entire process is remote-friendly: a discovery form, video calls, and live previews at every stage. Your website is deployed on a global edge network, so it loads fast wherever your audience is, and we schedule around your time zone.</div>
+          <div class="faq-answer-inner">Yes - KoomBei works with clients worldwide. The entire process is remote-friendly: a discovery form, video calls, and live previews at every stage. Your website is deployed on a global edge network, so it loads fast wherever your audience is, and we schedule around your time zone.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1836,7 +1900,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">In Ghana we accept Mobile Money (MoMo and AirtelTigo) and bank transfer. For international clients, we agree on the most convenient option — typically bank transfer — and confirm it in your proposal. We work with a deposit before starting and the balance on delivery, and every payment detail is confirmed in writing before any work begins.</div>
+          <div class="faq-answer-inner">In Ghana we accept Mobile Money (MoMo and AirtelTigo) and bank transfer. For international clients, we agree on the most convenient option - typically bank transfer - and confirm it in your proposal. We work with a deposit before starting and the balance on delivery, and every payment detail is confirmed in writing before any work begins.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1845,7 +1909,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Hosting setup is included in every package. We deploy on Vercel, connect your custom domain, configure DNS and SSL, and manage the setup for 12 months. You do not need technical knowledge — we handle all of that, and we are available if anything ever needs adjusting.</div>
+          <div class="faq-answer-inner">Hosting setup is included in every package. We deploy on Vercel, connect your custom domain, configure DNS and SSL, and manage the setup for 12 months. You do not need technical knowledge - we handle all of that, and we are available if anything ever needs adjusting.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1854,7 +1918,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">After launch you receive post-launch support — 2 weeks on Seed, 1 month on Rise, 3 months on Summit — covering bug fixes and minor changes. After that, our maintenance plans start from GHS 100 per update. We walk with you long after launch day.</div>
+          <div class="faq-answer-inner">After launch you receive post-launch support - 2 weeks on Seed, 1 month on Rise, 3 months on Summit - covering bug fixes and minor changes. After that, our maintenance plans start from GHS 100 per update. We walk with you long after launch day.</div>
         </div>
       </div>
     </div>
@@ -1900,7 +1964,8 @@
         <ul>
           <li><a href="mailto:info@koombei.com">info@koombei.com</a></li>
           <li><a href="pages/contact.html">Discovery form</a></li>
-          <li><a href="#">Accra, Ghana — serving worldwide</a></li>
+          <li><a href="https://www.trustpilot.com/review/koombei.com" target="_blank" rel="noopener noreferrer">Read reviews</a></li>
+          <li><a href="#">Accra, Ghana - serving worldwide</a></li>
         </ul>
       </div>
     </div>
@@ -1938,6 +2003,8 @@
     }
   </style>
 
+  <!-- Trustpilot TrustBox loader — free, third-party, renders the live review widgets above -->
+  <script type="text/javascript" src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
   <script src="js/main.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/currency.js"></script>
@@ -1956,7 +2023,7 @@
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
   <script>
-    // FAQ accordion — one item open at a time
+    // FAQ accordion - one item open at a time
     document.querySelectorAll('.faq-question').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item = btn.parentElement;

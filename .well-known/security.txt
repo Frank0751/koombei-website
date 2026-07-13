@@ -1,0 +1,4 @@
+Contact: mailto:info@koombei.com
+Preferred-Languages: en
+Canonical: https://koombei.com/.well-known/security.txt
+Expires: 2027-01-01T00:00:00.000Z

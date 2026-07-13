@@ -21,7 +21,7 @@
   var STORE_RATES = 'kb-rates';
   var RATES_TTL = 12 * 60 * 60 * 1000; // 12 hours
 
-  /* A curated list — code, symbol, decimals, and a friendly name. Order here
+  /* A curated list - code, symbol, decimals, and a friendly name. Order here
      is the order shown in the picker (majors first, then GHS home currency). */
   var CURRENCIES = [
     { code: 'USD', symbol: '$',    dec: 0, name: 'US Dollar' },

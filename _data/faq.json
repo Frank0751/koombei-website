@@ -2,7 +2,7 @@
   {
     "id": "faq-1",
     "question": "What packages do you offer?",
-    "answer": "Three tiers — Seed (GHS 2,000, up to 5 pages, 7–14 days), Rise (GHS 3,000, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL."
+    "answer": "Three tiers - Seed (GHS 2,000, up to 5 pages, 7–14 days), Rise (GHS 3,000, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL."
   },
   {
     "id": "faq-2",
@@ -12,7 +12,7 @@
   {
     "id": "faq-3",
     "question": "How long does it take to build my website?",
-    "answer": "Delivery timelines depend on the package — 7–14 days for Seed, 14–21 days for Rise, and 21–30 days for Summit. We also send a full proposal within 48 hours of your discovery call. All timelines start from the date we receive your content and full brief."
+    "answer": "Delivery timelines depend on the package - 7–14 days for Seed, 14–21 days for Rise, and 21–30 days for Summit. We also send a full proposal within 48 hours of your discovery call. All timelines start from the date we receive your content and full brief."
   },
   {
     "id": "faq-4",
@@ -32,11 +32,11 @@
   {
     "id": "faq-7",
     "question": "Who hosts the website and do I need to manage it?",
-    "answer": "Hosting setup is included in every package. We deploy on Vercel, connect your custom domain, configure DNS and SSL, and manage the setup for 12 months. You do not need technical knowledge to manage it — we handle all of that, and we are available if anything ever needs adjusting."
+    "answer": "Hosting setup is included in every package. We deploy on Vercel, connect your custom domain, configure DNS and SSL, and manage the setup for 12 months. You do not need technical knowledge to manage it - we handle all of that, and we are available if anything ever needs adjusting."
   },
   {
     "id": "faq-8",
     "question": "What happens after my website launches?",
-    "answer": "After launch you receive post-launch support — 2 weeks on Seed, 1 month on Rise, 3 months on Summit — covering bug fixes and minor changes. After that, our maintenance plans start from GHS 100 per update. We walk with you long after launch day."
+    "answer": "After launch you receive post-launch support - 2 weeks on Seed, 1 month on Rise, 3 months on Summit - covering bug fixes and minor changes. After that, our maintenance plans start from GHS 100 per update. We walk with you long after launch day."
   }
 ]

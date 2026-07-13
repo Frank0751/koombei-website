@@ -1,5 +1,5 @@
 /*
- * KoomBei motion layer — progressive enhancement only.
+ * KoomBei motion layer - progressive enhancement only.
  * Everything here is optional polish: if prefers-reduced-motion is set, or the
  * device is low-powered, we bail out of the heavier effects and leave the
  * static (already-styled) page untouched.
