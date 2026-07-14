@@ -720,7 +720,23 @@ KBI18N.setDict('fr', {
   "Tell us about your experience working with KoomBei...": "Parlez-nous de votre expérience de travail avec KoomBei...",
   "Submit review": "Envoyer l'avis",
   "Sending...": "Envoi en cours...",
-  "Thank you! Your review has been sent and may be featured on this page soon.": "Merci ! Votre avis a été envoyé et pourrait bientôt apparaître sur cette page."
+  "Thank you! Your review has been sent and may be featured on this page soon.": "Merci ! Votre avis a été envoyé et pourrait bientôt apparaître sur cette page.",
+  "Where we've built so far": "Là où nous avons déjà construit",
+  "Yours next?": "Le vôtre bientôt ?",
+  "Built for speed, not bloat": "Conçu pour la vitesse, pas la surcharge",
+  "We hand-code every site instead of stacking page-builder plugins. Most agency sites we've benchmarked ship 300-750KB of markup before a single image loads. Ours run a fraction of that, which matters most on the mobile connections our clients' own visitors use.": "Nous codons chaque site à la main plutôt que d'empiler des plugins de constructeur de pages. La plupart des sites d'agences que nous avons comparés pèsent 300 à 750 Ko de code avant même le chargement d'une image. Les nôtres ne pèsent qu'une fraction de cela, ce qui compte le plus sur les connexions mobiles qu'utilisent les visiteurs de nos clients.",
+  "E-commerce Setup": "Configuration e-commerce",
+  "Product catalog, cart, and secure checkout added to any package - Mobile Money, card, or bank.": "Catalogue produits, panier et paiement sécurisé ajoutés à n'importe quel forfait - Mobile Money, carte ou virement.",
+  "Product catalog, shopping cart, and secure checkout (Mobile Money, card, or bank) added to any package.": "Catalogue produits, panier d'achat et paiement sécurisé (Mobile Money, carte ou virement) ajoutés à n'importe quel forfait.",
+  "Custom quote": "Devis personnalisé",
+  "/ store size": "/ selon la taille de la boutique",
+  "Adds to": "S'ajoute à",
+  "Any Seed, Rise, or Summit site": "Tout site Seed, Rise ou Summit",
+  "All work": "Tous les projets",
+  "NGOs & Nonprofits": "ONG et associations",
+  "Business & Agriculture": "Entreprise et agriculture",
+  "Tech Platforms": "Plateformes tech",
+  "Personal Portfolios": "Portfolios personnels"
 });
 
 /* ── ESPAÑOL ── */
@@ -1180,7 +1196,23 @@ KBI18N.setDict('es', {
   "Tell us about your experience working with KoomBei...": "Cuéntanos sobre tu experiencia trabajando con KoomBei...",
   "Submit review": "Enviar reseña",
   "Sending...": "Enviando...",
-  "Thank you! Your review has been sent and may be featured on this page soon.": "¡Gracias! Tu reseña ha sido enviada y podría aparecer pronto en esta página."
+  "Thank you! Your review has been sent and may be featured on this page soon.": "¡Gracias! Tu reseña ha sido enviada y podría aparecer pronto en esta página.",
+  "Where we've built so far": "Dónde hemos construido hasta ahora",
+  "Yours next?": "¿El tuyo, el próximo?",
+  "Built for speed, not bloat": "Diseñado para la velocidad, no para el peso",
+  "We hand-code every site instead of stacking page-builder plugins. Most agency sites we've benchmarked ship 300-750KB of markup before a single image loads. Ours run a fraction of that, which matters most on the mobile connections our clients' own visitors use.": "Codificamos cada sitio a mano en lugar de acumular plugins de constructores de páginas. La mayoría de los sitios de agencias que evaluamos pesan entre 300 y 750 KB de código antes de cargar una sola imagen. Los nuestros pesan una fracción de eso, algo que importa sobre todo en las conexiones móviles que usan los visitantes de nuestros clientes.",
+  "E-commerce Setup": "Configuración de e-commerce",
+  "Product catalog, cart, and secure checkout added to any package - Mobile Money, card, or bank.": "Catálogo de productos, carrito y pago seguro añadidos a cualquier paquete - Mobile Money, tarjeta o transferencia.",
+  "Product catalog, shopping cart, and secure checkout (Mobile Money, card, or bank) added to any package.": "Catálogo de productos, carrito de compras y pago seguro (Mobile Money, tarjeta o transferencia) añadidos a cualquier paquete.",
+  "Custom quote": "Cotización personalizada",
+  "/ store size": "/ según el tamaño de la tienda",
+  "Adds to": "Se añade a",
+  "Any Seed, Rise, or Summit site": "Cualquier sitio Seed, Rise o Summit",
+  "All work": "Todos los proyectos",
+  "NGOs & Nonprofits": "ONG y sin fines de lucro",
+  "Business & Agriculture": "Negocios y agricultura",
+  "Tech Platforms": "Plataformas tecnológicas",
+  "Personal Portfolios": "Portafolios personales"
 });
 
 /* ── PORTUGUÊS ── */
@@ -1640,5 +1672,21 @@ KBI18N.setDict('pt', {
   "Tell us about your experience working with KoomBei...": "Conte-nos sobre a sua experiência a trabalhar com a KoomBei...",
   "Submit review": "Enviar avaliação",
   "Sending...": "A enviar...",
-  "Thank you! Your review has been sent and may be featured on this page soon.": "Obrigado! A sua avaliação foi enviada e pode aparecer em breve nesta página."
+  "Thank you! Your review has been sent and may be featured on this page soon.": "Obrigado! A sua avaliação foi enviada e pode aparecer em breve nesta página.",
+  "Where we've built so far": "Onde já construímos",
+  "Yours next?": "O seu, a seguir?",
+  "Built for speed, not bloat": "Feito para a velocidade, não para o peso",
+  "We hand-code every site instead of stacking page-builder plugins. Most agency sites we've benchmarked ship 300-750KB of markup before a single image loads. Ours run a fraction of that, which matters most on the mobile connections our clients' own visitors use.": "Codificamos cada site à mão em vez de empilhar plugins de construtores de páginas. A maioria dos sites de agências que avaliámos pesa entre 300 e 750 KB de código antes de sequer carregar uma imagem. Os nossos pesam uma fração disso, o que importa sobretudo nas ligações móveis que os visitantes dos nossos clientes utilizam.",
+  "E-commerce Setup": "Configuração de e-commerce",
+  "Product catalog, cart, and secure checkout added to any package - Mobile Money, card, or bank.": "Catálogo de produtos, carrinho e checkout seguro adicionados a qualquer pacote - Mobile Money, cartão ou transferência.",
+  "Product catalog, shopping cart, and secure checkout (Mobile Money, card, or bank) added to any package.": "Catálogo de produtos, carrinho de compras e checkout seguro (Mobile Money, cartão ou transferência) adicionados a qualquer pacote.",
+  "Custom quote": "Orçamento personalizado",
+  "/ store size": "/ conforme o tamanho da loja",
+  "Adds to": "Adiciona-se a",
+  "Any Seed, Rise, or Summit site": "Qualquer site Seed, Rise ou Summit",
+  "All work": "Todos os projetos",
+  "NGOs & Nonprofits": "ONGs e sem fins lucrativos",
+  "Business & Agriculture": "Negócios e agricultura",
+  "Tech Platforms": "Plataformas tecnológicas",
+  "Personal Portfolios": "Portfólios pessoais"
 });

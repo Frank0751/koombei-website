@@ -14,6 +14,14 @@
   <meta name="twitter:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
   <link rel="canonical" href="https://koombei.com/pages/portfolio.html">
   <link rel="stylesheet" href="../css/style.css">
+  <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "PLACEHOLDER_CLARITY_PROJECT_ID");
+  </script>
   <style>
     /* ── FULL HEIGHT HERO ── */
     .portfolio-hero {
@@ -116,6 +124,38 @@
     .scroll-indicator span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--midgreen); }
     .scroll-mouse { width: 20px; height: 32px; border: 1.5px solid rgba(199,160,3,0.3); border-radius: 10px; display: flex; justify-content: center; padding-top: 6px; }
     .scroll-wheel { width: 3px; height: 6px; background: var(--amber); border-radius: 2px; animation: scrollWheel 1.5s ease infinite; }
+
+    /* ── PORTFOLIO FILTERS ── */
+    .portfolio-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .filter-pill {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--midgreen);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 9px 18px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .filter-pill:hover { border-color: var(--amber); color: var(--night); }
+
+    .filter-pill.active {
+      background: var(--night);
+      border-color: var(--night);
+      color: var(--lily);
+    }
+
+    .portfolio-item.filtered-out { display: none; }
 
     /* ── PORTFOLIO GRID ── */
     .portfolio-grid {
@@ -345,10 +385,17 @@
     <div class="divider"></div>
     <p class="section-sub">A growing portfolio of professional websites built for purpose-driven organisations and individuals.</p>
     </div>
+    <div class="portfolio-filters" role="tablist" aria-label="Filter portfolio by sector">
+      <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All work</button>
+      <button class="filter-pill" data-filter="ngo" role="tab" aria-selected="false">NGOs &amp; Nonprofits</button>
+      <button class="filter-pill" data-filter="business" role="tab" aria-selected="false">Business &amp; Agriculture</button>
+      <button class="filter-pill" data-filter="tech" role="tab" aria-selected="false">Tech Platforms</button>
+      <button class="filter-pill" data-filter="personal" role="tab" aria-selected="false">Personal Portfolios</button>
+    </div>
     <div class="portfolio-grid">
 
       <!-- ── ORGANISATIONAL & WEB APPS ── -->
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://swkghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="SWK Ghana website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -362,7 +409,7 @@
           <div class="portfolio-links"><a href="https://swkghana.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
           <img src="https://image.thum.io/get/width/800/crop/520/https://takakipawa.swkghana.org" alt="Taka Kipawa website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -376,7 +423,7 @@
           <div class="portfolio-links"><a href="https://takakipawa.swkghana.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://swkmarketplace.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="SWK Marketplace website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -390,7 +437,7 @@
           <div class="portfolio-links"><a href="https://swkmarketplace.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="business">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://timoyafarms.netlify.app&screenshot=true&meta=false&embed=screenshot.url" alt="Timoya Farms website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -404,7 +451,7 @@
           <div class="portfolio-links"><a href="https://timoyafarms.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="tech">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://lafieplus-frontend.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="Lafie Plus website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -418,7 +465,7 @@
           <div class="portfolio-links"><a href="https://lafieplus-frontend.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="tech">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://rubo-link-web.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="RuboLink website preview" class="live-preview-img" loading="lazy" style="filter:brightness(1.45);">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -432,9 +479,9 @@
           <div class="portfolio-links"><a href="https://rubo-link-web.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://theclimatesociologist.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="The Climate Sociologist website preview" class="live-preview-img" loading="lazy">
+          <img src="https://api.microlink.io/?url=https://www.theclimatesociologist.org&screenshot=true&meta=false&embed=screenshot.url" alt="The Climate Sociologist website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-progress">In progress</span>
         </div>
@@ -443,13 +490,13 @@
           <h3>The Climate Sociologist</h3>
           <p>A full website redesign for a youth-led climate education NGO in Ghana. Built with React and Tailwind CSS, powered by a Sanity.io CMS so the client can manage programs, blog posts, gallery images, and partner logos independently.</p>
           <div class="portfolio-meta"><span class="meta-tag">React + Tailwind</span><span class="meta-tag">Sanity.io CMS</span><span class="meta-tag">Vercel</span><span class="meta-tag">React Router</span></div>
-          <div class="portfolio-links"><a href="https://theclimatesociologist.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
+          <div class="portfolio-links"><a href="https://www.theclimatesociologist.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
 
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://thewildcard.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="The Wild Card Project website preview" class="live-preview-img" loading="lazy">
+          <img src="https://api.microlink.io/?url=https://www.wildcardproject.org&screenshot=true&meta=false&embed=screenshot.url" alt="The Wild Card Project website preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -458,12 +505,12 @@
           <h3>The Wild Card Project</h3>
           <p>A full organisational website for The Wild Card Project, a youth development NGO in Accra helping overlooked young people access education, protect their wellbeing, and grow, built around its three pillars: Education, Wellbeing, and Empowerment.</p>
           <div class="portfolio-meta"><span class="meta-tag">HTML/CSS/JS</span><span class="meta-tag">Vercel</span><span class="meta-tag">SEO</span></div>
-          <div class="portfolio-links"><a href="https://thewildcard.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
+          <div class="portfolio-links"><a href="https://www.wildcardproject.org/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
 
       <!-- ── PERSONAL PORTFOLIOS ── -->
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="personal">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://frank.swkghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="Frank Koomson portfolio preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -477,7 +524,7 @@
           <div class="portfolio-links"><a href="https://frank.swkghana.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="personal">
         <div class="portfolio-thumb">
           <img src="https://api.microlink.io/?url=https://andrews-portfolio-pi.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="Andrews Akoto-Addo portfolio preview" class="live-preview-img" loading="lazy">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
@@ -491,7 +538,7 @@
           <div class="portfolio-links"><a href="https://andrews-portfolio-pi.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
-      <div class="portfolio-item fade-in">
+      <div class="portfolio-item fade-in" data-cat="personal">
         <div class="portfolio-thumb coming">
           <div class="thumb-inner"><div class="thumb-logo">Joseph M.D. Johnson</div><div class="thumb-url">Coming soon</div></div>
           <span class="thumb-badge badge-progress">In progress</span>
@@ -565,6 +612,7 @@
   <script src="../js/i18n.js"></script>
   <script src="../js/currency.js"></script>
   <script src="../js/motion.js"></script>
+  <script src="../js/consent.js"></script>
   <script src="../js/chatbot.js"></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -579,6 +627,22 @@
       } else {
         img.addEventListener('load', () => img.classList.add('loaded'));
       }
+    });
+
+    // Portfolio sector filter
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const portfolioItems = document.querySelectorAll('.portfolio-item[data-cat]');
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const target = pill.getAttribute('data-filter');
+        filterPills.forEach(p => { p.classList.remove('active'); p.setAttribute('aria-selected', 'false'); });
+        pill.classList.add('active');
+        pill.setAttribute('aria-selected', 'true');
+        portfolioItems.forEach(item => {
+          const show = target === 'all' || item.getAttribute('data-cat') === target;
+          item.classList.toggle('filtered-out', !show);
+        });
+      });
     });
   </script>
 </body>

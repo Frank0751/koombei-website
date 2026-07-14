@@ -15,6 +15,14 @@
   <meta name="twitter:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
   <link rel="canonical" href="https://koombei.com">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "PLACEHOLDER_CLARITY_PROJECT_ID");
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -653,6 +661,7 @@
     .why-grid .why-card:nth-child(4) { transition-delay: 0.26s; }
     .why-grid .why-card:nth-child(5) { transition-delay: 0.33s; }
     .why-grid .why-card:nth-child(6) { transition-delay: 0.40s; }
+    .why-grid .why-card:nth-child(7) { transition-delay: 0.47s; }
 
     .services-grid .service-card:nth-child(1) { transition-delay: 0.05s; }
     .services-grid .service-card:nth-child(2) { transition-delay: 0.12s; }
@@ -1309,6 +1318,43 @@
       max-width: 420px;
     }
 
+    .served-countries {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(237, 229, 153, 0.1);
+    }
+
+    .served-label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--midgreen);
+      margin-bottom: 12px;
+    }
+
+    .served-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .served-pill {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--lily);
+      background: rgba(237, 229, 153, 0.06);
+      border: 1px solid rgba(237, 229, 153, 0.18);
+      border-radius: 20px;
+      padding: 5px 14px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .served-pill:hover { background: rgba(237, 229, 153, 0.1); border-color: rgba(237, 229, 153, 0.3); }
+
+    .served-pill-next {
+      color: var(--amber);
+      border-color: rgba(199, 160, 3, 0.35);
+      background: rgba(199, 160, 3, 0.06);
+      font-style: italic;
+    }
+
     @media (max-width: 900px) {
       .process-flow { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
       .process-line { display: none; }
@@ -1463,6 +1509,11 @@
         <h3>Built on real experience</h3>
         <p>KoomBei is built by someone who has worked with NGOs, startups, and development organisations across Africa and beyond. We speak your language and understand your world.</p>
       </div>
+      <div class="why-card fade-in">
+        <div class="why-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M11 2 3 11h5l-1 7 8-9h-5l1-7z" stroke="#EDE599" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>Built for speed, not bloat</h3>
+        <p>We hand-code every site instead of stacking page-builder plugins. Most agency sites we've benchmarked ship 300-750KB of markup before a single image loads. Ours run a fraction of that, which matters most on the mobile connections our clients' own visitors use.</p>
+      </div>
     </div>
   </section>
 
@@ -1497,6 +1548,12 @@
         <h3>Maintenance</h3>
         <p>Ongoing updates, content changes, bug fixes and support. Monthly retainer or per update.</p>
         <div class="from" data-ghs="100" data-from="1">From GHS 100 <span>/ update</span></div>
+      </a>
+      <a href="pages/services.html" class="service-card fade-in">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="16" r="1.4" fill="#C7A003"/><circle cx="14" cy="16" r="1.4" fill="#C7A003"/><path d="M2 3h2l1.6 9.6a1.5 1.5 0 0 0 1.5 1.4h6.8a1.5 1.5 0 0 0 1.5-1.2L17 6H5" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>E-commerce Setup</h3>
+        <p>Product catalog, cart, and secure checkout added to any package - Mobile Money, card, or bank.</p>
+        <div class="from">Custom quote <span>/ store size</span></div>
       </a>
     </div>
   </section>
@@ -1696,6 +1753,14 @@
             </div>
           </div>
         </div>
+        <div class="served-countries">
+          <span class="served-label">Where we've built so far</span>
+          <div class="served-pills">
+            <span class="served-pill">🇬🇭 Ghana</span>
+            <span class="served-pill">🇱🇷 Liberia</span>
+            <span class="served-pill served-pill-next">Yours next?</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1720,12 +1785,12 @@
       </div>
       <div class="work-card fade-in">
         <div class="work-card-thumb">
-          <img src="https://api.microlink.io/?url=https%3A%2F%2Ftheclimatesociologist.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.theclimatesociologist.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="The Climate Sociologist website" loading="lazy" width="600" height="400">
         </div>
         <h3>The Climate Sociologist</h3>
         <p class="work-type">Climate NGO</p>
-        <a href="https://theclimatesociologist.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
+        <a href="https://www.theclimatesociologist.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
       <div class="work-card fade-in">
         <div class="work-card-thumb">
@@ -1783,12 +1848,12 @@
       </div>
       <div class="work-card fade-in">
         <div class="work-card-thumb">
-          <img src="https://api.microlink.io/?url=https%3A%2F%2Fthewildcard.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.wildcardproject.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="The Wild Card Project website" loading="lazy" width="600" height="400">
         </div>
         <h3>The Wild Card Project</h3>
         <p class="work-type">Youth nonprofit</p>
-        <a href="https://thewildcard.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
+        <a href="https://www.wildcardproject.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
     </div>
   </section>
@@ -2093,6 +2158,7 @@
   <script src="js/i18n.js"></script>
   <script src="js/currency.js"></script>
   <script src="js/motion.js"></script>
+  <script src="js/consent.js"></script>
   <script src="js/chatbot.js"></script>
   <script>
     // Intersection Observer for fade-in

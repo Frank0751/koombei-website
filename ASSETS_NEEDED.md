@@ -39,6 +39,20 @@ The homepage "Client stories" section (`index.html`, `#client-stories`) has a li
 [ ] Optional: also add the review into `_data/testimonials.json` to keep a structured record, though the homepage cards are hand-authored HTML, not pulled from that file
 [ ] We previously tried Trustpilot's free TrustBox widget for this, but it requires creating and verifying a Trustpilot Business account before any review links work — that step needs the business owner's email/domain, so it's been dropped in favor of this self-hosted form, which works immediately
 
+## Analytics (Microsoft Clarity — free, no cap)
+
+Every page now loads the Clarity tracking snippet with a placeholder project ID (`PLACEHOLDER_CLARITY_PROJECT_ID`). With the placeholder in place it's a harmless no-op — no errors, no broken page, it just doesn't record anything yet.
+
+[ ] Create a free account at https://clarity.microsoft.com and add koombei.com as a project
+[ ] Copy the project ID Clarity gives you
+[ ] Find-and-replace `PLACEHOLDER_CLARITY_PROJECT_ID` across all 5 HTML files (`index.html` + the 4 files in `pages/`) with that ID
+[ ] Clarity is genuinely free forever (Microsoft, no tier limits as of writing) — gives session recordings + heatmaps, useful for seeing how visitors actually use the currency/language pickers and the new review form
+
+## Pricing decision needed
+
+[ ] The new **E-commerce Setup** standalone service (`services.html` and `index.html`) is intentionally listed as "Custom quote" rather than a fixed price — I didn't want to invent a number without your sign-off. Decide on either a flat "from GHS X" figure or keep it quote-based, then update both pages.
+
 ## Notes
 
 [ ] Confirm with user: should 'Active clients' stat be updated from 6+ to 8+ to reflect the full known client list?
+[ ] Countries-served pills in the homepage globe section currently list only Ghana and Liberia (the two confirmed client locations from the portfolio). Add more as real clients are confirmed elsewhere — deliberately not padded with unconfirmed countries.
