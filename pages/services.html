@@ -253,6 +253,11 @@
     .pkg-body { background: var(--white); padding: 28px 30px 33px; }
     .pkg-price { font-family: 'Ubuntu', sans-serif; font-size: 30px; font-weight: 700; color: var(--amber); }
     .pkg-price sub { font-size: 12px; font-weight: 300; color: var(--midgreen); vertical-align: baseline; }
+    .pkg-discount { display: flex; align-items: center; gap: 8px; background: rgba(199,160,3,0.07); border: 1px dashed rgba(199,160,3,0.35); border-radius: 8px; padding: 7px 10px; margin: 8px 0 4px; }
+    .pkg-discount-tag { font-size: 11px; font-weight: 700; color: var(--night); background: var(--amber); border-radius: 4px; padding: 2px 6px; flex-shrink: 0; }
+    .pkg-discount-label { font-size: 11px; font-weight: 400; color: var(--midgreen); flex: 1; }
+    .pkg-discount-label sup { color: var(--amber); font-weight: 700; }
+    .pkg-discount-price { font-family: 'Ubuntu', sans-serif; font-size: 15px; font-weight: 700; color: var(--green); }
     .pkg-pages { font-size: 12px; color: var(--midgreen); margin-bottom: 18px; margin-top: 4px; }
     .pkg-includes { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--midgreen); margin-bottom: 12px; font-weight: 500; }
 
@@ -449,7 +454,8 @@
           <div class="pkg-tagline">For NGOs, nonprofits and first-time websites.</div>
         </div>
         <div class="pkg-body">
-          <div class="pkg-price" data-ghs="2000" data-alt="1">GHS 2,000 <sub>from</sub></div>
+          <div class="pkg-price" data-ghs="2500" data-alt="1">GHS 2,500 <sub>from</sub></div>
+          <div class="pkg-discount"><span class="pkg-discount-tag">-20%</span><span class="pkg-discount-label">Eligible orgs<sup>*</sup></span><span class="pkg-discount-price" data-ghs="2000">GHS 2,000</span></div>
           <div class="pkg-pages">Up to 5 pages - Domain billed separately</div>
           <div class="pkg-includes">What is included</div>
           <div class="pkg-feat"><div class="pkg-dot"></div><p><strong>Up to 5 pages</strong> - Home, About, Services, Contact + 1 extra</p></div>
@@ -470,7 +476,8 @@
           <div class="pkg-tagline">For growing startups and organisations.</div>
         </div>
         <div class="pkg-body">
-          <div class="pkg-price" data-ghs="3000" data-alt="1">GHS 3,000 <sub>from</sub></div>
+          <div class="pkg-price" data-ghs="3500" data-alt="1">GHS 3,500 <sub>from</sub></div>
+          <div class="pkg-discount"><span class="pkg-discount-tag">-20%</span><span class="pkg-discount-label">Eligible orgs<sup>*</sup></span><span class="pkg-discount-price" data-ghs="2800">GHS 2,800</span></div>
           <div class="pkg-pages">Up to 8 pages - Domain billed separately</div>
           <div class="pkg-includes">What is included</div>
           <div class="pkg-feat"><div class="pkg-dot"></div><p><strong>Up to 8 pages</strong> - full organisation website</p></div>
@@ -493,6 +500,7 @@
         </div>
         <div class="pkg-body">
           <div class="pkg-price" data-ghs="6000" data-alt="1">GHS 6,000 <sub>from</sub></div>
+          <div class="pkg-discount"><span class="pkg-discount-tag">-20%</span><span class="pkg-discount-label">Eligible orgs<sup>*</sup></span><span class="pkg-discount-price" data-ghs="4800">GHS 4,800</span></div>
           <div class="pkg-pages">Up to 15 pages - Domain billed separately</div>
           <div class="pkg-includes">What is included</div>
           <div class="pkg-feat"><div class="pkg-dot"></div><p><strong>Up to 15 pages</strong> - comprehensive website</p></div>
@@ -506,6 +514,7 @@
         </div>
       </div>
     </div>
+    <p class="pricing-note"><span class="pricing-note-star">*</span>Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package. Share your registration number in the discovery form and we confirm it in your proposal.</p>
     <p class="pricing-note"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="#C7A003" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg>Prices are set in Ghana Cedis (GHS). Amounts shown in other currencies are live approximations for your convenience - your proposal confirms the exact figure before any work begins.</p>
   </section>
 
@@ -595,7 +604,7 @@
         <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
         <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
       </div>
-      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
       <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
     </div>

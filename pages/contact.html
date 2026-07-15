@@ -169,6 +169,12 @@
 
   .hint { font-size: 11px; color: var(--midgreen); margin-top: 6px; font-weight: 300; }
 
+  .eligibility-box { background: rgba(199,160,3,0.05); border: 1px solid rgba(199,160,3,0.25); border-radius: 10px; padding: 18px 20px 6px; }
+  .eligibility-intro { font-size: 13px; font-weight: 300; color: var(--green); line-height: 1.6; margin-bottom: 16px; }
+  .eligibility-intro svg { vertical-align: -2px; margin-right: 6px; }
+  .eligibility-intro strong { color: var(--night); font-weight: 600; }
+  .eligibility-box .field:last-child { margin-bottom: 0; }
+
   .submit-area { background: var(--night); border-radius: 10px; padding: 30px 35px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
   .submit-area p { font-size: 12px; color: var(--lily); font-weight: 300; line-height: 1.6; }
   .submit-area p strong { color: var(--amber); font-weight: 500; }
@@ -284,6 +290,13 @@
               <label class="radio-pill"><input type="radio" name="clienttype" value="other"><span>Other</span></label>
             </div>
           </div>
+          <div class="field" id="eligibilityFields" style="display:none;">
+            <div class="eligibility-box">
+              <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>You may qualify for our 20% impact discount. Share your details below and we will confirm eligibility in your proposal.</p>
+              <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO / nonprofit / business registration number"><p class="hint">The number on your official registration certificate.</p></div>
+              <div class="field" id="regDateField" style="display:none;"><label>Registration date</label><input type="date" name="reg_date"><p class="hint">Startups registered under 2 years qualify - this lets us confirm.</p></div>
+            </div>
+          </div>
           <div class="field">
             <label>What type of website do you need? <span>*</span></label>
             <select name="websitetype" required>
@@ -366,12 +379,14 @@
             <select name="referral">
               <option value="" disabled selected>Select one</option>
               <option>Personal referral</option>
+              <option>KoomBei Circle member</option>
               <option>Social media</option>
               <option>WhatsApp</option>
               <option>Google search</option>
               <option>Other</option>
             </select>
           </div>
+          <div class="field"><label>Referred by a KoomBei Circle member?</label><input type="text" name="referred_by" placeholder="Their name, if someone sent you"><p class="hint">Optional - it helps us thank the member who referred you.</p></div>
           <div class="submit-area">
             <p><strong>What happens next?</strong> We will review your submission and reach out within 48 hours with a tailored proposal.</p>
             <button type="submit" class="btn-submit">Submit my project brief</button>
@@ -393,7 +408,7 @@
       <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
       <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
     </div>
-    <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
     <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
   </div>
@@ -425,6 +440,19 @@
       otherField.style.display = this.checked ? 'block' : 'none';
     });
   }
+
+  // Show the impact-discount eligibility fields based on client type.
+  // NGO / Nonprofit and Startup can qualify; startups also need a registration
+  // date so we can confirm they're under 2 years old.
+  const eligibilityFields = document.getElementById('eligibilityFields');
+  const regDateField = document.getElementById('regDateField');
+  document.querySelectorAll('input[name="clienttype"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const eligible = this.value === 'ngo' || this.value === 'startup';
+      eligibilityFields.style.display = eligible ? 'block' : 'none';
+      regDateField.style.display = this.value === 'startup' ? 'block' : 'none';
+    });
+  });
 
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();

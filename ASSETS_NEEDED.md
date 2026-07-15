@@ -45,8 +45,24 @@ Every page now loads the Clarity tracking snippet with a placeholder project ID 
 
 [ ] Create a free account at https://clarity.microsoft.com and add koombei.com as a project
 [ ] Copy the project ID Clarity gives you
-[ ] Find-and-replace `PLACEHOLDER_CLARITY_PROJECT_ID` across all 5 HTML files (`index.html` + the 4 files in `pages/`) with that ID
+[ ] Find-and-replace `PLACEHOLDER_CLARITY_PROJECT_ID` across all 6 HTML files (`index.html` + the 5 files in `pages/`, now including `circle.html`) with that ID
 [ ] Clarity is genuinely free forever (Microsoft, no tier limits as of writing) — gives session recordings + heatmaps, useful for seeing how visitors actually use the currency/language pickers and the new review form
+
+## Pricing & discount (live now)
+
+Package prices updated: **Seed GHS 2,500, Rise GHS 3,500, Summit GHS 6,000** (all auto-convert to local currency + USD). Verified NGOs, nonprofits, and startups registered under 2 years get **20% off any tier** (Seed GHS 2,000, Rise GHS 2,800, Summit GHS 4,800), shown as a discount line on every package card. The homepage "Starting from GHS 2,000" stat is deliberately the discounted Seed floor.
+
+[ ] Eligibility is confirmed manually: the discovery form now collects a **registration number** (shown for NGO/Nonprofit/Startup) and a **registration date** (Startup only, to check the under-2-years rule). Verify each applicant's number/date before confirming the discount in the proposal. This is an honor-system check — Ghana's Registrar General's Department has a public search if you ever want to spot-check.
+
+## KoomBei Circle membership (live now)
+
+New page: `pages/circle.html`, linked from every footer + a homepage teaser + the chatbot. Free membership for existing clients; the join form submits to the same Formspree inbox (`mqegqajo`) tagged "New KoomBei Circle membership request". The discovery form also gained a "Referred by a KoomBei Circle member?" field.
+
+[ ] **Set up the private community group** (WhatsApp) the Circle page promises, and send the invite link when you confirm a membership.
+[ ] **Write the members-only resource** the page promises (a site-health checklist + plain-English SEO tips). Until it exists, don't send it — or soften that benefit line.
+[ ] Decide the exact **"next project" discount** — the page says "10-15%". Pick a firm number when you quote returning members, or leave the range.
+[ ] When you feature a member, add the promised **"KoomBei Circle badge"** to their portfolio card / testimonial (not yet designed — a small amber pill would match the brand).
+[ ] The circle page's longer body copy currently shows in **English under FR/ES/PT** (nav, footer, headings, teaser, and all pricing/form strings ARE translated; only the circle page's descriptive paragraphs fall back to English). Full circle-page translation is a quick follow-up if you want it 100% localized.
 
 ## Pricing decision needed
 

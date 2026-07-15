@@ -2,12 +2,12 @@
   {
     "id": "faq-1",
     "question": "What packages do you offer?",
-    "answer": "Three tiers - Seed (GHS 2,000, up to 5 pages, 7–14 days), Rise (GHS 3,000, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL."
+    "answer": "Three tiers - Seed (GHS 2,500, up to 5 pages, 7–14 days), Rise (GHS 3,500, up to 8 pages, 14–21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21–30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL. Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package."
   },
   {
     "id": "faq-2",
     "question": "How much does a website cost?",
-    "answer": "Our packages start at GHS 2,000 for the Seed package. The Rise package is GHS 3,000 and the Summit package is GHS 6,000. Individual services (design, development, hosting, maintenance) are also available standalone. NGOs and nonprofits receive up to 20% off any package."
+    "answer": "The Seed package is GHS 2,500, Rise is GHS 3,500, and Summit is GHS 6,000. Individual services (design, development, hosting, maintenance) are also available standalone. Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package - so Seed starts from GHS 2,000 for eligible organisations."
   },
   {
     "id": "faq-3",
@@ -16,8 +16,8 @@
   },
   {
     "id": "faq-4",
-    "question": "Do you offer a discount for NGOs and nonprofits?",
-    "answer": "Yes. Verified NGOs and nonprofits receive up to 20% off any package. We believe organisations doing important mission-driven work deserve the most support. Mention your NGO status in the discovery form and we will confirm your discount in the proposal."
+    "question": "Do you offer a discount for NGOs, nonprofits, or startups?",
+    "answer": "Yes. Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package. To qualify, share your organisation's registration number in the discovery form (startups also share the registration date, so we can confirm you are under 2 years old). We confirm your discount in the proposal."
   },
   {
     "id": "faq-5",

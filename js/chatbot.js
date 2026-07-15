@@ -278,19 +278,19 @@
     },
     {
       keys: ['price', 'cost', 'how much', 'pricing', 'package', 'packages', 'rates', 'affordable', 'cheap'],
-      reply: "We have three packages:\n\n• **Seed** - GHS 2,000\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise** - GHS 3,000\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit** - GHS 6,000\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Want details on a specific package?"
+      reply: "We have three packages:\n\n• **Seed** - GHS 2,500\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise** - GHS 3,500\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit** - GHS 6,000\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Verified NGOs, nonprofits, and startups registered under 2 years get **20% off** any package. Want details on a specific package?"
     },
     {
       keys: ['seed'],
-      reply: "The **Seed** package is GHS 2,000 (shown in your local currency and USD on the site). It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Perfect for small NGOs, startups, and individuals."
+      reply: "The **Seed** package is GHS 2,500 (shown in your local currency and USD on the site), or GHS 2,000 for verified NGOs, nonprofits, and startups under 2 years. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Perfect for small NGOs, startups, and individuals."
     },
     {
       keys: ['rise package', ' rise '],
-      reply: "The **Rise** package is GHS 3,000. Everything in Seed, plus:\n\n• Up to 8 pages\n• Blog or news section\n• Gallery or portfolio section\n• Full SEO setup\n• 1 month free maintenance\n\nDelivery: 14–21 days. Ideal for growing organisations."
+      reply: "The **Rise** package is GHS 3,500 (GHS 2,800 for verified NGOs, nonprofits, and startups under 2 years). Everything in Seed, plus:\n\n• Up to 8 pages\n• Blog or news section\n• Gallery or portfolio section\n• Full SEO setup\n• 1 month free maintenance\n\nDelivery: 14–21 days. Ideal for growing organisations."
     },
     {
       keys: ['summit'],
-      reply: "The **Summit** package is GHS 6,000. Our premium tier:\n\n• Up to 15 pages\n• Donation or payment integration\n• Advanced SEO and analytics\n• 3 months free maintenance\n\nDelivery: 21–30 days. Built for established organisations that need a powerful presence."
+      reply: "The **Summit** package is GHS 6,000 (GHS 4,800 for verified NGOs, nonprofits, and startups under 2 years). Our premium tier:\n\n• Up to 15 pages\n• Donation or payment integration\n• Advanced SEO and analytics\n• 3 months free maintenance\n\nDelivery: 21–30 days. Built for established organisations that need a powerful presence."
     },
     {
       keys: ['how long', 'timeline', 'duration', 'turnaround', 'how many weeks', 'when will', 'time frame'],
@@ -310,11 +310,19 @@
     },
     {
       keys: ['ngo', 'nonprofit', 'non-profit', 'charity', 'organisation', 'organization', 'purpose-driven'],
-      reply: "Yes! We specialise in websites for NGOs and nonprofits. We understand how purpose-driven organisations need to communicate, and we've built several. Our Seed and Rise packages are especially popular with NGOs."
+      reply: "Yes! We specialise in websites for NGOs and nonprofits. We understand how purpose-driven organisations need to communicate, and we've built several. Verified NGOs, nonprofits, and startups registered under 2 years get **20% off** any package - just share your registration number in the discovery form."
     },
     {
       keys: ['maintenance', 'support', 'update', 'after launch', 'manage the site', 'monthly'],
       reply: "We offer maintenance plans from GHS 100/update, covering:\n\n• Content updates\n• Bug fixes\n• Performance monitoring\n• Priority support\n\nPost-launch support is included in all packages: 2 weeks (Seed), 1 month (Rise), 3 months (Summit)."
+    },
+    {
+      keys: ['discount', 'cheaper', 'reduce', 'startup discount', 'less than 2 years', 'under 2 years', 'eligible'],
+      reply: "Verified NGOs, nonprofits, and startups registered under 2 years get **20% off** any package:\n\n• **Seed** GHS 2,500 → GHS 2,000\n• **Rise** GHS 3,500 → GHS 2,800\n• **Summit** GHS 6,000 → GHS 4,800\n\nTo qualify, share your organisation's registration number in the discovery form. Startups also share the registration date so we can confirm you're under 2 years old."
+    },
+    {
+      keys: ['circle', 'member', 'membership', 'community', 'loyalty', 'referral', 'refer', 'benefits', 'perks'],
+      reply: "The **KoomBei Circle** is our free membership for clients we've built for. Members enjoy discounts on future work, priority support, a private community, and active promotion of their site. In return, members refer new dreamers, share honest reviews, and take part in the community. Ask us about it, or see the KoomBei Circle page."
     },
     {
       keys: ['start', 'begin', 'get started', 'how do i', 'next step', 'sign up', 'hire you', 'work with you'],

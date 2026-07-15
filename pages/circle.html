@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The KoomBei Circle - Membership for our clients</title>
+  <meta name="description" content="The KoomBei Circle is a free membership for KoomBei clients - discounts on future work, priority support, a private community, and active promotion of your site, in exchange for referrals, reviews, and participation.">
+  <meta property="og:title" content="The KoomBei Circle - Membership for our clients">
+  <meta property="og:description" content="A free membership for KoomBei clients: discounts, priority support, community, and promotion - in exchange for referrals, reviews, and participation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
+  <meta property="og:url" content="https://koombei.com/pages/circle.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
+  <link rel="canonical" href="https://koombei.com/pages/circle.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "PLACEHOLDER_CLARITY_PROJECT_ID");
+  </script>
+  <style>
+    .circle-hero {
+      background: var(--night);
+      padding: 120px 5% 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .circle-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199,160,3,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .circle-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,160,3,0.35), transparent);
+    }
+    .circle-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(199,160,3,0.1);
+      border: 1px solid rgba(199,160,3,0.3);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    .circle-hero h1 {
+      font-size: 50px;
+      font-weight: 700;
+      color: var(--lily);
+      margin-bottom: 18px;
+      line-height: 1.1;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+    .circle-hero h1 em { color: var(--amber); font-style: normal; }
+    .circle-hero p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--border);
+      max-width: 560px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.3s forwards;
+    }
+    .circle-hero-meta {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+    .circle-hero-meta div { text-align: center; }
+    .circle-hero-meta .m-num { font-family: 'Ubuntu', sans-serif; font-size: 22px; font-weight: 700; color: var(--amber); }
+    .circle-hero-meta .m-label { font-size: 11px; color: var(--midgreen); letter-spacing: 0.5px; }
+
+    /* Intro */
+    .circle-intro { max-width: 720px; margin: 0 auto; text-align: center; }
+    .circle-intro p { font-size: 15px; font-weight: 300; color: var(--green); line-height: 1.9; }
+    .circle-intro p + p { margin-top: 16px; }
+    .circle-intro strong { color: var(--night); font-weight: 600; }
+
+    /* Benefit groups */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .benefit-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px 28px;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--green));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(21,31,30,0.1); border-color: var(--amber); }
+    .benefit-card:hover::after { transform: scaleX(1); }
+    .benefit-icon {
+      width: 46px; height: 46px;
+      background: var(--night);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      transition: transform 0.3s;
+    }
+    .benefit-card:hover .benefit-icon { transform: scale(1.1); }
+    .benefit-card h3 { font-size: 17px; font-weight: 600; color: var(--night); margin-bottom: 10px; }
+    .benefit-list { list-style: none; padding: 0; margin: 0; }
+    .benefit-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1.6;
+      margin-bottom: 9px;
+    }
+    .benefit-list li:last-child { margin-bottom: 0; }
+    .benefit-list .b-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 7px; }
+    .benefit-list b { color: var(--night); font-weight: 600; }
+
+    /* Responsibilities */
+    .resp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .resp-card {
+      background: rgba(237,229,153,0.05);
+      border: 1px solid rgba(237,229,153,0.12);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      border-left: 3px solid var(--amber);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .resp-card:hover { transform: translateX(4px); background: rgba(237,229,153,0.08); }
+    .resp-num { font-family: 'Ubuntu', sans-serif; font-size: 13px; font-weight: 700; color: var(--amber); letter-spacing: 2px; margin-bottom: 12px; }
+    .resp-card h3 { font-size: 16px; font-weight: 600; color: var(--lily); margin-bottom: 8px; }
+    .resp-card p { font-size: 13px; font-weight: 300; color: var(--border); line-height: 1.7; }
+
+    /* Join form */
+    .join-wrap {
+      max-width: 620px;
+      margin: 48px auto 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .join-header { background: var(--night); padding: 26px 34px; }
+    .join-header h3 { font-size: 18px; font-weight: 600; color: var(--lily); margin-bottom: 4px; }
+    .join-header p { font-size: 12.5px; font-weight: 300; color: var(--midgreen); }
+    .join-body { padding: 32px 34px; }
+    .join-field { margin-bottom: 20px; }
+    .join-field label { display: block; font-size: 13px; font-weight: 500; color: var(--night); margin-bottom: 8px; }
+    .join-field label span { color: var(--amber); }
+    .join-field input, .join-field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--night);
+      background: var(--pale);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+    .join-field input:focus, .join-field textarea:focus { border-color: var(--amber); background: var(--white); box-shadow: 0 0 0 3px rgba(199,160,3,0.1); }
+    .join-field textarea { min-height: 90px; resize: vertical; line-height: 1.6; }
+    .join-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .join-consent {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--pale);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .join-consent input { width: 18px; height: 18px; accent-color: var(--amber); cursor: pointer; flex-shrink: 0; margin-top: 1px; }
+    .join-consent span { font-size: 12.5px; font-weight: 300; color: var(--green); line-height: 1.6; }
+    .join-submit {
+      background: var(--amber);
+      color: var(--night);
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+    .join-submit:hover { background: var(--lily); transform: translateY(-1px); }
+    .join-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .join-success {
+      display: none;
+      margin-top: 20px;
+      background: var(--green);
+      color: var(--lily);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .join-note { font-size: 11.5px; color: var(--midgreen); text-align: center; margin-top: 14px; font-weight: 300; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    .benefit-grid .benefit-card:nth-child(1) { transition-delay:0.05s; }
+    .benefit-grid .benefit-card:nth-child(2) { transition-delay:0.12s; }
+    .benefit-grid .benefit-card:nth-child(3) { transition-delay:0.19s; }
+    .benefit-grid .benefit-card:nth-child(4) { transition-delay:0.26s; }
+    .benefit-grid .benefit-card:nth-child(5) { transition-delay:0.33s; }
+    .resp-grid .resp-card:nth-child(1) { transition-delay:0.05s; }
+    .resp-grid .resp-card:nth-child(2) { transition-delay:0.14s; }
+    .resp-grid .resp-card:nth-child(3) { transition-delay:0.23s; }
+
+    @media (max-width: 900px) {
+      .circle-hero h1 { font-size: 36px; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .resp-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .join-row { grid-template-columns: 1fr; }
+      .circle-hero { padding: 90px 5% 70px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .circle-badge-pill, .circle-hero h1, .circle-hero p, .circle-hero-meta { animation: none; opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <div style="width:52px;height:52px;border:1.5px solid rgba(199,160,3,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" style="height:38px;width:auto;display:block;filter:drop-shadow(0 0 6px rgba(199,160,3,0.5));">
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="circle-hero">
+    <div class="circle-badge-pill">Members only · By invitation</div>
+    <h1>The KoomBei <em>Circle.</em></h1>
+    <p>A home for the dreamers we have already built for. Free to join, and built on a simple idea: we keep giving to the clients who keep giving back.</p>
+    <div class="circle-hero-meta">
+      <div><div class="m-num">Free</div><div class="m-label">to join, always</div></div>
+      <div><div class="m-num">Clients</div><div class="m-label">past &amp; present</div></div>
+      <div><div class="m-num">Give &amp; get</div><div class="m-label">a two-way circle</div></div>
+    </div>
+  </section>
+
+  <section class="section bg-pale fade-in">
+    <div class="circle-intro">
+      <span class="section-label">What it is</span>
+      <h2 class="section-title" style="margin-bottom:20px;">Not a subscription. A <em>partnership that pays off.</em></h2>
+      <div class="divider" style="margin:16px auto 24px;"></div>
+      <p>The KoomBei Circle is our way of staying close to the people we have already walked with. If we have built your website, you are welcome in - there is no fee, ever.</p>
+      <p>In return for real benefits, members do a few simple things that help KoomBei grow: <strong>refer new dreamers, share honest reviews, and take part in the community.</strong> It is a circle, not a one-way street - the more members put in, the more everyone gets back.</p>
+    </div>
+  </section>
+
+  <section class="section bg-white fade-in">
+    <div class="section-center">
+      <span class="section-label">Member benefits</span>
+      <h2 class="section-title">What you get as a <em>member.</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Practical perks that matter to a growing organisation - not gimmicks.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M12.5 7.5c-.6-.8-1.6-1.2-2.6-1.1-1.4 0-2.5.9-2.5 2s1.1 1.7 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2c-1 .1-2-.3-2.6-1.1M10 5v10" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Member pricing</h3>
+        <ul class="benefit-list">
+          <li><span class="b-dot"></span><span><b>10-15% off</b> your next project - a new site, a redesign, or a second site for a new programme</span></li>
+          <li><span class="b-dot"></span><span><b>Discounted maintenance</b> at <b data-ghs="70">GHS 70</b> per update instead of GHS 100</span></li>
+          <li><span class="b-dot"></span><span><b>A couple of free updates</b> each year - small content or image swaps, on us</span></li>
+        </ul>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M11 2 3 11h5l-1 7 8-9h-5l1-7z" stroke="#EDE599" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>Priority treatment</h3>
+        <ul class="benefit-list">
+          <li><span class="b-dot"></span><span><b>Priority response</b> - we aim to reply within 24 hours instead of the standard 48</span></li>
+          <li><span class="b-dot"></span><span><b>Queue priority</b> when you book new work during our busy periods</span></li>
+        </ul>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#EDE599" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+        <h3>Visibility &amp; promotion</h3>
+        <ul class="benefit-list">
+          <li><span class="b-dot"></span><span>A <b>KoomBei Circle badge</b> on your portfolio card and testimonial</span></li>
+          <li><span class="b-dot"></span><span>We <b>actively promote your site</b> - a shout-out, a backlink, and a spot in any client-spotlight content</span></li>
+        </ul>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="7" r="2.5" stroke="#EDE599" stroke-width="1.5"/><circle cx="14" cy="8" r="2" stroke="#C7A003" stroke-width="1.5"/><path d="M3 16c0-2.2 1.8-4 4-4s4 1.8 4 4M12 15c0-1.8 1.3-3 3-3s3 1.2 3 3" stroke="#EDE599" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>A private community</h3>
+        <ul class="benefit-list">
+          <li><span class="b-dot"></span><span>Access to a <b>private WhatsApp group</b> of other KoomBei clients - founders and NGO leads who talk to each other, not just to us</span></li>
+          <li><span class="b-dot"></span><span>A place to swap ideas, ask questions, and find collaborators</span></li>
+        </ul>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon"><svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M4 3h9a2 2 0 0 1 2 2v12l-3.5-2L8 17V5a2 2 0 0 0-2-2H4z" stroke="#EDE599" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 3v12" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3>Members-only know-how</h3>
+        <ul class="benefit-list">
+          <li><span class="b-dot"></span><span>A practical <b>site-health checklist</b> and plain-English SEO tips written for non-technical founders</span></li>
+          <li><span class="b-dot"></span><span>First look at new KoomBei services and offers</span></li>
+        </ul>
+      </div>
+      <div class="benefit-card fade-in" style="display:flex;flex-direction:column;justify-content:center;background:var(--night);border-color:rgba(199,160,3,0.3);">
+        <h3 style="color:var(--lily);">Already a client?</h3>
+        <p style="font-size:13px;font-weight:300;color:var(--border);line-height:1.7;margin-bottom:18px;">If we have built your website, you are already eligible. Joining takes two minutes.</p>
+        <a href="#join" class="btn btn-primary" style="align-self:flex-start;">Join the Circle</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-night fade-in">
+    <div class="section-center">
+      <span class="section-label" style="color:var(--midgreen);">Member responsibilities</span>
+      <h2 class="section-title" style="color:var(--lily);">A circle only works if <em>everyone gives.</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="color:var(--border);">These are not fine print - they are the whole point. Membership is free because members help KoomBei grow.</p>
+    </div>
+    <div class="resp-grid">
+      <div class="resp-card fade-in">
+        <div class="resp-num">01</div>
+        <h3>Refer new dreamers</h3>
+        <p>When you meet an NGO, startup, or business that needs a website, send them our way. Every referral you make is a dreamer you help rise - and it is the single biggest way you keep the Circle strong.</p>
+      </div>
+      <div class="resp-card fade-in">
+        <div class="resp-num">02</div>
+        <h3>Share honest reviews</h3>
+        <p>Leave a genuine review of your experience, and let us feature your project as a case study or testimonial. Your honest words help the next dreamer trust us.</p>
+      </div>
+      <div class="resp-card fade-in">
+        <div class="resp-num">03</div>
+        <h3>Take part</h3>
+        <p>Join the community group, answer the occasional survey, and show up now and then. The Circle is only as valuable as the people willing to be present in it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-pale fade-in" id="join">
+    <div class="section-center">
+      <span class="section-label">Join the Circle</span>
+      <h2 class="section-title">Ready to <em>join?</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Open to past and present KoomBei clients. Tell us a little about you and we will welcome you in.</p>
+    </div>
+    <div class="join-wrap">
+      <div class="join-header">
+        <h3>KoomBei Circle membership</h3>
+        <p>Free to join. We confirm your membership by email.</p>
+      </div>
+      <div class="join-body">
+        <form id="circleForm" action="https://formspree.io/f/mqegqajo" method="POST">
+          <input type="hidden" name="_subject" value="New KoomBei Circle membership request">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="join-row">
+            <div class="join-field"><label>Full name <span>*</span></label><input type="text" name="fullname" placeholder="Your full name" required></div>
+            <div class="join-field"><label>Email address <span>*</span></label><input type="email" name="email" placeholder="your@email.com" required></div>
+          </div>
+          <div class="join-row">
+            <div class="join-field"><label>Organisation / business</label><input type="text" name="org" placeholder="If applicable"></div>
+            <div class="join-field"><label>WhatsApp number</label><input type="tel" name="whatsapp" placeholder="For the community group"></div>
+          </div>
+          <div class="join-field"><label>Which project did we build for you? <span>*</span></label><input type="text" name="project" placeholder="Your website or project name - helps us confirm you're a client" required></div>
+          <div class="join-field"><label>Anything you'd like to tell us?</label><textarea name="message" placeholder="Optional - how you'd like to be involved, ideas, questions"></textarea></div>
+          <label class="join-consent">
+            <input type="checkbox" name="agree_responsibilities" value="yes" required>
+            <span>I understand the KoomBei Circle is a two-way relationship, and I'm happy to refer new dreamers, share honest reviews, and take part in the community.</span>
+          </label>
+          <button type="submit" class="join-submit">Request my membership</button>
+          <p class="join-note">We review every request and confirm by email, usually within 48 hours.</p>
+          <div class="join-success" id="circleSuccess">Welcome. Your membership request has been received - we'll confirm by email and send you the community invite soon. Dream with us. Rise with us.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" style="height:52px;width:auto;display:block;margin-bottom:12px;">
+        <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
+        <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
+      </div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <span>KoomBei</span>. All rights reserved.</p>
+      <p>Dream with us. Rise with us.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/233206634459?text=Hi%20KoomBei%2C%20I%20would%20like%20to%20discuss%20a%20project." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.123 1.528 5.855L.057 23.428a.75.75 0 00.916.916l5.573-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 01-4.964-1.365l-.356-.212-3.696.976.976-3.696-.212-.356A9.695 9.695 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </a>
+  <style>
+    .wa-float { position:fixed; bottom:28px; right:28px; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(37,211,102,0.4); z-index:999; transition:transform 0.2s, box-shadow 0.2s; }
+    .wa-float:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 8px 24px rgba(37,211,102,0.5); }
+  </style>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/motion.js"></script>
+  <script src="../js/consent.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Circle membership form submission (AJAX to Formspree, same pattern as the other forms)
+    const circleForm = document.getElementById('circleForm');
+    if (circleForm) {
+      circleForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.join-submit');
+        const originalText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            document.getElementById('circleSuccess').style.display = 'block';
+            this.reset();
+            btn.style.display = 'none';
+          } else {
+            btn.textContent = originalText;
+            btn.disabled = false;
+            alert('Something went wrong. Please try again.');
+          }
+        } catch (err) {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          alert('Network error. Please try again.');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

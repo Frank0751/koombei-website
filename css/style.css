@@ -621,6 +621,8 @@ nav > .nav-links { margin-left: auto; }
 }
 
 .pricing-note svg { vertical-align: -2px; margin-right: 6px; }
+.pricing-note + .pricing-note { margin-top: 8px; }
+.pricing-note-star { color: var(--amber); font-weight: 700; margin-right: 4px; }
 
 /* ── SCROLL PROGRESS BAR ── */
 .scroll-progress {
