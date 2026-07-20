@@ -334,7 +334,7 @@
     },
     {
       keys: ['react', 'html', 'css', 'javascript', 'technology', 'tech stack', 'built with', 'tools you use'],
-      reply: "We build with:\n\n• HTML, CSS, JavaScript - for straightforward sites\n• React + Vite or Next.js - for complex platforms\n• Sanity.io - for CMS-powered sites\n• Vercel or Netlify - for hosting\n• Cloudinary - for media\n• Formspree - for contact forms"
+      reply: "We build with:\n\n• HTML, CSS, JavaScript - for straightforward sites\n• React + Vite or Next.js - for complex platforms\n• Sanity.io - for CMS-powered sites\n• Vercel or Netlify - for hosting\n• Cloudinary - for media\n• Web3Forms - for contact forms"
     },
     {
       keys: ['hosting', 'domain', 'vercel', 'netlify', 'deploy'],
@@ -386,13 +386,26 @@
     document.body.appendChild(wrap);
   }
 
+  // Neutralise any HTML in the string so user-typed markup can't be injected
+  // into the DOM. Bot replies use only **bold** and newlines, which we re-add
+  // as safe markup AFTER escaping - so formatting still works, but a message
+  // like "<img src=x onerror=...>" is rendered as harmless text.
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function addMsg(text, role) {
     const msgs = document.getElementById('kb-messages');
     const div = document.createElement('div');
     div.className = 'kb-msg ' + (role === 'bot' ? 'kb-bot' : 'kb-user');
     const bubble = document.createElement('div');
     bubble.className = 'kb-bubble';
-    bubble.innerHTML = text
+    bubble.innerHTML = escapeHtml(text)
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\n/g, '<br>');
     div.appendChild(bubble);

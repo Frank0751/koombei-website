@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Login - KoomBei Circle</title>
+  <meta name="description" content="Log in to your KoomBei Circle membership - a free account for KoomBei clients with discounts, priority support, and a private community.">
+  <meta property="og:title" content="Member Login - KoomBei Circle">
+  <meta property="og:description" content="Log in to your KoomBei Circle membership.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
+  <meta property="og:url" content="https://koombei.com/pages/members.html">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://koombei.com/pages/members.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "PLACEHOLDER_CLARITY_PROJECT_ID");
+  </script>
+  <style>
+    .members-hero {
+      background: var(--night);
+      padding: 100px 5% 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .members-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,160,3,0.3), transparent);
+    }
+    .members-hero h1 {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--lily);
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+    .members-hero h1 em { color: var(--amber); font-style: normal; }
+    .members-hero p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--border);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.3s forwards;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    .members-wrap { max-width: 560px; margin: 0 auto; }
+
+    .m-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .m-card-header { background: var(--night); padding: 26px 34px; }
+    .m-card-header h3 { font-size: 17px; font-weight: 600; color: var(--lily); margin-bottom: 4px; }
+    .m-card-header p { font-size: 12.5px; font-weight: 300; color: var(--midgreen); }
+    .m-card-body { padding: 32px 34px; }
+
+    .m-field { margin-bottom: 18px; }
+    .m-field label { display: block; font-size: 13px; font-weight: 500; color: var(--night); margin-bottom: 8px; }
+    .m-field label span { color: var(--amber); }
+    .m-field input, .m-field textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--night);
+      background: var(--pale);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+    .m-field input:focus, .m-field textarea:focus { border-color: var(--amber); background: var(--white); box-shadow: 0 0 0 3px rgba(199,160,3,0.1); }
+    .m-field textarea { min-height: 80px; resize: vertical; line-height: 1.6; }
+    .m-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .m-btn {
+      background: var(--amber);
+      color: var(--night);
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+    .m-btn:hover { background: var(--lily); transform: translateY(-1px); }
+    .m-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .m-btn-outline {
+      background: transparent;
+      color: var(--midgreen);
+      border: 1.5px solid var(--border);
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .m-btn-outline:hover { border-color: var(--amber); color: var(--night); }
+
+    .m-hint { font-size: 11.5px; color: var(--midgreen); text-align: center; margin-top: 14px; font-weight: 300; }
+    .m-error { display: none; background: rgba(199,60,60,0.08); border: 1px solid rgba(199,60,60,0.3); color: #8a3a3a; border-radius: 8px; padding: 12px 16px; font-size: 12.5px; margin-bottom: 18px; }
+
+    .m-icon-badge {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .m-icon-badge.pending { background: rgba(199,160,3,0.1); border: 2px solid rgba(199,160,3,0.35); }
+    .m-icon-badge.approved { background: rgba(61,78,23,0.1); border: 2px solid rgba(61,78,23,0.35); }
+
+    .m-status-title { font-size: 20px; font-weight: 700; color: var(--night); text-align: center; margin-bottom: 10px; }
+    .m-status-body { font-size: 13.5px; font-weight: 300; color: var(--green); line-height: 1.8; text-align: center; max-width: 420px; margin: 0 auto 24px; }
+
+    .m-perk-list { list-style: none; padding: 0; margin: 0 0 28px; }
+    .m-perk-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+      font-size: 13px; font-weight: 300; color: var(--green); line-height: 1.6;
+    }
+    .m-perk-list li:first-child { border-top: none; }
+    .m-perk-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 7px; }
+    .m-perk-list b { color: var(--night); font-weight: 600; }
+    .m-perk-list a { color: var(--amber); font-weight: 500; }
+
+    .m-signout-row { text-align: center; margin-top: 24px; }
+
+    .m-loading { text-align: center; padding: 40px 0; color: var(--midgreen); font-size: 13px; }
+
+    @media (max-width: 600px) {
+      .m-row { grid-template-columns: 1fr; }
+      .m-card-body { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <div style="width:52px;height:52px;border:1.5px solid rgba(199,160,3,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" style="height:38px;width:auto;display:block;filter:drop-shadow(0 0 6px rgba(199,160,3,0.5));">
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="members-hero">
+    <h1>KoomBei <em>Circle</em> members</h1>
+    <p>Your account, your membership status, and your perks - all in one place.</p>
+  </section>
+
+  <section class="section bg-pale fade-in">
+    <div class="members-wrap">
+
+      <!-- STATE: checking session -->
+      <div id="stateLoading" class="m-loading">Checking your session...</div>
+
+      <!-- STATE: not logged in -->
+      <div id="stateLogin" class="m-card" style="display:none;">
+        <div class="m-card-header">
+          <h3>Log in to the Circle</h3>
+          <p>Enter the email you joined with. We'll send you a secure login link.</p>
+        </div>
+        <div class="m-card-body">
+          <div class="m-error" id="loginError"></div>
+          <form id="loginForm">
+            <div class="m-field"><label>Email address <span>*</span></label><input type="email" name="email" placeholder="your@email.com" maxlength="150" required></div>
+            <button type="submit" class="m-btn" id="loginBtn">Send my login link</button>
+          </form>
+          <p class="m-hint">New to the Circle? <a href="circle.html" style="color:var(--amber);font-weight:500;">Join here</a> first.</p>
+          <div id="loginSent" style="display:none;">
+            <div class="m-error" style="display:block;background:rgba(61,78,23,0.08);border-color:rgba(61,78,23,0.3);color:var(--green);">Check your email - we've sent you a login link. It may take a minute to arrive.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATE: logged in, completing profile (no draft found) -->
+      <div id="stateComplete" class="m-card" style="display:none;">
+        <div class="m-card-header">
+          <h3>Finish joining the Circle</h3>
+          <p>Just a couple of details to confirm you're a KoomBei client.</p>
+        </div>
+        <div class="m-card-body">
+          <div class="m-error" id="completeError"></div>
+          <form id="completeForm">
+            <div class="m-field"><label>Full name <span>*</span></label><input type="text" name="full_name" placeholder="Your full name" maxlength="100" required></div>
+            <div class="m-row">
+              <div class="m-field"><label>Organisation / business</label><input type="text" name="organisation" placeholder="If applicable" maxlength="150"></div>
+              <div class="m-field"><label>WhatsApp number</label><input type="tel" name="whatsapp" placeholder="For the community group" maxlength="30"></div>
+            </div>
+            <div class="m-field"><label>Which project did we build for you? <span>*</span></label><input type="text" name="project" placeholder="Your website or project name" maxlength="200" required></div>
+            <button type="submit" class="m-btn" id="completeBtn">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- STATE: pending approval -->
+      <div id="statePending" class="m-card" style="display:none;">
+        <div class="m-card-body">
+          <div class="m-icon-badge pending"><svg width="24" height="24" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#C7A003" stroke-width="1.5"/><path d="M10 6v4l2.5 2" stroke="#C7A003" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="m-status-title">You're on the list</div>
+          <div class="m-status-body">Thanks for joining, <span id="pendingName">there</span>. We review every membership request against our client records and confirm within 48 hours. We'll email you the moment you're approved.</div>
+          <div class="m-signout-row"><button class="m-btn-outline" id="signOutBtnPending">Sign out</button></div>
+        </div>
+      </div>
+
+      <!-- STATE: approved -->
+      <div id="stateApproved" class="m-card" style="display:none;">
+        <div class="m-card-body">
+          <div class="m-icon-badge approved"><svg width="24" height="24" viewBox="0 0 20 20" fill="none"><path d="M3 10.5l4.5 4.5L17 5.5" stroke="#3D4E17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="m-status-title">Welcome to the Circle, <span id="approvedName">friend</span></div>
+          <div class="m-status-body">You're a confirmed member. Here's what's yours:</div>
+          <ul class="m-perk-list">
+            <li><span class="m-perk-dot"></span><span><b>10-15% off</b> your next project - mention your membership when you get in touch.</span></li>
+            <li><span class="m-perk-dot"></span><span><b>Discounted maintenance</b> at GHS 70 per update instead of GHS 100.</span></li>
+            <li><span class="m-perk-dot"></span><span><b>Priority response</b> - we aim to reply within 24 hours.</span></li>
+            <li><span class="m-perk-dot"></span><span><b>Private community</b> - we'll send your WhatsApp group invite by email shortly.</span></li>
+            <li><span class="m-perk-dot"></span><span>Questions or ready to use a perk? <a href="contact.html">Get in touch</a> and mention you're a Circle member.</span></li>
+          </ul>
+          <div class="m-signout-row"><button class="m-btn-outline" id="signOutBtnApproved">Sign out</button></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" style="height:52px;width:auto;display:block;margin-bottom:12px;">
+        <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
+        <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
+      </div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <span>KoomBei</span>. All rights reserved.</p>
+      <p>Dream with us. Rise with us.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/233206634459?text=Hi%20KoomBei%2C%20I%20would%20like%20to%20discuss%20a%20project." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.123 1.528 5.855L.057 23.428a.75.75 0 00.916.916l5.573-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 01-4.964-1.365l-.356-.212-3.696.976.976-3.696-.212-.356A9.695 9.695 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </a>
+  <style>
+    .wa-float { position:fixed; bottom:28px; right:28px; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(37,211,102,0.4); z-index:999; transition:transform 0.2s, box-shadow 0.2s; }
+    .wa-float:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 8px 24px rgba(37,211,102,0.5); }
+  </style>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script src="../js/currency.js"></script>
+  <script src="../js/motion.js"></script>
+  <script src="../js/consent.js"></script>
+  <script src="../js/security.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Best-effort email to the site owner when a new pending member shows up.
+    // Never blocks the member's own flow if it fails.
+    function notifyOwnerOfNewMember(email, fields) {
+      try {
+        var fd = new FormData();
+        fd.append('access_key', 'f33c3119-d8ec-4bf2-bcf7-932cb7e553ca');
+        fd.append('subject', 'New KoomBei Circle member pending approval');
+        fd.append('email', email);
+        fd.append('full_name', fields.full_name || '');
+        fd.append('organisation', fields.organisation || '');
+        fd.append('whatsapp', fields.whatsapp || '');
+        fd.append('project', fields.project || '');
+        fd.append('message', fields.message || '');
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } }).catch(function () {});
+      } catch (e) { /* ignore - this is a courtesy notification, not critical path */ }
+    }
+
+    function showState(id) {
+      ['stateLoading', 'stateLogin', 'stateComplete', 'statePending', 'stateApproved'].forEach(function (s) {
+        document.getElementById(s).style.display = (s === id) ? 'block' : 'none';
+      });
+    }
+
+    async function boot() {
+      if (!window.KBAuth) {
+        window.addEventListener('kbauth:ready', boot, { once: true });
+        return;
+      }
+
+      wireLoginForm();
+      wireCompleteForm();
+      wireSignOut();
+
+      const session = await window.KBAuth.getSession();
+      if (!session) { showState('stateLogin'); return; }
+
+      let profile = null;
+      try { profile = await window.KBAuth.getProfile(session.user.id); }
+      catch (e) { showState('stateLogin'); return; }
+
+      if (!profile) {
+        // No profile yet - use the cached join-form draft if we have one,
+        // otherwise ask for the missing details right here.
+        const draft = window.KBAuth.readDraft();
+        if (draft && draft.email && draft.email.toLowerCase() === (session.user.email || '').toLowerCase()) {
+          try {
+            await window.KBAuth.createProfile(session.user.id, session.user.email, draft.fields);
+            window.KBAuth.clearDraft();
+            notifyOwnerOfNewMember(session.user.email, draft.fields);
+            document.getElementById('pendingName').textContent = draft.fields.full_name || 'there';
+            showState('statePending');
+            return;
+          } catch (e) {
+            // Fall through to the manual complete-profile form.
+          }
+        }
+        showState('stateComplete');
+        return;
+      }
+
+      if (profile.approved) {
+        document.getElementById('approvedName').textContent = profile.full_name || 'friend';
+        showState('stateApproved');
+      } else {
+        document.getElementById('pendingName').textContent = profile.full_name || 'there';
+        showState('statePending');
+      }
+    }
+
+    function wireLoginForm() {
+      const form = document.getElementById('loginForm');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const guard = window.KBSpam ? window.KBSpam.check(this) : '';
+        const errorBox = document.getElementById('loginError');
+        errorBox.style.display = 'none';
+        if (guard === 'bot') return;
+        if (guard) { errorBox.textContent = window.KBSpam.message(guard); errorBox.style.display = 'block'; return; }
+
+        const btn = document.getElementById('loginBtn');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        const email = this.querySelector('input[name="email"]').value.trim();
+        try {
+          const { error } = await window.KBAuth.sendMagicLink(email);
+          if (error) throw error;
+          if (window.KBSpam) window.KBSpam.mark(this);
+          form.style.display = 'none';
+          document.getElementById('loginSent').style.display = 'block';
+        } catch (err) {
+          btn.textContent = 'Send my login link';
+          btn.disabled = false;
+          errorBox.textContent = 'Something went wrong. Please check the email address and try again.';
+          errorBox.style.display = 'block';
+        }
+      });
+    }
+
+    function wireCompleteForm() {
+      const form = document.getElementById('completeForm');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const errorBox = document.getElementById('completeError');
+        errorBox.style.display = 'none';
+        const btn = document.getElementById('completeBtn');
+        btn.textContent = 'Submitting...';
+        btn.disabled = true;
+
+        const fields = {
+          full_name: this.querySelector('input[name="full_name"]').value.trim(),
+          organisation: this.querySelector('input[name="organisation"]').value.trim(),
+          whatsapp: this.querySelector('input[name="whatsapp"]').value.trim(),
+          project: this.querySelector('input[name="project"]').value.trim()
+        };
+
+        try {
+          const session = await window.KBAuth.getSession();
+          if (!session) throw new Error('no session');
+          await window.KBAuth.createProfile(session.user.id, session.user.email, fields);
+          notifyOwnerOfNewMember(session.user.email, fields);
+          document.getElementById('pendingName').textContent = fields.full_name || 'there';
+          showState('statePending');
+        } catch (err) {
+          btn.textContent = 'Submit';
+          btn.disabled = false;
+          errorBox.textContent = 'Something went wrong submitting your details. Please try again.';
+          errorBox.style.display = 'block';
+        }
+      });
+    }
+
+    function wireSignOut() {
+      ['signOutBtnPending', 'signOutBtnApproved'].forEach(function (id) {
+        document.getElementById(id).addEventListener('click', async function () {
+          await window.KBAuth.signOut();
+          location.reload();
+        });
+      });
+    }
+
+    boot();
+  </script>
+</body>
+</html>

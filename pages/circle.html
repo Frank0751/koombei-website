@@ -409,34 +409,36 @@
       <span class="section-label">Join the Circle</span>
       <h2 class="section-title">Ready to <em>join?</em></h2>
       <div class="divider"></div>
-      <p class="section-sub">Open to past and present KoomBei clients. Tell us a little about you and we will welcome you in.</p>
+      <p class="section-sub">Open to past and present KoomBei clients. Tell us a little about you and we'll email you a secure login link - no password to remember.</p>
     </div>
     <div class="join-wrap">
       <div class="join-header">
         <h3>KoomBei Circle membership</h3>
-        <p>Free to join. We confirm your membership by email.</p>
+        <p>Free to join. We'll email you a login link to finish setting up your account.</p>
       </div>
       <div class="join-body">
-        <form id="circleForm" action="https://formspree.io/f/mqegqajo" method="POST">
-          <input type="hidden" name="_subject" value="New KoomBei Circle membership request">
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <form id="circleForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
+          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
+          <input type="hidden" name="subject" value="New KoomBei Circle membership request (fallback - JS unavailable)">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="join-row">
-            <div class="join-field"><label>Full name <span>*</span></label><input type="text" name="fullname" placeholder="Your full name" required></div>
-            <div class="join-field"><label>Email address <span>*</span></label><input type="email" name="email" placeholder="your@email.com" required></div>
+            <div class="join-field"><label>Full name <span>*</span></label><input type="text" name="fullname" placeholder="Your full name" maxlength="100" required></div>
+            <div class="join-field"><label>Email address <span>*</span></label><input type="email" name="email" placeholder="your@email.com" maxlength="150" required></div>
           </div>
           <div class="join-row">
-            <div class="join-field"><label>Organisation / business</label><input type="text" name="org" placeholder="If applicable"></div>
-            <div class="join-field"><label>WhatsApp number</label><input type="tel" name="whatsapp" placeholder="For the community group"></div>
+            <div class="join-field"><label>Organisation / business</label><input type="text" name="org" placeholder="If applicable" maxlength="150"></div>
+            <div class="join-field"><label>WhatsApp number</label><input type="tel" name="whatsapp" placeholder="For the community group" maxlength="30"></div>
           </div>
-          <div class="join-field"><label>Which project did we build for you? <span>*</span></label><input type="text" name="project" placeholder="Your website or project name - helps us confirm you're a client" required></div>
-          <div class="join-field"><label>Anything you'd like to tell us?</label><textarea name="message" placeholder="Optional - how you'd like to be involved, ideas, questions"></textarea></div>
+          <div class="join-field"><label>Which project did we build for you? <span>*</span></label><input type="text" name="project" placeholder="Your website or project name - helps us confirm you're a client" maxlength="200" required></div>
+          <div class="join-field"><label>Anything you'd like to tell us?</label><textarea name="message" placeholder="Optional - how you'd like to be involved, ideas, questions" maxlength="1500"></textarea></div>
           <label class="join-consent">
             <input type="checkbox" name="agree_responsibilities" value="yes" required>
             <span>I understand the KoomBei Circle is a two-way relationship, and I'm happy to refer new dreamers, share honest reviews, and take part in the community.</span>
           </label>
-          <button type="submit" class="join-submit">Request my membership</button>
-          <p class="join-note">We review every request and confirm by email, usually within 48 hours.</p>
-          <div class="join-success" id="circleSuccess">Welcome. Your membership request has been received - we'll confirm by email and send you the community invite soon. Dream with us. Rise with us.</div>
+          <button type="submit" class="join-submit">Send my login link</button>
+          <p class="join-note">We'll email you a secure link. Click it to finish joining - your membership is reviewed and confirmed within 48 hours.</p>
+          <p class="join-note">Already a member? <a href="members.html" style="color:var(--amber);font-weight:500;">Log in here</a>.</p>
+          <div class="join-success" id="circleSuccess">Check your email - we've sent you a secure login link. Click it to finish setting up your account. Dream with us. Rise with us.</div>
         </form>
       </div>
     </div>
@@ -449,7 +451,7 @@
         <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
         <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
       </div>
-      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li><li><a href="members.html">Member Login</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
       <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
     </div>
@@ -472,6 +474,8 @@
   <script src="../js/currency.js"></script>
   <script src="../js/motion.js"></script>
   <script src="../js/consent.js"></script>
+  <script src="../js/security.js"></script>
+  <script type="module" src="../js/auth.js"></script>
   <script src="../js/chatbot.js"></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -479,30 +483,45 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Circle membership form submission (AJAX to Formspree, same pattern as the other forms)
+    // Circle membership: request a magic-link login via Supabase (js/auth.js).
+    // If the auth module hasn't loaded (e.g. blocked, or a very old browser),
+    // we deliberately do NOT preventDefault - the form falls back to a plain
+    // POST to Web3Forms, so the request still reaches us by email either way.
     const circleForm = document.getElementById('circleForm');
     if (circleForm) {
       circleForm.addEventListener('submit', async function(e) {
+        if (!window.KBAuth) return; // let the Web3Forms fallback submit happen
         e.preventDefault();
+        const guard = window.KBSpam ? window.KBSpam.check(this) : '';
+        if (guard === 'bot') return;
+        if (guard) { alert(window.KBSpam.message(guard)); return; }
+
         const btn = this.querySelector('.join-submit');
         const originalText = btn.textContent;
         btn.textContent = 'Sending...';
         btn.disabled = true;
+
+        const email = this.querySelector('input[name="email"]').value.trim();
+        const fields = {
+          full_name: this.querySelector('input[name="fullname"]').value.trim(),
+          organisation: this.querySelector('input[name="org"]').value.trim(),
+          whatsapp: this.querySelector('input[name="whatsapp"]').value.trim(),
+          project: this.querySelector('input[name="project"]').value.trim(),
+          message: this.querySelector('textarea[name="message"]').value.trim()
+        };
+
         try {
-          const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
-          if (res.ok) {
-            document.getElementById('circleSuccess').style.display = 'block';
-            this.reset();
-            btn.style.display = 'none';
-          } else {
-            btn.textContent = originalText;
-            btn.disabled = false;
-            alert('Something went wrong. Please try again.');
-          }
+          const { error } = await window.KBAuth.sendMagicLink(email);
+          if (error) throw error;
+          window.KBAuth.saveDraft(email, fields);
+          if (window.KBSpam) window.KBSpam.mark(this);
+          document.getElementById('circleSuccess').style.display = 'block';
+          this.reset();
+          btn.style.display = 'none';
         } catch (err) {
           btn.textContent = originalText;
           btn.disabled = false;
-          alert('Network error. Please try again.');
+          alert('Something went wrong sending your login link. Please check the email address and try again.');
         }
       });
     }

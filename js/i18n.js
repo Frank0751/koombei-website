@@ -761,7 +761,15 @@ KBI18N.setDict('fr', {
   "Discounts on future projects & maintenance": "Réductions sur les projets futurs et la maintenance",
   "Priority 24-hour response": "Réponse prioritaire sous 24 heures",
   "We actively promote your site": "Nous promouvons activement votre site",
-  "A private community of KoomBei clients": "Une communauté privée de clients KoomBei"
+  "A private community of KoomBei clients": "Une communauté privée de clients KoomBei",
+  "Member Login": "Espace membre",
+  "Tell us a little about you and we'll email you a secure login link - no password to remember.": "Parlez-nous un peu de vous et nous vous enverrons un lien de connexion sécurisé par e-mail - aucun mot de passe à retenir.",
+  "Free to join. We'll email you a login link to finish setting up your account.": "Adhésion gratuite. Nous vous enverrons un lien de connexion par e-mail pour finaliser votre compte.",
+  "Send my login link": "Envoyer mon lien de connexion",
+  "We'll email you a secure link. Click it to finish joining - your membership is reviewed and confirmed within 48 hours.": "Nous vous enverrons un lien sécurisé par e-mail. Cliquez dessus pour finaliser votre adhésion - elle est examinée et confirmée sous 48 heures.",
+  "Already a member?": "Déjà membre ?",
+  "Log in here": "Connectez-vous ici",
+  "Check your email - we've sent you a secure login link. Click it to finish setting up your account. Dream with us. Rise with us.": "Vérifiez vos e-mails - nous vous avons envoyé un lien de connexion sécurisé. Cliquez dessus pour finaliser votre compte. Dream with us. Rise with us."
 });
 
 /* ── ESPAÑOL ── */
@@ -1262,7 +1270,15 @@ KBI18N.setDict('es', {
   "Discounts on future projects & maintenance": "Descuentos en proyectos futuros y mantenimiento",
   "Priority 24-hour response": "Respuesta prioritaria en 24 horas",
   "We actively promote your site": "Promovemos activamente tu sitio",
-  "A private community of KoomBei clients": "Una comunidad privada de clientes de KoomBei"
+  "A private community of KoomBei clients": "Una comunidad privada de clientes de KoomBei",
+  "Member Login": "Acceso de miembros",
+  "Tell us a little about you and we'll email you a secure login link - no password to remember.": "Cuéntanos un poco sobre ti y te enviaremos un enlace de acceso seguro por correo - sin contraseña que recordar.",
+  "Free to join. We'll email you a login link to finish setting up your account.": "Únete gratis. Te enviaremos un enlace de acceso por correo para completar tu cuenta.",
+  "Send my login link": "Enviar mi enlace de acceso",
+  "We'll email you a secure link. Click it to finish joining - your membership is reviewed and confirmed within 48 hours.": "Te enviaremos un enlace seguro por correo. Haz clic en él para completar tu registro - tu membresía se revisa y confirma en 48 horas.",
+  "Already a member?": "¿Ya eres miembro?",
+  "Log in here": "Inicia sesión aquí",
+  "Check your email - we've sent you a secure login link. Click it to finish setting up your account. Dream with us. Rise with us.": "Revisa tu correo - te hemos enviado un enlace de acceso seguro. Haz clic en él para completar tu cuenta. Dream with us. Rise with us."
 });
 
 /* ── PORTUGUÊS ── */
@@ -1763,5 +1779,13 @@ KBI18N.setDict('pt', {
   "Discounts on future projects & maintenance": "Descontos em projetos futuros e manutenção",
   "Priority 24-hour response": "Resposta prioritária em 24 horas",
   "We actively promote your site": "Promovemos ativamente o seu site",
-  "A private community of KoomBei clients": "Uma comunidade privada de clientes KoomBei"
+  "A private community of KoomBei clients": "Uma comunidade privada de clientes KoomBei",
+  "Member Login": "Área de membros",
+  "Tell us a little about you and we'll email you a secure login link - no password to remember.": "Conte-nos um pouco sobre si e enviaremos um link de acesso seguro por e-mail - sem palavra-passe para memorizar.",
+  "Free to join. We'll email you a login link to finish setting up your account.": "Adesão gratuita. Enviaremos um link de acesso por e-mail para concluir a sua conta.",
+  "Send my login link": "Enviar o meu link de acesso",
+  "We'll email you a secure link. Click it to finish joining - your membership is reviewed and confirmed within 48 hours.": "Enviaremos um link seguro por e-mail. Clique nele para concluir a adesão - a sua inscrição é analisada e confirmada em 48 horas.",
+  "Already a member?": "Já é membro?",
+  "Log in here": "Inicie sessão aqui",
+  "Check your email - we've sent you a secure login link. Click it to finish setting up your account. Dream with us. Rise with us.": "Verifique o seu e-mail - enviámos um link de acesso seguro. Clique nele para concluir a sua conta. Dream with us. Rise with us."
 });

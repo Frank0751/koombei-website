@@ -2022,9 +2022,10 @@
         <h3>Rate your experience</h3>
         <p>Worked with KoomBei? Tell us how it went. We read every submission and feature the best ones right here.</p>
       </div>
-      <form id="reviewForm" class="review-form" action="https://formspree.io/f/mqegqajo" method="POST">
-        <input type="hidden" name="_subject" value="New KoomBei review submission">
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <form id="reviewForm" class="review-form" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
+        <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
+        <input type="hidden" name="subject" value="New KoomBei review submission">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="review-star-picker" role="radiogroup" aria-label="Star rating">
           <input type="radio" name="rating" value="5" id="rate-5" required><label for="rate-5" aria-label="5 stars">★</label>
           <input type="radio" name="rating" value="4" id="rate-4"><label for="rate-4" aria-label="4 stars">★</label>
@@ -2033,10 +2034,10 @@
           <input type="radio" name="rating" value="1" id="rate-1"><label for="rate-1" aria-label="1 star">★</label>
         </div>
         <div class="review-field-row">
-          <div class="review-field"><label>Your name <span>*</span></label><input type="text" name="author_name" placeholder="Your name" required></div>
-          <div class="review-field"><label>Organisation / role</label><input type="text" name="author_role" placeholder="e.g. Founder, SWK Ghana"></div>
+          <div class="review-field"><label>Your name <span>*</span></label><input type="text" name="author_name" placeholder="Your name" maxlength="100" required></div>
+          <div class="review-field"><label>Organisation / role</label><input type="text" name="author_role" placeholder="e.g. Founder, SWK Ghana" maxlength="120"></div>
         </div>
-        <div class="review-field"><label>Your review <span>*</span></label><textarea name="quote" placeholder="Tell us about your experience working with KoomBei..." required></textarea></div>
+        <div class="review-field"><label>Your review <span>*</span></label><textarea name="quote" placeholder="Tell us about your experience working with KoomBei..." maxlength="1500" required></textarea></div>
         <button type="submit" class="btn btn-dark review-submit">Submit review</button>
         <div class="review-success" id="reviewSuccess">Thank you! Your review has been sent and may be featured on this page soon.</div>
       </form>
@@ -2188,6 +2189,7 @@
           <li><a href="pages/portfolio.html">Portfolio</a></li>
           <li><a href="pages/contact.html">Contact</a></li>
           <li><a href="pages/circle.html">KoomBei Circle</a></li>
+          <li><a href="pages/members.html">Member Login</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2248,6 +2250,7 @@
   <script src="js/currency.js"></script>
   <script src="js/motion.js"></script>
   <script src="js/consent.js"></script>
+  <script src="js/security.js"></script>
   <script src="js/chatbot.js"></script>
   <script>
     // Intersection Observer for fade-in
@@ -2273,11 +2276,14 @@
     });
   </script>
   <script>
-    // Review form submission (AJAX to Formspree, same pattern as the contact form)
+    // Review form submission (AJAX to Web3Forms, same pattern as the contact form)
     var reviewForm = document.getElementById('reviewForm');
     if (reviewForm) {
       reviewForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        var guard = window.KBSpam ? window.KBSpam.check(this) : '';
+        if (guard === 'bot') return;
+        if (guard) { alert(window.KBSpam.message(guard)); return; }
         var btn = this.querySelector('.review-submit');
         var originalText = btn.textContent;
         btn.textContent = 'Sending...';
@@ -2285,6 +2291,7 @@
         try {
           var res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
           if (res.ok) {
+            if (window.KBSpam) window.KBSpam.mark(this);
             document.getElementById('reviewSuccess').style.display = 'block';
             this.reset();
             btn.style.display = 'none';

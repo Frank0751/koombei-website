@@ -269,16 +269,19 @@
         <p>Every question helps us build the right thing for you the first time.</p>
       </div>
       <div class="form-body">
-        <form id="contactForm" action="https://formspree.io/f/mqegqajo" method="POST">
-          <!-- Honeypot: Formspree ignores submissions where this hidden field is filled, blocking most bots for free -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
+          <!-- Web3Forms: the access key is public by design (it only routes mail to our inbox) -->
+          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
+          <input type="hidden" name="subject" value="New project brief - KoomBei discovery form">
+          <!-- Honeypot: Web3Forms discards any submission where this hidden box is checked; bots check it -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="field-row">
-            <div class="field"><label>Full name <span>*</span></label><input type="text" name="fullname" placeholder="Your full name" required></div>
-            <div class="field"><label>Organisation / Business</label><input type="text" name="org" placeholder="If applicable"></div>
+            <div class="field"><label>Full name <span>*</span></label><input type="text" name="fullname" placeholder="Your full name" maxlength="100" required></div>
+            <div class="field"><label>Organisation / Business</label><input type="text" name="org" placeholder="If applicable" maxlength="150"></div>
           </div>
           <div class="field-row">
-            <div class="field"><label>Email address <span>*</span></label><input type="email" name="email" placeholder="your@email.com" required></div>
-            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="Include your country code"></div>
+            <div class="field"><label>Email address <span>*</span></label><input type="email" name="email" placeholder="your@email.com" maxlength="150" required></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="Include your country code" maxlength="30"></div>
           </div>
           <div class="field">
             <label>What best describes you? <span>*</span></label>
@@ -293,7 +296,7 @@
           <div class="field" id="eligibilityFields" style="display:none;">
             <div class="eligibility-box">
               <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>You may qualify for our 20% impact discount. Share your details below and we will confirm eligibility in your proposal.</p>
-              <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO / nonprofit / business registration number"><p class="hint">The number on your official registration certificate.</p></div>
+              <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO / nonprofit / business registration number" maxlength="60"><p class="hint">The number on your official registration certificate.</p></div>
               <div class="field" id="regDateField" style="display:none;"><label>Registration date</label><input type="date" name="reg_date"><p class="hint">Startups registered under 2 years qualify - this lets us confirm.</p></div>
             </div>
           </div>
@@ -327,7 +330,7 @@
               <label class="checkbox-item" id="otherPageItem"><input type="checkbox" name="pages" value="other" id="otherPageCheck"><span>Other</span></label>
             </div>
             <div id="otherPageField" style="display:none;margin-top:10px;">
-              <input type="text" name="pages_other" placeholder="Please describe the page(s) you need...">
+              <input type="text" name="pages_other" placeholder="Please describe the page(s) you need..." maxlength="200">
             </div>
             <p class="hint">Select all that apply.</p>
           </div>
@@ -372,8 +375,8 @@
               <label class="radio-pill"><input type="radio" name="timeline" value="flexible"><span>Flexible</span></label>
             </div>
           </div>
-          <div class="field"><label>Tell us about your project <span>*</span></label><textarea name="description" placeholder="What does your organisation do? What is the purpose of this website? Who will visit it? Any specific features you need?" required></textarea></div>
-          <div class="field"><label>Reference websites you like</label><input type="text" name="references" placeholder="e.g. https://example.com and what you like about it"><p class="hint">Optional but very helpful.</p></div>
+          <div class="field"><label>Tell us about your project <span>*</span></label><textarea name="description" placeholder="What does your organisation do? What is the purpose of this website? Who will visit it? Any specific features you need?" maxlength="2500" required></textarea></div>
+          <div class="field"><label>Reference websites you like</label><input type="text" name="references" placeholder="e.g. https://example.com and what you like about it" maxlength="300"><p class="hint">Optional but very helpful.</p></div>
           <div class="field">
             <label>How did you hear about KoomBei?</label>
             <select name="referral">
@@ -386,7 +389,7 @@
               <option>Other</option>
             </select>
           </div>
-          <div class="field"><label>Referred by a KoomBei Circle member?</label><input type="text" name="referred_by" placeholder="Their name, if someone sent you"><p class="hint">Optional - it helps us thank the member who referred you.</p></div>
+          <div class="field"><label>Referred by a KoomBei Circle member?</label><input type="text" name="referred_by" placeholder="Their name, if someone sent you" maxlength="100"><p class="hint">Optional - it helps us thank the member who referred you.</p></div>
           <div class="submit-area">
             <p><strong>What happens next?</strong> We will review your submission and reach out within 48 hours with a tailored proposal.</p>
             <button type="submit" class="btn-submit">Submit my project brief</button>
@@ -408,7 +411,7 @@
       <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
       <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
     </div>
-    <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
+    <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li><li><a href="members.html">Member Login</a></li></ul></div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
     <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
   </div>
@@ -431,6 +434,7 @@
 <script src="../js/currency.js"></script>
 <script src="../js/motion.js"></script>
 <script src="../js/consent.js"></script>
+<script src="../js/security.js"></script>
 <script src="../js/chatbot.js"></script>
 <script>
   const otherCheck = document.getElementById('otherPageCheck');
@@ -456,12 +460,17 @@
 
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    // Spam guard: honeypot / too-fast / cooldown checks before we send.
+    const guard = window.KBSpam ? window.KBSpam.check(this) : '';
+    if (guard === 'bot') return;               // silently drop obvious bots
+    if (guard) { alert(window.KBSpam.message(guard)); return; }
     const btn = this.querySelector('.btn-submit');
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
       const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
       if (res.ok) {
+        if (window.KBSpam) window.KBSpam.mark(this);
         document.querySelector('.submit-area').style.display = 'none';
         const msg = document.getElementById('successMsg');
         msg.style.display = 'block';
