@@ -24,21 +24,32 @@
   </script>
   <style>
     .circle-hero {
-      background: var(--night);
-      padding: 120px 5% 90px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       position: relative;
       overflow: hidden;
+      padding: 140px 5% 100px;
+      background-image: url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto/f_auto/v1774908132/Gemini_Generated_Image_ep12qxep12qxep12_yyqgcu.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
     .circle-hero::before {
       content: '';
       position: absolute;
-      top: -120px; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(199,160,3,0.08) 0%, transparent 65%);
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(21,31,30,0.88) 0%,
+        rgba(21,31,30,0.78) 50%,
+        rgba(21,31,30,0.94) 100%
+      );
       pointer-events: none;
+      z-index: 0;
     }
     .circle-hero::after {
       content: '';
@@ -46,7 +57,9 @@
       bottom: 0; left: 0; right: 0;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(199,160,3,0.35), transparent);
+      z-index: 1;
     }
+    .circle-hero > * { position: relative; z-index: 1; }
     .circle-badge-pill {
       display: inline-flex;
       align-items: center;
