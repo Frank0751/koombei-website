@@ -93,6 +93,21 @@ nav {
   color: var(--amber);
 }
 
+.nav-circle {
+  border: 1.5px solid var(--amber);
+  color: var(--amber) !important;
+  font-weight: 500 !important;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s, transform 0.15s !important;
+}
+
+.nav-circle:hover {
+  background: var(--amber) !important;
+  color: var(--night) !important;
+  transform: translateY(-1px);
+}
+
 .nav-cta {
   background: var(--amber);
   color: var(--night) !important;
