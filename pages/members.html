@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Member Login - KoomBei Circle</title>
-  <meta name="description" content="Log in to your KoomBei Circle membership - a free account for KoomBei clients with discounts, priority support, and a private community.">
-  <meta property="og:title" content="Member Login - KoomBei Circle">
+  <title>Member Login | KoomBei Circle</title>
+  <meta name="description" content="Log in to your KoomBei Circle membership — a free account for KoomBei clients with discounts, priority support, and a private community.">
+  <meta property="og:title" content="Member Login | KoomBei Circle">
   <meta property="og:description" content="Log in to your KoomBei Circle membership.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
+  <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
   <meta property="og:url" content="https://koombei.com/pages/members.html">
+  <meta property="og:site_name" content="KoomBei">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://koombei.com/pages/members.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.clarity.ms">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../css/style.css">
   <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
   <script type="text/javascript">
@@ -177,7 +184,7 @@
 
   <section class="members-hero">
     <h1>KoomBei <em>Circle</em> members</h1>
-    <p>Your account, your membership status, and your perks - all in one place.</p>
+    <p>Your account, your membership status, and your perks — all in one place.</p>
   </section>
 
   <section class="section bg-pale fade-in">
@@ -200,7 +207,7 @@
           </form>
           <p class="m-hint">New to the Circle? <a href="circle.html" style="color:var(--amber);font-weight:500;">Join here</a> first.</p>
           <div id="loginSent" style="display:none;">
-            <div class="m-error" style="display:block;background:rgba(61,78,23,0.08);border-color:rgba(61,78,23,0.3);color:var(--green);">Check your email - we've sent you a login link. It may take a minute to arrive.</div>
+            <div class="m-error" style="display:block;background:rgba(61,78,23,0.08);border-color:rgba(61,78,23,0.3);color:var(--green);">Check your email — we've sent you a login link. It may take a minute to arrive.</div>
           </div>
         </div>
       </div>
@@ -264,7 +271,7 @@
       </div>
       <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
-      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana - serving worldwide</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana — serving worldwide</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 <span>KoomBei</span>. All rights reserved.</p>
@@ -280,14 +287,14 @@
     .wa-float:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 8px 24px rgba(37,211,102,0.5); }
   </style>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/i18n.js"></script>
-  <script src="../js/currency.js"></script>
-  <script src="../js/motion.js"></script>
-  <script src="../js/consent.js"></script>
-  <script src="../js/security.js"></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/i18n.js" defer></script>
+  <script src="../js/currency.js" defer></script>
+  <script src="../js/motion.js" defer></script>
+  <script src="../js/consent.js" defer></script>
+  <script src="../js/security.js" defer></script>
   <script type="module" src="../js/auth.js"></script>
-  <script src="../js/chatbot.js"></script>
+  <script src="../js/chatbot.js" defer></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
