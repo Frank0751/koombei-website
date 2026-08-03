@@ -213,6 +213,23 @@
   .success-message h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
   .success-message p { font-size: 13px; font-weight: 300; opacity: 0.85; line-height: 1.6; }
 
+  /* Compact quick-message form in the "Email us directly" sidebar card. */
+  .quick-email-form { margin-top: 14px; }
+  .quick-email-form .field { margin-bottom: 10px; }
+  .quick-email-form textarea { min-height: 70px; }
+  .quick-email-submit { width: 100%; text-align: center; font-size: 13px; padding: 11px; }
+  .quick-email-success {
+    display: none;
+    background: var(--pale);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 14px;
+  }
+  .quick-email-success p { font-size: 12.5px; color: var(--green); line-height: 1.6; }
+  .quick-email-fallback { font-size: 11.5px; margin-top: 12px; color: var(--midgreen); }
+  .quick-email-fallback a { color: var(--amber); }
+
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
   .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
@@ -310,8 +327,22 @@
       <div class="contact-card fade-in">
         <label>Get in touch</label>
         <h4>Email us directly</h4>
-        <p>For urgent enquiries or if you prefer email:</p>
-        <a href="mailto:info@koombei.com">info@koombei.com</a>
+        <p>Prefer not to fill the full brief? Send a short message and we will reply by email.</p>
+        <form id="quickEmailForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard class="quick-email-form">
+          <!-- Web3Forms: the access key is public by design (it only routes mail to our inbox) -->
+          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
+          <input type="hidden" name="subject" value="New quick message - KoomBei website">
+          <!-- Honeypot: Web3Forms discards any submission where this hidden box is checked; bots check it -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="field"><input type="text" name="name" placeholder="Your name" aria-label="Your name" maxlength="100" required></div>
+          <div class="field"><input type="email" name="email" placeholder="your@email.com" aria-label="Your email" maxlength="150" required></div>
+          <div class="field"><textarea name="message" placeholder="What would you like to ask?" aria-label="Your message" maxlength="1000" required></textarea></div>
+          <button type="submit" class="btn btn-primary quick-email-submit">Send message</button>
+        </form>
+        <div class="quick-email-success" id="quickEmailSuccess">
+          <p>Thank you. We have received your message and will reply to your email soon.</p>
+        </div>
+        <p class="quick-email-fallback">Prefer your own email app? Write to <a href="mailto:info@koombei.com">info@koombei.com</a> directly.</p>
       </div>
       <div class="process-card fade-in">
         <label>What happens next</label>
@@ -557,6 +588,35 @@
       btn.textContent = 'Submit my project brief';
       btn.disabled = false;
       alert('Network error. Please try again.');
+    }
+  });
+
+  document.getElementById('quickEmailForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const guard = window.KBSpam ? window.KBSpam.check(this) : '';
+    if (guard === 'bot') return;
+    if (guard) { alert(window.KBSpam.message(guard)); return; }
+    const btn = this.querySelector('.quick-email-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        if (window.KBSpam) window.KBSpam.mark(this);
+        this.style.display = 'none';
+        const msg = document.getElementById('quickEmailSuccess');
+        msg.style.display = 'block';
+        this.reset();
+      } else {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Something went wrong. Please try again, or email info@koombei.com directly.');
+      }
+    } catch {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      alert('Network error. Please try again, or email info@koombei.com directly.');
     }
   });
 
