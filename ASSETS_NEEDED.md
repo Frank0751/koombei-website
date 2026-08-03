@@ -96,6 +96,36 @@ New page: `pages/circle.html`, linked from every footer + a homepage teaser + th
 
 [ ] The new **E-commerce Setup** standalone service (`services.html` and `index.html`) is intentionally listed as "Custom quote" rather than a fixed price — I didn't want to invent a number without your sign-off. Decide on either a flat "from GHS X" figure or keep it quote-based, then update both pages.
 
+## Case studies (live now, `pages/work/`)
+
+Four dedicated case-study pages are live: **SWK Ghana**, **RuboLink**, **Timoya Farms**, **Lafie Plus**. Each follows problem → what we built → impact, with a before/after comparison, a live screenshot frame, and its own `Article` + `BreadcrumbList` JSON-LD. The matching portfolio cards now have an inline "The story behind it" panel that expands to a short summary and links through.
+
+**Important honesty note:** the impact figures on these pages are deliberately *qualitative or structurally verifiable* ("6+ cities", "2 payment rails", "one monitored inbox", "12 months hosting managed"). I did **not** invent traffic, revenue, or conversion numbers for real clients. If you can get real metrics, they will make these pages far stronger:
+
+[ ] Ask SWK Ghana for anything quotable, e.g. funding applications submitted since launch, volunteer enquiries received, or a one-line testimonial
+[ ] Ask Timoya Farms whether the site brought in buyers who had not met them before
+[ ] Pull real RuboLink numbers you already own (bookings completed, professionals onboarded, cities live) and swap them into the impact grid
+[ ] Each page has a `.cs-quote` pull-quote currently filled with a KoomBei-voice line. Replace with a **real client quote** wherever you can get one, and update the `<cite>` to their name and role
+[ ] Consider case studies for The Climate Sociologist and SWK Marketplace once those are further along, using the same four files as a template
+
+## Blog (live now, `blog/`)
+
+Three starter articles are published, plus `blog/posts/POST_TEMPLATE.html` for future ones. The template is `noindex` and disallowed in `robots.txt`; the copy instructions are in the comment block at the top of the file.
+
+[ ] To add a post: copy `POST_TEMPLATE.html` in place, fill every `{{PLACEHOLDER}}`, flip its robots meta to `index, follow`, add a `.blog-card` to `blog/index.html`, and add the URL to `sitemap.xml`
+[ ] The three posts are written in KoomBei's voice but are **unsigned by a person**. If you want them attributed to you by name, add a byline and update the `author` in each page's JSON-LD from `Organization` to `Person`
+[ ] Blog post body copy is **English-only** under FR/ES/PT (nav and footer translate; article text falls back to English). Same known limitation as the circle page
+
+## Free consultation CTA (live now)
+
+`pages/contact.html#consult` is a new lower-commitment entry point, offering WhatsApp, email, or the full form. Every "Book a free consultation" button across the site targets it.
+
+[ ] This promises a free, no-obligation conversation including "we'll tell you if you should wait." Make sure you're happy to honour that literally, since the copy leans on it hard
+
+## Known SEO issue, needs a decision
+
+[ ] `vercel.json` sets `"cleanUrls": true`, which makes Vercel redirect `/pages/about.html` to `/pages/about`. But every `<link rel="canonical">` and every `sitemap.xml` entry still uses the `.html` form, so search engines are being pointed at URLs that immediately redirect. This predates the current work and I left the convention consistent rather than half-changing it. The fix is to drop `.html` from all canonicals and sitemap entries site-wide. Say the word and I'll do it in one pass.
+
 ## Notes
 
 [ ] Confirm with user: should 'Active clients' stat be updated from 6+ to 8+ to reflect the full known client list?

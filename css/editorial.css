@@ -1,0 +1,652 @@
+/* ══ KoomBei editorial styles ════════════════════════════════
+   Case studies (pages/work/) and the blog (blog/). Loaded only by
+   those pages plus portfolio.html, so the rest of the site does not
+   pay for CSS it never uses.
+
+   Same rules as style.css: --amber is the only accent, Ubuntu only,
+   --radius stays 12px, 3-col → 2-col at 900px → 1-col at 600px.
+   style.css must be loaded first; this file relies on its tokens. */
+
+/* ── Breadcrumbs ─────────────────── */
+.crumbs {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--midgreen);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 5% 0;
+}
+
+.crumbs a { color: var(--midgreen); text-decoration: none; transition: color 0.2s; }
+.crumbs a:hover { color: var(--amber); }
+.crumbs [aria-current] { color: var(--night); font-weight: 400; }
+.crumbs .sep { opacity: 0.45; margin: 0 7px; }
+
+/* Crumbs that sit on a dark hero need the palette flipped. */
+.crumbs-dark { color: var(--border); }
+.crumbs-dark a { color: var(--border); }
+.crumbs-dark [aria-current] { color: var(--lily); }
+
+/* ── Case-study hero ─────────────── */
+.cs-hero {
+  background: var(--night);
+  padding: 34px 5% 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-hero::before {
+  content: '';
+  position: absolute;
+  top: -140px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 160, 3, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cs-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+.cs-hero .section-label { display: block; margin-bottom: 14px; }
+
+.cs-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--lily);
+  margin-bottom: 18px;
+}
+
+.cs-hero h1 em { color: var(--amber); font-style: normal; }
+
+.cs-lede {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--border);
+  max-width: 660px;
+}
+
+/* Fact strip under the hero headline. */
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 40px;
+  background: rgba(232, 230, 200, 0.14);
+  border: 1px solid rgba(232, 230, 200, 0.14);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cs-fact { background: var(--night); padding: 20px 22px; }
+
+.cs-fact dt {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.cs-fact dd { font-size: 14px; font-weight: 400; color: var(--lily); margin: 0; }
+
+/* ── Narrative blocks ────────────── */
+.cs-narrative { max-width: 760px; margin: 0 auto; }
+
+.cs-block + .cs-block { margin-top: 64px; }
+
+.cs-block h2 { font-size: 28px; font-weight: 700; color: var(--night); margin-bottom: 8px; }
+
+.cs-block > .divider { margin: 0 0 22px; }
+
+.cs-block p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--midgreen);
+}
+
+.cs-block p + p { margin-top: 16px; }
+
+.cs-block strong { font-weight: 500; color: var(--green); }
+
+/* Numbered marker on each narrative block. */
+.cs-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--night);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cs-list { list-style: none; margin-top: 20px; }
+
+.cs-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--midgreen);
+}
+
+.cs-list li + li { margin-top: 10px; }
+
+.cs-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 12px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+/* ── Pull quote ──────────────────── */
+.cs-quote { border-left: 3px solid var(--amber); padding: 6px 0 6px 26px; margin: 40px 0; }
+
+.cs-quote p {
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--green);
+}
+
+.cs-quote cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+/* ── Impact metrics ──────────────── */
+.cs-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.cs-impact {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.cs-impact:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+
+.cs-impact .num {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+
+.cs-impact .lbl { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--midgreen); }
+
+/* ── Before / after comparison ───── */
+.cs-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+
+.cs-ba-col {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cs-ba-col.is-after { border-color: rgba(199, 160, 3, 0.55); }
+
+.cs-ba-tag {
+  display: block;
+  padding: 12px 18px;
+  background: var(--pale);
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--midgreen);
+}
+
+.cs-ba-col.is-after .cs-ba-tag {
+  background: var(--amber);
+  border-bottom-color: var(--amber);
+  color: var(--night);
+}
+
+.cs-ba-body { padding: 22px 20px; }
+
+.cs-ba-body ul { list-style: none; }
+
+.cs-ba-body li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--midgreen);
+}
+
+.cs-ba-body li + li { margin-top: 9px; }
+
+.cs-ba-body li::before {
+  content: "\00d7";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: var(--midgreen);
+  font-weight: 500;
+}
+
+.cs-ba-col.is-after .cs-ba-body li::before { content: "\2713"; color: var(--amber); }
+
+/* ── Screenshot frame ────────────── */
+.cs-shot {
+  margin-top: 32px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.cs-shot-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 14px;
+  background: var(--pale);
+  border-bottom: 1px solid var(--border);
+}
+
+.cs-shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
+
+.cs-shot-bar .url {
+  margin-left: 8px;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 300;
+  color: var(--midgreen);
+}
+
+.cs-shot img { display: block; width: 100%; height: auto; }
+
+.cs-shot figcaption {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--midgreen);
+}
+
+/* ── Tech stack chips ────────────── */
+.cs-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+
+.cs-chip {
+  padding: 6px 13px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--white);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--green);
+}
+
+/* ── Related case studies ────────── */
+.cs-next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.cs-next {
+  display: block;
+  padding: 26px 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.cs-next:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(199, 160, 3, 0.5);
+}
+
+.cs-next .tag {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.cs-next h3 { font-size: 17px; font-weight: 700; color: var(--night); margin-bottom: 8px; }
+
+.cs-next p { font-size: 13px; font-weight: 300; line-height: 1.75; color: var(--midgreen); }
+
+/* ── Inline story toggle on portfolio cards ── */
+.pf-story { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+
+.pf-story-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  color: var(--amber);
+  text-align: left;
+}
+
+.pf-story-btn svg { flex-shrink: 0; transition: transform 0.3s; }
+
+.pf-story-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+/* Open/closed state is driven entirely by CSS off the button's aria-expanded,
+   so the toggle script only flips that attribute and there is no measured
+   height to go stale on resize. The open value is a ceiling, not a real
+   height: these panels run ~290px, so 600px leaves headroom for translated
+   copy without making the ease feel loose. */
+.pf-story-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+
+.pf-story-btn[aria-expanded="true"] + .pf-story-panel { max-height: 600px; }
+
+.pf-story-wrap { overflow: hidden; }
+
+.pf-story-inner { padding-top: 14px; }
+
+.pf-story-inner dt {
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.pf-story-inner dd {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--midgreen);
+}
+
+.pf-story-inner dd:last-of-type { margin-bottom: 14px; }
+
+/* ── Blog listing ────────────────── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.blog-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.blog-card:hover::after { transform: scaleX(1); }
+
+.blog-card-body { display: flex; flex-direction: column; flex: 1; padding: 26px 24px 28px; }
+
+.blog-cat {
+  margin-bottom: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.blog-card h2,
+.blog-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--night);
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--midgreen);
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 11.5px;
+  font-weight: 300;
+  color: var(--midgreen);
+}
+
+.blog-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--amber); }
+
+/* The newest post spans the full row. */
+.blog-card.is-featured { grid-column: 1 / -1; flex-direction: row; align-items: stretch; }
+.blog-card.is-featured .blog-card-body { padding: 44px 40px; justify-content: center; }
+.blog-card.is-featured h2 { font-size: 28px; line-height: 1.3; }
+.blog-card.is-featured p { flex: none; max-width: 620px; font-size: 15px; }
+
+.blog-featured-side {
+  position: relative;
+  flex: 0 0 38%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--night);
+  overflow: hidden;
+}
+
+.blog-featured-side::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 60% 40%, rgba(199, 160, 3, 0.14) 0%, transparent 65%);
+}
+
+/* ── Article body ────────────────── */
+.post-head { background: var(--night); padding: 34px 5% 80px; }
+
+.post-head-inner { max-width: 760px; margin: 0 auto; }
+
+.post-head h1 {
+  margin: 14px 0 20px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--lily);
+}
+
+.post-head h1 em { color: var(--amber); font-style: normal; }
+
+.post-standfirst { font-size: 16px; font-weight: 300; line-height: 1.85; color: var(--border); }
+
+.post-head .blog-meta { margin-top: 26px; color: var(--border); }
+
+.post-body { max-width: 760px; margin: 0 auto; }
+
+.post-body h2 { margin: 52px 0 6px; font-size: 26px; font-weight: 700; color: var(--night); }
+
+.post-body h2:first-child { margin-top: 0; }
+
+.post-body h2 + .divider { margin: 0 0 20px; }
+
+.post-body h3 { margin: 34px 0 10px; font-size: 18px; font-weight: 500; color: var(--green); }
+
+.post-body p { font-size: 15.5px; font-weight: 300; line-height: 1.95; color: var(--midgreen); }
+
+.post-body p + p { margin-top: 18px; }
+
+.post-body strong { font-weight: 500; color: var(--green); }
+
+.post-body a { color: var(--amber); text-decoration: underline; text-underline-offset: 3px; }
+
+.post-body ul,
+.post-body ol { margin: 20px 0 0; padding-left: 0; list-style: none; }
+
+.post-body ul li,
+.post-body ol li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15.5px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--midgreen);
+}
+
+.post-body ul li + li,
+.post-body ol li + li { margin-top: 10px; }
+
+.post-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.post-body ol { counter-reset: kb-ol; }
+
+.post-body ol li::before {
+  counter-increment: kb-ol;
+  content: counter(kb-ol);
+  position: absolute;
+  left: 0;
+  top: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+/* Practical takeaway box. */
+.post-callout {
+  margin: 40px 0;
+  padding: 26px 28px;
+  background: var(--pale);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius);
+}
+
+.post-callout h4 {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.post-callout p { font-size: 14.5px; line-height: 1.85; color: var(--green); }
+
+/* ── Responsive ──────────────────── */
+@media (max-width: 900px) {
+  .cs-hero h1 { font-size: 34px; }
+  .cs-facts { grid-template-columns: repeat(2, 1fr); }
+  .cs-impact-grid,
+  .cs-next-grid,
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-card.is-featured { flex-direction: column; }
+  .blog-card.is-featured .blog-card-body { padding: 32px 26px; }
+  .blog-card.is-featured h2 { font-size: 24px; }
+  .blog-featured-side { flex: none; min-height: 170px; }
+  .post-head h1 { font-size: 30px; }
+  .cs-block h2,
+  .post-body h2 { font-size: 24px; }
+}
+
+@media (max-width: 600px) {
+  .cs-hero { padding: 26px 5% 64px; }
+  .cs-hero h1 { font-size: 28px; }
+  .cs-facts,
+  .cs-impact-grid,
+  .cs-next-grid,
+  .blog-grid,
+  .cs-ba { grid-template-columns: 1fr; }
+  .cs-block + .cs-block { margin-top: 48px; }
+  .cs-quote p { font-size: 16px; }
+  .post-head h1 { font-size: 26px; }
+  .post-body p,
+  .post-body ul li,
+  .post-body ol li { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-impact,
+  .cs-next,
+  .blog-card,
+  .blog-card::after,
+  .pf-story-panel,
+  .pf-story-btn svg { transition: none; }
+}

@@ -25,6 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/editorial.css">
   <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -370,7 +371,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html" class="active">Portfolio</a></li>
-      <li><a href="circle.html" class="nav-circle">Become a member</a></li>
+      <li><a href="../blog/index.html">Blog</a></li><li><a href="circle.html" class="nav-circle">Become a member</a></li>
       <li><a href="contact.html" class="nav-cta">Start a project</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -419,6 +420,25 @@
           <p>A full organisational website for SWK Ghana, a youth-focused nonprofit driving sustainable development, leadership, and entrepreneurship across Ghana. Built with React and Vite, deployed on Vercel.</p>
           <div class="portfolio-meta"><span class="meta-tag">React + Vite</span><span class="meta-tag">Vercel</span><span class="meta-tag">Cloudinary</span><span class="meta-tag">Formspree</span><span class="meta-tag">SEO</span></div>
           <div class="portfolio-links"><a href="https://swkghana.org" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
+          <div class="pf-story">
+            <button class="pf-story-btn" type="button" aria-expanded="false" aria-controls="story-swk">
+              <span>The story behind it</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pf-story-panel" id="story-swk">
+              <div class="pf-story-wrap">
+                <dl class="pf-story-inner">
+                <dt>Problem</dt>
+                <dd>Real programmes, no online presence. Funders searching for them found scattered social posts and nothing that proved the organisation was established.</dd>
+                <dt>Solution</dt>
+                <dd>A full organisational site with dedicated programme pages, a real leadership section, and one monitored enquiry route.</dd>
+                <dt>Impact</dt>
+                <dd>A credible link to lead with in any funding conversation. SWK Ghana has since returned for two further builds.</dd>
+              </dl>
+              <a href="work/swk-ghana.html" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">Read the full case study</a>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
@@ -460,6 +480,25 @@
           <h3>Timoya Farms</h3>
           <p>A professional business website for Timoya Farms, showcasing their agricultural products and services. Built to give the brand a credible and modern digital presence.</p>
           <div class="portfolio-meta"><span class="meta-tag">HTML/CSS/JS</span><span class="meta-tag">Netlify</span></div>
+          <div class="pf-story">
+            <button class="pf-story-btn" type="button" aria-expanded="false" aria-controls="story-timoya">
+              <span>The story behind it</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pf-story-panel" id="story-timoya">
+              <div class="pf-story-wrap">
+                <dl class="pf-story-inner">
+                <dt>Problem</dt>
+                <dd>A legitimate operation with real customers, invisible to any buyer who had not already met them. Growth was capped by word of mouth.</dd>
+                <dt>Solution</dt>
+                <dd>A deliberately small, framework-free business site showing the full product range, built to open fast on rural mobile connections.</dd>
+                <dt>Impact</dt>
+                <dd>One clear place to send any new buyer or distributor, and a professional reference point when approaching larger customers.</dd>
+              </dl>
+              <a href="work/timoya-farms.html" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">Read the full case study</a>
+            </div>
+            </div>
+          </div>
           <div class="portfolio-links"><a href="https://timoyafarms.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
         </div>
       </div>
@@ -475,6 +514,25 @@
           <p>A modern frontend platform built for Lafie Plus. Clean, responsive design with a focus on user experience and accessibility across all devices.</p>
           <div class="portfolio-meta"><span class="meta-tag">React</span><span class="meta-tag">Vercel</span></div>
           <div class="portfolio-links"><a href="https://lafieplus-frontend.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
+          <div class="pf-story">
+            <button class="pf-story-btn" type="button" aria-expanded="false" aria-controls="story-lafie">
+              <span>The story behind it</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pf-story-panel" id="story-lafie">
+              <div class="pf-story-wrap">
+                <dl class="pf-story-inner">
+                <dt>Problem</dt>
+                <dd>Platform frontends get designed on fast laptops and used on mid-range phones. Accessibility is usually deferred until it is expensive to retrofit.</dd>
+                <dt>Solution</dt>
+                <dd>A mobile-first React build with semantic markup, real focus states, and colour contrast validated as each component was built.</dd>
+                <dt>Impact</dt>
+                <dd>Every interactive flow reachable by keyboard alone, and a clean component structure the client's own team can extend.</dd>
+              </dl>
+              <a href="work/lafie-plus.html" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">Read the full case study</a>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="portfolio-item fade-in" data-cat="tech">
@@ -489,6 +547,25 @@
           <p>A service marketplace connecting Ghanaian homes and businesses with vetted local professionals across plumbing, electrical, cleaning, AC repair, and more. Built and operated by KoomBei Digital Limited, with MoMo and card payments, background-checked workers, and coverage across 6+ cities.</p>
           <div class="portfolio-meta"><span class="meta-tag">React</span><span class="meta-tag">Vercel</span><span class="meta-tag">Mobile Money</span><span class="meta-tag">Marketplace</span></div>
           <div class="portfolio-links"><a href="https://rubo-link-web.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">View site</a></div>
+          <div class="pf-story">
+            <button class="pf-story-btn" type="button" aria-expanded="false" aria-controls="story-rubolink">
+              <span>The story behind it</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="pf-story-panel" id="story-rubolink">
+              <div class="pf-story-wrap">
+                <dl class="pf-story-inner">
+                <dt>Problem</dt>
+                <dd>Hiring a tradesperson runs on word of mouth, with no way to verify anyone and no price transparency. Good workers stay stuck inside one referral network.</dd>
+                <dt>Solution</dt>
+                <dd>A two-sided marketplace built around trust: background-checked professionals, verification shown before booking, and Mobile Money or card payment.</dd>
+                <dt>Impact</dt>
+                <dd>Live across six-plus Ghanaian cities. Built and operated by KoomBei Digital, so it is the stack we trust with our own business.</dd>
+              </dl>
+              <a href="work/rubolink.html" class="btn btn-primary" style="font-size:12px;padding:9px 18px;">Read the full case study</a>
+            </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
@@ -602,7 +679,7 @@
         <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
         <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;margin-top:20px;display:inline-block;">Start a project</a>
       </div>
-      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li><li><a href="members.html">Member Login</a></li></ul></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="circle.html">KoomBei Circle</a></li><li><a href="members.html">Member Login</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">Hosting Setup</a></li><li><a href="services.html">Maintenance</a></li></ul></div>
       <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="contact.html">Discovery form</a></li><li><a href="../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana, serving worldwide</a></li></ul></div>
     </div>
@@ -654,6 +731,15 @@
           const show = target === 'all' || item.getAttribute('data-cat') === target;
           item.classList.toggle('filtered-out', !show);
         });
+      });
+    });
+
+    // Inline "story behind it" panels on the flagship cards.
+    // The open/closed height is driven entirely by CSS off the button's
+    // aria-expanded state, so this only has to flip the attribute.
+    document.querySelectorAll('.pf-story-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
     });
   </script>

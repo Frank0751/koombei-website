@@ -1,0 +1,19 @@
+# KoomBei, https://koombei.com
+# Static site on Vercel. Everything public is crawlable except the
+# member area and the blog post template.
+
+User-agent: *
+Allow: /
+
+# Authenticated area, nothing useful for a crawler and it is noindex anyway.
+Disallow: /pages/members.html
+Disallow: /pages/members
+
+# Scaffolding, not a real article.
+Disallow: /blog/posts/POST_TEMPLATE.html
+Disallow: /blog/posts/POST_TEMPLATE
+
+# Internal data sources consumed by the site's own JavaScript.
+Disallow: /_data/
+
+Sitemap: https://koombei.com/sitemap.xml

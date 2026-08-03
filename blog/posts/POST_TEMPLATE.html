@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--
+  ══ KoomBei blog post template ══════════════════════════════
+
+  HOW TO ADD A NEW POST
+  1. Copy this file, in place, to blog/posts/your-post-slug.html
+     (all the relative paths already assume blog/posts/)
+  2. Find and replace every {{PLACEHOLDER}} below.
+  3. Write the article inside <article class="post-body">.
+  4. Add a <a class="blog-card"> entry for it at the top of the
+     grid in blog/index.html (copy an existing non-featured card).
+  5. Add the URL to sitemap.xml.
+
+  PLACEHOLDERS
+  {{TITLE}}          Page title, ends with " | KoomBei". Under ~60 chars before the pipe.
+  {{DESCRIPTION}}    Meta description, 140-160 chars, written for a human not a crawler.
+  {{SLUG}}           The filename without .html, e.g. why-your-ngo-needs-a-website
+  {{CATEGORY}}       Short label, e.g. Digital presence / Pricing / Performance
+  {{HEADLINE}}       On-page h1. Wrap the last few words in <em></em> for the amber accent.
+  {{STANDFIRST}}     One or two sentences under the h1. Sets up the piece.
+  {{DATE_ISO}}       2026-08-02
+  {{DATE_HUMAN}}     2 August 2026
+  {{READ_TIME}}      e.g. 7 min read. Roughly wordcount / 200.
+  {{WORD_COUNT}}     Approximate, for the JSON-LD.
+  {{CRUMB}}          Short breadcrumb label, a few words.
+  {{CTA_HEADING}}    Closing CTA heading.
+  {{CTA_BODY}}       One sentence under it.
+
+  HOUSE RULES
+  - No em dashes in body copy. Use commas, semicolons, or full stops.
+  - Never use: unlock, leverage, synergy, world-class, cutting-edge, revolutionary.
+  - Always available: honest, care, mission, partner, walk with, purpose.
+  - En dash for numeric ranges (7-14 becomes 7–14).
+  - One h1 per page. Sections are h2, sub-points are h3.
+  - Put a <div class="divider"></div> immediately after every h2.
+  - Use <div class="post-callout"> for the practical takeaway boxes.
+  - Link to at least one case study or another post. Internal links matter.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} | KoomBei</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <!-- The template itself must never be indexed. Change this to
+       "index, follow" in your copy once the placeholders are filled. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{DATE_ISO}}">
+  <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1774908132/Gemini_Generated_Image_ep12qxep12qxep12_yyqgcu.png">
+  <meta property="og:url" content="https://koombei.com/blog/posts/{{SLUG}}.html">
+  <meta property="og:site_name" content="KoomBei">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1774908132/Gemini_Generated_Image_ep12qxep12qxep12_yyqgcu.png">
+  <link rel="canonical" href="https://koombei.com/blog/posts/{{SLUG}}.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.clarity.ms">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/editorial.css">
+  <!-- Microsoft Clarity, free session-recording/heatmap analytics. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xpmxcfk8ca");
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "{{TITLE}}",
+        "description": "{{DESCRIPTION}}",
+        "datePublished": "{{DATE_ISO}}",
+        "dateModified": "{{DATE_ISO}}",
+        "wordCount": {{WORD_COUNT}},
+        "author": { "@type": "Organization", "name": "KoomBei", "url": "https://koombei.com" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "KoomBei",
+          "logo": { "@type": "ImageObject", "url": "https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" }
+        },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://koombei.com/blog/posts/{{SLUG}}.html" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://koombei.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://koombei.com/blog/index.html" },
+          { "@type": "ListItem", "position": 3, "name": "{{CRUMB}}", "item": "https://koombei.com/blog/posts/{{SLUG}}.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav>
+    <a href="../../index.html" class="nav-logo">
+      <div style="width:52px;height:52px;border:1.5px solid rgba(199,160,3,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/q_auto/f_auto/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" width="38" height="38" style="height:38px;width:auto;display:block;filter:drop-shadow(0 0 6px rgba(199,160,3,0.5));">
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../pages/about.html">About</a></li>
+      <li><a href="../../pages/services.html">Services</a></li>
+      <li><a href="../../pages/portfolio.html">Portfolio</a></li>
+      <li><a href="../index.html" class="active">Blog</a></li>
+      <li><a href="../../pages/circle.html" class="nav-circle">Become a member</a></li>
+      <li><a href="../../pages/contact.html" class="nav-cta">Start a project</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="post-head">
+    <nav class="crumbs crumbs-dark" aria-label="Breadcrumb" style="padding-left:0;padding-right:0;max-width:760px;">
+      <a href="../../index.html">Home</a><span class="sep">/</span><a href="../index.html">Blog</a><span class="sep">/</span><span aria-current="page">{{CRUMB}}</span>
+    </nav>
+    <div class="post-head-inner">
+      <span class="section-label">{{CATEGORY}}</span>
+      <h1>{{HEADLINE}}</h1>
+      <p class="post-standfirst">{{STANDFIRST}}</p>
+      <div class="blog-meta">
+        <time datetime="{{DATE_ISO}}">{{DATE_HUMAN}}</time>
+        <span class="dot" aria-hidden="true"></span>
+        <span>{{READ_TIME}}</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>KoomBei</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section bg-white fade-in">
+    <article class="post-body">
+
+      <p>Opening paragraph. State the problem the reader actually has, in their words, before offering anything.</p>
+
+      <h2>First section heading</h2>
+      <div class="divider"></div>
+
+      <p>Body copy. Keep paragraphs short. <strong>Bold the phrase that carries the point</strong> rather than bolding whole sentences.</p>
+
+      <ul>
+        <li><strong>A point.</strong> Its explanation.</li>
+        <li><strong>Another point.</strong> Its explanation.</li>
+      </ul>
+
+      <div class="post-callout">
+        <h4>The practical takeaway</h4>
+        <p>One thing the reader can act on immediately. Every post should earn at least one of these.</p>
+      </div>
+
+      <h2>Second section heading</h2>
+      <div class="divider"></div>
+
+      <h3>A sub-point</h3>
+
+      <p>More body copy. Link to a <a href="../../pages/work/swk-ghana.html">case study</a> or another post where it genuinely helps.</p>
+
+      <ol>
+        <li><strong>Numbered steps</strong> when order matters.</li>
+        <li><strong>Otherwise</strong> use an unordered list.</li>
+      </ol>
+
+      <h2>Closing section</h2>
+      <div class="divider"></div>
+
+      <p>End with the honest caveat, the case where this advice does not apply. It is what makes the rest credible.</p>
+
+      <p style="margin-top:28px;"><a href="../index.html">Back to all posts</a></p>
+
+    </article>
+  </section>
+
+  <section style="background:var(--amber);padding:90px 5%;text-align:center;" class="fade-in">
+    <h2 style="font-size:36px;font-weight:700;color:var(--night);margin-bottom:14px;">{{CTA_HEADING}}</h2>
+    <p style="font-size:15px;font-weight:300;color:var(--night);opacity:0.82;max-width:520px;margin:0 auto 30px;line-height:1.9;">{{CTA_BODY}}</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="../../pages/contact.html#consult" class="btn btn-dark">Book a free consultation</a>
+      <a href="../../pages/portfolio.html" class="btn" style="background:transparent;border:1.5px solid var(--night);color:var(--night);">See our work</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/q_auto/f_auto/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" style="height:52px;width:auto;display:block;margin-bottom:12px;" loading="lazy" decoding="async">
+        <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
+        <a href="../../pages/contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
+      </div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="../../index.html">Home</a></li><li><a href="../../pages/about.html">About</a></li><li><a href="../../pages/services.html">Services</a></li><li><a href="../../pages/portfolio.html">Portfolio</a></li><li><a href="../index.html">Blog</a></li><li><a href="../../pages/contact.html">Contact</a></li><li><a href="../../pages/circle.html">KoomBei Circle</a></li><li><a href="../../pages/members.html">Member Login</a></li></ul></div>
+      <div class="footer-col"><h4>Case studies</h4><ul><li><a href="../../pages/work/swk-ghana.html">SWK Ghana</a></li><li><a href="../../pages/work/timoya-farms.html">Timoya Farms</a></li><li><a href="../../pages/work/rubolink.html">RuboLink</a></li><li><a href="../../pages/work/lafie-plus.html">Lafie Plus</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@koombei.com">info@koombei.com</a></li><li><a href="../../pages/contact.html">Discovery form</a></li><li><a href="../../index.html#client-stories">Read reviews</a></li><li><a href="#">Accra, Ghana, serving worldwide</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <span>KoomBei</span>. All rights reserved. Built by <a href="https://frank.swkghana.org" target="_blank" rel="noopener noreferrer" style="color:#C7A003;text-decoration:none;font-weight:600;">Frank Koomson</a>.</p>
+      <p>Dream with us. Rise with us.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/233206634459?text=Hi%20KoomBei%2C%20I%20would%20like%20to%20discuss%20a%20project." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.123 1.528 5.855L.057 23.428a.75.75 0 00.916.916l5.573-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 01-4.964-1.365l-.356-.212-3.696.976.976-3.696-.212-.356A9.695 9.695 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </a>
+  <style>
+    .wa-float { position:fixed; bottom:28px; right:28px; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(37,211,102,0.4); z-index:999; transition:transform 0.2s, box-shadow 0.2s; }
+    .wa-float:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 8px 24px rgba(37,211,102,0.5); }
+    @media (prefers-reduced-motion: reduce) { .wa-float { transition:none; } }
+  </style>
+
+  <script src="../../js/main.js" defer></script>
+  <script src="../../js/i18n.js" defer></script>
+  <script src="../../js/currency.js" defer></script>
+  <script src="../../js/motion.js" defer></script>
+  <script src="../../js/consent.js" defer></script>
+  <script src="../../js/chatbot.js" defer></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
