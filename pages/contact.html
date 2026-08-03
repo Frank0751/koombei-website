@@ -261,6 +261,37 @@
   .consult-email:hover { background:var(--green); color:var(--pale); }
   .consult-note { margin-top:22px; font-size:13px; font-weight:300; color:var(--midgreen); }
 
+  /* Inline reveal form for "Email us instead". Same max-height toggle
+     technique used elsewhere on the site (e.g. portfolio story panels),
+     so opening it feels consistent rather than navigating away. */
+  .consult-email-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+  }
+  .consult-email-panel.is-open { max-height: 480px; }
+  .consult-email-inner {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .consult-email-inner .field { margin-bottom: 10px; }
+  .consult-email-inner textarea { min-height: 70px; }
+  .consult-email-submit { font-size: 13px; padding: 11px 20px; }
+  .consult-email-success {
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 20px;
+  }
+  .consult-email-success p { font-size: 12.5px; color: var(--green); line-height: 1.6; margin: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .consult-email-panel { transition: none; }
+  }
+
   @media (max-width:900px) {
     .contact-grid { grid-template-columns:1fr; }
     .contact-hero h1 { font-size:32px; }
@@ -314,8 +345,26 @@
     </ul>
     <div class="consult-actions">
       <a href="https://wa.me/233206634459?text=Hi%20KoomBei%2C%20I%27d%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Talk on WhatsApp</a>
-      <a href="mailto:info@koombei.com?subject=Free%20consultation%20request" class="btn btn-outline consult-email">Email us instead</a>
+      <button type="button" class="btn btn-outline consult-email" aria-expanded="false" aria-controls="consultEmailPanel">Email us instead</button>
       <a href="#contactForm" class="btn btn-outline consult-email">Use the full form</a>
+    </div>
+    <div class="consult-email-panel" id="consultEmailPanel">
+      <div class="consult-email-inner">
+        <form id="consultEmailForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
+          <!-- Web3Forms: the access key is public by design (it only routes mail to our inbox) -->
+          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
+          <input type="hidden" name="subject" value="New consultation request - KoomBei website">
+          <!-- Honeypot: Web3Forms discards any submission where this hidden box is checked; bots check it -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="field"><input type="text" name="name" placeholder="Your name" aria-label="Your name" maxlength="100" required></div>
+          <div class="field"><input type="email" name="email" placeholder="your@email.com" aria-label="Your email" maxlength="150" required></div>
+          <div class="field"><textarea name="message" placeholder="Roughly what are you trying to do?" aria-label="Your message" maxlength="1000" required></textarea></div>
+          <button type="submit" class="btn btn-primary consult-email-submit">Send message</button>
+        </form>
+        <div class="consult-email-success" id="consultEmailSuccess">
+          <p>Thank you. We have received your message and will reply to your email soon.</p>
+        </div>
+      </div>
     </div>
     <p class="consult-note">Prefer to give us the detail up front? The discovery form below gets you a tailored proposal within 48 hours.</p>
   </div>
@@ -607,6 +656,47 @@
         this.style.display = 'none';
         const msg = document.getElementById('quickEmailSuccess');
         msg.style.display = 'block';
+        this.reset();
+      } else {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Something went wrong. Please try again, or email info@koombei.com directly.');
+      }
+    } catch {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      alert('Network error. Please try again, or email info@koombei.com directly.');
+    }
+  });
+
+  document.querySelectorAll('.consult-email[aria-controls]').forEach(function(toggleBtn) {
+    toggleBtn.addEventListener('click', function() {
+      const isOpen = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isOpen));
+      const panel = document.getElementById(this.getAttribute('aria-controls'));
+      panel.classList.toggle('is-open', !isOpen);
+      if (!isOpen) {
+        const firstField = panel.querySelector('input, textarea');
+        setTimeout(function() { if (firstField) firstField.focus(); }, 350);
+      }
+    });
+  });
+
+  document.getElementById('consultEmailForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const guard = window.KBSpam ? window.KBSpam.check(this) : '';
+    if (guard === 'bot') return;
+    if (guard) { alert(window.KBSpam.message(guard)); return; }
+    const btn = this.querySelector('.consult-email-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        if (window.KBSpam) window.KBSpam.mark(this);
+        this.style.display = 'none';
+        document.getElementById('consultEmailSuccess').style.display = 'block';
         this.reset();
       } else {
         btn.textContent = originalText;
