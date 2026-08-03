@@ -263,6 +263,38 @@ footer {
   margin-bottom: 20px;
 }
 
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.footer-social a {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(237, 229, 153, 0.06);
+  border: 1px solid rgba(237, 229, 153, 0.16);
+  color: var(--lily);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.footer-social a:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--night);
+  transform: translateY(-2px);
+}
+
+.footer-social svg { width: 16px; height: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-social a { transition: none; }
+}
+
 .footer-col h4 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 12px;

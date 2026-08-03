@@ -110,11 +110,36 @@ Four dedicated case-study pages are live: **SWK Ghana**, **RuboLink**, **Timoya 
 
 ## Blog (live now, `blog/`)
 
-Three starter articles are published, plus `blog/posts/POST_TEMPLATE.html` for future ones. The template is `noindex` and disallowed in `robots.txt`; the copy instructions are in the comment block at the top of the file.
+The blog hero was previously the plain dark box every inner page uses (`.page-hero`, ~360px, no image), which is why it looked broken. It's now a full-height (`100vh`) hero reusing the site's approved brand photo (`Gemini_Generated_Image_ep12qxep12qxep12_yyqgcu.png`, the same one homepage uses), with the standard sanctioned overlay gradient, a badge, and a scroll indicator, matching the pattern `pages/portfolio.html` already used. I could not upload a new photo since I have no access to the Cloudinary account, so this reuses an existing approved asset rather than introducing a placeholder or a broken URL.
+
+[ ] Consider commissioning a dedicated blog/editorial photo (people writing, working, a laptop and notebook) so the blog hero looks distinct from the homepage hero rather than reusing the same image with a different crop
+
+Six articles are now published (was three), plus `blog/posts/POST_TEMPLATE.html` for future ones. The template is `noindex` and disallowed in `robots.txt`; the copy instructions are in the comment block at the top of the file. New since this pass:
+
+- **What AI can actually do for a small NGO right now** — the current featured/newest post
+- **A website is not a substitute for social media, and neither is the reverse** — ties directly into the new social handles
+- **Why Mobile Money changed what a website needs to do** — cross-links to the RuboLink case study
 
 [ ] To add a post: copy `POST_TEMPLATE.html` in place, fill every `{{PLACEHOLDER}}`, flip its robots meta to `index, follow`, add a `.blog-card` to `blog/index.html`, and add the URL to `sitemap.xml`
-[ ] The three posts are written in KoomBei's voice but are **unsigned by a person**. If you want them attributed to you by name, add a byline and update the `author` in each page's JSON-LD from `Organization` to `Person`
+[ ] All six posts are written in KoomBei's voice but are **unsigned by a person**. If you want them attributed to you by name, add a byline and update the `author` in each page's JSON-LD from `Organization` to `Person`
 [ ] Blog post body copy is **English-only** under FR/ES/PT (nav and footer translate; article text falls back to English). Same known limitation as the circle page
+
+**On "real-time" content and showing up when people search trending topics**, two honest limits worth knowing:
+
+1. This is a static site with no build step or backend (by design, per the project's own constraints). That means content cannot literally update itself the moment someone searches, the way a news aggregator or a site with a live feed would. What I did instead is write genuinely current, dated articles and keep the newest one featured, which is the realistic version of "fresh" for a site like this.
+2. Writing good content does not by itself make Google show it. The site needs to actually be indexed. That requires:
+   [ ] Verify koombei.com in [Google Search Console](https://search.google.com/search-console) (free, needs your Google account)
+   [ ] Submit `sitemap.xml` there once verified
+   [ ] Link to the site from the new social profiles (X, Facebook, Instagram, LinkedIn), since backlinks from your own accounts help discovery
+   
+   None of this needs code, but none of it happens without someone with account access doing it. I cannot do it remotely.
+
+## Social media (live now)
+
+Added KoomBei's X, Facebook, Instagram, and LinkedIn to every page footer (icon row, opens in a new tab) and to the homepage's `Organization` JSON-LD `sameAs` field, which helps Google associate the accounts with the brand.
+
+[ ] The Facebook link you gave me is a `/share/...` link (a mobile share redirect), not a vanity URL like `facebook.com/koombei`. It works, but if you have or can claim a proper vanity URL for the Page, that would look more professional and is worth swapping in
+[ ] Same handles are only in the footer for now; consider whether you also want them in the nav or a dedicated "follow us" prompt inside the chatbot
 
 ## Free consultation CTA (live now)
 

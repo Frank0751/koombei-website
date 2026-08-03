@@ -59,6 +59,138 @@
     ]
   }
   </script>
+  <style>
+    /* ── FULL HEIGHT HERO ── */
+    .blog-hero {
+      background: linear-gradient(rgba(21,31,30,0.82), rgba(21,31,30,0.82)),
+        url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto/f_auto/v1774908132/Gemini_Generated_Image_ep12qxep12qxep12_yyqgcu.png') center 30%/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center bottom, rgba(199,160,3,0.08) 0%, transparent 70%);
+    }
+
+    .blog-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,160,3,0.4), transparent);
+    }
+
+    .blog-hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(199,160,3,0.1);
+      border: 1px solid rgba(199,160,3,0.25);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    .blog-hero .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2s ease infinite;
+    }
+
+    .blog-hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--lily);
+      margin-bottom: 20px;
+      line-height: 1.15;
+      max-width: 700px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+
+    .blog-hero h1 em { color: var(--amber); font-style: normal; }
+
+    .blog-hero p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--border);
+      max-width: 560px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.3s forwards;
+      margin-bottom: 36px;
+    }
+
+    .blog-hero .hero-cta-wrap {
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.4s forwards;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .blog-hero .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s ease 1s forwards;
+    }
+
+    .blog-hero .scroll-indicator span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--border); }
+    .blog-hero .scroll-mouse { width: 20px; height: 32px; border: 1.5px solid rgba(199,160,3,0.3); border-radius: 10px; display: flex; justify-content: center; padding-top: 6px; }
+    .blog-hero .scroll-wheel { width: 3px; height: 6px; background: var(--amber); border-radius: 2px; animation: scrollWheel 1.5s ease infinite; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    @keyframes scrollWheel { 0% { opacity:1; transform:translateY(0); } 100% { opacity:0; transform:translateY(8px); } }
+
+    @media (max-width: 900px) {
+      .blog-hero h1 { font-size: 36px; }
+    }
+
+    @media (max-width: 600px) {
+      .blog-hero h1 { font-size: 28px; }
+      .blog-hero .hero-cta-wrap { flex-direction: column; align-items: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .blog-hero .hero-badge,
+      .blog-hero h1,
+      .blog-hero p,
+      .blog-hero .hero-cta-wrap,
+      .blog-hero .scroll-indicator,
+      .blog-hero .hero-badge-dot,
+      .blog-hero .scroll-wheel {
+        animation: none;
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -80,10 +212,19 @@
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </nav>
 
-  <header class="page-hero">
+  <section class="blog-hero">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Insights</div>
     <h1>Notes from the <em>build.</em></h1>
     <p>Practical writing on websites, digital presence, and technology for purpose-driven organisations. Written for the people making the decision, not for other developers.</p>
-  </header>
+    <div class="hero-cta-wrap">
+      <a href="posts/why-your-ngo-needs-a-website.html" class="btn btn-primary">Start reading</a>
+      <a href="../pages/contact.html#consult" class="btn btn-outline">Book a free consultation</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="../index.html">Home</a><span class="sep">/</span><span aria-current="page">Blog</span>
@@ -92,7 +233,7 @@
   <section class="section bg-pale fade-in" style="padding-top:60px;">
     <div class="blog-grid">
 
-      <a href="posts/why-your-ngo-needs-a-website.html" class="blog-card is-featured">
+      <a href="posts/what-ai-can-do-for-your-ngo.html" class="blog-card is-featured">
         <div class="blog-featured-side" aria-hidden="true">
           <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="position:relative;z-index:1;">
             <circle cx="60" cy="60" r="46" stroke="#C7A003" stroke-width="1.5" opacity="0.55"/>
@@ -102,13 +243,52 @@
           </svg>
         </div>
         <div class="blog-card-body">
+          <span class="blog-cat">AI &amp; tools</span>
+          <h2>What AI can actually do for a small NGO right now</h2>
+          <p>Every week brings a new tool promising to transform how nonprofits work. Most of that is noise. Here is the narrow, genuinely useful list, and the line we think you should not cross.</p>
+          <div class="blog-meta">
+            <time datetime="2026-08-03">3 August 2026</time>
+            <span class="dot" aria-hidden="true"></span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="posts/website-vs-social-media.html" class="blog-card">
+        <div class="blog-card-body">
           <span class="blog-cat">Digital presence</span>
-          <h2>Why your NGO needs a website, even when the funding is tight</h2>
+          <h3>A website is not a substitute for social media, and neither is the reverse</h3>
+          <p>Organisations often ask whether to build a website or just focus on social media, as if it is one or the other. It is not. Here is what each is actually good at.</p>
+          <div class="blog-meta">
+            <time datetime="2026-07-30">30 July 2026</time>
+            <span class="dot" aria-hidden="true"></span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="posts/why-your-ngo-needs-a-website.html" class="blog-card">
+        <div class="blog-card-body">
+          <span class="blog-cat">Digital presence</span>
+          <h3>Why your NGO needs a website, even when the funding is tight</h3>
           <p>The honest case for spending money on a website when every cedi is already committed elsewhere, and how to tell whether you are being sold something you do not need.</p>
           <div class="blog-meta">
             <time datetime="2026-07-28">28 July 2026</time>
             <span class="dot" aria-hidden="true"></span>
             <span>8 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="posts/mobile-money-and-your-website.html" class="blog-card">
+        <div class="blog-card-body">
+          <span class="blog-cat">Digital payments</span>
+          <h3>Why Mobile Money changed what a website needs to do</h3>
+          <p>If you sell anything online in Ghana or much of West Africa, visitors expect Mobile Money as an option, not just card. What that means for how a website gets built.</p>
+          <div class="blog-meta">
+            <time datetime="2026-07-21">21 July 2026</time>
+            <span class="dot" aria-hidden="true"></span>
+            <span>6 min read</span>
           </div>
         </div>
       </a>
@@ -139,17 +319,6 @@
         </div>
       </a>
 
-      <div class="blog-card" style="border-style:dashed;justify-content:center;">
-        <div class="blog-card-body" style="justify-content:center;">
-          <span class="blog-cat">Coming soon</span>
-          <h3>More on the way</h3>
-          <p>We write when we have something genuinely useful to say, not on a content calendar. New pieces land every few weeks.</p>
-          <div class="blog-meta">
-            <a href="../pages/circle.html" style="color:var(--amber);text-decoration:none;font-weight:500;">Join the Circle for early access</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -168,6 +337,12 @@
         <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/q_auto/f_auto/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei" style="height:52px;width:auto;display:block;margin-bottom:12px;" loading="lazy" decoding="async">
         <div class="footer-brand-tag">We equip dreamers, help them rise,<br>and walk with them.</div>
         <a href="../pages/contact.html" class="btn btn-primary" style="font-size:13px;padding:10px 20px;">Start a project</a>
+        <div class="footer-social" aria-label="KoomBei on social media">
+          <a href="https://x.com/koombei" target="_blank" rel="noopener noreferrer" aria-label="KoomBei on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.facebook.com/share/1DDi9rFQMq/" target="_blank" rel="noopener noreferrer" aria-label="KoomBei on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/koombei/" target="_blank" rel="noopener noreferrer" aria-label="KoomBei on Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.89 4.89 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.25a3.25 3.25 0 110-6.5 3.25 3.25 0 010 6.5zM17.25 6.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/koombei/" target="_blank" rel="noopener noreferrer" aria-label="KoomBei on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 2.062 0 010 4.124zM7.114 20.452H3.559V9h3.555v11.452z"/></svg></a>
+        </div>
       </div>
       <div class="footer-col"><h4>Pages</h4><ul><li><a href="../index.html">Home</a></li><li><a href="../pages/about.html">About</a></li><li><a href="../pages/services.html">Services</a></li><li><a href="../pages/portfolio.html">Portfolio</a></li><li><a href="index.html">Blog</a></li><li><a href="../pages/contact.html">Contact</a></li><li><a href="../pages/circle.html">KoomBei Circle</a></li><li><a href="../pages/members.html">Member Login</a></li></ul></div>
       <div class="footer-col"><h4>Case studies</h4><ul><li><a href="../pages/work/swk-ghana.html">SWK Ghana</a></li><li><a href="../pages/work/timoya-farms.html">Timoya Farms</a></li><li><a href="../pages/work/rubolink.html">RuboLink</a></li><li><a href="../pages/work/lafie-plus.html">Lafie Plus</a></li></ul></div>
