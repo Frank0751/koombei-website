@@ -79,8 +79,16 @@
   <style>
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(rgba(21,31,30,0.82),rgba(21,31,30,0.82)),
-        url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto/f_auto/v1774908132/Gemini_Generated_Image_ep12qxep12qxep12_yyqgcu.png') center/cover no-repeat;
+      /* Source is 1440x720, so no w_ cap here: upscaling it would only make the
+         file bigger. Written as explicit longhand rather than the `background`
+         shorthand, because the shorthand silently dropped the y-position and
+         fell back to 50%. Y is biased upward so the subject with the laptop
+         stays in frame once `cover` crops, which it does hard on tall screens. */
+      background-image: linear-gradient(rgba(21,31,30,0.82),rgba(21,31,30,0.82)),
+        url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg');
+      background-position: center, center 38%;
+      background-size: cover, cover;
+      background-repeat: no-repeat, no-repeat;
       padding: 120px 5% 100px;
       display: grid;
       grid-template-columns: 1fr 1fr;
