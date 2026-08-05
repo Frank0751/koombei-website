@@ -15,7 +15,7 @@
         { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://*.clarity.ms https://esm.sh; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://res.cloudinary.com https://api.microlink.io https://image.thum.io https://placehold.co https://*.clarity.ms; connect-src 'self' https://api.web3forms.com https://open.er-api.com https://ipapi.co https://*.clarity.ms https://esm.sh https://ntiagjkclftjterprnfm.supabase.co; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://*.clarity.ms https://esm.sh; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://res.cloudinary.com https://api.microlink.io https://image.thum.io https://placehold.co https://*.clarity.ms; media-src 'self' https://res.cloudinary.com; connect-src 'self' https://api.web3forms.com https://open.er-api.com https://ipapi.co https://*.clarity.ms https://esm.sh https://ntiagjkclftjterprnfm.supabase.co; form-action 'self' https://api.web3forms.com; upgrade-insecure-requests"
         }
       ]
     }

@@ -79,16 +79,16 @@
   <style>
     /* ── HERO ── */
     .hero {
-      /* Source is 1440x720, so no w_ cap here: upscaling it would only make the
-         file bigger. Written as explicit longhand rather than the `background`
-         shorthand, because the shorthand silently dropped the y-position and
-         fell back to 50%. Y is biased upward so the subject with the laptop
-         stays in frame once `cover` crops, which it does hard on tall screens. */
-      background-image: linear-gradient(rgba(21,31,30,0.82),rgba(21,31,30,0.82)),
-        url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg');
-      background-position: center, center 38%;
-      background-size: cover, cover;
-      background-repeat: no-repeat, no-repeat;
+      /* The still image is now the POSTER layer: it paints immediately so the
+         hero is never blank, and remains the permanent fallback if the video
+         is blocked, still buffering, or suppressed for reduced-motion. The
+         dark overlay is no longer part of this background; it moved to
+         .hero-overlay so it can sit ABOVE the video rather than beneath it.
+         Source is 1440x720, so no w_ cap: upscaling only inflates the file. */
+      background-image: url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg');
+      background-position: center 38%;
+      background-size: cover;
+      background-repeat: no-repeat;
       padding: 120px 5% 100px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -99,10 +99,51 @@
       overflow: hidden;
     }
 
+    /* ── HERO VIDEO ──
+       Stacking order inside .hero:
+         0  poster image (the .hero background itself)
+         0  .hero-video, fades in over the poster once it can actually play
+         1  .hero-overlay, the sanctioned 0.82 night wash, above the video
+         2  .hero-content / .hero-visual / .scroll-indicator
+         3  .hero::after, the amber hairline at the bottom edge          */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      pointer-events: none;
+    }
+
+    /* Only revealed once the browser reports it can play through, so the
+       crossfade never exposes a half-buffered or black frame. */
+    .hero-video.is-ready { opacity: 1; }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(21,31,30,0.82);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content,
+    .hero-visual,
+    .hero .scroll-indicator { position: relative; z-index: 2; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { transition: none; }
+    }
+
     .hero::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
+      z-index: 3;
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(199,160,3,0.4), transparent);
     }
@@ -1508,6 +1549,16 @@
   </nav>
 
   <section class="hero">
+    <!-- Background video. preload="none" so it never competes with the LCP
+         paint; js/hero-video.js decides when to actually fetch it. The poster
+         attribute matches the CSS background so there is no flash between the
+         two layers. aria-hidden + no controls: this is decoration, not content. -->
+    <video class="hero-video" id="heroVideo"
+           muted loop playsinline preload="none" disablepictureinpicture
+           aria-hidden="true" tabindex="-1"
+           poster="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg"
+           data-src="https://res.cloudinary.com/dmyrmlj5z/video/upload/q_auto:low,f_auto,w_1280/v1785894962/KoomBei_Web_cw2ze9.mp4"></video>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       
       <h1>Dream with us.<em>Rise with us.</em></h1>
@@ -2274,6 +2325,7 @@
   </style>
 
   <script src="js/main.js" defer></script>
+  <script src="js/hero-video.js" defer></script>
   <script src="js/i18n.js" defer></script>
   <script src="js/currency.js" defer></script>
   <script src="js/motion.js" defer></script>
