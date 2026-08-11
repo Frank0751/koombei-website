@@ -27,6 +27,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="css/style.css">
+  <!-- GSAP animation engine, deferred like every other script on this page
+       so it never blocks the LCP paint. animations.js only runs the 5
+       effects it explicitly opts into; see that file's own header comment. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
   <!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -1595,19 +1600,19 @@
   </section>
 
   <div class="stats-bar">
-    <div class="stat fade-in">
+    <div class="stat">
       <span class="stat-num" data-target="6" data-suffix="+">6+</span>
       <span class="stat-label">Active clients</span>
     </div>
-    <div class="stat fade-in">
+    <div class="stat">
       <span class="stat-num" data-target="4" data-suffix="+">4+</span>
       <span class="stat-label">Live websites</span>
     </div>
-    <div class="stat fade-in">
+    <div class="stat">
       <span class="stat-num">48hrs</span>
       <span class="stat-label">Proposal turnaround</span>
     </div>
-    <div class="stat fade-in">
+    <div class="stat">
       <span class="stat-num" data-ghs="2000">GHS 2,000</span>
       <span class="stat-label">Starting from</span>
     </div>
@@ -1648,31 +1653,31 @@
     <p class="section-sub">Most web agencies chase corporate clients. KoomBei was built for the ones who matter most: NGOs, nonprofits, and young startups everywhere who deserve a professional digital presence without the premium agency price tag.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>Quality without compromise</h3>
         <p>Accessible pricing does not mean lower standards. Every KoomBei website is built to the same professional standard as work for any corporate client.</p>
       </div>
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>We walk with you</h3>
         <p>We are not just a vendor. We are a partner who stays with you from the first conversation to a live website and beyond, through maintenance, renewals, and growth.</p>
       </div>
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>Clear and honest pricing</h3>
         <p>No hidden fees, no surprise bills. Every cost is discussed and agreed in writing before any work begins. What we quote is what you pay.</p>
       </div>
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>Fast turnaround</h3>
         <p>Seed package sites delivered in 7–14 days. We know your mission cannot wait and we build with urgency and care in equal measure.</p>
       </div>
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>Impact discount</h3>
         <p>Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package. Because the organisations doing the most important work, and the ones just getting started, deserve the most support.</p>
       </div>
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>Built on real experience</h3>
         <p>KoomBei is built by someone who has worked with NGOs, startups, and development organisations across Africa and beyond. We speak your language and understand your world.</p>
       </div>
-      <div class="why-card fade-in">
+      <div class="why-card">
         <h3>Built for speed, not bloat</h3>
         <p>We hand-code every site instead of stacking page-builder plugins. Most agency sites we've benchmarked ship 300-750KB of markup before a single image loads. Ours run a fraction of that, which matters most on the mobile connections our clients' own visitors use.</p>
       </div>
@@ -1686,27 +1691,27 @@
     <p class="section-sub">Every service is available standalone or bundled. You choose exactly what you need; we deliver it with care, on time, every time.</p>
     </div>
     <div class="services-grid">
-      <a href="pages/services.html" class="service-card fade-in">
+      <a href="pages/services.html" class="service-card">
         <h3>Web Design</h3>
         <p>Wireframes, visual design, layout and full UI/UX tailored to your brand and mission.</p>
         <div class="from" data-ghs="900" data-from="1">From GHS 900 <span>/ project</span></div>
       </a>
-      <a href="pages/services.html" class="service-card fade-in">
+      <a href="pages/services.html" class="service-card">
         <h3>Web Development</h3>
         <p>Full coding and building of your website. Responsive, fast, SEO-ready and launched.</p>
         <div class="from" data-ghs="1500" data-from="1">From GHS 1,500 <span>/ project</span></div>
       </a>
-      <a href="pages/services.html" class="service-card fade-in">
+      <a href="pages/services.html" class="service-card">
         <h3>Hosting Setup</h3>
         <p>Vercel deployment, domain connection, DNS config, SSL and 12 months management.</p>
         <div class="from" data-ghs="600">GHS 600 <span>/ year</span></div>
       </a>
-      <a href="pages/services.html" class="service-card fade-in">
+      <a href="pages/services.html" class="service-card">
         <h3>Maintenance</h3>
         <p>Ongoing updates, content changes, bug fixes and support. Monthly retainer or per update.</p>
         <div class="from" data-ghs="100" data-from="1">From GHS 100 <span>/ update</span></div>
       </a>
-      <a href="pages/services.html" class="service-card fade-in">
+      <a href="pages/services.html" class="service-card">
         <h3>E-commerce Setup</h3>
         <p>Product catalog, cart, and secure checkout added to any package: Mobile Money, card, or bank.</p>
         <div class="from">Custom quote <span>/ store size</span></div>
@@ -1721,7 +1726,7 @@
       <p class="section-sub">Choose the package that fits your stage and budget. All packages include design, development, hosting setup, and SSL.</p>
     </div>
     <div class="packages-grid">
-      <div class="pkg fade-in">
+      <div class="pkg">
         <div class="pkg-header seed">
           <div class="pkg-tier">Starter</div>
           <div class="pkg-name">Seed</div>
@@ -1740,7 +1745,7 @@
           <a href="pages/contact.html" class="btn btn-dark" style="width:100%;text-align:center;margin-top:16px;display:block;">Get started</a>
         </div>
       </div>
-      <div class="pkg featured fade-in">
+      <div class="pkg featured">
         <div class="pkg-header rise">
           <div class="pkg-tier">Most popular</div>
           <div class="pkg-name">Rise</div>
@@ -1759,7 +1764,7 @@
           <a href="pages/contact.html" class="btn btn-primary" style="width:100%;text-align:center;margin-top:16px;display:block;">Get started</a>
         </div>
       </div>
-      <div class="pkg fade-in">
+      <div class="pkg">
         <div class="pkg-header summit">
           <div class="pkg-tier">Full service</div>
           <div class="pkg-name">Summit</div>
@@ -1825,7 +1830,7 @@
       <p class="section-sub">We exist for purpose-driven organisations and individuals who deserve a professional digital presence.</p>
     </div>
     <div class="serve-grid">
-      <div class="serve-card fade-in">
+      <div class="serve-card">
         <img src="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto/f_auto/v1774908132/Gemini_Generated_Image_990xmm990xmm990x_yk5nfc.png" alt="NGOs and nonprofits" class="serve-card-bg" loading="lazy" decoding="async">
         <div class="serve-card-overlay"></div>
         <div class="serve-card-content">
@@ -1834,7 +1839,7 @@
           <p>Organisations doing important work deserve a digital presence that reflects their mission. Up to 20% off for verified NGOs and nonprofits.</p>
         </div>
       </div>
-      <div class="serve-card fade-in">
+      <div class="serve-card">
         <img src="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto/f_auto/v1774908133/Gemini_Generated_Image_q5dhccq5dhccq5dh_apjkrj.png" alt="Young startups" class="serve-card-bg" loading="lazy" decoding="async">
         <div class="serve-card-overlay"></div>
         <div class="serve-card-content">
@@ -1843,7 +1848,7 @@
           <p>Your idea deserves to be seen. We build clean, credible websites that help young startups attract customers, investors, and partners from day one.</p>
         </div>
       </div>
-      <div class="serve-card fade-in">
+      <div class="serve-card">
         <img src="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto/f_auto/v1774908180/Gemini_Generated_Image_dt7lbzdt7lbzdt7l_dyc17y.png" alt="Small businesses" class="serve-card-bg" loading="lazy" decoding="async">
         <div class="serve-card-overlay"></div>
         <div class="serve-card-content">
@@ -1926,7 +1931,7 @@
       <p class="section-sub">From Accra to the wider world, purpose-driven organisations trusted us to build their digital presence. Here is a look at what we have built together.</p>
     </div>
     <div class="work-grid">
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fswkghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="SWK Ghana website" loading="lazy" width="600" height="400">
@@ -1935,7 +1940,7 @@
         <p class="work-type">Youth nonprofit</p>
         <a href="https://swkghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.theclimatesociologist.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="The Climate Sociologist website" loading="lazy" width="600" height="400">
@@ -1944,7 +1949,7 @@
         <p class="work-type">Climate NGO</p>
         <a href="https://www.theclimatesociologist.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fandrews-portfolio-pi.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="Andrews Akoto-Addo portfolio website" loading="lazy" width="600" height="400">
@@ -1953,7 +1958,7 @@
         <p class="work-type">Entrepreneur portfolio</p>
         <a href="https://andrews-portfolio-pi.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Ftakakipawa.swkghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="Taka Kipawa website" loading="lazy" width="600" height="400">
@@ -1962,7 +1967,7 @@
         <p class="work-type">NGO initiative</p>
         <a href="https://takakipawa.swkghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Ffrank.swkghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="Frank Koomson portfolio website" loading="lazy" width="600" height="400">
@@ -1971,7 +1976,7 @@
         <p class="work-type">Personal portfolio</p>
         <a href="https://frank.swkghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Ftimoyafarms.netlify.app%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="Timoya Farms website" loading="lazy" width="600" height="400">
@@ -1980,7 +1985,7 @@
         <p class="work-type">Agriculture business</p>
         <a href="https://timoyafarms.netlify.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Flafieplus-frontend.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="Lafie Plus website" loading="lazy" width="600" height="400">
@@ -1989,7 +1994,7 @@
         <p class="work-type">Tech platform</p>
         <a href="https://lafieplus-frontend.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Frubo-link-web.vercel.app%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="RuboLink website" loading="lazy" width="600" height="400">
@@ -1998,7 +2003,7 @@
         <p class="work-type">Service marketplace</p>
         <a href="https://rubo-link-web.vercel.app/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.wildcardproject.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="The Wild Card Project website" loading="lazy" width="600" height="400">
@@ -2007,7 +2012,7 @@
         <p class="work-type">Youth nonprofit</p>
         <a href="https://www.wildcardproject.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.gainghana.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="Green Awareness International website" loading="lazy" width="600" height="400">
@@ -2016,7 +2021,7 @@
         <p class="work-type">Environmental NGO</p>
         <a href="https://www.gainghana.org/" class="work-card-link" target="_blank" rel="noopener noreferrer">View project →</a>
       </div>
-      <div class="work-card fade-in">
+      <div class="work-card">
         <div class="work-card-thumb">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.wastecure.org%2F&screenshot=true&meta=false&embed=screenshot.url"
                alt="WasteCure website" loading="lazy" width="600" height="400">
@@ -2051,7 +2056,7 @@
       <div class="divider"></div>
     </div>
     <div class="testimonials-grid">
-      <div class="testimonial-card fade-in">
+      <div class="testimonial-card">
         <div class="testimonial-quote-icon">
           <svg width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
             <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
@@ -2071,7 +2076,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial-card fade-in">
+      <div class="testimonial-card">
         <div class="testimonial-quote-icon">
           <svg width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
             <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
@@ -2091,7 +2096,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial-card fade-in">
+      <div class="testimonial-card">
         <div class="testimonial-quote-icon">
           <svg width="32" height="24" viewBox="0 0 32 24" fill="none" aria-hidden="true">
             <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l2.4 3.2C12 4 9.6 6.4 9.6 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.4 22.4 1.6 32 0l2.4 3.2C29.6 4 27.2 6.4 27.2 10.4H32V24H17.6z" fill="#C7A003" opacity="0.3"/>
@@ -2346,6 +2351,7 @@
     }
   </style>
 
+  <script src="js/animations.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/hero-video.js" defer></script>
   <script src="js/i18n.js" defer></script>
