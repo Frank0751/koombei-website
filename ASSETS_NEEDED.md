@@ -147,9 +147,31 @@ Added KoomBei's X, Facebook, Instagram, and LinkedIn to every page footer (icon 
 
 [ ] This promises a free, no-obligation conversation including "we'll tell you if you should wait." Make sure you're happy to honour that literally, since the copy leans on it hard
 
-## Known SEO issue, needs a decision
+## Gift KoomBei (live now, homepage `#gift` + footer link on every page)
 
-[ ] `vercel.json` sets `"cleanUrls": true`, which makes Vercel redirect `/pages/about.html` to `/pages/about`. But every `<link rel="canonical">` and every `sitemap.xml` entry still uses the `.html` form, so search engines are being pointed at URLs that immediately redirect. This predates the current work and I left the convention consistent rather than half-changing it. The fix is to drop `.html` from all canonicals and sitemap entries site-wide. Say the word and I'll do it in one pass.
+A voluntary-gift checkout powered by Paystack, on the homepage below the main CTA. Preset amounts (GHS 50/100/200/500) or a custom amount, plus the giver's email for the receipt. Charges are in GHS via card, Mobile Money, or bank; Paystack's script only loads when someone actually clicks, so page weight is unchanged.
+
+**How the money works:** every completed gift lands in your Paystack dashboard like any other Paystack payment, with reference `KBGIFT-...` and a "Gift to KoomBei via koombei.com" metadata field so you can tell gifts apart from anything else. Settlement to your bank/MoMo follows your Paystack payout settings.
+
+**Key safety facts:**
+- The key in `js/gift.js` is your **public** key (`pk_live_`). It is public by design, like the Web3Forms key: it can only pay money IN. Safe in the repo.
+- Your **secret** key (`sk_live_`) must never be pasted into chat, the repo, or any client-side file. It stays in the Paystack dashboard only.
+- Because gifts are voluntary amounts with nothing delivered in exchange, no server-side verification is needed. If you ever sell products through Paystack, that flow WILL need a server to verify transactions with the secret key before releasing anything.
+
+[ ] Make one small real gift yourself end-to-end (e.g. GHS 5 via MoMo), confirm it appears in the Paystack dashboard, then refund it from the dashboard if you like
+[ ] In Paystack dashboard, check Settings for email receipts so givers get an automatic receipt
+[ ] The gift section copy is English-only under FR/ES/PT for now (same known pattern as other new copy)
+
+## SEO and AI optimization (done August 2026)
+
+- The long-standing cleanUrls mismatch is **fixed**: every canonical, og:url, JSON-LD URL, and sitemap entry is now extensionless (`/pages/about`, `/blog`, ...), matching what Vercel actually serves instead of a URL that 308-redirects. 87 URLs updated.
+- Homepage now carries **FAQPage** schema (all 10 FAQ answers, machine-readable for Google rich results and AI assistants).
+- Services page now carries **Service + OfferCatalog** schema with the three packages, and about/portfolio/contact/circle each carry **BreadcrumbList**. Combined with the existing Organization/WebSite/Article/BlogPosting blocks, all five schema types required by the project conventions are now present.
+- **`/llms.txt`** added at the site root: a structured plain-text summary of KoomBei for AI assistants and their crawlers (the emerging llms.txt convention). Update it when packages or key pages change.
+- Stats corrected to reality: 10+ active clients, 11 live websites (was 6+/4+, stale since the portfolio grew).
+
+[ ] Optional remaining step: internal `<a href>` links still use `.html` and get a cheap 308 redirect on the live site. Harmless for SEO now that canonicals are clean, but removing the hop means rewriting every internal link AND teaching the local preview server to resolve extensionless paths. Say the word if you want it.
+[ ] Still the single highest-impact SEO action, and only you can do it: verify koombei.com in Google Search Console and submit sitemap.xml (see the Blog section above).
 
 ## Notes
 

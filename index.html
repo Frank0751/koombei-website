@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link rel="dns-prefetch" href="https://api.web3forms.com">
   <link rel="dns-prefetch" href="https://www.clarity.ms">
+  <link rel="dns-prefetch" href="https://js.paystack.co">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="css/style.css">
@@ -77,6 +78,62 @@
           "target": "https://koombei.com/?s={search_term_string}",
           "query-input": "required name=search_term_string"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://koombei.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What packages do you offer?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Three tiers: Seed (GHS 2,500, up to 5 pages, 7-14 days), Rise (GHS 3,500, up to 8 pages, 14-21 days, 1 month free maintenance), and Summit (GHS 6,000, up to 15 pages, 21-30 days, 3 months free maintenance). All packages include design, development, hosting setup, and SSL. Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package." }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a website cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The Seed package is GHS 2,500, Rise is GHS 3,500, and Summit is GHS 6,000. Individual services are also available standalone. Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package, so Seed starts from GHS 2,000 for eligible organisations." }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to build my website?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Delivery timelines depend on the package: 7-14 days for Seed, 14-21 days for Rise, and 21-30 days for Summit. We also send a full proposal within 48 hours of your discovery call. All timelines start from the date we receive your content and full brief." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer a discount for NGOs, nonprofits, or startups?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package. To qualify, share your organisation's registration number in the discovery form (startups also share the registration date, so we can confirm you are under 2 years old). We confirm your discount in the proposal." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get started?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It takes three steps: fill out our discovery form on the Contact page (about 5 minutes), we review your brief and send a tailored proposal within 48 hours, then we agree on scope and begin building. Head to the Contact page to kick things off." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work with clients outside Ghana?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. KoomBei works with clients worldwide. The entire process is remote-friendly: a discovery form, video calls, and live previews at every stage. Your website is deployed on a global edge network, so it loads fast wherever your audience is, and we schedule around your time zone." }
+          },
+          {
+            "@type": "Question",
+            "name": "What currency will I pay in?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Our base prices are set in Ghana Cedis (GHS). The prices you see on this site are automatically converted into your local currency and US dollars as a live approximation. Your proposal confirms the exact amount and the currency we agree on before any work begins." }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment methods do you accept?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In Ghana we accept Mobile Money (MoMo and AirtelTigo) and bank transfer. For international clients, we agree on the most convenient option (typically bank transfer) and confirm it in your proposal. We work with a deposit before starting and the balance on delivery, and every payment detail is confirmed in writing before any work begins." }
+          },
+          {
+            "@type": "Question",
+            "name": "Who hosts the website and do I need to manage it?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Hosting setup is included in every package. We deploy on Vercel, connect your custom domain, configure DNS and SSL, and manage the setup for 12 months. You do not need technical knowledge; we handle all of that, and we are available if anything ever needs adjusting." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after my website launches?",
+            "acceptedAnswer": { "@type": "Answer", "text": "After launch you receive post-launch support: 2 weeks on Seed, 1 month on Rise, 3 months on Summit, covering bug fixes and minor changes. After that, our maintenance plans start from GHS 100 per update. We walk with you long after launch day." }
+          }
+        ]
       }
     ]
   }
@@ -729,6 +786,101 @@
     .cta-section h2 { font-size: 38px; font-weight: 700; color: var(--night); margin-bottom: 14px; position: relative; z-index: 1; }
     .cta-section p { font-size: 15px; font-weight: 300; color: var(--green); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
     .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* ── GIFT KOOMBEI ── */
+    .gift-section {
+      background: var(--white);
+      padding: 90px 5%;
+      text-align: center;
+    }
+
+    .gift-box {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .gift-box .section-sub {
+      margin: 0 auto 30px;
+    }
+
+    .gift-presets {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .gift-preset {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--green);
+      background: var(--pale);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 20px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .gift-preset:hover { border-color: var(--amber); }
+
+    .gift-preset.active {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--night);
+    }
+
+    .gift-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .gift-fields input {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--night);
+      background: var(--pale);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .gift-fields input:focus {
+      border-color: var(--amber);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(199, 160, 3, 0.1);
+    }
+
+    .gift-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--midgreen);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    .gift-success {
+      display: none;
+      background: var(--green);
+      color: var(--lily);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 600px) {
+      .gift-fields { grid-template-columns: 1fr; }
+    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -1601,11 +1753,11 @@
 
   <div class="stats-bar">
     <div class="stat">
-      <span class="stat-num" data-target="6" data-suffix="+">6+</span>
+      <span class="stat-num" data-target="10" data-suffix="+">10+</span>
       <span class="stat-label">Active clients</span>
     </div>
     <div class="stat">
-      <span class="stat-num" data-target="4" data-suffix="+">4+</span>
+      <span class="stat-num" data-target="11">11</span>
       <span class="stat-label">Live websites</span>
     </div>
     <div class="stat">
@@ -2274,6 +2426,32 @@
     </div>
   </section>
 
+  <!-- GIFT KOOMBEI -->
+  <section class="gift-section fade-in" id="gift">
+    <div class="gift-box">
+      <h2 class="section-title">Enjoyed what we do?<br><em>Gift KoomBei.</em></h2>
+      <div class="divider" style="margin:16px auto;"></div>
+      <p class="section-sub">Gifts are never expected and always appreciated. Every one helps us keep professional websites within reach of the NGOs, nonprofits, and young startups we exist for.</p>
+      <form id="giftForm">
+        <div class="gift-presets" role="group" aria-label="Gift amount">
+          <button type="button" class="gift-preset" data-ghs="50">GHS 50</button>
+          <button type="button" class="gift-preset" data-ghs="100">GHS 100</button>
+          <button type="button" class="gift-preset" data-ghs="200">GHS 200</button>
+          <button type="button" class="gift-preset" data-ghs="500">GHS 500</button>
+        </div>
+        <div class="gift-fields">
+          <input type="number" name="gift_custom" placeholder="Or your own amount (GHS)" aria-label="Custom gift amount in Ghana Cedis" min="5" max="100000" step="1">
+          <input type="email" name="gift_email" placeholder="Email for your receipt" aria-label="Email address for your receipt" maxlength="150" required>
+        </div>
+        <button type="submit" class="btn btn-primary gift-submit">Send a gift</button>
+        <p class="gift-note">Secure checkout by Paystack. Card, Mobile Money, or bank transfer, charged in Ghana Cedis (GHS).</p>
+      </form>
+      <div class="gift-success" id="giftSuccess">
+        Thank you. Your gift goes straight into keeping our work within reach of the dreamers we build for.<br>Dream with us. Rise with us.
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-grid">
       <div>
@@ -2295,7 +2473,7 @@
           <li><a href="pages/services.html">Services</a></li>
           <li><a href="pages/portfolio.html">Portfolio</a></li><li><a href="blog/index.html">Blog</a></li><li><a href="pages/contact.html">Contact</a></li>
           <li><a href="pages/circle.html">KoomBei Circle</a></li>
-          <li><a href="pages/members.html">Member Login</a></li>
+          <li><a href="pages/members.html">Member Login</a></li><li><a href="#gift">Gift KoomBei</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2352,6 +2530,7 @@
   </style>
 
   <script src="js/animations.js" defer></script>
+  <script src="js/gift.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/hero-video.js" defer></script>
   <script src="js/i18n.js" defer></script>

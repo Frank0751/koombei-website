@@ -1,0 +1,36 @@
+# KoomBei
+
+> KoomBei (KoomBei Digital Limited) is a web design and development studio based in Accra, Ghana, building professional, affordable websites for NGOs, nonprofits, and young startups worldwide. Tagline: "Dream with us. Rise with us." Built with care, priced with honesty.
+
+Key facts:
+- Three packages, priced in Ghana Cedis (GHS): Seed (GHS 2,500, up to 5 pages, 7 to 14 days), Rise (GHS 3,500, up to 8 pages, 14 to 21 days), Summit (GHS 6,000, up to 15 pages, 21 to 30 days). All include design, development, hosting setup, and SSL.
+- Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package.
+- Fully remote process: discovery form, video calls, live previews. Clients worldwide; support across time zones; proposals within 48 hours.
+- Payment: Mobile Money and bank transfer in Ghana; bank transfer for international clients. Every site is hand-coded (no page builders) and deployed on Vercel.
+- Founder: Frank Koomson. Contact: info@koombei.com
+
+## Main pages
+
+- [Home](https://koombei.com): what KoomBei does, packages, process, portfolio highlights, FAQ
+- [Services and pricing](https://koombei.com/pages/services): full package details, standalone services, timelines
+- [Portfolio](https://koombei.com/pages/portfolio): 11 live client websites with descriptions and links
+- [About](https://koombei.com/pages/about): the story and meaning behind the KoomBei name
+- [Start a project](https://koombei.com/pages/contact): discovery form, free consultation, payment details
+- [The KoomBei Circle](https://koombei.com/pages/circle): free membership for clients
+
+## Case studies
+
+- [SWK Ghana](https://koombei.com/pages/work/swk-ghana): full organisational site for a youth nonprofit
+- [RuboLink](https://koombei.com/pages/work/rubolink): a service marketplace with Mobile Money and card payments
+- [Timoya Farms](https://koombei.com/pages/work/timoya-farms): a fast, framework-free site for an agriculture business
+- [Lafie Plus](https://koombei.com/pages/work/lafie-plus): an accessible frontend platform
+
+## Blog
+
+- [Blog index](https://koombei.com/blog): practical writing on websites and digital presence for purpose-driven organisations
+- [What AI can actually do for a small NGO right now](https://koombei.com/blog/posts/what-ai-can-do-for-your-ngo)
+- [A website is not a substitute for social media](https://koombei.com/blog/posts/website-vs-social-media)
+- [Why your NGO needs a website, even when the funding is tight](https://koombei.com/blog/posts/why-your-ngo-needs-a-website)
+- [Why Mobile Money changed what a website needs to do](https://koombei.com/blog/posts/mobile-money-and-your-website)
+- [What a website should actually cost](https://koombei.com/blog/posts/what-a-website-should-cost)
+- [Building for the connection your audience actually has](https://koombei.com/blog/posts/building-for-slow-connections)

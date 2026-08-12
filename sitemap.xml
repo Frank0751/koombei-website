@@ -7,31 +7,31 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/about.html</loc>
+    <loc>https://koombei.com/pages/about</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/services.html</loc>
+    <loc>https://koombei.com/pages/services</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/portfolio.html</loc>
+    <loc>https://koombei.com/pages/portfolio</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/contact.html</loc>
+    <loc>https://koombei.com/pages/contact</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/circle.html</loc>
+    <loc>https://koombei.com/pages/circle</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -39,25 +39,25 @@
 
   <!-- Case studies -->
   <url>
-    <loc>https://koombei.com/pages/work/swk-ghana.html</loc>
+    <loc>https://koombei.com/pages/work/swk-ghana</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/work/rubolink.html</loc>
+    <loc>https://koombei.com/pages/work/rubolink</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/work/timoya-farms.html</loc>
+    <loc>https://koombei.com/pages/work/timoya-farms</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/pages/work/lafie-plus.html</loc>
+    <loc>https://koombei.com/pages/work/lafie-plus</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -65,43 +65,43 @@
 
   <!-- Blog -->
   <url>
-    <loc>https://koombei.com/blog/index.html</loc>
+    <loc>https://koombei.com/blog</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://koombei.com/blog/posts/what-ai-can-do-for-your-ngo.html</loc>
+    <loc>https://koombei.com/blog/posts/what-ai-can-do-for-your-ngo</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/blog/posts/website-vs-social-media.html</loc>
+    <loc>https://koombei.com/blog/posts/website-vs-social-media</loc>
     <lastmod>2026-07-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/blog/posts/why-your-ngo-needs-a-website.html</loc>
+    <loc>https://koombei.com/blog/posts/why-your-ngo-needs-a-website</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/blog/posts/mobile-money-and-your-website.html</loc>
+    <loc>https://koombei.com/blog/posts/mobile-money-and-your-website</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/blog/posts/what-a-website-should-cost.html</loc>
+    <loc>https://koombei.com/blog/posts/what-a-website-should-cost</loc>
     <lastmod>2026-07-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://koombei.com/blog/posts/building-for-slow-connections.html</loc>
+    <loc>https://koombei.com/blog/posts/building-for-slow-connections</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
