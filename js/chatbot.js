@@ -306,7 +306,7 @@
     },
     {
       keys: ['portfolio', 'examples', 'previous work', 'past work', 'what have you built', 'your projects', 'clients'],
-      reply: "We've built websites for:\n\n• SWK Ghana - youth nonprofit\n• Frank Koomson - personal portfolio\n• Andrews Akoto-Addo - entrepreneur portfolio\n• The Climate Sociologist - climate NGO\n• Timoya Farms - agriculture business\n• Lafie Plus - tech platform\n• RuboLink - service marketplace\n\nSee them all on our Portfolio page."
+      reply: "We've built websites for:\n\n• SWK Ghana - youth nonprofit\n• Frank Abeiku Koomson - personal portfolio\n• Andrews Akoto-Addo - entrepreneur portfolio\n• The Climate Sociologist - climate NGO\n• Timoya Farms - agriculture business\n• Lafie Plus - tech platform\n• RuboLink - service marketplace\n\nSee them all on our Portfolio page."
     },
     {
       keys: ['ngo', 'nonprofit', 'non-profit', 'charity', 'organisation', 'organization', 'purpose-driven'],

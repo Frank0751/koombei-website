@@ -1,4 +1,4 @@
-# KoomBei, https://koombei.com
+# KoomBei, https://www.koombei.com
 # Static site on Vercel. Everything public is crawlable except the
 # member area and the blog post template.
 
@@ -16,4 +16,4 @@ Disallow: /blog/posts/POST_TEMPLATE
 # Internal data sources consumed by the site's own JavaScript.
 Disallow: /_data/
 
-Sitemap: https://koombei.com/sitemap.xml
+Sitemap: https://www.koombei.com/sitemap.xml

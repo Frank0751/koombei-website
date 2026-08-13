@@ -170,8 +170,16 @@ A voluntary-gift checkout powered by Paystack, on the homepage below the main CT
 - **`/llms.txt`** added at the site root: a structured plain-text summary of KoomBei for AI assistants and their crawlers (the emerging llms.txt convention). Update it when packages or key pages change.
 - Stats corrected to reality: 10+ active clients, 11 live websites (was 6+/4+, stale since the portfolio grew).
 
-[ ] Optional remaining step: internal `<a href>` links still use `.html` and get a cheap 308 redirect on the live site. Harmless for SEO now that canonicals are clean, but removing the hop means rewriting every internal link AND teaching the local preview server to resolve extensionless paths. Say the word if you want it.
+[ ] Optional remaining step: internal `<a href>` links still use `.html` and get a cheap 308 redirect on the live site. Harmless for SEO now that canonicals are clean. Say the word if you want it. (The local preview server now emulates cleanUrls, so this became feasible in Aug 2026.)
 [ ] Still the single highest-impact SEO action, and only you can do it: verify koombei.com in Google Search Console and submit sitemap.xml (see the Blog section above).
+
+## Blog 404 fix + authorship (August 2026)
+
+- **Fixed the `/posts/...` 404**: when Vercel served the blog index at `/blog` (extensionless), the browser resolved its relative card links against the site root, sending readers to `/posts/...` which does not exist. The blog index now uses root-absolute links, a permanent `/posts/:slug` → `/blog/posts/:slug` redirect in vercel.json rescues any already-shared broken URLs, and the local preview server now emulates cleanUrls so this class of bug shows up locally too.
+- **Canonical host corrected to www**: `koombei.com` 308-redirects to `www.koombei.com`, so every absolute URL sitewide (canonicals, og:url, JSON-LD, sitemap, robots.txt, llms.txt, security.txt) now uses `https://www.koombei.com`. 152 URLs updated.
+- **Frank Abeiku Koomson is now the named author** of all 6 blog posts and 4 case studies: visible byline on each post, JSON-LD `Person` author (linked to the Organization as founder, with frank.swkghana.org as sameAs), full name used consistently sitewide (founder block, marquee, portfolio, footer credits, chatbot, llms.txt).
+- Honest expectation-setting: authorship markup helps Google and AI assistants associate the name with the content (E-E-A-T), but "any topic around web design lands on my site" additionally requires indexing (Search Console, above), inbound links, and time. The structure is now in place; distribution still has to be earned.
+[ ] Optional: add a personal LinkedIn profile URL to the Person schema's sameAs (only the company page is known today).
 
 ## Notes
 
