@@ -97,25 +97,15 @@
     animation: fadeUp 0.7s ease 0.3s forwards;
   }
 
-  .contact-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; }
+  .contact-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; align-items: start; }
 
   .contact-sidebar { display: flex; flex-direction: column; gap: 16px; }
 
-  .contact-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 30px;
-    transition: transform 0.3s, box-shadow 0.3s;
+  /* The brief is long, so the "what happens next" and payment cards ride
+     alongside it rather than scrolling away. 68px nav + 20px breathing room. */
+  @media (min-width: 901px) {
+    .contact-sidebar { position: sticky; top: 88px; }
   }
-
-  .contact-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(21,31,30,0.08); }
-
-  .contact-card label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 10px; }
-  .contact-card h4 { font-size: 15px; font-weight: 600; color: var(--night); margin-bottom: 6px; }
-  .contact-card p { font-size: 13px; font-weight: 300; color: var(--green); line-height: 1.6; }
-  .contact-card a { color: var(--amber); font-size: 13px; font-weight: 400; word-break: break-all; transition: opacity 0.2s; }
-  .contact-card a:hover { opacity: 0.8; }
 
   .process-card { background: var(--night); border-radius: var(--radius); padding: 30px; }
   .process-card label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--midgreen); display: block; margin-bottom: 16px; }
@@ -144,7 +134,8 @@
 
   .form-header { background: var(--night); padding: 25px 35px; }
   .form-header h3 { font-size: 18px; font-weight: 600; color: var(--lily); margin-bottom: 4px; }
-  .form-header p { font-size: 12px; font-weight: 300; color: var(--midgreen); }
+  .form-header p { font-size: 12px; font-weight: 300; color: var(--midgreen); line-height: 1.6; }
+  .form-header p span { color: var(--amber); }
 
   .form-body { padding: 35px; }
 
@@ -223,23 +214,6 @@
   .success-message h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
   .success-message p { font-size: 13px; font-weight: 300; opacity: 0.85; line-height: 1.6; }
 
-  /* Compact quick-message form in the "Email us directly" sidebar card. */
-  .quick-email-form { margin-top: 14px; }
-  .quick-email-form .field { margin-bottom: 10px; }
-  .quick-email-form textarea { min-height: 70px; }
-  .quick-email-submit { width: 100%; text-align: center; font-size: 13px; padding: 11px; }
-  .quick-email-success {
-    display: none;
-    background: var(--pale);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-top: 14px;
-  }
-  .quick-email-success p { font-size: 12.5px; color: var(--green); line-height: 1.6; }
-  .quick-email-fallback { font-size: 11.5px; margin-top: 12px; color: var(--midgreen); }
-  .quick-email-fallback a { color: var(--amber); }
-
   @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 
   .fade-in { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
@@ -279,7 +253,7 @@
     max-height: 0;
     transition: max-height 0.35s ease;
   }
-  .consult-email-panel.is-open { max-height: 480px; }
+  .consult-email-panel.is-open { max-height: 560px; }
   .consult-email-inner {
     margin-top: 20px;
     padding-top: 20px;
@@ -297,6 +271,8 @@
     margin-top: 20px;
   }
   .consult-email-success p { font-size: 12.5px; color: var(--green); line-height: 1.6; margin: 0; }
+  .consult-email-fallback { font-size: 12px; margin-top: 12px; color: var(--midgreen); font-weight: 300; }
+  .consult-email-fallback a { color: var(--amber); }
 
   @media (prefers-reduced-motion: reduce) {
     .consult-email-panel { transition: none; }
@@ -337,87 +313,16 @@
   <p>Fill the form below and we will get back to you within 48 hours with a tailored proposal designed specifically for your needs and budget.</p>
 </section>
 
-<!-- Lower-commitment entry point for visitors who are not ready to brief a
-     whole project yet. Every "Book a free consultation" button across the
-     site targets this anchor. -->
-<section class="section bg-white fade-in" id="consult" style="padding-top:80px;padding-bottom:80px;">
-  <div class="consult-box">
-    <h2>Not ready for a full brief? <em>Just talk to us.</em></h2>
-    <div class="divider" style="margin:16px 0 22px;"></div>
-    <p>You do not need a finished plan, a budget, or even a clear idea to start a conversation. Tell us roughly what you are trying to do and we will give you an honest answer about what it needs, what it costs, and whether now is the right time. If we think you should wait, we will say so.</p>
-    <ul class="consult-list">
-      <li><strong>Free, and genuinely free.</strong> No invoice appears afterwards.</li>
-      <li><strong>No obligation.</strong> You are not committing to a project by asking a question.</li>
-      <li><strong>A straight answer.</strong> Including "you do not need this yet" when that is true.</li>
-      <li><strong>Whichever way suits you.</strong> WhatsApp, email, or a video call across any time zone.</li>
-    </ul>
-    <div class="consult-actions">
-      <a href="https://wa.me/233206634459?text=Hi%20KoomBei%2C%20I%27d%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Talk on WhatsApp</a>
-      <button type="button" class="btn btn-outline consult-email" aria-expanded="false" aria-controls="consultEmailPanel">Email us instead</button>
-      <a href="#contactForm" class="btn btn-outline consult-email">Use the full form</a>
-    </div>
-    <div class="consult-email-panel" id="consultEmailPanel">
-      <div class="consult-email-inner">
-        <form id="consultEmailForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
-          <!-- Web3Forms: the access key is public by design (it only routes mail to our inbox) -->
-          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
-          <input type="hidden" name="subject" value="New consultation request - KoomBei website">
-          <!-- Honeypot: Web3Forms discards any submission where this hidden box is checked; bots check it -->
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="field"><input type="text" name="name" placeholder="Your name" aria-label="Your name" maxlength="100" required></div>
-          <div class="field"><input type="email" name="email" placeholder="your@email.com" aria-label="Your email" maxlength="150" required></div>
-          <div class="field"><textarea name="message" placeholder="Roughly what are you trying to do?" aria-label="Your message" maxlength="1000" required></textarea></div>
-          <button type="submit" class="btn btn-primary consult-email-submit">Send message</button>
-        </form>
-        <div class="consult-email-success" id="consultEmailSuccess">
-          <p>Thank you. We have received your message and will reply to your email soon.</p>
-        </div>
-      </div>
-    </div>
-    <p class="consult-note">Prefer to give us the detail up front? The discovery form below gets you a tailored proposal within 48 hours.</p>
-  </div>
-</section>
-
-<section class="section bg-pale fade-in">
+<!-- The discovery form leads the page: we want visitors to attempt the full
+     brief first. The lighter-touch options (WhatsApp, short email) live in
+     #consult directly below, so they surface exactly when the form starts to
+     feel like too much. -->
+<section class="section bg-pale fade-in" id="brief">
   <div class="contact-grid">
-    <div class="contact-sidebar">
-      <div class="contact-card fade-in">
-        <h4>Email us directly</h4>
-        <p>Prefer not to fill the full brief? Send a short message and we will reply by email.</p>
-        <form id="quickEmailForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard class="quick-email-form">
-          <!-- Web3Forms: the access key is public by design (it only routes mail to our inbox) -->
-          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
-          <input type="hidden" name="subject" value="New quick message - KoomBei website">
-          <!-- Honeypot: Web3Forms discards any submission where this hidden box is checked; bots check it -->
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="field"><input type="text" name="name" placeholder="Your name" aria-label="Your name" maxlength="100" required></div>
-          <div class="field"><input type="email" name="email" placeholder="your@email.com" aria-label="Your email" maxlength="150" required></div>
-          <div class="field"><textarea name="message" placeholder="What would you like to ask?" aria-label="Your message" maxlength="1000" required></textarea></div>
-          <button type="submit" class="btn btn-primary quick-email-submit">Send message</button>
-        </form>
-        <div class="quick-email-success" id="quickEmailSuccess">
-          <p>Thank you. We have received your message and will reply to your email soon.</p>
-        </div>
-        <p class="quick-email-fallback">Prefer your own email app? Write to <a href="mailto:info@koombei.com">info@koombei.com</a> directly.</p>
-      </div>
-      <div class="process-card fade-in">
-        <div class="process-step"><div class="step-num">1</div><p><strong>Fill the form:</strong> tell us about your project and budget</p></div>
-        <div class="process-step"><div class="step-num">2</div><p><strong>We review:</strong> within 24 hours of receiving your form</p></div>
-        <div class="process-step"><div class="step-num">3</div><p><strong>Proposal sent:</strong> tailored to your project within 48 hours</p></div>
-        <div class="process-step"><div class="step-num">4</div><p><strong>Deposit and kickoff:</strong> 50% deposit locks in your start date</p></div>
-        <div class="process-step"><div class="step-num">5</div><p><strong>We build:</strong> your website delivered on time, every time</p></div>
-      </div>
-      <div class="payment-card fade-in">
-        <div class="payment-method"><h5>Fidelity Bank</h5><p>Account No: 2030192755111</p></div>
-        <div class="payment-method"><h5>Mobile Money</h5><p>+233 548 704 107</p></div>
-        <div class="payment-method"><h5>International clients</h5><p>Bank transfer or another convenient option, confirmed in your proposal.</p></div>
-      </div>
-    </div>
-
     <div class="contact-form-wrap fade-in">
       <div class="form-header">
         <h3>Project discovery form</h3>
-        <p>Every question helps us build the right thing for you the first time.</p>
+        <p>Every question helps us build the right thing for you the first time. Only the fields marked <span>*</span> are required &mdash; skip the rest if you are short on time.</p>
       </div>
       <div class="form-body">
         <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
@@ -437,7 +342,7 @@
           <div class="field">
             <label>What best describes you? <span>*</span></label>
             <div class="radio-group">
-              <label class="radio-pill"><input type="radio" name="clienttype" value="ngo"><span>NGO / Nonprofit</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="ngo" required><span>NGO / Nonprofit</span></label>
               <label class="radio-pill"><input type="radio" name="clienttype" value="startup"><span>Young startup</span></label>
               <label class="radio-pill"><input type="radio" name="clienttype" value="business"><span>Business</span></label>
               <label class="radio-pill"><input type="radio" name="clienttype" value="personal"><span>Personal</span></label>
@@ -552,6 +457,63 @@
         </form>
       </div>
     </div>
+
+    <aside class="contact-sidebar">
+      <div class="process-card fade-in">
+        <div class="process-step"><div class="step-num">1</div><p><strong>Fill the form:</strong> tell us about your project and budget</p></div>
+        <div class="process-step"><div class="step-num">2</div><p><strong>We review:</strong> within 24 hours of receiving your form</p></div>
+        <div class="process-step"><div class="step-num">3</div><p><strong>Proposal sent:</strong> tailored to your project within 48 hours</p></div>
+        <div class="process-step"><div class="step-num">4</div><p><strong>Deposit and kickoff:</strong> 50% deposit locks in your start date</p></div>
+        <div class="process-step"><div class="step-num">5</div><p><strong>We build:</strong> your website delivered on time, every time</p></div>
+      </div>
+      <div class="payment-card fade-in">
+        <div class="payment-method"><h5>Fidelity Bank</h5><p>Account No: 2030192755111</p></div>
+        <div class="payment-method"><h5>Mobile Money</h5><p>+233 548 704 107</p></div>
+        <div class="payment-method"><h5>International clients</h5><p>Bank transfer or another convenient option, confirmed in your proposal.</p></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Lower-commitment entry point for visitors who are not ready to brief a
+     whole project yet. Every "Book a free consultation" button across the
+     site targets this anchor. -->
+<section class="section bg-white fade-in" id="consult" style="padding-top:80px;padding-bottom:80px;">
+  <div class="consult-box">
+    <h2>Not ready for a full brief? <em>Just talk to us.</em></h2>
+    <div class="divider" style="margin:16px 0 22px;"></div>
+    <p>You do not need a finished plan, a budget, or even a clear idea to start a conversation. Tell us roughly what you are trying to do and we will give you an honest answer about what it needs, what it costs, and whether now is the right time. If we think you should wait, we will say so.</p>
+    <ul class="consult-list">
+      <li><strong>Free, and genuinely free.</strong> No invoice appears afterwards.</li>
+      <li><strong>No obligation.</strong> You are not committing to a project by asking a question.</li>
+      <li><strong>A straight answer.</strong> Including "you do not need this yet" when that is true.</li>
+      <li><strong>Whichever way suits you.</strong> WhatsApp, email, or a video call across any time zone.</li>
+    </ul>
+    <div class="consult-actions">
+      <a href="https://wa.me/233206634459?text=Hi%20KoomBei%2C%20I%27d%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Talk on WhatsApp</a>
+      <button type="button" class="btn btn-outline consult-email" aria-expanded="false" aria-controls="consultEmailPanel">Email us instead</button>
+      <a href="#brief" class="btn btn-outline consult-email">Back to the full form</a>
+    </div>
+    <div class="consult-email-panel" id="consultEmailPanel">
+      <div class="consult-email-inner">
+        <form id="consultEmailForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
+          <!-- Web3Forms: the access key is public by design (it only routes mail to our inbox) -->
+          <input type="hidden" name="access_key" value="f33c3119-d8ec-4bf2-bcf7-932cb7e553ca">
+          <input type="hidden" name="subject" value="New consultation request - KoomBei website">
+          <!-- Honeypot: Web3Forms discards any submission where this hidden box is checked; bots check it -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="field"><input type="text" name="name" placeholder="Your name" aria-label="Your name" maxlength="100" required></div>
+          <div class="field"><input type="email" name="email" placeholder="your@email.com" aria-label="Your email" maxlength="150" required></div>
+          <div class="field"><textarea name="message" placeholder="Roughly what are you trying to do?" aria-label="Your message" maxlength="1000" required></textarea></div>
+          <button type="submit" class="btn btn-primary consult-email-submit">Send message</button>
+        </form>
+        <p class="consult-email-fallback">Prefer your own email app? Write to <a href="mailto:info@koombei.com">info@koombei.com</a> directly.</p>
+        <div class="consult-email-success" id="consultEmailSuccess">
+          <p>Thank you. We have received your message and will reply to your email soon.</p>
+        </div>
+      </div>
+    </div>
+    <p class="consult-note">Prefer to give us the detail up front? The discovery form above gets you a tailored proposal within 48 hours.</p>
   </div>
 </section>
 
@@ -602,6 +564,20 @@
     });
   }
 
+  // "What pages do you need?" is marked required, but a checkbox group has no
+  // native "tick at least one" rule: `required` on a checkbox would force that
+  // single box. Instead we park a custom validity message on the first box, so
+  // the browser blocks submission and shows it until something is ticked.
+  const pageBoxes = document.querySelectorAll('input[name="pages"]');
+  function syncPagesValidity() {
+    const anyChecked = Array.prototype.some.call(pageBoxes, function(b) { return b.checked; });
+    pageBoxes[0].setCustomValidity(anyChecked ? '' : 'Please select at least one page you need.');
+  }
+  if (pageBoxes.length) {
+    pageBoxes.forEach(function(b) { b.addEventListener('change', syncPagesValidity); });
+    syncPagesValidity();
+  }
+
   // Show the impact-discount eligibility fields based on client type.
   // NGO / Nonprofit and Startup can qualify; startups also need a registration
   // date so we can confirm they're under 2 years old.
@@ -642,35 +618,6 @@
       btn.textContent = 'Submit my project brief';
       btn.disabled = false;
       alert('Network error. Please try again.');
-    }
-  });
-
-  document.getElementById('quickEmailForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const guard = window.KBSpam ? window.KBSpam.check(this) : '';
-    if (guard === 'bot') return;
-    if (guard) { alert(window.KBSpam.message(guard)); return; }
-    const btn = this.querySelector('.quick-email-submit');
-    const originalText = btn.textContent;
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    try {
-      const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
-      if (res.ok) {
-        if (window.KBSpam) window.KBSpam.mark(this);
-        this.style.display = 'none';
-        const msg = document.getElementById('quickEmailSuccess');
-        msg.style.display = 'block';
-        this.reset();
-      } else {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        alert('Something went wrong. Please try again, or email info@koombei.com directly.');
-      }
-    } catch {
-      btn.textContent = originalText;
-      btn.disabled = false;
-      alert('Network error. Please try again, or email info@koombei.com directly.');
     }
   });
 
