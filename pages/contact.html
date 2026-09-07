@@ -168,19 +168,102 @@
 
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-  .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 11px 14px; background: var(--pale); border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; transition: border-color 0.2s, background 0.2s; user-select: none; }
-  .checkbox-item:hover { border-color: var(--amber); background: rgba(199,160,3,0.04); }
-  .checkbox-item input { width: 16px; height: 16px; accent-color: var(--amber); cursor: pointer; flex-shrink: 0; }
-  .checkbox-item span { font-size: 13px; font-weight: 300; color: var(--night); }
+  /* Choice controls. The native box is replaced by a drawn one so a selection
+     reads as a tick on amber, and the whole pill/card changes with it — the old
+     version only moved a 14px native dot, which was easy to miss on a form this
+     long. Sizes are fixed in both states so nothing reflows on selection. */
+  .field .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .field .checkbox-item {
+    display: flex; margin-bottom: 0; align-items: center; gap: 10px; padding: 11px 14px; min-height: 44px;
+    background: var(--pale); border: 1.5px solid var(--border); border-radius: 8px;
+    cursor: pointer; user-select: none;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  }
+  .field .checkbox-item:hover { border-color: var(--amber); background: rgba(199,160,3,0.05); }
+  .field .checkbox-item:focus-within { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(199,160,3,0.15); }
+  .field .checkbox-item:has(input:checked) { border-color: var(--amber); background: rgba(199,160,3,0.1); }
+  .field .checkbox-item input {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px; flex-shrink: 0; padding: 0; margin: 0; cursor: pointer;
+    background-color: var(--white); border: 1.5px solid var(--border); border-radius: 5px;
+    background-repeat: no-repeat; background-position: center; background-size: 12px 12px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .field .checkbox-item input:checked {
+    background-color: var(--amber); border-color: var(--amber);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.6 7.4l2.9 2.9 5.9-6.4' fill='none' stroke='%23151F1E' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .field .checkbox-item span { font-size: 13px; font-weight: 300; color: var(--night); }
 
-  .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
-  .radio-pill { display: flex; align-items: center; gap: 8px; padding: 9px 16px; background: var(--pale); border: 1.5px solid var(--border); border-radius: 20px; cursor: pointer; transition: all 0.2s; user-select: none; }
-  .radio-pill:hover { border-color: var(--amber); background: rgba(199,160,3,0.04); }
-  .radio-pill input { width: 14px; height: 14px; accent-color: var(--amber); cursor: pointer; }
-  .radio-pill span { font-size: 13px; font-weight: 300; color: var(--night); }
+  .field .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .field .radio-pill {
+    display: flex; margin-bottom: 0; align-items: center; gap: 8px; padding: 10px 16px; min-height: 44px;   /* comfortable touch target on phones */
+    background: var(--pale); border: 1.5px solid var(--border); border-radius: 20px;
+    cursor: pointer; user-select: none;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  }
+  .field .radio-pill:hover { border-color: var(--amber); background: rgba(199,160,3,0.05); }
+  .field .radio-pill:focus-within { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(199,160,3,0.15); }
+  .field .radio-pill:has(input:checked) { border-color: var(--amber); background: rgba(199,160,3,0.1); }
+  /* Round, so it still reads as "pick one", but ticked rather than dotted. */
+  .field .radio-pill input {
+    appearance: none; -webkit-appearance: none;
+    width: 17px; height: 17px; flex-shrink: 0; padding: 0; margin: 0; cursor: pointer;
+    background-color: var(--white); border: 1.5px solid var(--border); border-radius: 50%;
+    background-repeat: no-repeat; background-position: center; background-size: 11px 11px;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .field .radio-pill input:checked {
+    background-color: var(--amber); border-color: var(--amber);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.6 7.4l2.9 2.9 5.9-6.4' fill='none' stroke='%23151F1E' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .field .radio-pill span { font-size: 13px; font-weight: 300; color: var(--night); }
+
+  /* Typed and chosen answers get the same tick, so every answered question
+     looks answered. Required fields reserve the tick's space from the start,
+     so it appears without nudging the text. */
+  .field input[type="text"]:required,
+  .field input[type="email"]:required { padding-right: 38px; }
+  .field textarea:required { padding-right: 36px; }
+  .field select:required { padding-right: 56px; }
+
+  .field input[type="text"]:required:valid,
+  .field input[type="email"]:required:valid,
+  .field textarea:required:valid,
+  .field select:required:valid { border-color: rgba(199,160,3,0.55); }
+
+  .field input[type="text"]:required:valid,
+  .field input[type="email"]:required:valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.6 7.4l2.9 2.9 5.9-6.4' fill='none' stroke='%23C7A003' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 13px center; background-size: 14px 14px;
+  }
+  .field textarea:required:valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.6 7.4l2.9 2.9 5.9-6.4' fill='none' stroke='%23C7A003' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 12px top 12px; background-size: 14px 14px;
+  }
+  /* Tick sits beside the chevron, which has to be redeclared to layer them. */
+  .field select:required:valid {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2.6 7.4l2.9 2.9 5.9-6.4' fill='none' stroke='%23C7A003' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233D4E17' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 34px center, right 14px center;
+    background-size: 14px 14px, 12px 8px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* A short pop on the box itself confirms the click landed. */
+    .field .checkbox-item input:checked, .field .radio-pill input:checked { animation: tickPop 0.22s ease; }
+    .field .checkbox-item:active, .field .radio-pill:active { transform: scale(0.98); }
+  }
+  @keyframes tickPop { 0% { transform: scale(0.82); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
 
   .hint { font-size: 11px; color: var(--midgreen); margin-top: 6px; font-weight: 300; }
+
+  /* Conditional questions (impact discount, "other" page). They used to snap
+     in and out with display:none, which jumped the fields below them. Same
+     max-height reveal the consult panel uses, so the form settles instead. */
+  .reveal { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.3s ease, opacity 0.25s ease, margin-bottom 0.3s ease; margin-bottom: 0; }
+  .reveal.is-open { max-height: 420px; opacity: 1; margin-bottom: 20px; }
+  @media (prefers-reduced-motion: reduce) { .reveal { transition: none; } }
 
   /* Client file uploads. Files go straight to Cloudinary from the browser and
      only their URLs ride along on the Web3Forms submission, so the form backend
@@ -326,7 +409,9 @@
     .contact-grid { grid-template-columns:1fr; }
     .contact-hero h1 { font-size:32px; }
     .field-row { grid-template-columns:1fr; }
-    .checkbox-group { grid-template-columns:1fr; }
+    /* Must match the scoped base rule`s specificity or it loses: a media
+       query adds none of its own. */
+    .field .checkbox-group { grid-template-columns:1fr; }
     .consult-box { padding:32px 26px; }
     .consult-box h2 { font-size:24px; }
     .consult-actions .btn { width:100%; text-align:center; }
@@ -394,11 +479,11 @@
               <label class="radio-pill"><input type="radio" name="clienttype" value="other"><span>Other</span></label>
             </div>
           </div>
-          <div class="field" id="eligibilityFields" style="display:none;">
+          <div class="reveal" id="eligibilityFields">
             <div class="eligibility-box">
               <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>You may qualify for our 20% impact discount. Share your details below and we will confirm eligibility in your proposal.</p>
               <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO / nonprofit / business registration number" maxlength="60"><p class="hint">The number on your official registration certificate.</p></div>
-              <div class="field" id="regDateField" style="display:none;"><label>Registration date</label><input type="date" name="reg_date"><p class="hint">Startups registered under 2 years qualify. This helps us confirm your discount.</p></div>
+              <div class="field reveal" id="regDateField"><label>Registration date</label><input type="date" name="reg_date"><p class="hint">Startups registered under 2 years qualify. This helps us confirm your discount.</p></div>
             </div>
           </div>
           <div class="field">
@@ -430,7 +515,7 @@
               <label class="checkbox-item"><input type="checkbox" name="pages" value="team"><span>Team / Staff</span></label>
               <label class="checkbox-item" id="otherPageItem"><input type="checkbox" name="pages" value="other" id="otherPageCheck"><span>Other</span></label>
             </div>
-            <div id="otherPageField" style="display:none;margin-top:10px;">
+            <div class="reveal" id="otherPageField">
               <input type="text" name="pages_other" placeholder="Please describe the page(s) you need..." maxlength="200">
             </div>
             <p class="hint">Select all that apply.</p>
@@ -638,7 +723,8 @@
   const otherField = document.getElementById('otherPageField');
   if (otherCheck && otherField) {
     otherCheck.addEventListener('change', function() {
-      otherField.style.display = this.checked ? 'block' : 'none';
+      otherField.classList.toggle('is-open', this.checked);
+      if (this.checked) { setTimeout(function () { otherField.querySelector('input').focus(); }, 180); }
     });
   }
 
@@ -664,8 +750,8 @@
   document.querySelectorAll('input[name="clienttype"]').forEach(function(radio) {
     radio.addEventListener('change', function() {
       const eligible = this.value === 'ngo' || this.value === 'startup';
-      eligibilityFields.style.display = eligible ? 'block' : 'none';
-      regDateField.style.display = this.value === 'startup' ? 'block' : 'none';
+      eligibilityFields.classList.toggle('is-open', eligible);
+      regDateField.classList.toggle('is-open', this.value === 'startup');
     });
   });
 
