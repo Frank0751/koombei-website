@@ -182,6 +182,49 @@
 
   .hint { font-size: 11px; color: var(--midgreen); margin-top: 6px; font-weight: 300; }
 
+  /* Client file uploads. Files go straight to Cloudinary from the browser and
+     only their URLs ride along on the Web3Forms submission, so the form backend
+     never handles an attachment. */
+  /* All scoped under .field: the generic `.field input` and `.field label` rules
+     carry an element selector and would otherwise out-specify these. */
+  .field .upload-drop {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    margin-bottom: 0; padding: 24px 20px; text-align: center; cursor: pointer;
+    background: var(--pale); border: 1.5px dashed var(--border);
+    border-radius: 8px; transition: border-color 0.2s, background 0.2s;
+  }
+  .field .upload-drop:hover, .field .upload-drop.is-over { border-color: var(--amber); background: rgba(199,160,3,0.04); }
+  .field .upload-drop:focus-within { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(199,160,3,0.1); }
+  /* Visually hidden, but still in the tab order so the field stays keyboard-reachable. */
+  .field .upload-input {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .field .upload-cta { font-size: 13.5px; font-weight: 500; color: var(--amber); }
+  .field .upload-sub { font-size: 12px; font-weight: 300; color: var(--midgreen); }
+
+  .field .upload-list { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+  .field .upload-list:empty { margin-top: 0; }
+  .field .upload-item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+  .field .upload-item.is-error { border-color: var(--amber); }
+  .field .upload-row { display: flex; align-items: center; gap: 10px; }
+  .field .upload-name { flex: 1; min-width: 0; font-size: 12.5px; font-weight: 300; color: var(--night); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .field .upload-meta { flex-shrink: 0; font-size: 11px; font-weight: 300; color: var(--midgreen); }
+  .field .upload-meta.is-done { color: var(--amber); font-weight: 500; }
+  .field .upload-remove {
+    flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 0 2px;
+    font-family: 'Ubuntu', sans-serif; font-size: 17px; line-height: 1; color: var(--midgreen); transition: color 0.2s;
+  }
+  .field .upload-remove:hover { color: var(--night); }
+  .field .upload-bar { height: 3px; margin-top: 8px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .field .upload-bar span { display: block; height: 100%; width: 0; background: var(--amber); transition: width 0.25s ease; }
+  .field .upload-note { margin-top: 6px; font-size: 11.5px; font-weight: 300; color: var(--green); }
+  .field .upload-note strong { color: var(--amber); font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field .upload-bar span { transition: none; }
+  }
+
   .eligibility-box { background: rgba(199,160,3,0.05); border: 1px solid rgba(199,160,3,0.25); border-radius: 10px; padding: 18px 20px 6px; }
   .eligibility-intro { font-size: 13px; font-weight: 300; color: var(--green); line-height: 1.6; margin-bottom: 16px; }
   .eligibility-intro svg { vertical-align: -2px; margin-right: 6px; }
@@ -434,6 +477,22 @@
           <div class="field"><label>Tell us about your project <span>*</span></label><textarea name="description" placeholder="What does your organisation do? What is the purpose of this website? Who will visit it? Any specific features you need?" maxlength="2500" required></textarea></div>
           <div class="field"><label>Reference websites you like</label><input type="text" name="references" placeholder="e.g. https://example.com and what you like about it" maxlength="300"><p class="hint">Optional but very helpful.</p></div>
           <div class="field">
+            <label>Logo, brand assets or existing content</label>
+            <!-- The file input deliberately has NO name attribute: FormData(form)
+                 would otherwise put the raw file in the Web3Forms POST, which the
+                 free plan rejects. Files go to Cloudinary and only their URLs
+                 travel on, in the hidden #attachmentsField below. -->
+            <label class="upload-drop" id="uploadDrop" for="briefFiles">
+              <input type="file" id="briefFiles" class="upload-input" multiple
+                     accept=".png,.jpg,.jpeg,.svg,.webp,.pdf,.doc,.docx,image/png,image/jpeg,image/svg+xml,image/webp,application/pdf">
+              <span class="upload-cta">Choose files</span>
+              <span class="upload-sub">or drag them here</span>
+            </label>
+            <ul class="upload-list" id="uploadList"></ul>
+            <p class="hint" id="uploadHint">Optional. Up to 5 files, 10&nbsp;MB each &mdash; PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.</p>
+            <input type="hidden" name="attachments" id="attachmentsField">
+          </div>
+          <div class="field">
             <label>How did you hear about KoomBei?</label>
             <select name="referral">
               <option value="" disabled selected>Select one</option>
@@ -591,8 +650,210 @@
     });
   });
 
+
+  /*
+   * Client file uploads, Cloudinary direct-from-browser.
+   *
+   * Web3Forms' free plan will not carry attachments, so the file never goes
+   * through it: the browser POSTs straight to Cloudinary using an UNSIGNED
+   * upload preset, and only the returned URLs travel on the form, as ordinary
+   * text in the hidden #attachmentsField.
+   *
+   * CLOUD and PRESET below are public by design - an unsigned preset carries no
+   * secret. The real guardrails (allowed formats, max file size, target folder,
+   * disallow_public_id) live on the preset in the Cloudinary console, because a
+   * determined caller can bypass anything enforced only here in the browser.
+   * The checks below exist to give the visitor a fast, clear error, not security.
+   */
+  (function () {
+    var CLOUD  = 'dmyrmlj5z';
+    var PRESET = 'koombei_client_uploads';   // Cloudinary > Settings > Upload > Upload presets, signing mode: Unsigned
+    var ENDPOINT = 'https://api.cloudinary.com/v1_1/' + CLOUD + '/auto/upload';
+    var MAX_FILES = 5;
+    var MAX_BYTES = 10 * 1024 * 1024;
+    var ALLOWED = ['png', 'jpg', 'jpeg', 'svg', 'webp', 'pdf', 'doc', 'docx'];
+
+    var input  = document.getElementById('briefFiles');
+    var drop   = document.getElementById('uploadDrop');
+    var list   = document.getElementById('uploadList');
+    var hidden = document.getElementById('attachmentsField');
+    var submitBtn = document.querySelector('#contactForm .btn-submit');
+    if (!input || !list || !hidden) { return; }
+
+    var items = [];   // { file, status: 'uploading'|'done'|'error', pct, url, note, xhr }
+
+    function ext(name) { return (name.split('.').pop() || '').toLowerCase(); }
+
+    function human(bytes) {
+      if (bytes < 1024) { return bytes + ' B'; }
+      if (bytes < 1024 * 1024) { return Math.round(bytes / 1024) + ' KB'; }
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function busy() {
+      return items.some(function (i) { return i.status === 'uploading'; });
+    }
+
+    /* Just enough surface for the submit handler to refuse a half-finished upload. */
+    window.KBUploads = { busy: busy };
+
+    function syncHidden() {
+      hidden.value = items
+        .filter(function (i) { return i.status === 'done'; })
+        .map(function (i) { return i.file.name + ' - ' + i.url; })
+        .join('\n');
+    }
+
+    function syncSubmit() {
+      if (!submitBtn) { return; }
+      submitBtn.disabled = busy();
+      submitBtn.textContent = busy() ? 'Uploading files...' : 'Submit my project brief';
+    }
+
+    function render() {
+      list.textContent = '';
+      items.forEach(function (item, index) {
+        var li = document.createElement('li');
+        li.className = 'upload-item' + (item.status === 'error' ? ' is-error' : '');
+
+        var row = document.createElement('div');
+        row.className = 'upload-row';
+
+        var name = document.createElement('span');
+        name.className = 'upload-name';
+        name.textContent = item.file.name;
+
+        var meta = document.createElement('span');
+        meta.className = 'upload-meta' + (item.status === 'done' ? ' is-done' : '');
+        if (item.status === 'uploading') { meta.textContent = item.pct + '%'; }
+        else if (item.status === 'done') { meta.textContent = 'Uploaded'; }
+        else { meta.textContent = 'Not uploaded'; }
+
+        var remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'upload-remove';
+        remove.setAttribute('aria-label', 'Remove ' + item.file.name);
+        remove.textContent = '\u00d7';
+        remove.addEventListener('click', function () {
+          if (item.xhr) { item.xhr.abort(); }
+          items.splice(index, 1);
+          syncHidden(); syncSubmit(); render();
+        });
+
+        row.appendChild(name); row.appendChild(meta); row.appendChild(remove);
+        li.appendChild(row);
+
+        if (item.status === 'uploading') {
+          var bar = document.createElement('div');
+          bar.className = 'upload-bar';
+          var fill = document.createElement('span');
+          fill.style.width = item.pct + '%';
+          bar.appendChild(fill);
+          li.appendChild(bar);
+        }
+
+        if (item.note) {
+          var note = document.createElement('p');
+          note.className = 'upload-note';
+          var mark = document.createElement('strong');
+          mark.textContent = '! ';
+          note.appendChild(mark);
+          note.appendChild(document.createTextNode(item.note));
+          li.appendChild(note);
+        }
+
+        list.appendChild(li);
+      });
+    }
+
+    function upload(item) {
+      var body = new FormData();
+      body.append('file', item.file);
+      body.append('upload_preset', PRESET);
+
+      var xhr = new XMLHttpRequest();
+      item.xhr = xhr;
+      xhr.open('POST', ENDPOINT, true);
+
+      xhr.upload.addEventListener('progress', function (e) {
+        if (!e.lengthComputable) { return; }
+        item.pct = Math.round((e.loaded / e.total) * 100);
+        render();
+      });
+
+      xhr.addEventListener('load', function () {
+        item.xhr = null;
+        var data = null;
+        try { data = JSON.parse(xhr.responseText); } catch (err) { /* handled just below */ }
+        if (xhr.status >= 200 && xhr.status < 300 && data && data.secure_url) {
+          item.status = 'done';
+          item.url = data.secure_url;
+          item.note = '';
+        } else {
+          item.status = 'error';
+          item.note = (data && data.error && data.error.message)
+            ? data.error.message
+            : 'Upload failed. Remove this and send the file over WhatsApp instead.';
+        }
+        syncHidden(); syncSubmit(); render();
+      });
+
+      xhr.addEventListener('error', function () {
+        item.xhr = null;
+        item.status = 'error';
+        item.note = 'Network error. Remove this and send the file over WhatsApp instead.';
+        syncHidden(); syncSubmit(); render();
+      });
+
+      xhr.addEventListener('abort', function () { item.xhr = null; });
+
+      xhr.send(body);
+    }
+
+    function add(files) {
+      Array.prototype.forEach.call(files, function (file) {
+        if (items.length >= MAX_FILES) { return; }
+        var item = { file: file, status: 'uploading', pct: 0, url: '', note: '', xhr: null };
+
+        if (ALLOWED.indexOf(ext(file.name)) === -1) {
+          item.status = 'error';
+          item.note = 'That file type is not accepted. Use PNG, JPG, SVG, WEBP, PDF, DOC or DOCX.';
+        } else if (file.size > MAX_BYTES) {
+          item.status = 'error';
+          item.note = 'This one is ' + human(file.size) + ', over the 10 MB limit. Send it over WhatsApp and we will pick it up.';
+        }
+
+        items.push(item);
+        if (item.status === 'uploading') { upload(item); }
+      });
+      syncHidden(); syncSubmit(); render();
+    }
+
+    input.addEventListener('change', function () {
+      var overflow = input.files.length > (MAX_FILES - items.length);
+      add(input.files);
+      if (overflow) { alert('You can attach up to ' + MAX_FILES + ' files. Send anything else over WhatsApp and we will pick it up.'); }
+      input.value = '';   // let the same file be re-picked after a removal
+    });
+
+    ['dragenter', 'dragover'].forEach(function (evt) {
+      drop.addEventListener(evt, function (e) { e.preventDefault(); drop.classList.add('is-over'); });
+    });
+    ['dragleave', 'drop'].forEach(function (evt) {
+      drop.addEventListener(evt, function (e) { e.preventDefault(); drop.classList.remove('is-over'); });
+    });
+    drop.addEventListener('drop', function (e) {
+      if (e.dataTransfer && e.dataTransfer.files.length) { add(e.dataTransfer.files); }
+    });
+  })();
+
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    // A file still in flight would be missing from the brief we email ourselves.
+    if (window.KBUploads && window.KBUploads.busy()) {
+      alert('Your files are still uploading. Give it a moment and try again.');
+      return;
+    }
     // Spam guard: honeypot / too-fast / cooldown checks before we send.
     const guard = window.KBSpam ? window.KBSpam.check(this) : '';
     if (guard === 'bot') return;               // silently drop obvious bots

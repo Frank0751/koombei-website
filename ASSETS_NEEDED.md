@@ -9,6 +9,19 @@ All three forms (contact, review, KoomBei Circle) now submit to **Web3Forms** (`
 [ ] Web3Forms' free plan includes 250 submissions/month — plenty for now; watch for their quota emails if traffic grows
 [ ] If spam ever gets heavy, Web3Forms supports adding **hCaptcha** for free — tell Claude and it's a small code change
 
+## Client file uploads on the discovery form (Cloudinary — free)
+
+The discovery form now takes files (logo, brand assets, existing content). Web3Forms' **free plan will not carry attachments**, so the file never goes through it: the browser uploads straight to **Cloudinary** and only the resulting URLs ride along on the form, as ordinary text in a hidden `attachments` field. The brief lands in your inbox with clickable links. This keeps Web3Forms on free indefinitely — upgrading to Pro (~$12/mo) is **not** needed for this.
+
+**One dashboard step is required before uploads work. Until you do it, every upload fails with "Upload preset not found" — the rest of the form still submits normally.**
+
+[ ] **Create the unsigned upload preset.** Cloudinary console → **Settings → Upload → Upload presets → Add upload preset**. Name it exactly `koombei_client_uploads` and set **Signing mode: Unsigned**. It must live on the `dmyrmlj5z` cloud (the one already serving your photos and hero images). If you name it anything else, change `PRESET` in the uploader script at the bottom of `pages/contact.html`.
+[ ] **Lock the preset down while you are in there.** An unsigned preset means anyone reading the page source could upload to it, so the guardrails have to live on the preset, not in the browser — a determined caller can bypass anything the page enforces. Set **Folder** to `koombei-client-uploads`, **Allowed formats** to `png,jpg,jpeg,svg,webp,pdf,doc,docx`, **Max file size** to `10485760` (10 MB), and turn on **Disallow public ID**.
+[ ] Free tier is 25 credits/month (1 credit = 1 GB storage *or* 1 GB bandwidth). Client logos and brand PDFs will not come close, but the usage meter is on the Cloudinary dashboard if you ever want to check.
+[ ] If the folder ever fills with junk, delete it in **Media Library** and consider turning the preset off until you need it again.
+
+The page also checks type, size and a 5-file cap before uploading, so a visitor gets a fast, clear error rather than a Cloudinary one. Those checks are for the visitor's benefit — the preset settings above are the actual protection.
+
 ## KoomBei Circle: real member accounts (Supabase)
 
 The Circle now has genuine sign-up + login — magic-link email, no passwords — backed by a free Supabase project (`koombei-clients-membership`, EU region). **Two dashboard steps are required before this works; nothing will function until you do them:**
