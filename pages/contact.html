@@ -135,7 +135,7 @@
   .form-header { background: var(--night); padding: 25px 35px; }
   .form-header h3 { font-size: 18px; font-weight: 600; color: var(--lily); margin-bottom: 4px; }
   .form-header p { font-size: 12px; font-weight: 300; color: var(--midgreen); line-height: 1.6; }
-  .form-header p span { color: var(--amber); }
+  .form-header .form-header-note { margin-top: 4px; color: var(--amber); }
 
   .form-body { padding: 35px; }
 
@@ -220,6 +220,7 @@
   .field .upload-bar span { display: block; height: 100%; width: 0; background: var(--amber); transition: width 0.25s ease; }
   .field .upload-note { margin-top: 6px; font-size: 11.5px; font-weight: 300; color: var(--green); }
   .field .upload-note strong { color: var(--amber); font-weight: 500; }
+  .field .upload-off { margin-top: 8px; font-size: 12px; font-weight: 400; color: var(--amber); }
 
   @media (prefers-reduced-motion: reduce) {
     .field .upload-bar span { transition: none; }
@@ -365,7 +366,8 @@
     <div class="contact-form-wrap fade-in">
       <div class="form-header">
         <h3>Project discovery form</h3>
-        <p>Every question helps us build the right thing for you the first time. Only the fields marked <span>*</span> are required &mdash; skip the rest if you are short on time.</p>
+        <p>Every question helps us build the right thing for you the first time.</p>
+        <p class="form-header-note">Only the starred fields are required &mdash; skip the rest if you are short on time.</p>
       </div>
       <div class="form-body">
         <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
@@ -490,7 +492,24 @@
             </label>
             <ul class="upload-list" id="uploadList"></ul>
             <p class="hint" id="uploadHint">Optional. Up to 5 files, 10&nbsp;MB each &mdash; PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.</p>
+            <p class="upload-off" id="uploadOff" hidden>File uploads are not available right now. Send your files over WhatsApp and we will pick them up.</p>
             <input type="hidden" name="attachments" id="attachmentsField">
+            <!-- Strings the uploader writes from JS. They live in the HTML so
+                 js/i18n.js snapshots and translates them like any other copy;
+                 the uploader reads textContent at render time, after i18n has
+                 run, so the widget follows the language picker. -->
+            <span class="upload-strings" id="uploadStrings" hidden>
+              <span data-s="submit">Submit my project brief</span>
+              <span data-s="sending">Sending...</span>
+              <span data-s="uploading">Uploading files...</span>
+              <span data-s="uploaded">Uploaded</span>
+              <span data-s="failed">Not uploaded</span>
+              <span data-s="badtype">That file type is not accepted. Use PNG, JPG, SVG, WEBP, PDF, DOC or DOCX.</span>
+              <span data-s="toobig">This file is over the 10 MB limit. Send it over WhatsApp and we will pick it up.</span>
+              <span data-s="uploadfail">Upload failed. Remove this and send the file over WhatsApp instead.</span>
+              <span data-s="network">Network error. Remove this and send the file over WhatsApp instead.</span>
+              <span data-s="unavailable">File uploads are not available right now. Send your files over WhatsApp and we will pick them up.</span>
+            </span>
           </div>
           <div class="field">
             <label>How did you hear about KoomBei?</label>
@@ -652,6 +671,19 @@
 
 
   /*
+   * Shared string lookup. The English lives in #uploadStrings in the HTML so
+   * js/i18n.js can translate it; we read it back at render time, which means
+   * anything JS writes follows the language picker instead of pinning English.
+   */
+  var KBStr = (function () {
+    var box = document.getElementById('uploadStrings');
+    return function (key, fallback) {
+      var el = box && box.querySelector('[data-s="' + key + '"]');
+      return el ? el.textContent : (fallback || '');
+    };
+  })();
+
+  /*
    * Client file uploads, Cloudinary direct-from-browser.
    *
    * Web3Forms' free plan will not carry attachments, so the file never goes
@@ -677,10 +709,13 @@
     var drop   = document.getElementById('uploadDrop');
     var list   = document.getElementById('uploadList');
     var hidden = document.getElementById('attachmentsField');
+    var hint   = document.getElementById('uploadHint');
+    var offNote = document.getElementById('uploadOff');
     var submitBtn = document.querySelector('#contactForm .btn-submit');
     if (!input || !list || !hidden) { return; }
 
-    var items = [];   // { file, status: 'uploading'|'done'|'error', pct, url, note, xhr }
+    var items = [];        // { file, status: 'uploading'|'done'|'error', pct, url, noteKey, xhr }
+    var uploadsOff = false;
 
     function ext(name) { return (name.split('.').pop() || '').toLowerCase(); }
 
@@ -697,6 +732,29 @@
     /* Just enough surface for the submit handler to refuse a half-finished upload. */
     window.KBUploads = { busy: busy };
 
+    /*
+     * A missing or misconfigured preset is our problem, not the visitor's, and
+     * retrying will not help. Take the whole field away and point at WhatsApp
+     * rather than showing Cloudinary's raw "Upload preset not found" five times.
+     */
+    function isConfigError(status, data) {
+      var m = (data && data.error && data.error.message || '').toLowerCase();
+      return status === 401 || status === 403 ||
+             m.indexOf('preset') !== -1 ||
+             m.indexOf('api key') !== -1 ||
+             m.indexOf('disabled') !== -1 ||
+             m.indexOf('not found') !== -1;
+    }
+
+    function disableUploads() {
+      uploadsOff = true;
+      if (drop) { drop.hidden = true; }
+      if (hint) { hint.hidden = true; }
+      if (offNote) { offNote.hidden = false; }
+      items = items.filter(function (i) { return i.status === 'done'; });
+      syncHidden(); syncSubmit(); render();
+    }
+
     function syncHidden() {
       hidden.value = items
         .filter(function (i) { return i.status === 'done'; })
@@ -707,7 +765,7 @@
     function syncSubmit() {
       if (!submitBtn) { return; }
       submitBtn.disabled = busy();
-      submitBtn.textContent = busy() ? 'Uploading files...' : 'Submit my project brief';
+      submitBtn.textContent = busy() ? KBStr('uploading') : KBStr('submit');
     }
 
     function render() {
@@ -726,8 +784,8 @@
         var meta = document.createElement('span');
         meta.className = 'upload-meta' + (item.status === 'done' ? ' is-done' : '');
         if (item.status === 'uploading') { meta.textContent = item.pct + '%'; }
-        else if (item.status === 'done') { meta.textContent = 'Uploaded'; }
-        else { meta.textContent = 'Not uploaded'; }
+        else if (item.status === 'done') { meta.textContent = KBStr('uploaded'); }
+        else { meta.textContent = human(item.file.size); }
 
         var remove = document.createElement('button');
         remove.type = 'button';
@@ -752,13 +810,13 @@
           li.appendChild(bar);
         }
 
-        if (item.note) {
+        if (item.noteKey) {
           var note = document.createElement('p');
           note.className = 'upload-note';
           var mark = document.createElement('strong');
           mark.textContent = '! ';
           note.appendChild(mark);
-          note.appendChild(document.createTextNode(item.note));
+          note.appendChild(document.createTextNode(item.noteText || KBStr(item.noteKey)));
           li.appendChild(note);
         }
 
@@ -788,20 +846,25 @@
         if (xhr.status >= 200 && xhr.status < 300 && data && data.secure_url) {
           item.status = 'done';
           item.url = data.secure_url;
-          item.note = '';
-        } else {
-          item.status = 'error';
-          item.note = (data && data.error && data.error.message)
-            ? data.error.message
-            : 'Upload failed. Remove this and send the file over WhatsApp instead.';
+          item.noteKey = '';
+          item.noteText = '';
+          syncHidden(); syncSubmit(); render();
+          return;
         }
+        item.status = 'error';
+        if (isConfigError(xhr.status, data)) {
+          disableUploads();
+          return;
+        }
+        item.noteKey = 'uploadfail';
+        item.noteText = '';
         syncHidden(); syncSubmit(); render();
       });
 
       xhr.addEventListener('error', function () {
         item.xhr = null;
         item.status = 'error';
-        item.note = 'Network error. Remove this and send the file over WhatsApp instead.';
+        item.noteKey = 'network';
         syncHidden(); syncSubmit(); render();
       });
 
@@ -811,16 +874,17 @@
     }
 
     function add(files) {
+      if (uploadsOff) { return; }
       Array.prototype.forEach.call(files, function (file) {
         if (items.length >= MAX_FILES) { return; }
-        var item = { file: file, status: 'uploading', pct: 0, url: '', note: '', xhr: null };
+        var item = { file: file, status: 'uploading', pct: 0, url: '', noteKey: '', noteText: '', xhr: null };
 
         if (ALLOWED.indexOf(ext(file.name)) === -1) {
           item.status = 'error';
-          item.note = 'That file type is not accepted. Use PNG, JPG, SVG, WEBP, PDF, DOC or DOCX.';
+          item.noteKey = 'badtype';
         } else if (file.size > MAX_BYTES) {
           item.status = 'error';
-          item.note = 'This one is ' + human(file.size) + ', over the 10 MB limit. Send it over WhatsApp and we will pick it up.';
+          item.noteKey = 'toobig';
         }
 
         items.push(item);
@@ -832,7 +896,7 @@
     input.addEventListener('change', function () {
       var overflow = input.files.length > (MAX_FILES - items.length);
       add(input.files);
-      if (overflow) { alert('You can attach up to ' + MAX_FILES + ' files. Send anything else over WhatsApp and we will pick it up.'); }
+      if (overflow && !uploadsOff) { alert('You can attach up to ' + MAX_FILES + ' files. Send anything else over WhatsApp and we will pick it up.'); }
       input.value = '';   // let the same file be re-picked after a removal
     });
 
@@ -845,6 +909,11 @@
     drop.addEventListener('drop', function (e) {
       if (e.dataTransfer && e.dataTransfer.files.length) { add(e.dataTransfer.files); }
     });
+
+    /* Re-render after a language switch (priority 1 runs after i18n's pass). */
+    if (window.KB && window.KB.addPass) {
+      window.KB.addPass(function () { render(); syncSubmit(); }, 1);
+    }
   })();
 
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -859,7 +928,7 @@
     if (guard === 'bot') return;               // silently drop obvious bots
     if (guard) { alert(window.KBSpam.message(guard)); return; }
     const btn = this.querySelector('.btn-submit');
-    btn.textContent = 'Sending...';
+    btn.textContent = KBStr('sending');
     btn.disabled = true;
     try {
       const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
@@ -871,12 +940,12 @@
         msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         this.reset();
       } else {
-        btn.textContent = 'Submit my project brief';
+        btn.textContent = KBStr('submit');
         btn.disabled = false;
         alert('Something went wrong. Please try again.');
       }
     } catch {
-      btn.textContent = 'Submit my project brief';
+      btn.textContent = KBStr('submit');
       btn.disabled = false;
       alert('Network error. Please try again.');
     }
@@ -902,7 +971,7 @@
     if (guard) { alert(window.KBSpam.message(guard)); return; }
     const btn = this.querySelector('.consult-email-submit');
     const originalText = btn.textContent;
-    btn.textContent = 'Sending...';
+    btn.textContent = KBStr('sending');
     btn.disabled = true;
     try {
       const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });

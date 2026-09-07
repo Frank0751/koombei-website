@@ -265,6 +265,22 @@
 
 /* ── FRANÇAIS ── */
 KBI18N.setDict('fr', {
+  /* Contact page: discovery-form file uploads (Sept 2026) */
+  "Only the starred fields are required — skip the rest if you are short on time.": "Seuls les champs marqués d'une étoile sont obligatoires — passez le reste si vous manquez de temps.",
+  "Logo, brand assets or existing content": "Logo, éléments de marque ou contenu existant",
+  "Choose files": "Choisir des fichiers",
+  "or drag them here": "ou glissez-les ici",
+  "Optional. Up to 5 files, 10 MB each — PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.": "Facultatif. Jusqu'à 5 fichiers, 10 Mo chacun — PNG, JPG, SVG, WEBP, PDF, DOC ou DOCX. Plus volumineux, envoyez-le sur WhatsApp et nous le récupérerons.",
+  "Uploading files...": "Envoi des fichiers...",
+  "Uploaded": "Envoyé",
+  "Not uploaded": "Non envoyé",
+  "That file type is not accepted. Use PNG, JPG, SVG, WEBP, PDF, DOC or DOCX.": "Ce type de fichier n'est pas accepté. Utilisez PNG, JPG, SVG, WEBP, PDF, DOC ou DOCX.",
+  "This file is over the 10 MB limit. Send it over WhatsApp and we will pick it up.": "Ce fichier dépasse la limite de 10 Mo. Envoyez-le sur WhatsApp et nous le récupérerons.",
+  "Upload failed. Remove this and send the file over WhatsApp instead.": "L'envoi a échoué. Retirez ce fichier et envoyez-le plutôt sur WhatsApp.",
+  "Network error. Remove this and send the file over WhatsApp instead.": "Erreur réseau. Retirez ce fichier et envoyez-le plutôt sur WhatsApp.",
+  "File uploads are not available right now. Send your files over WhatsApp and we will pick them up.": "L'envoi de fichiers n'est pas disponible pour le moment. Envoyez vos fichiers sur WhatsApp et nous les récupérerons.",
+  "Back to the full form": "Revenir au formulaire complet",
+  "Prefer to give us the detail up front? The discovery form above gets you a tailored proposal within 48 hours.": "Vous préférez nous donner les détails tout de suite ? Le formulaire de découverte ci-dessus vous vaut une proposition sur mesure sous 48 heures.",
   "Home": "Accueil",
   "About": "À propos",
   "Services": "Services",
@@ -774,6 +790,22 @@ KBI18N.setDict('fr', {
 
 /* ── ESPAÑOL ── */
 KBI18N.setDict('es', {
+  /* Contact page: discovery-form file uploads (Sept 2026) */
+  "Only the starred fields are required — skip the rest if you are short on time.": "Solo los campos con asterisco son obligatorios — omite el resto si tienes poco tiempo.",
+  "Logo, brand assets or existing content": "Logotipo, recursos de marca o contenido existente",
+  "Choose files": "Elegir archivos",
+  "or drag them here": "o arrástralos aquí",
+  "Optional. Up to 5 files, 10 MB each — PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.": "Opcional. Hasta 5 archivos, 10 MB cada uno — PNG, JPG, SVG, WEBP, PDF, DOC o DOCX. Si es más grande, envíalo por WhatsApp y lo recogemos.",
+  "Uploading files...": "Subiendo archivos...",
+  "Uploaded": "Subido",
+  "Not uploaded": "No subido",
+  "That file type is not accepted. Use PNG, JPG, SVG, WEBP, PDF, DOC or DOCX.": "Ese tipo de archivo no se acepta. Usa PNG, JPG, SVG, WEBP, PDF, DOC o DOCX.",
+  "This file is over the 10 MB limit. Send it over WhatsApp and we will pick it up.": "Este archivo supera el límite de 10 MB. Envíalo por WhatsApp y lo recogemos.",
+  "Upload failed. Remove this and send the file over WhatsApp instead.": "La subida falló. Quita este archivo y envíalo por WhatsApp.",
+  "Network error. Remove this and send the file over WhatsApp instead.": "Error de red. Quita este archivo y envíalo por WhatsApp.",
+  "File uploads are not available right now. Send your files over WhatsApp and we will pick them up.": "La subida de archivos no está disponible ahora mismo. Envía tus archivos por WhatsApp y los recogemos.",
+  "Back to the full form": "Volver al formulario completo",
+  "Prefer to give us the detail up front? The discovery form above gets you a tailored proposal within 48 hours.": "¿Prefieres darnos los detalles desde el principio? El formulario de descubrimiento de arriba te consigue una propuesta a medida en 48 horas.",
   "Home": "Inicio",
   "About": "Nosotros",
   "Services": "Servicios",
@@ -1283,6 +1315,22 @@ KBI18N.setDict('es', {
 
 /* ── PORTUGUÊS ── */
 KBI18N.setDict('pt', {
+  /* Contact page: discovery-form file uploads (Sept 2026) */
+  "Only the starred fields are required — skip the rest if you are short on time.": "Apenas os campos com asterisco são obrigatórios — salte o resto se estiver com pouco tempo.",
+  "Logo, brand assets or existing content": "Logótipo, elementos de marca ou conteúdo existente",
+  "Choose files": "Escolher ficheiros",
+  "or drag them here": "ou arraste-os para aqui",
+  "Optional. Up to 5 files, 10 MB each — PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.": "Opcional. Até 5 ficheiros, 10 MB cada — PNG, JPG, SVG, WEBP, PDF, DOC ou DOCX. Se for maior, envie por WhatsApp e nós tratamos disso.",
+  "Uploading files...": "A enviar ficheiros...",
+  "Uploaded": "Enviado",
+  "Not uploaded": "Não enviado",
+  "That file type is not accepted. Use PNG, JPG, SVG, WEBP, PDF, DOC or DOCX.": "Esse tipo de ficheiro não é aceite. Use PNG, JPG, SVG, WEBP, PDF, DOC ou DOCX.",
+  "This file is over the 10 MB limit. Send it over WhatsApp and we will pick it up.": "Este ficheiro excede o limite de 10 MB. Envie-o por WhatsApp e nós tratamos disso.",
+  "Upload failed. Remove this and send the file over WhatsApp instead.": "O envio falhou. Remova este ficheiro e envie-o antes por WhatsApp.",
+  "Network error. Remove this and send the file over WhatsApp instead.": "Erro de rede. Remova este ficheiro e envie-o antes por WhatsApp.",
+  "File uploads are not available right now. Send your files over WhatsApp and we will pick them up.": "O envio de ficheiros não está disponível de momento. Envie os seus ficheiros por WhatsApp e nós tratamos disso.",
+  "Back to the full form": "Voltar ao formulário completo",
+  "Prefer to give us the detail up front? The discovery form above gets you a tailored proposal within 48 hours.": "Prefere dar-nos os detalhes já? O formulário de descoberta acima garante-lhe uma proposta à medida em 48 horas.",
   "Home": "Início",
   "About": "Sobre",
   "Services": "Serviços",
