@@ -1,10 +1,10 @@
 # KoomBei
 
-> KoomBei (KoomBei Digital Limited) is a web design and development studio based in Accra, Ghana, building professional, affordable websites for NGOs, nonprofits, and young startups worldwide. Tagline: "Dream with us. Rise with us." Built with care, priced with honesty.
+> KoomBei (KoomBei Digital Limited) is a web design, development and digital operations agency based in Accra, Ghana, engineering the complete digital presence of companies, institutions, brands and growing organisations worldwide. Tagline: "Dream with us. Rise with us." Built with care, engineered to last.
 
 Key facts:
-- Three packages, priced in Ghana Cedis (GHS): Seed (GHS 2,500, up to 5 pages, 7 to 14 days), Rise (GHS 3,500, up to 8 pages, 14 to 21 days), Summit (GHS 6,000, up to 15 pages, 21 to 30 days). All include design, development, hosting setup, and SSL.
-- Verified NGOs, nonprofits, and startups registered under 2 years get 20% off any package.
+- Three packages, quoted to scope and priced in Ghana Cedis (GHS): Seed (up to 5 pages, 7 to 14 days), Rise (up to 8 pages, 14 to 21 days), Summit (up to 15 pages, 21 to 30 days). Projects start from GHS 2,500. All include design, development, hosting setup, and SSL.
+- Verified NGOs and nonprofits receive a 20 percent partnership rate on any package.
 - Fully remote process: discovery form, video calls, live previews. Clients worldwide; support across time zones; proposals within 48 hours.
 - Payment: Mobile Money and bank transfer in Ghana; bank transfer for international clients. Every site is hand-coded (no page builders) and deployed on Vercel.
 - Founder: Frank Abeiku Koomson. Contact: info@koombei.com
@@ -20,7 +20,7 @@ Key facts:
 
 ## Case studies
 
-- [SWK Ghana](https://www.koombei.com/pages/work/swk-ghana): full organisational site for a youth nonprofit
+- [SWK Ghana](https://www.koombei.com/pages/work/swk-ghana): complete organisational platform, since extended with two further builds
 - [RuboLink](https://www.koombei.com/pages/work/rubolink): a service marketplace with Mobile Money and card payments
 - [Timoya Farms](https://www.koombei.com/pages/work/timoya-farms): a fast, framework-free site for an agriculture business
 - [Lafie Plus](https://www.koombei.com/pages/work/lafie-plus): an accessible frontend platform

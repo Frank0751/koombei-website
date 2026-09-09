@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start Your Project | KoomBei</title>
-<meta name="description" content="Start your project with KoomBei. Fill our discovery form and we will get back to you within 48 hours with a tailored proposal. No hidden fees, no commitment needed.">
+<meta name="description" content="Start a project with KoomBei. Tell us what you are building and we will come back within 48 hours with a proposal scoped to your requirements. No hidden fees, no commitment.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Start Your Project | KoomBei">
-<meta property="og:description" content="Fill our discovery form and we will get back to you within 48 hours with a tailored proposal. No hidden fees, no commitment needed.">
+<meta property="og:description" content="Tell us what you are building and we will come back within 48 hours with a proposal scoped to your requirements. No hidden fees, no commitment.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
 <meta property="og:url" content="https://www.koombei.com/pages/contact">
@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Start Your Project | KoomBei">
-<meta name="twitter:description" content="Fill our discovery form and get a tailored proposal within 48 hours. No hidden fees, no commitment needed.">
+<meta name="twitter:description" content="Tell us what you are building and get a scoped proposal within 48 hours. No hidden fees, no commitment.">
 <meta name="twitter:image" content="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1776426977/photo_2026-04-03_09-53-20_r4euw5.jpg">
 <link rel="canonical" href="https://www.koombei.com/pages/contact">
 <script type="application/ld+json">
@@ -36,7 +36,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="../css/style.css">
-<!-- Microsoft Clarity — free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
+<!-- Microsoft Clarity, free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
 <script type="text/javascript">
   (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -117,6 +117,7 @@
 
   .payment-card { background: var(--pale); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
   .payment-card label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 12px; }
+  .payment-heading { font-size: 12px; font-weight: 600; color: var(--night); margin-bottom: 14px; }
   .payment-method { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
   .payment-method:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
   .payment-method h5 { font-size: 12px; font-weight: 600; color: var(--night); margin-bottom: 4px; }
@@ -169,7 +170,7 @@
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   /* Choice controls. The native box is replaced by a drawn one so a selection
-     reads as a tick on amber, and the whole pill/card changes with it — the old
+     reads as a tick on amber, and the whole pill/card changes with it, the old
      version only moved a 14px native dot, which was easy to miss on a form this
      long. Sizes are fixed in both states so nothing reflows on selection. */
   .field .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -439,7 +440,7 @@
 
 <section class="contact-hero">
   <h1>Tell us about your <em>dream project.</em></h1>
-  <p>Fill the form below and we will get back to you within 48 hours with a tailored proposal designed specifically for your needs and budget.</p>
+  <p>Fill the form below and we will come back within 48 hours with a proposal scoped to your requirements.</p>
 </section>
 
 <!-- The discovery form leads the page: we want visitors to attempt the full
@@ -452,7 +453,7 @@
       <div class="form-header">
         <h3>Project discovery form</h3>
         <p>Every question helps us build the right thing for you the first time.</p>
-        <p class="form-header-note">Only the starred fields are required &mdash; skip the rest if you are short on time.</p>
+        <p class="form-header-note">Only the starred fields are required. Skip the rest if you are short on time.</p>
       </div>
       <div class="form-body">
         <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" data-kb-guard>
@@ -472,31 +473,32 @@
           <div class="field">
             <label>What best describes you? <span>*</span></label>
             <div class="radio-group">
-              <label class="radio-pill"><input type="radio" name="clienttype" value="ngo" required><span>NGO / Nonprofit</span></label>
-              <label class="radio-pill"><input type="radio" name="clienttype" value="startup"><span>Young startup</span></label>
-              <label class="radio-pill"><input type="radio" name="clienttype" value="business"><span>Business</span></label>
-              <label class="radio-pill"><input type="radio" name="clienttype" value="personal"><span>Personal</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="business" required><span>Company or business</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="institution"><span>Institution or brand</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="startup"><span>Startup</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="ngo"><span>NGO or nonprofit</span></label>
+              <label class="radio-pill"><input type="radio" name="clienttype" value="personal"><span>Individual or professional</span></label>
               <label class="radio-pill"><input type="radio" name="clienttype" value="other"><span>Other</span></label>
             </div>
           </div>
           <div class="reveal" id="eligibilityFields">
             <div class="eligibility-box">
-              <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>You may qualify for our 20% impact discount. Share your details below and we will confirm eligibility in your proposal.</p>
-              <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO / nonprofit / business registration number" maxlength="60"><p class="hint">The number on your official registration certificate.</p></div>
-              <div class="field reveal" id="regDateField"><label>Registration date</label><input type="date" name="reg_date"><p class="hint">Startups registered under 2 years qualify. This helps us confirm your discount.</p></div>
-            </div>
+              <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>Verified NGOs and nonprofits receive our 20 percent partnership rate. Share your registration number and we will confirm it in your proposal.</p>
+              <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO or nonprofit registration number" maxlength="60"><p class="hint">The number on your official registration certificate.</p></div>
+              </div>
           </div>
           <div class="field">
             <label>What type of website do you need? <span>*</span></label>
             <select name="websitetype" required>
               <option value="" disabled selected>Select a type</option>
-              <option>Simple portfolio / personal website</option>
-              <option>Business / organisation website</option>
-              <option>NGO / nonprofit website</option>
+              <option>Business or corporate website</option>
               <option>E-commerce / online store</option>
+              <option>Web application / platform</option>
+              <option>Institutional or brand website</option>
               <option>Blog or media website</option>
               <option>Landing page only</option>
-              <option>Web application / platform</option>
+              <option>NGO / nonprofit website</option>
+              <option>Personal or professional portfolio</option>
               <option>I am not sure yet</option>
             </select>
           </div>
@@ -542,15 +544,14 @@
             <label>Approximate budget <span>*</span></label>
             <select name="budget" required>
               <option value="" disabled selected>Select a range</option>
-              <option>Below GHS 500</option>
-              <option>GHS 500–1,000</option>
-              <option>GHS 1,000–2,500</option>
-              <option>GHS 2,500–5,000</option>
-              <option>GHS 5,000–10,000</option>
-              <option>Above GHS 10,000</option>
-              <option>I am flexible / open to discussion</option>
+              <option>GHS 2,500 to 5,000</option>
+              <option>GHS 5,000 to 10,000</option>
+              <option>GHS 10,000 to 25,000</option>
+              <option>GHS 25,000 to 50,000</option>
+              <option>Above GHS 50,000</option>
+              <option>I would like guidance on budget</option>
             </select>
-            <p class="hint">No budget is too small. We have packages for every stage.</p>
+            <p class="hint">This helps us scope the right solution for you.</p>
           </div>
           <div class="field">
             <label>When do you need it ready?</label>
@@ -576,7 +577,7 @@
               <span class="upload-sub">or drag them here</span>
             </label>
             <ul class="upload-list" id="uploadList"></ul>
-            <p class="hint" id="uploadHint">Optional. Up to 5 files, 10&nbsp;MB each &mdash; PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.</p>
+            <p class="hint" id="uploadHint">Optional. Up to 5 files, 10&nbsp;MB each: PNG, JPG, SVG, WEBP, PDF, DOC or DOCX. Anything bigger, send it over WhatsApp and we will pick it up.</p>
             <p class="upload-off" id="uploadOff" hidden>File uploads are not available right now. Send your files over WhatsApp and we will pick them up.</p>
             <input type="hidden" name="attachments" id="attachmentsField">
             <!-- Strings the uploader writes from JS. They live in the HTML so
@@ -630,6 +631,7 @@
         <div class="process-step"><div class="step-num">5</div><p><strong>We build:</strong> your website delivered on time, every time</p></div>
       </div>
       <div class="payment-card fade-in">
+        <h4 class="payment-heading">Payment details for existing clients</h4>
         <div class="payment-method"><h5>Fidelity Bank</h5><p>Account No: 2030192755111</p></div>
         <div class="payment-method"><h5>Mobile Money</h5><p>+233 548 704 107</p></div>
         <div class="payment-method"><h5>International clients</h5><p>Bank transfer or another convenient option, confirmed in your proposal.</p></div>
@@ -746,12 +748,10 @@
   // NGO / Nonprofit and Startup can qualify; startups also need a registration
   // date so we can confirm they're under 2 years old.
   const eligibilityFields = document.getElementById('eligibilityFields');
-  const regDateField = document.getElementById('regDateField');
   document.querySelectorAll('input[name="clienttype"]').forEach(function(radio) {
     radio.addEventListener('change', function() {
-      const eligible = this.value === 'ngo' || this.value === 'startup';
-      eligibilityFields.classList.toggle('is-open', eligible);
-      regDateField.classList.toggle('is-open', this.value === 'startup');
+      // The 20 percent partnership rate applies to verified NGOs and nonprofits.
+      eligibilityFields.classList.toggle('is-open', this.value === 'ngo');
     });
   });
 

@@ -278,19 +278,19 @@
     },
     {
       keys: ['price', 'cost', 'how much', 'pricing', 'package', 'packages', 'rates', 'affordable', 'cheap'],
-      reply: "We have three packages:\n\n• **Seed** - GHS 2,500\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise** - GHS 3,500\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit** - GHS 6,000\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Verified NGOs, nonprofits, and startups registered under 2 years get **20% off** any package. Want details on a specific package?"
+      reply: "We have three packages:\n\n• **Seed**\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise**\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit**\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Projects start from GHS 2,500 and each package is quoted to scope. Want details on a specific package?"
     },
     {
       keys: ['seed'],
-      reply: "The **Seed** package is GHS 2,500 (shown in your local currency and USD on the site), or GHS 2,000 for verified NGOs, nonprofits, and startups under 2 years. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Perfect for small NGOs, startups, and individuals."
+      reply: "**Seed** is our entry tier, from GHS 2,500. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Built for first websites and focused projects."
     },
     {
       keys: ['rise package', ' rise '],
-      reply: "The **Rise** package is GHS 3,500 (GHS 2,800 for verified NGOs, nonprofits, and startups under 2 years). Everything in Seed, plus:\n\n• Up to 8 pages\n• Blog or news section\n• Gallery or portfolio section\n• Full SEO setup\n• 1 month free maintenance\n\nDelivery: 14–21 days. Ideal for growing organisations."
+      reply: "**Rise** is quoted to scope. Everything in Seed, plus:\n\n• Up to 8 pages\n• Blog or news section\n• Gallery or portfolio section\n• Full SEO setup\n• 1 month free maintenance\n\nDelivery: 14–21 days. Built for growing companies and organisations. Tell us what you need and we will quote it."
     },
     {
       keys: ['summit'],
-      reply: "The **Summit** package is GHS 6,000 (GHS 4,800 for verified NGOs, nonprofits, and startups under 2 years). Our premium tier:\n\n• Up to 15 pages\n• Donation or payment integration\n• Advanced SEO and analytics\n• 3 months free maintenance\n\nDelivery: 21–30 days. Built for established organisations that need a powerful presence."
+      reply: "**Summit** is our top tier, quoted to scope:\n\n• Up to 15 pages\n• Donation or payment integration\n• Advanced SEO and analytics\n• 3 months free maintenance\n\nDelivery: 21–30 days. Built for established organisations that need a substantial presence."
     },
     {
       keys: ['how long', 'timeline', 'duration', 'turnaround', 'how many weeks', 'when will', 'time frame'],
@@ -310,15 +310,15 @@
     },
     {
       keys: ['ngo', 'nonprofit', 'non-profit', 'charity', 'organisation', 'organization', 'purpose-driven'],
-      reply: "Yes! We specialise in websites for NGOs and nonprofits. We understand how purpose-driven organisations need to communicate, and we've built several. Verified NGOs, nonprofits, and startups registered under 2 years get **20% off** any package - just share your registration number in the discovery form."
+      reply: "Yes. We build for NGOs and nonprofits alongside companies, institutions and startups, and we have delivered several. Verified NGOs and nonprofits receive a **20 percent partnership rate** on any package, just share your registration number in the discovery form."
     },
     {
       keys: ['maintenance', 'support', 'update', 'after launch', 'manage the site', 'monthly'],
-      reply: "We offer maintenance plans from GHS 100/update, covering:\n\n• Content updates\n• Bug fixes\n• Performance monitoring\n• Priority support\n\nPost-launch support is included in all packages: 2 weeks (Seed), 1 month (Rise), 3 months (Summit)."
+      reply: "Maintenance runs on a monthly retainer or per update, quoted to what you need. It covers:\n\n• Content updates\n• Bug fixes\n• Performance monitoring\n• Priority support\n\nPost-launch support is included in all packages: 2 weeks (Seed), 1 month (Rise), 3 months (Summit)."
     },
     {
       keys: ['discount', 'cheaper', 'reduce', 'startup discount', 'less than 2 years', 'under 2 years', 'eligible'],
-      reply: "Verified NGOs, nonprofits, and startups registered under 2 years get **20% off** any package:\n\n• **Seed** GHS 2,500 → GHS 2,000\n• **Rise** GHS 3,500 → GHS 2,800\n• **Summit** GHS 6,000 → GHS 4,800\n\nTo qualify, share your organisation's registration number in the discovery form. Startups also share the registration date so we can confirm you're under 2 years old."
+      reply: "KoomBei extends a **20 percent partnership rate** to verified NGOs and nonprofits. It is a commitment we have kept since the studio was founded, and it applies to any package.\n\nTo qualify, share your organisation's registration number in the discovery form and we will confirm it in your proposal."
     },
     {
       keys: ['circle', 'member', 'membership', 'community', 'loyalty', 'referral', 'refer', 'benefits', 'perks'],
@@ -346,7 +346,7 @@
     },
     {
       keys: ['currency', 'currencies', 'dollar', 'usd', 'euro', 'pounds', 'exchange rate', 'my money', 'what currency'],
-      reply: "Our base prices are set in Ghana Cedis (GHS), but the site automatically shows every price in your local currency and in US dollars - a live approximation for your convenience. Your proposal confirms the exact amount and currency before any work begins. You can switch currency anytime using the picker at the top of the page."
+      reply: "Our pricing is set in Ghana Cedis (GHS). The entry figure on the site is shown in your local currency and in US dollars as a live approximation. Your proposal confirms the exact amount and currency before any work begins. You can switch currency anytime using the picker at the top of the page."
     },
     {
       keys: ['language', 'translate', 'french', 'spanish', 'portuguese', 'english'],
