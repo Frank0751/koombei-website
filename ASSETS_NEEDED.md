@@ -194,6 +194,12 @@ A voluntary-gift checkout powered by Paystack, on the homepage below the main CT
 - Honest expectation-setting: authorship markup helps Google and AI assistants associate the name with the content (E-E-A-T), but "any topic around web design lands on my site" additionally requires indexing (Search Console, above), inbound links, and time. The structure is now in place; distribution still has to be earned.
 [ ] Optional: add a personal LinkedIn profile URL to the Person schema's sameAs (only the company page is known today).
 
+## Portfolio preview screenshots (self-hosted, Sept 2026)
+
+The 12 project previews on `pages/portfolio.html` are static images in `assets/portfolio/` (`<slug>-640.jpg` and `<slug>-960.jpg`), not live screenshots. They used to hot-link Microlink, which served full 2560x1600 PNGs, 20.6 MB for the page, against a free quota of 25 requests a day.
+
+[ ] When a client redesigns their site, re-capture just that one: open `https://api.microlink.io/?url=https://THEIR-SITE&screenshot=true&meta=false&embed=screenshot.url`, save the image, resize it to 640 and 960 px wide, and save over the two existing files with the same names. The page needs no edit.
+
 ## Notes
 
 [ ] Confirm with user: should 'Active clients' stat be updated from 6+ to 8+ to reflect the full known client list?

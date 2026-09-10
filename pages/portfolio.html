@@ -34,6 +34,8 @@
   <link rel="dns-prefetch" href="https://www.clarity.ms">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
+  <script>document.documentElement.classList.add('pf-js');</script>
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto,c_crop,w_480,h_768,g_center/v1775311068/Gemini_Generated_Image_nicx0rnicx0rnicx_1_pgkxob.png" media="(max-width: 600px)" fetchpriority="high">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/editorial.css">
   <!-- Microsoft Clarity, free session-recording/heatmap analytics. Replace the ID once a Clarity project exists (see ASSETS_NEEDED.md); harmless no-op with the placeholder. -->
@@ -195,9 +197,13 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .portfolio-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(21,31,30,0.14);
+    /* Hover effects only where a real pointer can hover: on a phone the first
+       tap triggers :hover and it sticks, leaving the tapped card lifted. */
+    @media (hover: hover) and (pointer: fine) {
+      .portfolio-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 48px rgba(21,31,30,0.14);
+      }
     }
 
 
@@ -218,20 +224,38 @@
       object-fit: cover;
       object-position: top;
       display: block;
-      transition: transform 0.5s ease;
-      background: linear-gradient(110deg, #1a2421 30%, #243028 50%, #1a2421 70%);
-      background-size: 200% 100%;
-      animation: shimmer 1.8s infinite;
+      transition: transform 0.5s ease, opacity 0.35s ease;
     }
 
-    .live-preview-img.loaded { animation: none; background: none; }
+    /* Previews stay hidden until decoded, then fade in over the dark thumb, so a
+       slow image never paints in half-drawn. Only when JS is running (pf-js is
+       set in <head>), since JS is what reveals them. */
+    .pf-js .live-preview-img { opacity: 0; }
+    .pf-js .live-preview-img.loaded { opacity: 1; }
 
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+    /* Loading sweep. It moves a transform, which the compositor handles alone.
+       The old shimmer animated background-position on every image: a repaint
+       per frame, and forever for any preview that failed, because nothing
+       ever marked a failed image as done. */
+    .portfolio-thumb.is-loading::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 35%, rgba(237,229,153,0.07) 50%, transparent 65%);
+      transform: translateX(-100%);
     }
+    @media (prefers-reduced-motion: no-preference) {
+      .portfolio-thumb.is-loading::before { animation: thumbSweep 1.4s ease-in-out infinite; }
+    }
+    @keyframes thumbSweep { to { transform: translateX(100%); } }
 
-    .portfolio-item:hover .live-preview-img { transform: scale(1.04); }
+    /* Shown in place of a preview that fails to load. */
+    .thumb-fallback .thumb-logo { color: var(--lily); font-size: 22px; }
+    .thumb-fallback .thumb-url { color: rgba(237,229,153,0.5); }
+
+
+
+    @media (hover: hover) and (pointer: fine) { .portfolio-item:hover .live-preview-img { transform: scale(1.04); } }
 
 
     .thumb-overlay {
@@ -244,7 +268,7 @@
       justify-content: center;
     }
 
-    .portfolio-item:hover .thumb-overlay { background: rgba(21,31,30,0.3); }
+    @media (hover: hover) and (pointer: fine) { .portfolio-item:hover .thumb-overlay { background: rgba(21,31,30,0.3); } }
 
     .thumb-view-btn {
       opacity: 0;
@@ -259,10 +283,10 @@
       font-family: 'Ubuntu', sans-serif;
     }
 
-    .portfolio-item:hover .thumb-view-btn { opacity: 1; transform: scale(1); }
+    @media (hover: hover) and (pointer: fine) { .portfolio-item:hover .thumb-view-btn { opacity: 1; transform: scale(1); } }
 
     .thumb-inner { text-align: center; padding: 30px; transition: transform 0.3s; }
-    .portfolio-item:hover .thumb-inner { transform: translateY(-4px); }
+    @media (hover: hover) and (pointer: fine) { .portfolio-item:hover .thumb-inner { transform: translateY(-4px); } }
 
     .thumb-logo { font-family: 'Ubuntu', sans-serif; font-size: 28px; font-weight: 600; margin-bottom: 8px; }
     .swk .thumb-logo { color: #F5A623; }
@@ -359,11 +383,20 @@
     @media (max-width:900px) {
       .portfolio-hero h1 { font-size:36px; }
       .portfolio-grid { grid-template-columns:1fr; }
+      /* One column: cards arrive one at a time, so the desktop stagger only made
+         each card wait up to 0.45s after it was already on screen. */
+      .portfolio-grid .portfolio-item:nth-child(n) { transition-delay: 0s; }
       .stats-grid { grid-template-columns:repeat(2,1fr); }
     }
 
     @media (max-width:600px) {
       .portfolio-hero h1 { font-size:28px; }
+      /* A phone only ever shows a portrait slice of this landscape image under
+         cover, so send just that slice: the same pixels on screen, far fewer bytes. */
+      .portfolio-hero {
+        background-image: linear-gradient(rgba(21,31,30,0.78), rgba(21,31,30,0.78)),
+          url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto,c_crop,w_480,h_768,g_center/v1775311068/Gemini_Generated_Image_nicx0rnicx0rnicx_1_pgkxob.png');
+      }
       .stats-grid { grid-template-columns:1fr 1fr; }
       .hero-cta-wrap { flex-direction:column; align-items:center; }
     }
@@ -401,7 +434,10 @@
     </div>
   </section>
 
-  <section class="section bg-pale fade-in">
+  <!-- No fade-in on this wrapper: on a phone it is about 9,500px tall, so a 10% visibility
+       threshold can never be met, which can leave every card inside at opacity 0.
+       The cards still fade in individually. -->
+  <section class="section bg-pale">
     <div class="section-center">
     <h2 class="section-title">Work that <em>speaks.</em></h2>
     <div class="divider"></div>
@@ -419,7 +455,7 @@
       <!-- ── ORGANISATIONAL & WEB APPS ── -->
       <div class="portfolio-item fade-in" data-cat="business">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://timoyafarms.netlify.app&screenshot=true&meta=false&embed=screenshot.url" alt="Timoya Farms website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/timoya-farms-960.jpg" srcset="../assets/portfolio/timoya-farms-640.jpg 640w, ../assets/portfolio/timoya-farms-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="Timoya Farms website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -452,7 +488,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="tech">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://lafieplus-frontend.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="Lafie Plus website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/lafie-plus-960.jpg" srcset="../assets/portfolio/lafie-plus-640.jpg 640w, ../assets/portfolio/lafie-plus-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="Lafie Plus website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -485,7 +521,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://swkghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="SWK Ghana website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/swk-ghana-960.jpg" srcset="../assets/portfolio/swk-ghana-640.jpg 640w, ../assets/portfolio/swk-ghana-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="SWK Ghana website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -518,7 +554,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://www.theclimatesociologist.org&screenshot=true&meta=false&embed=screenshot.url" alt="The Climate Sociologist website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/the-climate-sociologist-960.jpg" srcset="../assets/portfolio/the-climate-sociologist-640.jpg 640w, ../assets/portfolio/the-climate-sociologist-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="The Climate Sociologist website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-progress">In progress</span>
         </div>
@@ -532,7 +568,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="personal">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://andrews-portfolio-pi.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="Andrews Akoto-Addo portfolio preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/andrews-akoto-addo-960.jpg" srcset="../assets/portfolio/andrews-akoto-addo-640.jpg 640w, ../assets/portfolio/andrews-akoto-addo-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="Andrews Akoto-Addo portfolio preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -559,7 +595,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="tech">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://rubo-link-web.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="RuboLink website preview" class="live-preview-img" loading="lazy" style="filter:brightness(1.45);">
+          <img src="../assets/portfolio/rubolink-960.jpg" srcset="../assets/portfolio/rubolink-640.jpg 640w, ../assets/portfolio/rubolink-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="RuboLink website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -592,7 +628,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="business">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://www.wastecure.org&screenshot=true&meta=false&embed=screenshot.url" alt="WasteCure website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/wastecure-960.jpg" srcset="../assets/portfolio/wastecure-640.jpg 640w, ../assets/portfolio/wastecure-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="WasteCure website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -606,7 +642,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://swkmarketplace.vercel.app&screenshot=true&meta=false&embed=screenshot.url" alt="SWK Marketplace website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/swk-marketplace-960.jpg" srcset="../assets/portfolio/swk-marketplace-640.jpg 640w, ../assets/portfolio/swk-marketplace-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="SWK Marketplace website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -620,7 +656,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://image.thum.io/get/width/800/crop/520/https://takakipawa.swkghana.org" alt="Taka Kipawa website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/taka-kipawa-800.jpg" srcset="../assets/portfolio/taka-kipawa-640.jpg 640w, ../assets/portfolio/taka-kipawa-800.jpg 800w" sizes="(max-width: 900px) 90vw, 45vw" width="800" height="346" alt="Taka Kipawa website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -634,7 +670,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://www.gainghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="Green Awareness International website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/green-awareness-international-960.jpg" srcset="../assets/portfolio/green-awareness-international-640.jpg 640w, ../assets/portfolio/green-awareness-international-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="Green Awareness International website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -648,7 +684,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="ngo">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://www.wildcardproject.org&screenshot=true&meta=false&embed=screenshot.url" alt="The Wild Card Project website preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/the-wild-card-project-960.jpg" srcset="../assets/portfolio/the-wild-card-project-640.jpg 640w, ../assets/portfolio/the-wild-card-project-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="The Wild Card Project website preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -662,7 +698,7 @@
       </div>
       <div class="portfolio-item fade-in" data-cat="personal">
         <div class="portfolio-thumb">
-          <img src="https://api.microlink.io/?url=https://frank.swkghana.org&screenshot=true&meta=false&embed=screenshot.url" alt="Frank Abeiku Koomson portfolio preview" class="live-preview-img" loading="lazy">
+          <img src="../assets/portfolio/frank-abeiku-koomson-960.jpg" srcset="../assets/portfolio/frank-abeiku-koomson-640.jpg 640w, ../assets/portfolio/frank-abeiku-koomson-960.jpg 960w" sizes="(max-width: 900px) 90vw, 45vw" width="960" height="600" alt="Frank Abeiku Koomson portfolio preview" class="live-preview-img" loading="lazy" decoding="async">
           <div class="thumb-overlay"><span class="thumb-view-btn">View site</span></div>
           <span class="thumb-badge badge-live">Live</span>
         </div>
@@ -742,17 +778,37 @@
   <script src="../js/consent.js" defer></script>
   <script src="../js/chatbot.js" defer></script>
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // .fade-in reveals are handled by js/main.js; a second observer here only
+    // duplicated its work.
 
-    // Mark preview images as loaded
+    // Preview images: reveal once decoded. If one fails, swap in a named card
+    // rather than leaving an empty dark box that shimmers forever.
     document.querySelectorAll('.live-preview-img').forEach(img => {
+      const thumb = img.closest('.portfolio-thumb');
+      const done = () => { img.classList.add('loaded'); if (thumb) thumb.classList.remove('is-loading'); };
+      const fail = () => {
+        if (!thumb) return;
+        thumb.classList.remove('is-loading');
+        const item = img.closest('.portfolio-item');
+        const link = item && item.querySelector('.portfolio-links a');
+        const box = document.createElement('div');
+        box.className = 'thumb-inner thumb-fallback';
+        const name = document.createElement('div');
+        name.className = 'thumb-logo';
+        name.textContent = (img.alt || '').replace(/\s+(website|portfolio)\s+preview$/i, '');
+        const host = document.createElement('div');
+        host.className = 'thumb-url';
+        try { host.textContent = link ? new URL(link.href).host.replace(/^www\./, '') : ''; } catch (e) { host.textContent = ''; }
+        box.appendChild(name);
+        box.appendChild(host);
+        img.replaceWith(box);
+      };
       if (img.complete) {
-        img.classList.add('loaded');
+        if (img.naturalWidth) { done(); } else { fail(); }
       } else {
-        img.addEventListener('load', () => img.classList.add('loaded'));
+        if (thumb) thumb.classList.add('is-loading');
+        img.addEventListener('load', done, { once: true });
+        img.addEventListener('error', fail, { once: true });
       }
     });
 

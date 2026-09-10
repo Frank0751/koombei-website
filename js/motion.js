@@ -22,7 +22,7 @@
       var h = document.documentElement;
       var max = h.scrollHeight - h.clientHeight;
       var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
-      bar.style.width = (pct * 100).toFixed(2) + '%';
+      bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
       ticking = false;
     }
     window.addEventListener('scroll', function () {
@@ -122,6 +122,9 @@
   /* ── 6. Subtle parallax on hero background ── */
   function heroParallax() {
     if (reduce || lowPower) return;
+    // Repaints a full-screen background image on every scroll frame, which
+    // stutters on phones. The tilt and magnetic effects already skip touch.
+    if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
     var hero = document.querySelector('.hero, .services-hero, .portfolio-hero');
     if (!hero) return;
     var ticking = false;

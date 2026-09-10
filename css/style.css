@@ -677,7 +677,12 @@ nav > .nav-links { margin-left: auto; }
   top: 0;
   left: 0;
   height: 3px;
-  width: 0;
+  /* Full width, scaled by motion.js. A transform stays on the compositor;
+     setting width re-ran layout on every scroll frame. */
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  will-change: transform;
   background: var(--amber);
   z-index: 1001;
   pointer-events: none;
