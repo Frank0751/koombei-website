@@ -265,6 +265,7 @@
 
 /* ── FRANÇAIS ── */
 KBI18N.setDict('fr', {
+  "Businesses, technology platforms and institutions across Africa and beyond. Every one of these is live, and you can open it.": "Entreprises, plateformes technologiques et institutions en Afrique et au-delà. Chacune est en ligne, et vous pouvez l'ouvrir.",
   "Websites, hosting, SEO and the operations behind them. Built in Accra, for organisations worldwide.": "Sites web, hébergement, SEO et les opérations qui les font vivre. Conçus à Accra, pour des organisations du monde entier.",
   /* Pricing collapsed onto one page (Nov 2026) */
   "Pricing": "Tarifs",
@@ -460,11 +461,7 @@ KBI18N.setDict('fr', {
   "We schedule around you and respond within 24 hours, wherever your mission calls home.": "Nous nous adaptons à vos horaires et répondons sous 24 heures, où que votre mission soit installée.",
   "Built with care.": "Construit avec soin.",
   "Delivered with": "Livré avec du",
-  "From Accra to the wider world, purpose-driven organisations trusted us to build their digital presence. Here is a look at what we have built together.": "D'Accra au reste du monde, des organisations engagées nous ont confié leur présence numérique. Voici un aperçu de ce que nous avons construit ensemble.",
   "Youth nonprofit": "Association jeunesse",
-  "Climate NGO": "ONG climat",
-  "Entrepreneur portfolio": "Portfolio d'entrepreneur",
-  "Personal portfolio": "Portfolio personnel",
   "Agriculture business": "Entreprise agricole",
   "Tech platform": "Plateforme tech",
   "Service marketplace": "Place de marché de services",
@@ -730,6 +727,7 @@ KBI18N.setDict('fr', {
 
 /* ── ESPAÑOL ── */
 KBI18N.setDict('es', {
+  "Businesses, technology platforms and institutions across Africa and beyond. Every one of these is live, and you can open it.": "Empresas, plataformas tecnológicas e instituciones en África y más allá. Cada una está en línea y puedes abrirla.",
   "Websites, hosting, SEO and the operations behind them. Built in Accra, for organisations worldwide.": "Sitios web, alojamiento, SEO y las operaciones que los sostienen. Hechos en Accra, para organizaciones de todo el mundo.",
   /* Pricing collapsed onto one page (Nov 2026) */
   "Pricing": "Precios",
@@ -925,11 +923,7 @@ KBI18N.setDict('es', {
   "We schedule around you and respond within 24 hours, wherever your mission calls home.": "Nos adaptamos a tu horario y respondemos en 24 horas, dondequiera que viva tu misión.",
   "Built with care.": "Construido con cuidado.",
   "Delivered with": "Entregado con",
-  "From Accra to the wider world, purpose-driven organisations trusted us to build their digital presence. Here is a look at what we have built together.": "De Acra al resto del mundo, organizaciones con propósito confiaron en nosotros para construir su presencia digital. Aquí tienes una muestra de lo que hemos construido juntos.",
   "Youth nonprofit": "ONG juvenil",
-  "Climate NGO": "ONG climática",
-  "Entrepreneur portfolio": "Portafolio de emprendedor",
-  "Personal portfolio": "Portafolio personal",
   "Agriculture business": "Empresa agrícola",
   "Tech platform": "Plataforma tecnológica",
   "Service marketplace": "Marketplace de servicios",
@@ -1195,6 +1189,7 @@ KBI18N.setDict('es', {
 
 /* ── PORTUGUÊS ── */
 KBI18N.setDict('pt', {
+  "Businesses, technology platforms and institutions across Africa and beyond. Every one of these is live, and you can open it.": "Empresas, plataformas tecnológicas e instituições em África e não só. Cada uma está online, e pode abri-la.",
   "Websites, hosting, SEO and the operations behind them. Built in Accra, for organisations worldwide.": "Sites, alojamento, SEO e as operações por trás deles. Feitos em Acra, para organizações de todo o mundo.",
   /* Pricing collapsed onto one page (Nov 2026) */
   "Pricing": "Preços",
@@ -1390,11 +1385,7 @@ KBI18N.setDict('pt', {
   "We schedule around you and respond within 24 hours, wherever your mission calls home.": "Adaptamo-nos ao seu horário e respondemos em 24 horas, onde quer que a sua missão viva.",
   "Built with care.": "Construído com cuidado.",
   "Delivered with": "Entregue com",
-  "From Accra to the wider world, purpose-driven organisations trusted us to build their digital presence. Here is a look at what we have built together.": "De Acra para o mundo, organizações com propósito confiaram em nós para construir a sua presença digital. Eis uma amostra do que construímos juntos.",
   "Youth nonprofit": "ONG juvenil",
-  "Climate NGO": "ONG climática",
-  "Entrepreneur portfolio": "Portfólio de empreendedor",
-  "Personal portfolio": "Portfólio pessoal",
   "Agriculture business": "Empresa agrícola",
   "Tech platform": "Plataforma tecnológica",
   "Service marketplace": "Marketplace de serviços",
