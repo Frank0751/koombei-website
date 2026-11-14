@@ -1,15 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile nav toggle
+  // The hamburger is now the only navigation at every width, so it has to
+  // behave like a real menu: announce its state, close on Escape, and close
+  // when a click lands outside it.
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
-    toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
+    if (!links.id) links.id = 'kbNavPanel';
+    toggle.setAttribute('aria-controls', links.id);
+    toggle.setAttribute('aria-expanded', 'false');
+
+    const setOpen = (open) => {
+      links.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(!links.classList.contains('open'));
     });
-    // Close on link click
+
     links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => links.classList.remove('open'));
+      a.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && links.classList.contains('open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!links.classList.contains('open')) return;
+      if (links.contains(e.target) || toggle.contains(e.target)) return;
+      setOpen(false);
     });
   }
 

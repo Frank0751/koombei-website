@@ -72,11 +72,50 @@ nav {
   align-items: center;
 }
 
+/*
+ * One navigation at every width: a hamburger that opens a panel. The bar used
+ * to carry seven items including two buttons, which left no room for the tools
+ * we keep adding and crowded the logo. Hiding the links behind a control the
+ * whole web already understands buys that room back.
+ */
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
   list-style: none;
+  position: absolute;
+  top: 68px;
+  left: 0;
+  right: 0;
+  background: rgba(21, 31, 30, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 5% 22px;
+  border-bottom: 1px solid rgba(199, 160, 3, 0.25);
+  max-height: calc(100vh - 68px);
+  overflow-y: auto;
+}
+
+.nav-links.open { display: flex; }
+
+/* Comfortable tap targets now that these are rows rather than a row of words. */
+.nav-links > li > a {
+  display: block;
+  padding: 13px 2px;
+  border-bottom: 1px solid rgba(237, 229, 153, 0.08);
+}
+
+.nav-links > li:last-child > a,
+.nav-links > li > a.nav-circle,
+.nav-links > li > a.nav-cta { border-bottom: 0; }
+
+/* The two buttons keep their pill shape but sit as full rows in the panel. */
+.nav-links > li > a.nav-circle,
+.nav-links > li > a.nav-cta {
+  text-align: center;
+  margin-top: 10px;
+  padding: 12px 22px;
 }
 
 .nav-links a {
@@ -91,6 +130,20 @@ nav {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--amber);
+}
+
+/* Free tools are not pages, so the row says so without shouting. */
+.nav-tool-link::after {
+  content: 'FREE';
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: var(--night);
+  background: var(--amber);
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin-left: 9px;
+  vertical-align: 1px;
 }
 
 .nav-circle {
@@ -123,7 +176,7 @@ nav {
 }
 
 .nav-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
@@ -138,7 +191,18 @@ nav {
   height: 2px;
   background: var(--lily);
   border-radius: 2px;
-  transition: all 0.3s;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* Open state: the bars fold into a cross, so the control says how to close it. */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-toggle:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; border-radius: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-toggle span { transition: none; }
 }
 
 /* ── BUTTONS ─────────────────────── */
@@ -412,29 +476,6 @@ footer {
 
 /* ── RESPONSIVE ──────────────────── */
 @media (max-width: 900px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: rgba(21, 31, 30, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 24px 5%;
-    gap: 20px;
-    border-bottom: 1px solid rgba(199, 160, 3, 0.25);
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -541,9 +582,83 @@ footer {
   .hero-visual { opacity: 1; }
 }
 
+/* ── SEASONAL PROMO BAR ── */
+/* Sits above the nav and scrolls away with the page. The nav stays sticky on
+   its own, so the bar must not be sticky too or it eats the small screens. */
+.promo-bar {
+  position: relative;
+  background: var(--amber);
+  color: var(--night);
+  padding: 10px 46px 10px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.promo-tag {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: var(--night);
+  color: var(--amber);
+  border-radius: 3px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.promo-msg { font-size: 13px; font-weight: 400; line-height: 1.5; }
+
+.promo-cta {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--night);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.promo-cta:hover { opacity: 0.75; }
+
+.promo-close {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--night);
+  opacity: 0.55;
+  padding: 4px 6px;
+  transition: opacity 0.2s;
+}
+
+.promo-close:hover { opacity: 1; }
+.promo-close:focus-visible { outline: 2px solid var(--night); outline-offset: 2px; border-radius: 3px; }
+
+@media (max-width: 600px) {
+  .promo-bar { padding: 9px 40px 9px 16px; }
+  .promo-msg { font-size: 12.5px; }
+  .promo-tag { display: none; }
+}
+
 /* ── NAV TOOLS (language + currency pickers) ── */
 /* Group the primary links + pickers together on the right of the bar. */
-nav > .nav-links { margin-left: auto; }
+/* The panel is positioned, so the tools take the right of the bar instead. */
+nav > .nav-tools { margin-left: auto; }
 
 .nav-tools {
   display: flex;
