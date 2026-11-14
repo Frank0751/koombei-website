@@ -6,10 +6,23 @@
  * keeps the video out of the critical path: the poster image is what paints,
  * and the video is a progressive enhancement layered over it.
  *
- * The video is only suppressed for prefers-reduced-motion. That is an
- * accessibility requirement, not a bandwidth policy: a looping background
- * animation can be genuinely disorienting, and those users keep the poster.
- * Every other visitor gets the video, per the site owner's decision.
+ * Three groups keep the poster instead.
+ *
+ * prefers-reduced-motion is the accessibility one: a looping background
+ * animation can be genuinely disorienting.
+ *
+ * Save-Data is the visitor telling their browser, at the system level, that
+ * they are paying for this. Honouring it is not our judgement call about
+ * their connection, it is a request they already made.
+ *
+ * A 2G or 3G effective connection is the measured one. The file is roughly
+ * 17 times the poster, and on a slow link it arrives long after anyone has
+ * stopped looking at the hero, so it costs real money and buys nothing.
+ *
+ * Both of those live on navigator.connection, which only Chromium exposes.
+ * Everywhere else the checks are simply absent and the video loads, which is
+ * the right failure direction for an enhancement: when we cannot tell, we
+ * assume the connection is fine.
  *
  * If anything fails (blocked by CSP, decode error, autoplay refused, offline)
  * we simply never add .is-ready, so the poster stays visible and the hero
@@ -28,6 +41,14 @@
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (reduceMotion) return; // poster only; nothing is downloaded
+
+  // navigator.connection is Chromium-only. Absent means "cannot tell", and
+  // cannot tell means load it.
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn) {
+    if (conn.saveData === true) return;                       // they asked
+    if (/(^|-)[23]g$/.test(conn.effectiveType || '')) return;  // slow-2g, 2g, 3g
+  }
 
   function reveal() {
     video.classList.add('is-ready');
