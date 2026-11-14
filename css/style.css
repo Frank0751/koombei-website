@@ -78,22 +78,55 @@ nav {
  * we keep adding and crowded the logo. Hiding the links behind a control the
  * whole web already understands buys that room back.
  */
+/* Visible primary links. The hamburger still carries the complete menu, so
+   these are a shortcut rather than the only route. Hidden below 1100px, where
+   the bar runs out of room and the hamburger takes over entirely. */
+.nav-primary {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-left: 38px;
+  list-style: none;
+}
+
+.nav-primary a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--border);
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-primary a:hover,
+.nav-primary a.active { color: var(--amber); }
+
+@media (max-width: 1100px) {
+  .nav-primary { display: none; }
+}
+
 .nav-links {
   display: none;
   flex-direction: column;
   align-items: stretch;
   gap: 2px;
   list-style: none;
+  /* Drops from the button that opens it, on the right, instead of spanning
+     the full width from the opposite side. */
   position: absolute;
-  top: 68px;
-  left: 0;
-  right: 0;
-  background: rgba(21, 31, 30, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 14px 5% 22px;
-  border-bottom: 1px solid rgba(199, 160, 3, 0.25);
-  max-height: calc(100vh - 68px);
+  top: 64px;
+  right: 5%;
+  left: auto;
+  width: min(300px, calc(100vw - 10%));
+  background: rgba(21, 31, 30, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 10px 20px 16px;
+  border: 1px solid rgba(199, 160, 3, 0.25);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+  max-height: calc(100vh - 88px);
   overflow-y: auto;
 }
 
