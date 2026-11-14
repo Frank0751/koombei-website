@@ -11,6 +11,11 @@
       "source": "/site-audit",
       "destination": "/pages/site-audit",
       "permanent": false
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pages/pricing",
+      "permanent": false
     }
   ],
   "headers": [
