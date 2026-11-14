@@ -3,7 +3,7 @@
 > KoomBei (KoomBei Digital Limited) is a web design, development and digital operations agency based in Accra, Ghana, engineering the complete digital presence of companies, institutions, brands and growing organisations worldwide. Tagline: "Dream with us. Rise with us." Built with care, engineered to last.
 
 Key facts:
-- Three packages, quoted to scope and priced in Ghana Cedis (GHS): Seed (up to 5 pages, 7 to 14 days), Rise (up to 8 pages, 14 to 21 days), Summit (up to 15 pages, 21 to 30 days). Projects start from GHS 2,500. All include design, development, hosting setup, and SSL.
+- Three packages, quoted to scope and priced in Ghana Cedis (GHS): Seed (up to 5 pages, 7 to 14 days), Rise (up to 8 pages, 14 to 21 days), Summit (up to 15 pages, 21 to 30 days). Projects start from GHS 4,675. All include design, development, hosting setup, and SSL.
 - Verified NGOs and nonprofits receive a 20 percent partnership rate on any package.
 - Fully remote process: discovery form, video calls, live previews. Clients worldwide; support across time zones; proposals within 48 hours.
 - Payment: Mobile Money and bank transfer in Ghana; bank transfer for international clients. Every site is hand-coded (no page builders) and deployed on Vercel.

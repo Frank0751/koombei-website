@@ -154,7 +154,9 @@
 
   function fmt(code, amount) {
     var c = known(code) || CURRENCIES[0];
-    var rounded = roundNice(amount);
+    // GHS is the currency these prices are authored and invoiced in, so it shows
+    // exactly as written. Rounding is for conversions, where nobody wants $399.57.
+    var rounded = code === 'GHS' ? amount : roundNice(amount);
     var str;
     try {
       str = new Intl.NumberFormat(undefined, {
