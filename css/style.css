@@ -57,7 +57,7 @@ nav {
   padding: 0 5%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 18px;
   height: 68px;
   position: sticky;
   top: 0;
@@ -82,10 +82,16 @@ nav {
    these are a shortcut rather than the only route. Hidden below 1100px, where
    the bar runs out of room and the hamburger takes over entirely. */
 .nav-primary {
+  /* Centred against the bar itself, not against whatever space the logo and
+     the right-hand controls happen to leave. Out of flow, so it cannot be
+     nudged by a sibling appearing or changing width. */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   gap: 26px;
-  margin-left: 38px;
   list-style: none;
 }
 
@@ -697,7 +703,7 @@ nav > .nav-tools { margin-left: auto; }
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-left: 20px;
+  margin-left: auto;
 }
 
 .kb-picker { position: relative; }
