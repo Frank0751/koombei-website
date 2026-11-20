@@ -151,17 +151,15 @@
   <style>
     /* ── HERO ── */
     .hero {
-      /* The still image is now the POSTER layer: it paints immediately so the
-         hero is never blank, and remains the permanent fallback if the video
-         is blocked, still buffering, or suppressed for reduced-motion. The
-         dark overlay is no longer part of this background; it moved to
-         .hero-overlay so it can sit ABOVE the video rather than beneath it.
-         Source is 1440x720, so no w_ cap: upscaling only inflates the file. */
+      /* The dark wash is a separate layer (.hero-overlay) rather than part of
+         this background, so the content can sit above the wash instead of
+         under it. Source is 1440x720, so no w_ cap: upscaling only inflates
+         the file. */
       background-image: url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg');
       background-position: center 38%;
       background-size: cover;
       background-repeat: no-repeat;
-      padding: 120px 5% 96px;
+      padding: 96px 5%;
       /* One centred column. This was text in a left half beside a floating
          logo, which left the hero reading as two competing things at once. */
       display: flex;
@@ -170,35 +168,19 @@
       justify-content: center;
       text-align: center;
       gap: 0;
-      min-height: 100vh;
+      /* Fill exactly what is left of the first screen under the nav, not the
+         whole screen: 100vh here put the bottom edge, and the hairline on it,
+         68px past the fold. */
+      min-height: calc(100vh - var(--nav-h));
       position: relative;
       overflow: hidden;
     }
 
-    /* ── HERO VIDEO ──
-       Stacking order inside .hero:
-         0  poster image (the .hero background itself)
-         0  .hero-video, fades in over the poster once it can actually play
-         1  .hero-overlay, the sanctioned 0.82 night wash, above the video
+    /* Stacking order inside .hero:
+         0  the background image
+         1  .hero-overlay, the sanctioned 0.82 night wash
          2  .hero-content / .hero-visual / .scroll-indicator
          3  .hero::after, the amber hairline at the bottom edge          */
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 38%;
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 0.9s ease;
-      pointer-events: none;
-    }
-
-    /* Only revealed once the browser reports it can play through, so the
-       crossfade never exposes a half-buffered or black frame. */
-    .hero-video.is-ready { opacity: 1; }
-
     .hero-overlay {
       position: absolute;
       inset: 0;
@@ -208,12 +190,15 @@
     }
 
     .hero-content,
-    .hero-visual,
-    .hero .scroll-indicator { position: relative; z-index: 2; }
+    .hero-visual { position: relative; z-index: 2; }
 
-    @media (prefers-reduced-motion: reduce) {
-      .hero-video { transition: none; }
-    }
+    /* The indicator already positions itself: absolute, 32px off the bottom,
+       centred with left:50% and a -50% translate. It only needs lifting above
+       the wash, so this sets z-index and nothing else. Setting position here
+       as well is what broke it: .hero .scroll-indicator (0,2,0) out-specifies
+       .scroll-indicator (0,1,0), so position:relative won, and under relative
+       its own left:50% stopped centring and became a 641px shove right. */
+    .hero .scroll-indicator { z-index: 2; }
 
     .hero::after {
       content: '';
@@ -952,8 +937,21 @@
     .packages-grid .pkg:nth-child(3) { transition-delay: 0.25s; }
 
     /* ── RESPONSIVE ── */
+    /* Short screens, laptops around 800px of viewport. The stack inside the
+       hero is about 635px on its own, so past a point it is the padding that
+       pushes the section below the fold rather than the content. Trimming it
+       buys most of that back. Only the top is trimmed: the scroll indicator is
+       pinned 32px off the bottom and stands 52px tall, so the bottom 84px of
+       the section belongs to it. It is out of flow and reserves nothing, so
+       the bottom padding is what keeps the trust bar clear of it. */
+    @media (min-width: 901px) and (max-height: 900px) {
+      .hero { padding-top: 56px; }
+    }
+
     @media (max-width: 900px) {
-      .hero { min-height: auto; padding: 72px 5% 56px; }
+      /* Bottom padding clears the scroll indicator, which is pinned 32px up
+         and stands 52px tall. At 56px it sat on top of the trust pills. */
+      .hero { min-height: auto; padding: 72px 5% 96px; }
       .hero-visual { display: none; }
       .why-grid { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr 1fr; }
@@ -1724,15 +1722,6 @@
   </nav>
 
   <section class="hero">
-    <!-- Background video. preload="none" so it never competes with the LCP
-         paint; js/hero-video.js decides when to actually fetch it. The poster
-         attribute matches the CSS background so there is no flash between the
-         two layers. aria-hidden + no controls: this is decoration, not content. -->
-    <video class="hero-video" id="heroVideo"
-           muted loop playsinline preload="none" disablepictureinpicture
-           aria-hidden="true" tabindex="-1"
-           poster="https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg"
-           data-src="https://res.cloudinary.com/dmyrmlj5z/video/upload/q_auto:low,f_auto,w_1280/v1785894962/KoomBei_Web_cw2ze9.mp4"></video>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       
@@ -2521,7 +2510,6 @@
   <script src="js/gift.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/promos.js" defer></script>
-  <script src="js/hero-video.js" defer></script>
   <script src="js/i18n.js" defer></script>
   <script src="js/currency.js" defer></script>
   <script src="js/motion.js" defer></script>

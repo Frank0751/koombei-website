@@ -11,6 +11,9 @@
   --white: #FFFFFF;
   --shadow: 0 4px 24px rgba(21, 31, 30, 0.08);
   --radius: 12px;
+  /* The nav is sticky, so it is in flow and eats this much of the first
+     screen. Anything sized to fill that screen has to subtract it. */
+  --nav-h: 68px;
 }
 
 * {
@@ -58,7 +61,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 18px;
-  height: 68px;
+  height: var(--nav-h);
   position: sticky;
   top: 0;
   z-index: 100;
