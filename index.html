@@ -151,14 +151,10 @@
   <style>
     /* ── HERO ── */
     .hero {
-      /* The dark wash is a separate layer (.hero-overlay) rather than part of
-         this background, so the content can sit above the wash instead of
-         under it. Source is 1440x720, so no w_ cap: upscaling only inflates
-         the file. */
-      background-image: url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg');
-      background-position: center 38%;
-      background-size: cover;
-      background-repeat: no-repeat;
+      /* Flat night. The photograph and the 0.82 wash that sat over it were
+         both taken out Nov 2026 at the user's request, so nothing is layered
+         behind the content and the headline reads at full strength. */
+      background: var(--night);
       padding: 96px 5%;
       /* One centred column. This was text in a left half beside a floating
          logo, which left the hero reading as two competing things at once. */
@@ -176,28 +172,18 @@
       overflow: hidden;
     }
 
-    /* Stacking order inside .hero:
-         0  the background image
-         1  .hero-overlay, the sanctioned 0.82 night wash
-         2  .hero-content / .hero-visual / .scroll-indicator
-         3  .hero::after, the amber hairline at the bottom edge          */
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(21,31,30,0.82);
-      z-index: 1;
-      pointer-events: none;
-    }
-
+    /* Nothing is layered behind the content now, but these keep their own
+       stacking context so the amber hairline (.hero::after, z-index 3) still
+       draws cleanly over the bottom edge. */
     .hero-content,
     .hero-visual { position: relative; z-index: 2; }
 
     /* The indicator already positions itself: absolute, 32px off the bottom,
-       centred with left:50% and a -50% translate. It only needs lifting above
-       the wash, so this sets z-index and nothing else. Setting position here
-       as well is what broke it: .hero .scroll-indicator (0,2,0) out-specifies
-       .scroll-indicator (0,1,0), so position:relative won, and under relative
-       its own left:50% stopped centring and became a 641px shove right. */
+       centred with left:50% and a -50% translate. Set z-index here and nothing
+       else. Setting position as well is what broke it once: .hero
+       .scroll-indicator (0,2,0) out-specifies .scroll-indicator (0,1,0), so
+       position:relative won, and under relative its own left:50% stopped
+       centring and became a 641px shove to the right. */
     .hero .scroll-indicator { z-index: 2; }
 
     .hero::after {
@@ -1722,7 +1708,6 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       
       <h1>Dream with us.<em>Rise with us.</em></h1>
