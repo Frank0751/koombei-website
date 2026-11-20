@@ -489,7 +489,7 @@
           </div>
           <div class="reveal" id="eligibilityFields">
             <div class="eligibility-box">
-              <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>Verified NGOs and nonprofits receive our 20 percent partnership rate. Share your registration number and we will confirm it in your proposal.</p>
+              <p class="eligibility-intro"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9.9 5.5L10 14.5l-4.9 2.7.9-5.5L2 7.8l5.6-.8L10 2z" stroke="#C7A003" stroke-width="1.5" stroke-linejoin="round"/></svg>Verified NGOs and nonprofits receive our partnership rate. Share your registration number and we will confirm it in your proposal.</p>
               <div class="field"><label>Registration number</label><input type="text" name="reg_number" placeholder="Your NGO or nonprofit registration number" maxlength="60"><p class="hint">The number on your official registration certificate.</p></div>
               </div>
           </div>
@@ -757,7 +757,7 @@
   const eligibilityFields = document.getElementById('eligibilityFields');
   document.querySelectorAll('input[name="clienttype"]').forEach(function(radio) {
     radio.addEventListener('change', function() {
-      // The 20 percent partnership rate applies to verified NGOs and nonprofits.
+      // The partnership rate applies to verified NGOs and nonprofits.
       eligibilityFields.classList.toggle('is-open', this.value === 'ngo');
     });
   });

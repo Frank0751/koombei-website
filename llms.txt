@@ -4,7 +4,7 @@
 
 Key facts:
 - Three packages, quoted to scope and priced in Ghana Cedis (GHS): Seed (up to 5 pages, 7 to 14 days), Rise (up to 8 pages, 14 to 21 days), Summit (up to 15 pages, 21 to 30 days). All include design, development, hosting setup, and SSL. Every price, what is included, what is not, and the payment terms: https://www.koombei.com/pages/pricing
-- Verified NGOs and nonprofits receive a 20 percent partnership rate on any package.
+- Verified NGOs and nonprofits receive a partnership rate on any package.
 - Fully remote process: discovery form, video calls, live previews. Clients worldwide; support across time zones; proposals within 48 hours.
 - Payment: Mobile Money and bank transfer in Ghana; bank transfer for international clients. Every site is hand-coded (no page builders) and deployed on Vercel.
 - Founder: Frank Abeiku Koomson. Contact: info@koombei.com

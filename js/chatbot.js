@@ -278,11 +278,11 @@
     },
     {
       keys: ['price', 'cost', 'how much', 'pricing', 'package', 'packages', 'rates', 'affordable', 'cheap'],
-      reply: "We have three packages:\n\n• **Seed**\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise**\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit**\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Projects start from GHS 2,500 and each package is quoted to scope. Want details on a specific package?"
+      reply: "We have three packages:\n\n• **Seed**\n  Up to 5 pages, 7–14 days delivery\n\n• **Rise**\n  Up to 8 pages, 14–21 days, 1 month free maintenance\n\n• **Summit**\n  Up to 15 pages, 21–30 days, 3 months free maintenance\n\nAll packages include design, development, hosting setup, and SSL. Projects start from GHS 3,600 and each package is quoted to scope. Want details on a specific package?"
     },
     {
       keys: ['seed'],
-      reply: "**Seed** is our entry tier, from GHS 2,500. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Built for first websites and focused projects."
+      reply: "**Seed** is our entry tier, from GHS 3,600. It includes:\n\n• Up to 5 pages\n• Mobile-responsive design\n• Contact form\n• Basic SEO\n• Hosting setup on Vercel\n• 2 weeks post-launch support\n\nDelivery: 7–14 days. Built for first websites and focused projects."
     },
     {
       keys: ['rise package', ' rise '],
@@ -310,7 +310,7 @@
     },
     {
       keys: ['ngo', 'nonprofit', 'non-profit', 'charity', 'organisation', 'organization', 'purpose-driven'],
-      reply: "Yes. We build for NGOs and nonprofits alongside companies, institutions and startups, and we have delivered several. Verified NGOs and nonprofits receive a **20 percent partnership rate** on any package, just share your registration number in the discovery form."
+      reply: "Yes. We build for NGOs and nonprofits alongside companies, institutions and startups, and we have delivered several. Verified NGOs and nonprofits receive a **partnership rate** on any package, just share your registration number in the discovery form."
     },
     {
       keys: ['maintenance', 'support', 'update', 'after launch', 'manage the site', 'monthly'],
@@ -318,7 +318,7 @@
     },
     {
       keys: ['discount', 'cheaper', 'reduce', 'startup discount', 'less than 2 years', 'under 2 years', 'eligible'],
-      reply: "KoomBei extends a **20 percent partnership rate** to verified NGOs and nonprofits. It is a commitment we have kept since the studio was founded, and it applies to any package.\n\nTo qualify, share your organisation's registration number in the discovery form and we will confirm it in your proposal."
+      reply: "KoomBei extends a **partnership rate** to verified NGOs and nonprofits. It is a commitment we have kept since the studio was founded, and it applies to any package.\n\nTo qualify, share your organisation's registration number in the discovery form and we will confirm it in your proposal."
     },
     {
       keys: ['circle', 'member', 'membership', 'community', 'loyalty', 'referral', 'refer', 'benefits', 'perks'],

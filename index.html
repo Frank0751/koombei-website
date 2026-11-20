@@ -111,7 +111,7 @@
           {
             "@type": "Question",
             "name": "Do you offer a discount for NGOs, nonprofits, or startups?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. KoomBei extends a 20 percent partnership rate to verified NGOs and nonprofits, a commitment we have kept since the studio was founded. Share your organisation's registration number in the discovery form and we confirm it in your proposal." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. KoomBei extends a partnership rate to verified NGOs and nonprofits, a commitment we have kept since the studio was founded. Share your organisation's registration number in the discovery form and we confirm it in your proposal." }
           },
           {
             "@type": "Question",
@@ -175,8 +175,7 @@
     /* Nothing is layered behind the content now, but these keep their own
        stacking context so the amber hairline (.hero::after, z-index 3) still
        draws cleanly over the bottom edge. */
-    .hero-content,
-    .hero-visual { position: relative; z-index: 2; }
+    .hero-content { position: relative; z-index: 2; }
 
     /* The indicator already positions itself: absolute, 32px off the bottom,
        centred with left:50% and a -50% translate. Set z-index here and nothing
@@ -310,48 +309,6 @@
     .trust-pill:hover {
       background: rgba(237,229,153,0.12);
       border-color: rgba(237,229,153,0.3);
-    }
-
-    .hero-visual {
-      order: -1;              /* above the headline, not beside it */
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      opacity: 0;
-      animation: fadeIn 1s ease 0.4s forwards, logoFloat 4s ease-in-out 1.4s infinite;
-    }
-
-    .hero-mark {
-      width: 168px; height: 168px;
-      border: 1px solid rgba(199,160,3,0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      animation: rotateSlow 20s linear infinite;
-    }
-
-    .hero-mark::before {
-      content: '';
-      position: absolute;
-      width: 260px; height: 260px;
-      border: 1px solid rgba(199,160,3,0.08);
-      border-radius: 50%;
-    }
-
-    .hero-mark::after {
-      content: '';
-      position: absolute;
-      width: 200px; height: 200px;
-      border: 1px solid rgba(199,160,3,0.05);
-      border-radius: 50%;
-    }
-
-    .hero-mark img {
-      animation: rotateSlow 20s linear infinite reverse;
     }
 
     /* SCROLL INDICATOR */
@@ -923,22 +880,10 @@
     .packages-grid .pkg:nth-child(3) { transition-delay: 0.25s; }
 
     /* ── RESPONSIVE ── */
-    /* Short screens, laptops around 800px of viewport. The stack inside the
-       hero is about 635px on its own, so past a point it is the padding that
-       pushes the section below the fold rather than the content. Trimming it
-       buys most of that back. Only the top is trimmed: the scroll indicator is
-       pinned 32px off the bottom and stands 52px tall, so the bottom 84px of
-       the section belongs to it. It is out of flow and reserves nothing, so
-       the bottom padding is what keeps the trust bar clear of it. */
-    @media (min-width: 901px) and (max-height: 900px) {
-      .hero { padding-top: 56px; }
-    }
-
     @media (max-width: 900px) {
       /* Bottom padding clears the scroll indicator, which is pinned 32px up
          and stands 52px tall. At 56px it sat on top of the trust pills. */
       .hero { min-height: auto; padding: 72px 5% 96px; }
-      .hero-visual { display: none; }
       .why-grid { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .packages-grid { grid-template-columns: 1fr; }
@@ -1730,13 +1675,6 @@
         </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-orbit" aria-hidden="true"></div>
-      <div class="hero-mark">
-        <img src="https://res.cloudinary.com/dh1gxbiuw/image/upload/v1774856794/KoomBei_Logo_2_wnytpc.png" alt="KoomBei"
-          style="height:104px;width:auto;display:block;filter:drop-shadow(0 0 28px rgba(199,160,3,0.3));">
-      </div>
-    </div>
     <div class="scroll-indicator">
       <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
       <span>Scroll</span>
@@ -2301,7 +2239,7 @@
           <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Yes. KoomBei extends a 20 percent partnership rate to verified NGOs and nonprofits, a commitment we have kept since the studio was founded. Share your organisation's registration number in the discovery form and we confirm it in your proposal.</div>
+          <div class="faq-answer-inner">Yes. KoomBei extends a partnership rate to verified NGOs and nonprofits, a commitment we have kept since the studio was founded. Share your organisation's registration number in the discovery form and we confirm it in your proposal.</div>
         </div>
       </div>
       <div class="faq-item">
