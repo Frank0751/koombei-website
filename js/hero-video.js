@@ -25,8 +25,8 @@
  * assume the connection is fine.
  *
  * If anything fails (blocked by CSP, decode error, autoplay refused, offline)
- * we simply never add .is-ready, so the poster stays visible and the hero
- * still looks correct. There is no error state the visitor can see.
+ * the element keeps showing its poster, so the hero still looks correct.
+ * There is no error state the visitor can see.
  */
 (function () {
   'use strict';
@@ -50,14 +50,9 @@
     if (/(^|-)[23]g$/.test(conn.effectiveType || '')) return;  // slow-2g, 2g, 3g
   }
 
-  function reveal() {
-    video.classList.add('is-ready');
-  }
-
   function start() {
-    // canplaythrough means enough is buffered to run the loop without a stall,
-    // so the crossfade never lands on a frozen or partially decoded frame.
-    video.addEventListener('canplaythrough', reveal, { once: true });
+    // Nothing to reveal: the element is visible from the start and its poster
+    // is the same frame the video opens on, so playback just takes over.
     video.addEventListener('error', function () { /* keep the poster */ }, { once: true });
 
     video.src = src;
@@ -90,7 +85,7 @@
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
       video.pause();
-    } else if (video.classList.contains('is-ready')) {
+    } else {
       var p = video.play();
       if (p && typeof p.catch === 'function') p.catch(function () {});
     }

@@ -151,16 +151,13 @@
   <style>
     /* ── HERO ── */
     .hero {
-      /* The still image is the POSTER layer: it paints immediately so the hero
-         is never blank, and it stays as the permanent fallback when the video
-         is blocked, still buffering, or suppressed for reduced motion or a
-         metered connection. The dark wash is not part of this background; it
-         is .hero-overlay, so it can sit ABOVE the video rather than beneath.
-         Source is 1440x720, so no w_ cap: upscaling only inflates the file. */
-      background-image: url('https://res.cloudinary.com/dmyrmlj5z/image/upload/q_auto,f_auto/v1785865488/hero_background_enhanced_dn4uik.jpg');
-      background-position: center 38%;
-      background-size: cover;
-      background-repeat: no-repeat;
+      /* Video only. The photograph used to be here as a CSS background as
+         well as on the video's poster attribute, which meant the same file
+         described twice. The poster is now the hero's only still: it paints
+         while the video buffers and it stands in whenever the video is
+         deliberately skipped (reduced motion, Save-Data, 2G/3G). Night sits
+         underneath purely so nothing ever flashes pale. */
+      background: var(--night);
       padding: 96px 5%;
       /* One centred column. This was text in a left half beside a floating
          logo, which left the hero reading as two competing things at once. */
@@ -193,14 +190,8 @@
       object-fit: cover;
       object-position: center 38%;
       z-index: 0;
-      opacity: 0;
-      transition: opacity 0.9s ease;
       pointer-events: none;
     }
-
-    /* Only revealed once the browser reports it can play through, so the
-       crossfade never exposes a half-buffered or black frame. */
-    .hero-video.is-ready { opacity: 1; }
 
     .hero-overlay {
       position: absolute;
@@ -220,10 +211,6 @@
        position:relative won, and under relative its own left:50% stopped
        centring and became a 641px shove to the right. */
     .hero .scroll-indicator { z-index: 2; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-video { transition: none; }
-    }
 
     .hero::after {
       content: '';
