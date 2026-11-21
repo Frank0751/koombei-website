@@ -3,6 +3,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "koombei-website.vercel.app"
+        }
+      ],
+      "destination": "https://www.koombei.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
